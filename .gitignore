@@ -1,0 +1,15 @@
+# ignore everything
+*.json
+*.meta
+*.asset
+*.inputactions
+*.graph
+*.csproj
+*.prefs
+Library/
+Logs/
+Temp/
+*.index
+*.settings
+UserSettings/
+ProjectSettings/
