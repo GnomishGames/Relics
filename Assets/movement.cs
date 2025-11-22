@@ -15,6 +15,11 @@ public class movement : MonoBehaviour
     Vector3 jumpVelocity;
     Vector3 moveDirection;
 
+    void Awake()
+    {
+        controller = GetComponent<CharacterController>();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,6 +30,24 @@ public class movement : MonoBehaviour
     void Update()
     {
         ApplyGravity(groundCheck, groundMask, controller);
+    }
+
+    void MovementLogic()
+    {
+        //input
+        bool forward = Input.GetKey(KeyCode.W);
+        bool backward = Input.GetKey(KeyCode.S);
+        bool left = Input.GetKey(KeyCode.A);
+        bool right = Input.GetKey(KeyCode.D);
+        bool walk = Input.GetKey(KeyCode.LeftShift);
+        bool jump = Input.GetKey(KeyCode.Space);
+        bool sit = Input.GetKeyDown(KeyCode.C);
+        bool mouseLock = Input.GetKeyDown(KeyCode.L);
+
+        if (forward && !left && !right && !backward)
+            {
+                
+            }
     }
 
 private void ApplyGravity(Transform groundCheck, LayerMask groundMask, CharacterController controller)
