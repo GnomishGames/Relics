@@ -46,8 +46,10 @@ public class movement : MonoBehaviour
 
         if (forward && !left && !right && !backward)
             {
-                
+                moveDirection.z = 2f;
             }
+            
+        controller.Move(moveDirection);
     }
 
 private void ApplyGravity(Transform groundCheck, LayerMask groundMask, CharacterController controller)
