@@ -13,7 +13,6 @@ public class movement : MonoBehaviour
     [SerializeField] private bool isGrounded;
     private Vector3 velocity; // Handles both gravity and jump
     [SerializeField] private float jumpHeight;
-    [SerializeField] private Vector3 moveDirection;
     private bool turnLeft, turnRight, forward, rearward, stepLeft, stepRight, jump;
 
     void Awake()
@@ -45,24 +44,24 @@ public class movement : MonoBehaviour
         jump = Input.GetKey(KeyCode.Space);
     }
 
-    private void MovementLogic()
+    private void MovementLogic(float speed = 5f)
     {
         Vector3 horizontalMove = Vector3.zero;
         if (forward)
         {
-            horizontalMove += transform.forward * 5f;
+            horizontalMove += transform.forward * speed;
         }
         if (rearward)
         {
-            horizontalMove -= transform.forward * 5f;
+            horizontalMove -= transform.forward * speed;
         }
         if (stepLeft)
         {
-            horizontalMove -= transform.right * 5f;
+            horizontalMove -= transform.right * speed;
         }
         if (stepRight)
         {
-            horizontalMove += transform.right * 5f;
+            horizontalMove += transform.right * speed;
         }
 
         //turning logic
@@ -86,21 +85,7 @@ public class movement : MonoBehaviour
         controller.Move(horizontalMove * Time.deltaTime);
     }
 
-
-    void ForwardMotion(float maxSpeed)
-    {
-        moveDirection = new Vector3(gameObject.transform.forward.x, 0, gameObject.transform.forward.z);
-        controller.Move(moveDirection * maxSpeed * Time.deltaTime);
-    }
-    
-    void StrafeMotion(float maxSpeed)
-    {
-        moveDirection = new Vector3(gameObject.transform.right.x, 0, gameObject.transform.right.z);
-        controller.Move(moveDirection * maxSpeed * Time.deltaTime);
-    }
-
     // Remove JumpMotion, now handled in MovementLogic and ApplyGravityAndMove
-
     private bool GroundCheck(LayerMask groundMask, Transform groundCheck)
     {
         float groundDistance = .4f;
