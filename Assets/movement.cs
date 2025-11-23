@@ -35,12 +35,12 @@ public class movement : MonoBehaviour
 
     private void keyPresses()
     {
-        turnLeft = Input.GetKey(KeyCode.Q);
-        turnRight = Input.GetKey(KeyCode.E);
+        turnLeft = Input.GetKey(KeyCode.A);
+        turnRight = Input.GetKey(KeyCode.D);
         forward = Input.GetKey(KeyCode.W);
         rearward = Input.GetKey(KeyCode.S);
-        stepLeft = Input.GetKey(KeyCode.A);
-        stepRight = Input.GetKey(KeyCode.D);
+        stepLeft = Input.GetKey(KeyCode.Q);
+        stepRight = Input.GetKey(KeyCode.E);
         jump = Input.GetKey(KeyCode.Space);
     }
 
