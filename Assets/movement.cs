@@ -12,8 +12,8 @@ public class movement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Vector3 downwardVelocity;
     [SerializeField] private Vector3 jumpVelocity;
-    Vector3 moveDirection;
-    bool turnLeft, turnRight, forward, rearward, stepLeft, stepRight;
+    private Vector3 moveDirection;
+    private bool turnLeft, turnRight, forward, rearward, stepLeft, stepRight;
 
     void Awake()
     {
@@ -64,7 +64,18 @@ public class movement : MonoBehaviour
             StrafeMotion(5);
         }
 
+        //turning logic
+        if (turnLeft)
+        {
+            transform.Rotate(Vector3.up * -1);
+        }
+
+        if (turnRight)
+        {
+            transform.Rotate(Vector3.up * 1);
+        }
     }
+
 
     void ForwardMotion(float maxSpeed)
     {
@@ -98,5 +109,4 @@ public class movement : MonoBehaviour
             controller.Move(downwardVelocity * Time.deltaTime);
         }
     }
-
 }
