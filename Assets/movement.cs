@@ -7,52 +7,78 @@ public class movement : MonoBehaviour
     public CharacterController controller;
 
 //gravity
-    public float gravity = -9.81f;
-    public LayerMask groundMask;
-    public Transform groundCheck;
-    public Vector3 downwardVelocity;
-    Vector3 jumpVelocity;
+    [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private LayerMask groundMask;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private Vector3 downwardVelocity;
+    [SerializeField] private Vector3 jumpVelocity;
     Vector3 moveDirection;
+    bool turnLeft, turnRight, forward, rearward, stepLeft, stepRight;
 
     void Awake()
     {
         controller = GetComponent<CharacterController>();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         ApplyGravity(groundCheck, groundMask, controller);
-        MovementLogic();
+        keyPresses();
+
     }
 
-    void MovementLogic()
+    private void keyPresses()
     {
-        //input
-        bool forward = Input.GetKey(KeyCode.W);
-        bool backward = Input.GetKey(KeyCode.S);
-        bool left = Input.GetKey(KeyCode.A);
-        bool right = Input.GetKey(KeyCode.D);
-        bool walk = Input.GetKey(KeyCode.LeftShift);
-        bool jump = Input.GetKey(KeyCode.Space);
-        bool sit = Input.GetKeyDown(KeyCode.C);
-        bool mouseLock = Input.GetKeyDown(KeyCode.L);
-
-        if (forward && !left && !right && !backward)
-            {
-                moveDirection.z = 2f;
-            }
-            
-        controller.Move(moveDirection);
+        turnLeft = Input.GetKeyDown(KeyCode.Q);
+        turnRight = Input.GetKeyDown(KeyCode.E);
+        forward = Input.GetKeyDown(KeyCode.W);
+        rearward = Input.GetKeyDown(KeyCode.S);
+        stepLeft = Input.GetKeyDown(KeyCode.A);
+        stepRight = Input.GetKeyDown(KeyCode.D);
     }
 
-private void ApplyGravity(Transform groundCheck, LayerMask groundMask, CharacterController controller)
+        private void freeMovementLogic()
+    {
+        if (forward)
+        {
+            ForwardMotion(5);
+        }
+
+        if (rearward)
+        {
+            ForwardMotion(-5);
+        }
+
+        if (stepLeft)
+        {
+            StrafeMotion(-5);
+        }
+
+        if (stepRight)
+        {
+            StrafeMotion(5);
+        }
+
+    }
+
+    void ForwardMotion(float maxSpeed)
+    {
+        moveDirection = new Vector3(gameObject.transform.forward.x, 0, gameObject.transform.forward.z);
+        controller.Move(moveDirection * maxSpeed * Time.deltaTime);
+    }
+    
+    void StrafeMotion(float maxSpeed)
+    {
+        moveDirection = new Vector3(gameObject.transform.right.x, 0, gameObject.transform.right.z);
+        controller.Move(moveDirection * maxSpeed * Time.deltaTime);
+    }
+
+    private void ApplyGravity(Transform groundCheck, LayerMask groundMask, CharacterController controller)
     {
         if (groundCheck != null)
         {
