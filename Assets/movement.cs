@@ -30,8 +30,6 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ApplyGravity(groundCheck, groundMask, controller);
-
         Vector3 movement = new Vector3(moveInput.x, 0f, moveInput.y) * moveSpeed * Time.deltaTime;
         transform.Translate(movement);
     }
@@ -40,26 +38,4 @@ public class movement : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
     }
-
-private void ApplyGravity(Transform groundCheck, LayerMask groundMask, CharacterController controller)
-    {
-        if (groundCheck != null)
-        {
-            float gravitysAcceleration = -9.81f;
-            float groundDistance = .4f;
-            bool isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-            if (isGrounded)
-            {
-                downwardVelocity.y = -2f;
-            }
-            else
-            {
-                downwardVelocity.y += gravitysAcceleration * Time.deltaTime;
-            }
-
-            controller.Move(downwardVelocity * Time.deltaTime);
-        }
-    }
-
 }
