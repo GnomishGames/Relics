@@ -13,7 +13,7 @@ public class movement : MonoBehaviour
     [SerializeField] private bool isGrounded;
     private Vector3 velocity; // Handles both gravity and jump
     [SerializeField] private float jumpHeight;
-    private Vector3 moveDirection;
+    [SerializeField] private Vector3 moveDirection;
     private bool turnLeft, turnRight, forward, rearward, stepLeft, stepRight, jump;
 
     void Awake()
@@ -23,7 +23,7 @@ public class movement : MonoBehaviour
 
     void Start()
     {
-        jumpHeight = 2f; // More typical jump height for CharacterController
+        jumpHeight = 2f;
     }
 
     void Update()
