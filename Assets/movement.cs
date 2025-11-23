@@ -29,20 +29,20 @@ public class movement : MonoBehaviour
     {
         ApplyGravity(groundCheck, groundMask, controller);
         keyPresses();
-
+        freeMovementLogic();
     }
 
     private void keyPresses()
     {
-        turnLeft = Input.GetKeyDown(KeyCode.Q);
-        turnRight = Input.GetKeyDown(KeyCode.E);
-        forward = Input.GetKeyDown(KeyCode.W);
-        rearward = Input.GetKeyDown(KeyCode.S);
-        stepLeft = Input.GetKeyDown(KeyCode.A);
-        stepRight = Input.GetKeyDown(KeyCode.D);
+        turnLeft = Input.GetKey(KeyCode.Q);
+        turnRight = Input.GetKey(KeyCode.E);
+        forward = Input.GetKey(KeyCode.W);
+        rearward = Input.GetKey(KeyCode.S);
+        stepLeft = Input.GetKey(KeyCode.A);
+        stepRight = Input.GetKey(KeyCode.D);
     }
 
-        private void freeMovementLogic()
+    private void freeMovementLogic()
     {
         if (forward)
         {
