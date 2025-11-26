@@ -26,12 +26,21 @@ public class movement : NetworkIdentity
         jumpHeight = 2f;
     }
 
+    protected override void OnSpawned()
+    {
+        base.OnSpawned();
+
+        enabled = isOwner;
+    }
+
     void Update()
     {
         GroundCheck(groundMask, groundCheck);
         keyPresses();
         MovementLogic();
         ApplyGravityAndMove();
+
+        
     }
 
     private void keyPresses()
@@ -44,7 +53,7 @@ public class movement : NetworkIdentity
         stepRight = Input.GetKey(KeyCode.E);
         jump = Input.GetKey(KeyCode.Space);
     }
-
+    
     private void MovementLogic(float speed = 5f)
     {
         Vector3 horizontalMove = Vector3.zero;
@@ -84,9 +93,10 @@ public class movement : NetworkIdentity
 
         // Move horizontally (vertical handled in ApplyGravityAndMove)
         controller.Move(horizontalMove * Time.deltaTime);
+        
     }
 
-    // Remove JumpMotion, now handled in MovementLogic and ApplyGravityAndMove
+    
     private bool GroundCheck(LayerMask groundMask, Transform groundCheck)
     {
         float groundDistance = .4f;
