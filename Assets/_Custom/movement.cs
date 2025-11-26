@@ -1,12 +1,13 @@
+using PurrNet;
 using UnityEngine;
 
 
-public class movement : MonoBehaviour
+public class movement : NetworkIdentity
 {
     //references
     public CharacterController controller;
 
-//gravity
+    //gravity
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Transform groundCheck;
