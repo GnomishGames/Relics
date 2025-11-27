@@ -17,7 +17,6 @@ public class SettingsBtn : MonoBehaviour
         if (optionsPanel != null)
         {
             optionsPanel.SetActive(false);
-            Debug.Log("Options panel closed");
         }
     }
 }

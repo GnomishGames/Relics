@@ -3,26 +3,46 @@ using UnityEngine;
 public class UIScript : MonoBehaviour
 {
     public GameObject optionsPanel;
-    public bool showOptionsPanel;
+    public GameObject settingsPanel;
 
     private void Awake()
     {
-        showOptionsPanel = false;
     }
 
     private void Update()
     {
-        //PanelHotkeys();
+        PanelHotkeys();
     }
 
     public void PanelHotkeys()
     {
         //options panel toggle
         if (Input.GetKeyDown(KeyCode.Escape))
-            showOptionsPanel = !showOptionsPanel;
-        if (showOptionsPanel)
-            optionsPanel.SetActive(true);
-        if (!showOptionsPanel)
-            optionsPanel.SetActive(false);
+        {
+            if (optionsPanel != null && !settingsPanel.activeSelf && settingsPanel != null)
+            {
+                if (!optionsPanel.activeSelf)
+                {
+                    optionsPanel.SetActive(true);
+                }
+                else
+                {
+                    optionsPanel.SetActive(false);
+                }
+            }
+        }
+
+        //settings panel toggle
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(optionsPanel != null && !optionsPanel.activeSelf && settingsPanel != null)
+            {
+                if (settingsPanel.activeSelf)
+                {
+                    settingsPanel.SetActive(false);
+                    optionsPanel.SetActive(true);
+                }
+            }
+        }
     }
 }
