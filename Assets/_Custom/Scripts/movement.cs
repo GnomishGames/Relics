@@ -7,6 +7,7 @@ public class movement : NetworkIdentity
     //references
     public CharacterController controller;
     public Camera playerCamera;
+    public Animator animator;
 
     [Header("Camera Follow")]
     public float cameraDistance = 4f;
@@ -32,13 +33,16 @@ public class movement : NetworkIdentity
 
     [Header("Movement")]
     public float moveSpeed = 5f;
+    [Header("Rotation")]
+    [Tooltip("Degrees per second the player rotates when pressing turn keys")]
+    public float turnSpeed = 180f;
 
     [Header("Gravity")]
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private bool isGrounded;
-    private Vector3 velocity; // Handles both gravity and jump
+    public Vector3 velocity; // Handles both gravity and jump
     [SerializeField] private float jumpHeight;
     private bool turnLeft, turnRight, forward, rearward, stepLeft, stepRight, jump;
 
@@ -140,28 +144,64 @@ public class movement : NetworkIdentity
         if (forward)
         {
             horizontalMove += transform.forward * moveSpeed;
+            //animate walk forward
+            if (isGrounded)
+            {
+                animator.SetBool("Forward", true);
+            }
+        }else
+        {
+            //stop walk forward animation
+            animator.SetBool("Forward", false);
         }
+
         if (rearward)
         {
             horizontalMove -= transform.forward * moveSpeed;
+            //animate walk backward
+            if (isGrounded)
+            {
+                animator.SetBool("Back", true);
+            }
+        }else
+        {
+            //stop walk backward animation
+            animator.SetBool("Back", false);
         }
+    
+
         if (stepLeft)
         {
             horizontalMove -= transform.right * moveSpeed;
+            if (isGrounded)
+            {
+                animator.SetBool("StrafeLeft", true);
+            }
+        }else
+        {
+            animator.SetBool("StrafeLeft", false);
         }
+
         if (stepRight)
         {
             horizontalMove += transform.right * moveSpeed;
+            if (isGrounded)
+            {
+                animator.SetBool("StrafeRight", true);
+            }
+        }else
+        {
+            animator.SetBool("StrafeRight", false);
         }
 
-        //turning logic
+        //turning logic: use configurable turnSpeed (degrees/second)
         if (turnLeft)
         {
-            transform.Rotate(Vector3.up * -1);
+            transform.Rotate(0f, -turnSpeed * Time.deltaTime, 0f);
         }
         if (turnRight)
         {
-            transform.Rotate(Vector3.up * 1);
+            transform.Rotate(0f, turnSpeed * Time.deltaTime, 0f);
         }
 
         //jump
@@ -169,6 +209,16 @@ public class movement : NetworkIdentity
         {
             // v = sqrt(2 * jumpHeight * -gravity)
             velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
+        }
+
+        //falling
+        if (!isGrounded)
+        {
+            // Optionally, you can add mid-air control here if desired
+            animator.SetBool("InAir", true);
+        }else
+        {
+            animator.SetBool("InAir", false);
         }
 
         // Move horizontally (vertical handled in ApplyGravityAndMove)
