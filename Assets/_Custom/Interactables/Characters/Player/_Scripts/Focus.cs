@@ -39,12 +39,19 @@ public class Focus : MonoBehaviour
             {
                 // check if we hit a focusable object
                 Item item = hit.collider != null ? hit.collider.GetComponent<Item>() : null;
-                    if (item != null)
-                    {
-                        // assign the clicked item's GameObject to playerTarget
-                        playerTarget = item.gameObject;
-                        Debug.Log($"Focus: playerTarget set to '{playerTarget.name}'.");
-                    }
+                if (item != null)
+                {
+                    // assign the clicked item's GameObject to playerTarget
+                    playerTarget = item.gameObject;
+
+                    // Notify the interactable that it was focused (pass its transform)
+                    item.OnFocused(item.transform);
+
+                    // Immediately invoke interaction on click
+                    item.Interact();
+
+                    //Debug.Log($"Focus: playerTarget set to '{playerTarget.name}' and Interact() invoked.");
+                }
             }
         }
     }
