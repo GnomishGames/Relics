@@ -8331,7 +8331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6f4ab03f68788c48af2f956af206b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  itemName: Named Sphere
+  interactableName: 
   itemIcon: {fileID: 0}
   itemWeight: 1
   itemHealth: 100
@@ -22701,30 +22701,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6107818941015362535, guid: 1e263f019ddd4f44a8e8e460b8c89abb, type: 3}
   m_PrefabInstance: {fileID: 536637282}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &539894108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba17d399ab86974c8ef9551f6e8f8d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GaiaCore::Gaia.NoiseSettings
-  transformSettings:
-    translation: {x: -353.385, y: 1194.2677, z: -366.0971}
-    scale: {x: 3.7485733, y: 1, z: 3.7485733}
-    rotation: {x: 0, y: 0, z: 0}
-    flipScaleX: 0
-    flipScaleY: 0
-    flipScaleZ: 0
-  domainSettings:
-    noiseTypeName: Perlin
-    fractalTypeName: Fbm
-    noiseTypeParams: 
-    fractalTypeParams: '{"warpOffsets":{"x":-367.00921630859377,"y":621.95849609375,"z":-454.8895263671875,"w":0.0},"octavesMinMax":{"x":0.0,"y":16.0},"amplitudeMinMax":{"x":0.0,"y":1.0},"frequencyMinMax":{"x":0.0,"y":2.0},"lacunarityMinMax":{"x":0.0,"y":4.0},"persistenceMinMax":{"x":0.0,"y":1.0},"warpIterationsMinMax":{"x":0.0,"y":8.0},"warpStrengthMinMax":{"x":-2.0,"y":2.0},"octaves":8.0,"amplitude":0.5559922456741333,"frequency":1.0,"persistence":0.5,"lacunarity":0.8165316581726074,"warpIterations":0.20288601517677308,"warpStrength":0.7604442238807678,"warpEnabled":true,"warpExpanded":true}'
 --- !u!1001 &553872263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27462,6 +27438,30 @@ WindZone:
   m_WindTurbulence: 0.45
   m_WindPulseMagnitude: 0.2
   m_WindPulseFrequency: 0.1
+--- !u!114 &705384752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba17d399ab86974c8ef9551f6e8f8d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaiaCore::Gaia.NoiseSettings
+  transformSettings:
+    translation: {x: -353.385, y: 1194.2677, z: -366.0971}
+    scale: {x: 3.7485733, y: 1, z: 3.7485733}
+    rotation: {x: 0, y: 0, z: 0}
+    flipScaleX: 0
+    flipScaleY: 0
+    flipScaleZ: 0
+  domainSettings:
+    noiseTypeName: Perlin
+    fractalTypeName: Fbm
+    noiseTypeParams: 
+    fractalTypeParams: '{"warpOffsets":{"x":-367.00921630859377,"y":621.95849609375,"z":-454.8895263671875,"w":0.0},"octavesMinMax":{"x":0.0,"y":16.0},"amplitudeMinMax":{"x":0.0,"y":1.0},"frequencyMinMax":{"x":0.0,"y":2.0},"lacunarityMinMax":{"x":0.0,"y":4.0},"persistenceMinMax":{"x":0.0,"y":1.0},"warpIterationsMinMax":{"x":0.0,"y":8.0},"warpStrengthMinMax":{"x":-2.0,"y":2.0},"octaves":8.0,"amplitude":0.5559922456741333,"frequency":1.0,"persistence":0.5,"lacunarity":0.8165316581726074,"warpIterations":0.20288601517677308,"warpStrength":0.7604442238807678,"warpEnabled":true,"warpExpanded":true}'
 --- !u!114 &708150406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58266,7 +58266,7 @@ MonoBehaviour:
       m_warpIterations: 0.20288602
       m_warpStrength: 0.7604442
       m_warpOffset: {x: -367.00922, y: 621.9585, z: -454.88953, w: 0}
-    m_noiseSettings: {fileID: 539894108}
+    m_noiseSettings: {fileID: 705384752}
     m_noiseToolSettings:
       worldHeightRemap: {x: 0, y: 0}
       coordSpace: 0
@@ -69182,7 +69182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6f4ab03f68788c48af2f956af206b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  itemName: Named Cube
+  interactableName: 
   itemIcon: {fileID: 0}
   itemWeight: 1
   itemHealth: 100
