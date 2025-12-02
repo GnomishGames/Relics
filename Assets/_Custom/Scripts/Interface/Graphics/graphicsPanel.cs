@@ -1,8 +1,8 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class settingsPanel : MonoBehaviour
+public class graphicsPanel : MonoBehaviour
 {
     public Camera cam;
 

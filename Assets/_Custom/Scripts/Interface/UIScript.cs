@@ -5,10 +5,6 @@ public class UIScript : MonoBehaviour
     public GameObject optionsPanel;
     public GameObject settingsPanel;
 
-    private void Awake()
-    {
-    }
-
     private void Update()
     {
         PanelHotkeys();
