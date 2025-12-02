@@ -23,21 +23,23 @@ public class movement : NetworkIdentity
     [SerializeField] private float jumpHeight;
     private bool turnLeft, turnRight, forward, rearward, stepLeft, stepRight, jump;
 
-    void Awake()
-    {
-        controller = GetComponent<CharacterController>();
-    }
-
-    void Start()
-    {
-        jumpHeight = 2f;
-    }
 
     protected override void OnSpawned()
     {
         base.OnSpawned();
 
         enabled = isOwner;
+        
+        controller = GetComponent<CharacterController>();
+        jumpHeight = 2f;
+    }
+
+    protected override void OnDespawned()
+    {
+        base.OnDespawned();
+
+        if (!isOwner) 
+            return;
     }
 
     void Update()
@@ -46,11 +48,7 @@ public class movement : NetworkIdentity
         keyPresses();
         MovementLogic(moveSpeed);
         ApplyGravityAndMove();
-        // Camera is updated in LateUpdate to follow player after movement
     }
-
-    // Camera responsibilities moved to PlayerCamera.cs
-    
 
     private void keyPresses()
     {

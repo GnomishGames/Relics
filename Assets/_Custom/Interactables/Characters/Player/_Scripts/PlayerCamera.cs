@@ -1,7 +1,8 @@
+using PurrNet;
 using UnityEngine;
 
 // Handles third-person camera follow, orbit and simple anti-clip
-public class PlayerCamera : MonoBehaviour
+public class PlayerCamera : NetworkIdentity
 {
     [Tooltip("Player transform to follow. If empty the script will try to find a movement component in the scene.")]
     public Transform target;
@@ -30,10 +31,19 @@ public class PlayerCamera : MonoBehaviour
     private float currentYaw = 0f;
     private float currentPitch = 15f;
 
-    void Awake()
+    protected override void OnSpawned()
     {
+        base.OnSpawned();
+
+        enabled = isOwner;
+
+        if (!isOwner) {
+            //Destroy(cam.gameObject);
+            return;
+        }
+
         if (cam == null)
-            cam = Camera.main;
+            cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
 
         if (target == null)
         {
@@ -48,6 +58,14 @@ public class PlayerCamera : MonoBehaviour
         currentPitch = 15f;
 
         Debug.Log($"PlayerCamera.Awake: cam={(cam!=null)}, target={(target!=null ? target.name : "null")}");
+    }
+
+    protected override void OnDespawned()
+    {
+        base.OnDespawned();
+
+        if (!isOwner) 
+            return;
     }
 
     void LateUpdate()
