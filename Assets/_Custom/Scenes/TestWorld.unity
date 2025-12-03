@@ -119,6 +119,675 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &4191999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
+  m_resources:
+    m_resourcesID: 0699fc62-6a7f-4e00-b61c-502cd4e227bd
+    m_name: NewResources
+    m_beachHeight: 5
+    m_terrainHeight: 1000
+    m_texturePrototypes: []
+    m_detailPrototypes: []
+    m_treePrototypes: []
+    m_gameObjectPrototypes: []
+    m_spawnExtensionPrototypes: []
+    m_stampDistributionPrototypes: []
+    m_worldBiomeMaskPrototypes: []
+    m_probePrototypes: []
+    m_terrainModifierStampPrototypes: []
+  m_x: 0
+  m_y: 50
+  m_z: 0
+  m_width: 10
+  m_height: 10
+  m_rotation: 0
+  m_isWorldmapSpawner: 0
+  m_spawnRange: 500
+  m_generateRandomSeed: 0
+  m_randomSeed: 0
+  m_spawnDensity: 1
+  m_resourcesPath: 
+  m_spawnerRules: []
+  m_showGizmos: 1
+  m_showDebug: 0
+  m_showTerrainHelper: 1
+  m_spawnMode: 0
+  imageMasks: []
+  m_clearSpawnsToggleTrees: 0
+  m_clearSpawnsToggleDetails: 0
+  m_clearSpawnsToggleGOs: 0
+  m_clearSpawnsToggleSpawnExtensions: 0
+  m_clearSpawnsToggleProbes: 0
+  m_clearSpawnsFor: 1
+  m_clearSpawnsFrom: 0
+  m_lastGUIDSaved: 
+  m_stampDensity: 0
+  m_stampJitter: 0.25
+  m_stampWidth: 100
+  m_stampHeight: 100
+--- !u!114 &663427789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
+  m_resources:
+    m_resourcesID: b9313d8e-fcf7-404e-8fba-6ca9c88eb43a
+    m_name: NewResources
+    m_beachHeight: 5
+    m_terrainHeight: 1000
+    m_texturePrototypes: []
+    m_detailPrototypes: []
+    m_treePrototypes: []
+    m_gameObjectPrototypes: []
+    m_spawnExtensionPrototypes: []
+    m_stampDistributionPrototypes: []
+    m_worldBiomeMaskPrototypes: []
+    m_probePrototypes: []
+    m_terrainModifierStampPrototypes: []
+  m_x: 0
+  m_y: 50
+  m_z: 0
+  m_width: 10
+  m_height: 10
+  m_rotation: 0
+  m_isWorldmapSpawner: 0
+  m_spawnRange: 500
+  m_generateRandomSeed: 0
+  m_randomSeed: 0
+  m_spawnDensity: 1
+  m_resourcesPath: 
+  m_spawnerRules: []
+  m_showGizmos: 1
+  m_showDebug: 0
+  m_showTerrainHelper: 1
+  m_spawnMode: 0
+  imageMasks: []
+  m_clearSpawnsToggleTrees: 0
+  m_clearSpawnsToggleDetails: 0
+  m_clearSpawnsToggleGOs: 0
+  m_clearSpawnsToggleSpawnExtensions: 0
+  m_clearSpawnsToggleProbes: 0
+  m_clearSpawnsFor: 1
+  m_clearSpawnsFrom: 0
+  m_lastGUIDSaved: 
+  m_stampDensity: 0
+  m_stampJitter: 0.25
+  m_stampWidth: 100
+  m_stampHeight: 100
+--- !u!114 &725127311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
+  m_resources:
+    m_resourcesID: dc1206fe-54c7-4eab-9a17-f58474b874da
+    m_name: NewResources
+    m_beachHeight: 5
+    m_terrainHeight: 1000
+    m_texturePrototypes: []
+    m_detailPrototypes: []
+    m_treePrototypes: []
+    m_gameObjectPrototypes: []
+    m_spawnExtensionPrototypes: []
+    m_stampDistributionPrototypes: []
+    m_worldBiomeMaskPrototypes: []
+    m_probePrototypes: []
+    m_terrainModifierStampPrototypes: []
+  m_x: 0
+  m_y: 50
+  m_z: 0
+  m_width: 10
+  m_height: 10
+  m_rotation: 0
+  m_isWorldmapSpawner: 0
+  m_spawnRange: 500
+  m_generateRandomSeed: 0
+  m_randomSeed: 0
+  m_spawnDensity: 1
+  m_resourcesPath: 
+  m_spawnerRules: []
+  m_showGizmos: 1
+  m_showDebug: 0
+  m_showTerrainHelper: 1
+  m_spawnMode: 0
+  imageMasks: []
+  m_clearSpawnsToggleTrees: 0
+  m_clearSpawnsToggleDetails: 0
+  m_clearSpawnsToggleGOs: 0
+  m_clearSpawnsToggleSpawnExtensions: 0
+  m_clearSpawnsToggleProbes: 0
+  m_clearSpawnsFor: 1
+  m_clearSpawnsFrom: 0
+  m_lastGUIDSaved: 
+  m_stampDensity: 0
+  m_stampJitter: 0.25
+  m_stampWidth: 100
+  m_stampHeight: 100
+--- !u!1001 &732114328
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 378271617389210559, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_maxWorldHeight
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175060358740425975, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175060358740425975, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175060358740425975, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175060358740425975, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175060358740425975, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175060358740425975, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443320848109148796, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443320848109148796, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443320848109148796, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443320848109148796, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443320848109148796, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443320848109148796, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530649730079179153, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530649730079179153, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530649730079179153, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530649730079179153, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530649730079179153, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530649730079179153, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414842271042060073, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414842271042060073, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414842271042060073, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414842271042060073, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414842271042060073, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414842271042060073, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695361539889554696, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_seaLevel
+      value: 24.99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695361539889554696, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_mainLight
+      value: 
+      objectReference: {fileID: 732114330}
+    - target: {fileID: 2695361539889554696, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_playerCamera
+      value: 
+      objectReference: {fileID: 1167863305}
+    - target: {fileID: 2695361539889554696, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_hdrpLightData
+      value: 
+      objectReference: {fileID: 732114329}
+    - target: {fileID: 2695361539889554696, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_startingUnderwater
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2988879421305651240, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -210.47829
+      objectReference: {fileID: 0}
+    - target: {fileID: 2988879421305651240, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -197.01907
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045313708128316448, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: parameters.textureOffset.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045313708128316448, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: parameters.textureOffset.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089570610760594344, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 210.47829
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089570610760594344, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089570610760594344, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 197.01907
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089570610760594344, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089570610760594344, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089570610760594344, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089570610760594344, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089570610760594344, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089570610760594344, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089570610760594344, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332111865472604402, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332111865472604402, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332111865472604402, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332111865472604402, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332111865472604402, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332111865472604402, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064723781051191513, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064723781051191513, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064723781051191513, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064723781051191513, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064723781051191513, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064723781051191513, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348249052018908826, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348249052018908826, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.y
+      value: 38.0570068359375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348249052018908826, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348249052018908826, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348249052018908826, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.y
+      value: 38.0570068359375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348249052018908826, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 4350778179837808212, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_player
+      value: 
+      objectReference: {fileID: 1167863305}
+    - target: {fileID: 4350778179837808212, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_seaLevel
+      value: 24.99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4350778179837808212, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_gameCamera
+      value: 
+      objectReference: {fileID: 1167863304}
+    - target: {fileID: 4350778179837808212, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_RenderCamera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589068736238071713, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589068736238071713, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.y
+      value: -0.000009999999747378752
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589068736238071713, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589068736238071713, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589068736238071713, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.y
+      value: -0.000009999999747378752
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589068736238071713, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654519306146181110, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654519306146181110, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654519306146181110, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654519306146181110, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654519306146181110, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654519306146181110, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269386655045474348, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269386655045474348, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269386655045474348, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269386655045474348, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269386655045474348, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269386655045474348, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840521404651648212, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_mainCamera
+      value: 
+      objectReference: {fileID: 1167863304}
+    - target: {fileID: 7788106593926469679, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_Name
+      value: TestIsland
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270388713063495907, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270388713063495907, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270388713063495907, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270388713063495907, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270388713063495907, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270388713063495907, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003026152378126642, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003026152378126642, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003026152378126642, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003026152378126642, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003026152378126642, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003026152378126642, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003183223571264473, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003183223571264473, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003183223571264473, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsRegular.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003183223571264473, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.x
+      value: 210.47828674316406
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003183223571264473, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.y
+      value: 22.372453689575195
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003183223571264473, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+      propertyPath: m_loadingBoundsImpostor.m_Center.z
+      value: 197.01907348632812
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+--- !u!114 &732114329 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4206209659777332742, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+  m_PrefabInstance: {fileID: 732114328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!108 &732114330 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 6943728334660640033, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
+  m_PrefabInstance: {fileID: 732114328}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &884675111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
+  m_resources:
+    m_resourcesID: d6dca36c-b4fd-4f92-b979-cfe9de83783e
+    m_name: NewResources
+    m_beachHeight: 5
+    m_terrainHeight: 1000
+    m_texturePrototypes: []
+    m_detailPrototypes: []
+    m_treePrototypes: []
+    m_gameObjectPrototypes: []
+    m_spawnExtensionPrototypes: []
+    m_stampDistributionPrototypes: []
+    m_worldBiomeMaskPrototypes: []
+    m_probePrototypes: []
+    m_terrainModifierStampPrototypes: []
+  m_x: 0
+  m_y: 50
+  m_z: 0
+  m_width: 10
+  m_height: 10
+  m_rotation: 0
+  m_isWorldmapSpawner: 0
+  m_spawnRange: 500
+  m_generateRandomSeed: 0
+  m_randomSeed: 0
+  m_spawnDensity: 1
+  m_resourcesPath: 
+  m_spawnerRules: []
+  m_showGizmos: 1
+  m_showDebug: 0
+  m_showTerrainHelper: 1
+  m_spawnMode: 0
+  imageMasks: []
+  m_clearSpawnsToggleTrees: 0
+  m_clearSpawnsToggleDetails: 0
+  m_clearSpawnsToggleGOs: 0
+  m_clearSpawnsToggleSpawnExtensions: 0
+  m_clearSpawnsToggleProbes: 0
+  m_clearSpawnsFor: 1
+  m_clearSpawnsFrom: 0
+  m_lastGUIDSaved: 
+  m_stampDensity: 0
+  m_stampJitter: 0.25
+  m_stampWidth: 100
+  m_stampHeight: 100
 --- !u!1 &1017014056
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +881,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1138368292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
+  m_resources:
+    m_resourcesID: d858fb68-70c4-4306-8ebe-78946560c4d1
+    m_name: NewResources
+    m_beachHeight: 5
+    m_terrainHeight: 1000
+    m_texturePrototypes: []
+    m_detailPrototypes: []
+    m_treePrototypes: []
+    m_gameObjectPrototypes: []
+    m_spawnExtensionPrototypes: []
+    m_stampDistributionPrototypes: []
+    m_worldBiomeMaskPrototypes: []
+    m_probePrototypes: []
+    m_terrainModifierStampPrototypes: []
+  m_x: 0
+  m_y: 50
+  m_z: 0
+  m_width: 10
+  m_height: 10
+  m_rotation: 0
+  m_isWorldmapSpawner: 0
+  m_spawnRange: 500
+  m_generateRandomSeed: 0
+  m_randomSeed: 0
+  m_spawnDensity: 1
+  m_resourcesPath: 
+  m_spawnerRules: []
+  m_showGizmos: 1
+  m_showDebug: 0
+  m_showTerrainHelper: 1
+  m_spawnMode: 0
+  imageMasks: []
+  m_clearSpawnsToggleTrees: 0
+  m_clearSpawnsToggleDetails: 0
+  m_clearSpawnsToggleGOs: 0
+  m_clearSpawnsToggleSpawnExtensions: 0
+  m_clearSpawnsToggleProbes: 0
+  m_clearSpawnsFor: 1
+  m_clearSpawnsFrom: 0
+  m_lastGUIDSaved: 
+  m_stampDensity: 0
+  m_stampJitter: 0.25
+  m_stampWidth: 100
+  m_stampHeight: 100
 --- !u!1 &1167863301
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,15 +1179,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7112891303402591, guid: 7ba5e2c3b83f319d483ea48cb3f4956f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 500
+      value: 244.21512
       objectReference: {fileID: 0}
     - target: {fileID: 7112891303402591, guid: 7ba5e2c3b83f319d483ea48cb3f4956f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7112891303402591, guid: 7ba5e2c3b83f319d483ea48cb3f4956f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 500
+      value: 133.44775
       objectReference: {fileID: 0}
     - target: {fileID: 7112891303402591, guid: 7ba5e2c3b83f319d483ea48cb3f4956f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -501,6 +1226,62 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ba5e2c3b83f319d483ea48cb3f4956f, type: 3}
+--- !u!114 &1414468377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
+  m_resources:
+    m_resourcesID: b0f70948-54a5-4a24-b688-484853ee3773
+    m_name: NewResources
+    m_beachHeight: 5
+    m_terrainHeight: 1000
+    m_texturePrototypes: []
+    m_detailPrototypes: []
+    m_treePrototypes: []
+    m_gameObjectPrototypes: []
+    m_spawnExtensionPrototypes: []
+    m_stampDistributionPrototypes: []
+    m_worldBiomeMaskPrototypes: []
+    m_probePrototypes: []
+    m_terrainModifierStampPrototypes: []
+  m_x: 0
+  m_y: 50
+  m_z: 0
+  m_width: 10
+  m_height: 10
+  m_rotation: 0
+  m_isWorldmapSpawner: 0
+  m_spawnRange: 500
+  m_generateRandomSeed: 0
+  m_randomSeed: 0
+  m_spawnDensity: 1
+  m_resourcesPath: 
+  m_spawnerRules: []
+  m_showGizmos: 1
+  m_showDebug: 0
+  m_showTerrainHelper: 1
+  m_spawnMode: 0
+  imageMasks: []
+  m_clearSpawnsToggleTrees: 0
+  m_clearSpawnsToggleDetails: 0
+  m_clearSpawnsToggleGOs: 0
+  m_clearSpawnsToggleSpawnExtensions: 0
+  m_clearSpawnsToggleProbes: 0
+  m_clearSpawnsFor: 1
+  m_clearSpawnsFrom: 0
+  m_lastGUIDSaved: 
+  m_stampDensity: 0
+  m_stampJitter: 0.25
+  m_stampWidth: 100
+  m_stampHeight: 100
 --- !u!1 &1444154643
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +1299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1444154644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,6 +1522,342 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &1541951703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
+  m_resources:
+    m_resourcesID: 3ae73dc0-df27-4493-b53c-448a8825abfb
+    m_name: NewResources
+    m_beachHeight: 5
+    m_terrainHeight: 1000
+    m_texturePrototypes: []
+    m_detailPrototypes: []
+    m_treePrototypes: []
+    m_gameObjectPrototypes: []
+    m_spawnExtensionPrototypes: []
+    m_stampDistributionPrototypes: []
+    m_worldBiomeMaskPrototypes: []
+    m_probePrototypes: []
+    m_terrainModifierStampPrototypes: []
+  m_x: 0
+  m_y: 50
+  m_z: 0
+  m_width: 10
+  m_height: 10
+  m_rotation: 0
+  m_isWorldmapSpawner: 0
+  m_spawnRange: 500
+  m_generateRandomSeed: 0
+  m_randomSeed: 0
+  m_spawnDensity: 1
+  m_resourcesPath: 
+  m_spawnerRules: []
+  m_showGizmos: 1
+  m_showDebug: 0
+  m_showTerrainHelper: 1
+  m_spawnMode: 0
+  imageMasks: []
+  m_clearSpawnsToggleTrees: 0
+  m_clearSpawnsToggleDetails: 0
+  m_clearSpawnsToggleGOs: 0
+  m_clearSpawnsToggleSpawnExtensions: 0
+  m_clearSpawnsToggleProbes: 0
+  m_clearSpawnsFor: 1
+  m_clearSpawnsFrom: 0
+  m_lastGUIDSaved: 
+  m_stampDensity: 0
+  m_stampJitter: 0.25
+  m_stampWidth: 100
+  m_stampHeight: 100
+--- !u!114 &1566428307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
+  m_resources:
+    m_resourcesID: bda23a10-55bd-47b3-ab32-5a1668cdfb45
+    m_name: NewResources
+    m_beachHeight: 5
+    m_terrainHeight: 1000
+    m_texturePrototypes: []
+    m_detailPrototypes: []
+    m_treePrototypes: []
+    m_gameObjectPrototypes: []
+    m_spawnExtensionPrototypes: []
+    m_stampDistributionPrototypes: []
+    m_worldBiomeMaskPrototypes: []
+    m_probePrototypes: []
+    m_terrainModifierStampPrototypes: []
+  m_x: 0
+  m_y: 50
+  m_z: 0
+  m_width: 10
+  m_height: 10
+  m_rotation: 0
+  m_isWorldmapSpawner: 0
+  m_spawnRange: 500
+  m_generateRandomSeed: 0
+  m_randomSeed: 0
+  m_spawnDensity: 1
+  m_resourcesPath: 
+  m_spawnerRules: []
+  m_showGizmos: 1
+  m_showDebug: 0
+  m_showTerrainHelper: 1
+  m_spawnMode: 0
+  imageMasks: []
+  m_clearSpawnsToggleTrees: 0
+  m_clearSpawnsToggleDetails: 0
+  m_clearSpawnsToggleGOs: 0
+  m_clearSpawnsToggleSpawnExtensions: 0
+  m_clearSpawnsToggleProbes: 0
+  m_clearSpawnsFor: 1
+  m_clearSpawnsFrom: 0
+  m_lastGUIDSaved: 
+  m_stampDensity: 0
+  m_stampJitter: 0.25
+  m_stampWidth: 100
+  m_stampHeight: 100
+--- !u!114 &1711353384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
+  m_resources:
+    m_resourcesID: 4893051f-6098-4ab1-a53b-a47d59851ebc
+    m_name: NewResources
+    m_beachHeight: 5
+    m_terrainHeight: 1000
+    m_texturePrototypes: []
+    m_detailPrototypes: []
+    m_treePrototypes: []
+    m_gameObjectPrototypes: []
+    m_spawnExtensionPrototypes: []
+    m_stampDistributionPrototypes: []
+    m_worldBiomeMaskPrototypes: []
+    m_probePrototypes: []
+    m_terrainModifierStampPrototypes: []
+  m_x: 0
+  m_y: 50
+  m_z: 0
+  m_width: 10
+  m_height: 10
+  m_rotation: 0
+  m_isWorldmapSpawner: 0
+  m_spawnRange: 500
+  m_generateRandomSeed: 0
+  m_randomSeed: 0
+  m_spawnDensity: 1
+  m_resourcesPath: 
+  m_spawnerRules: []
+  m_showGizmos: 1
+  m_showDebug: 0
+  m_showTerrainHelper: 1
+  m_spawnMode: 0
+  imageMasks: []
+  m_clearSpawnsToggleTrees: 0
+  m_clearSpawnsToggleDetails: 0
+  m_clearSpawnsToggleGOs: 0
+  m_clearSpawnsToggleSpawnExtensions: 0
+  m_clearSpawnsToggleProbes: 0
+  m_clearSpawnsFor: 1
+  m_clearSpawnsFrom: 0
+  m_lastGUIDSaved: 
+  m_stampDensity: 0
+  m_stampJitter: 0.25
+  m_stampWidth: 100
+  m_stampHeight: 100
+--- !u!114 &1832101252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
+  m_resources:
+    m_resourcesID: cb4b34e4-b8ff-4a15-8e9e-b9f0eb8d85d4
+    m_name: NewResources
+    m_beachHeight: 5
+    m_terrainHeight: 1000
+    m_texturePrototypes: []
+    m_detailPrototypes: []
+    m_treePrototypes: []
+    m_gameObjectPrototypes: []
+    m_spawnExtensionPrototypes: []
+    m_stampDistributionPrototypes: []
+    m_worldBiomeMaskPrototypes: []
+    m_probePrototypes: []
+    m_terrainModifierStampPrototypes: []
+  m_x: 0
+  m_y: 50
+  m_z: 0
+  m_width: 10
+  m_height: 10
+  m_rotation: 0
+  m_isWorldmapSpawner: 0
+  m_spawnRange: 500
+  m_generateRandomSeed: 0
+  m_randomSeed: 0
+  m_spawnDensity: 1
+  m_resourcesPath: 
+  m_spawnerRules: []
+  m_showGizmos: 1
+  m_showDebug: 0
+  m_showTerrainHelper: 1
+  m_spawnMode: 0
+  imageMasks: []
+  m_clearSpawnsToggleTrees: 0
+  m_clearSpawnsToggleDetails: 0
+  m_clearSpawnsToggleGOs: 0
+  m_clearSpawnsToggleSpawnExtensions: 0
+  m_clearSpawnsToggleProbes: 0
+  m_clearSpawnsFor: 1
+  m_clearSpawnsFrom: 0
+  m_lastGUIDSaved: 
+  m_stampDensity: 0
+  m_stampJitter: 0.25
+  m_stampWidth: 100
+  m_stampHeight: 100
+--- !u!114 &1872819533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
+  m_resources:
+    m_resourcesID: 35137352-c843-49fd-8721-3cb84c15cc5d
+    m_name: NewResources
+    m_beachHeight: 5
+    m_terrainHeight: 1000
+    m_texturePrototypes: []
+    m_detailPrototypes: []
+    m_treePrototypes: []
+    m_gameObjectPrototypes: []
+    m_spawnExtensionPrototypes: []
+    m_stampDistributionPrototypes: []
+    m_worldBiomeMaskPrototypes: []
+    m_probePrototypes: []
+    m_terrainModifierStampPrototypes: []
+  m_x: 0
+  m_y: 50
+  m_z: 0
+  m_width: 10
+  m_height: 10
+  m_rotation: 0
+  m_isWorldmapSpawner: 0
+  m_spawnRange: 500
+  m_generateRandomSeed: 0
+  m_randomSeed: 0
+  m_spawnDensity: 1
+  m_resourcesPath: 
+  m_spawnerRules: []
+  m_showGizmos: 1
+  m_showDebug: 0
+  m_showTerrainHelper: 1
+  m_spawnMode: 0
+  imageMasks: []
+  m_clearSpawnsToggleTrees: 0
+  m_clearSpawnsToggleDetails: 0
+  m_clearSpawnsToggleGOs: 0
+  m_clearSpawnsToggleSpawnExtensions: 0
+  m_clearSpawnsToggleProbes: 0
+  m_clearSpawnsFor: 1
+  m_clearSpawnsFrom: 0
+  m_lastGUIDSaved: 
+  m_stampDensity: 0
+  m_stampJitter: 0.25
+  m_stampWidth: 100
+  m_stampHeight: 100
+--- !u!114 &1892707577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
+  m_resources:
+    m_resourcesID: 690fb0c4-6b17-489c-9b4a-73bc62712bc6
+    m_name: NewResources
+    m_beachHeight: 5
+    m_terrainHeight: 1000
+    m_texturePrototypes: []
+    m_detailPrototypes: []
+    m_treePrototypes: []
+    m_gameObjectPrototypes: []
+    m_spawnExtensionPrototypes: []
+    m_stampDistributionPrototypes: []
+    m_worldBiomeMaskPrototypes: []
+    m_probePrototypes: []
+    m_terrainModifierStampPrototypes: []
+  m_x: 0
+  m_y: 50
+  m_z: 0
+  m_width: 10
+  m_height: 10
+  m_rotation: 0
+  m_isWorldmapSpawner: 0
+  m_spawnRange: 500
+  m_generateRandomSeed: 0
+  m_randomSeed: 0
+  m_spawnDensity: 1
+  m_resourcesPath: 
+  m_spawnerRules: []
+  m_showGizmos: 1
+  m_showDebug: 0
+  m_showTerrainHelper: 1
+  m_spawnMode: 0
+  imageMasks: []
+  m_clearSpawnsToggleTrees: 0
+  m_clearSpawnsToggleDetails: 0
+  m_clearSpawnsToggleGOs: 0
+  m_clearSpawnsToggleSpawnExtensions: 0
+  m_clearSpawnsToggleProbes: 0
+  m_clearSpawnsFor: 1
+  m_clearSpawnsFrom: 0
+  m_lastGUIDSaved: 
+  m_stampDensity: 0
+  m_stampJitter: 0.25
+  m_stampWidth: 100
+  m_stampHeight: 100
 --- !u!1001 &1941914887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -887,3 +2004,4 @@ SceneRoots:
   - {fileID: 2101603256}
   - {fileID: 1167863305}
   - {fileID: 1316366429}
+  - {fileID: 732114328}

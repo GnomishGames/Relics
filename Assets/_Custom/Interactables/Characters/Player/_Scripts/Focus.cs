@@ -24,15 +24,12 @@ public class Focus : MonoBehaviour
         //left mouse click sets focus
         if (Input.GetMouseButtonDown(0))
         {
-            if (cam == null)
-            {
-                cam = Camera.main;
+                //cam = Camera.main;
                 if (cam == null)
                 {
                     Debug.LogWarning("Focus: no Camera assigned and Camera.main is null. Cannot raycast.");
                     return;
                 }
-            }
 
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, 100f))

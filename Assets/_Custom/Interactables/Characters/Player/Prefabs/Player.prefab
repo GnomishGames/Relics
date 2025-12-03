@@ -9066,6 +9066,7 @@ GameObject:
   - component: {fileID: 7253188170260263747}
   - component: {fileID: 2222051926120663867}
   - component: {fileID: 3464447429195375397}
+  - component: {fileID: 5415955455546354583}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -9257,6 +9258,19 @@ MonoBehaviour:
   _ownerAuth: 1
   _autoSyncParameters: 1
   _dontSyncParameters: []
+--- !u!114 &5415955455546354583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584339292830879391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84711c3e97372fb0196d06807898d9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stats
+  stats: {fileID: 11400000, guid: 268cebaea90c5efe08e8b93a9e990029, type: 2}
 --- !u!1 &5730875937473058584
 GameObject:
   m_ObjectHideFlags: 0
