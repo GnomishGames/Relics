@@ -1,5 +1,0 @@
-# ignore everything
-*
-# but not these files
-!Assets/_Custom/Scripts/Interface/UIScript.cs
-!Assets/_Custom/Scripts/Interface/Settings/CloseSettingsBtn.cs
