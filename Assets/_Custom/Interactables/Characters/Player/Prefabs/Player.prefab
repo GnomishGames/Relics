@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 8653930037481474022}
   - component: {fileID: 5618140619033047207}
   - component: {fileID: 4781236273018873820}
+  - component: {fileID: 6011603342970985653}
   m_Layer: 5
   m_Name: TargetPanel
   m_TagString: Untagged
@@ -278,6 +279,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TargetPanel
   targetNameText: {fileID: 436887201644611510}
   focusScript: {fileID: -8416364110541351380}
+--- !u!114 &6011603342970985653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124390115311311842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec66c2893399208a868e389e3266814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthBar
+  slider: {fileID: 5934070928120299817}
 --- !u!1 &175410596997125860
 GameObject:
   m_ObjectHideFlags: 0
@@ -9189,19 +9203,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84711c3e97372fb0196d06807898d9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stats
+  interactableName: Clay
+  characterRace: {fileID: 0}
+  characterClass: {fileID: 0}
+  dead: 0
+  xpToGive: 0
+  healthbar: {fileID: 0}
   characterName: Clay
   icon: {fileID: 0}
-  maxHealth: 100
+  currentHitPoints: 0
+  maxHitpoints: 0
+  armorClass: 0
+  currentStamina: 0
   maxStamina: 100
+  currentMana: 0
   maxMana: 100
+  strengthBase: 0
+  dexterityBase: 0
+  constitutionBase: 0
+  intelligenceBase: 0
+  wisdomBase: 0
+  charismaBase: 0
   strengthModifier: 1
-  agilityModifier: 1
-  intelligenceModifier: 1
+  dexterityModifier: 0
   constitutionModifier: 1
-  charismaModifier: 1
+  intelligenceModifier: 1
   wisdomModifier: 1
-  level: 1
+  charismaModifier: 1
+  strengthScore: 0
+  dexterityScore: 0
+  constitutionScore: 0
+  intelligenceScore: 0
+  wisdomScore: 0
+  charismaScore: 0
+  characterLevel: 0
   experience: 1
+  sizeModifier: 0
+  armorBonus: 0
 --- !u!143 &7253188170260263747
 CharacterController:
   m_ObjectHideFlags: 0

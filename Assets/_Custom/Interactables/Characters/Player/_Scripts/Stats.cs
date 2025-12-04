@@ -99,7 +99,6 @@ public class Stats : Character
 
         int armorBonus = equipment.ArmorAC + characterRace.naturalAcBonus;
         armorClass = 10 + armorBonus + dexterityModifier + sizeModifier;
-
     }
     
     int CalculateStatScore(int statBase, int raceBonus)
