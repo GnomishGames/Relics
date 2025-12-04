@@ -119,62 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &93851883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
-  m_resources:
-    m_resourcesID: 0075ec86-c885-4db3-a105-08e64f6ee99e
-    m_name: NewResources
-    m_beachHeight: 5
-    m_terrainHeight: 1000
-    m_texturePrototypes: []
-    m_detailPrototypes: []
-    m_treePrototypes: []
-    m_gameObjectPrototypes: []
-    m_spawnExtensionPrototypes: []
-    m_stampDistributionPrototypes: []
-    m_worldBiomeMaskPrototypes: []
-    m_probePrototypes: []
-    m_terrainModifierStampPrototypes: []
-  m_x: 0
-  m_y: 50
-  m_z: 0
-  m_width: 10
-  m_height: 10
-  m_rotation: 0
-  m_isWorldmapSpawner: 0
-  m_spawnRange: 500
-  m_generateRandomSeed: 0
-  m_randomSeed: 0
-  m_spawnDensity: 1
-  m_resourcesPath: 
-  m_spawnerRules: []
-  m_showGizmos: 1
-  m_showDebug: 0
-  m_showTerrainHelper: 1
-  m_spawnMode: 0
-  imageMasks: []
-  m_clearSpawnsToggleTrees: 0
-  m_clearSpawnsToggleDetails: 0
-  m_clearSpawnsToggleGOs: 0
-  m_clearSpawnsToggleSpawnExtensions: 0
-  m_clearSpawnsToggleProbes: 0
-  m_clearSpawnsFor: 1
-  m_clearSpawnsFrom: 0
-  m_lastGUIDSaved: 
-  m_stampDensity: 0
-  m_stampJitter: 0.25
-  m_stampWidth: 100
-  m_stampHeight: 100
 --- !u!1001 &732114328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -624,118 +568,6 @@ Light:
   m_CorrespondingSourceObject: {fileID: 6943728334660640033, guid: 811ad0d9e57f3b8c49976720bb13245a, type: 3}
   m_PrefabInstance: {fileID: 732114328}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &737296508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
-  m_resources:
-    m_resourcesID: 9506eda3-4788-46ec-b96d-00c565fd5e98
-    m_name: NewResources
-    m_beachHeight: 5
-    m_terrainHeight: 1000
-    m_texturePrototypes: []
-    m_detailPrototypes: []
-    m_treePrototypes: []
-    m_gameObjectPrototypes: []
-    m_spawnExtensionPrototypes: []
-    m_stampDistributionPrototypes: []
-    m_worldBiomeMaskPrototypes: []
-    m_probePrototypes: []
-    m_terrainModifierStampPrototypes: []
-  m_x: 0
-  m_y: 50
-  m_z: 0
-  m_width: 10
-  m_height: 10
-  m_rotation: 0
-  m_isWorldmapSpawner: 0
-  m_spawnRange: 500
-  m_generateRandomSeed: 0
-  m_randomSeed: 0
-  m_spawnDensity: 1
-  m_resourcesPath: 
-  m_spawnerRules: []
-  m_showGizmos: 1
-  m_showDebug: 0
-  m_showTerrainHelper: 1
-  m_spawnMode: 0
-  imageMasks: []
-  m_clearSpawnsToggleTrees: 0
-  m_clearSpawnsToggleDetails: 0
-  m_clearSpawnsToggleGOs: 0
-  m_clearSpawnsToggleSpawnExtensions: 0
-  m_clearSpawnsToggleProbes: 0
-  m_clearSpawnsFor: 1
-  m_clearSpawnsFrom: 0
-  m_lastGUIDSaved: 
-  m_stampDensity: 0
-  m_stampJitter: 0.25
-  m_stampWidth: 100
-  m_stampHeight: 100
---- !u!114 &782054917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
-  m_resources:
-    m_resourcesID: a5e5eb0b-8df8-4046-8b98-cce903e990c7
-    m_name: NewResources
-    m_beachHeight: 5
-    m_terrainHeight: 1000
-    m_texturePrototypes: []
-    m_detailPrototypes: []
-    m_treePrototypes: []
-    m_gameObjectPrototypes: []
-    m_spawnExtensionPrototypes: []
-    m_stampDistributionPrototypes: []
-    m_worldBiomeMaskPrototypes: []
-    m_probePrototypes: []
-    m_terrainModifierStampPrototypes: []
-  m_x: 0
-  m_y: 50
-  m_z: 0
-  m_width: 10
-  m_height: 10
-  m_rotation: 0
-  m_isWorldmapSpawner: 0
-  m_spawnRange: 500
-  m_generateRandomSeed: 0
-  m_randomSeed: 0
-  m_spawnDensity: 1
-  m_resourcesPath: 
-  m_spawnerRules: []
-  m_showGizmos: 1
-  m_showDebug: 0
-  m_showTerrainHelper: 1
-  m_spawnMode: 0
-  imageMasks: []
-  m_clearSpawnsToggleTrees: 0
-  m_clearSpawnsToggleDetails: 0
-  m_clearSpawnsToggleGOs: 0
-  m_clearSpawnsToggleSpawnExtensions: 0
-  m_clearSpawnsToggleProbes: 0
-  m_clearSpawnsFor: 1
-  m_clearSpawnsFrom: 0
-  m_lastGUIDSaved: 
-  m_stampDensity: 0
-  m_stampJitter: 0.25
-  m_stampWidth: 100
-  m_stampHeight: 100
 --- !u!1 &1017014056
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,230 +661,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1024678940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
-  m_resources:
-    m_resourcesID: 9b0c2fae-600c-47e5-a895-9bf5bb4bd788
-    m_name: NewResources
-    m_beachHeight: 5
-    m_terrainHeight: 1000
-    m_texturePrototypes: []
-    m_detailPrototypes: []
-    m_treePrototypes: []
-    m_gameObjectPrototypes: []
-    m_spawnExtensionPrototypes: []
-    m_stampDistributionPrototypes: []
-    m_worldBiomeMaskPrototypes: []
-    m_probePrototypes: []
-    m_terrainModifierStampPrototypes: []
-  m_x: 0
-  m_y: 50
-  m_z: 0
-  m_width: 10
-  m_height: 10
-  m_rotation: 0
-  m_isWorldmapSpawner: 0
-  m_spawnRange: 500
-  m_generateRandomSeed: 0
-  m_randomSeed: 0
-  m_spawnDensity: 1
-  m_resourcesPath: 
-  m_spawnerRules: []
-  m_showGizmos: 1
-  m_showDebug: 0
-  m_showTerrainHelper: 1
-  m_spawnMode: 0
-  imageMasks: []
-  m_clearSpawnsToggleTrees: 0
-  m_clearSpawnsToggleDetails: 0
-  m_clearSpawnsToggleGOs: 0
-  m_clearSpawnsToggleSpawnExtensions: 0
-  m_clearSpawnsToggleProbes: 0
-  m_clearSpawnsFor: 1
-  m_clearSpawnsFrom: 0
-  m_lastGUIDSaved: 
-  m_stampDensity: 0
-  m_stampJitter: 0.25
-  m_stampWidth: 100
-  m_stampHeight: 100
---- !u!114 &1038049177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
-  m_resources:
-    m_resourcesID: 3267d129-9ae2-41d4-ad8f-8e3390a4aaf0
-    m_name: NewResources
-    m_beachHeight: 5
-    m_terrainHeight: 1000
-    m_texturePrototypes: []
-    m_detailPrototypes: []
-    m_treePrototypes: []
-    m_gameObjectPrototypes: []
-    m_spawnExtensionPrototypes: []
-    m_stampDistributionPrototypes: []
-    m_worldBiomeMaskPrototypes: []
-    m_probePrototypes: []
-    m_terrainModifierStampPrototypes: []
-  m_x: 0
-  m_y: 50
-  m_z: 0
-  m_width: 10
-  m_height: 10
-  m_rotation: 0
-  m_isWorldmapSpawner: 0
-  m_spawnRange: 500
-  m_generateRandomSeed: 0
-  m_randomSeed: 0
-  m_spawnDensity: 1
-  m_resourcesPath: 
-  m_spawnerRules: []
-  m_showGizmos: 1
-  m_showDebug: 0
-  m_showTerrainHelper: 1
-  m_spawnMode: 0
-  imageMasks: []
-  m_clearSpawnsToggleTrees: 0
-  m_clearSpawnsToggleDetails: 0
-  m_clearSpawnsToggleGOs: 0
-  m_clearSpawnsToggleSpawnExtensions: 0
-  m_clearSpawnsToggleProbes: 0
-  m_clearSpawnsFor: 1
-  m_clearSpawnsFrom: 0
-  m_lastGUIDSaved: 
-  m_stampDensity: 0
-  m_stampJitter: 0.25
-  m_stampWidth: 100
-  m_stampHeight: 100
---- !u!114 &1044432894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
-  m_resources:
-    m_resourcesID: 72abe2d4-577d-41d9-8b55-45b1f7c3d5e4
-    m_name: NewResources
-    m_beachHeight: 5
-    m_terrainHeight: 1000
-    m_texturePrototypes: []
-    m_detailPrototypes: []
-    m_treePrototypes: []
-    m_gameObjectPrototypes: []
-    m_spawnExtensionPrototypes: []
-    m_stampDistributionPrototypes: []
-    m_worldBiomeMaskPrototypes: []
-    m_probePrototypes: []
-    m_terrainModifierStampPrototypes: []
-  m_x: 0
-  m_y: 50
-  m_z: 0
-  m_width: 10
-  m_height: 10
-  m_rotation: 0
-  m_isWorldmapSpawner: 0
-  m_spawnRange: 500
-  m_generateRandomSeed: 0
-  m_randomSeed: 0
-  m_spawnDensity: 1
-  m_resourcesPath: 
-  m_spawnerRules: []
-  m_showGizmos: 1
-  m_showDebug: 0
-  m_showTerrainHelper: 1
-  m_spawnMode: 0
-  imageMasks: []
-  m_clearSpawnsToggleTrees: 0
-  m_clearSpawnsToggleDetails: 0
-  m_clearSpawnsToggleGOs: 0
-  m_clearSpawnsToggleSpawnExtensions: 0
-  m_clearSpawnsToggleProbes: 0
-  m_clearSpawnsFor: 1
-  m_clearSpawnsFrom: 0
-  m_lastGUIDSaved: 
-  m_stampDensity: 0
-  m_stampJitter: 0.25
-  m_stampWidth: 100
-  m_stampHeight: 100
---- !u!114 &1114776387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
-  m_resources:
-    m_resourcesID: 9adb3316-83e7-4a0a-9577-521ec581e301
-    m_name: NewResources
-    m_beachHeight: 5
-    m_terrainHeight: 1000
-    m_texturePrototypes: []
-    m_detailPrototypes: []
-    m_treePrototypes: []
-    m_gameObjectPrototypes: []
-    m_spawnExtensionPrototypes: []
-    m_stampDistributionPrototypes: []
-    m_worldBiomeMaskPrototypes: []
-    m_probePrototypes: []
-    m_terrainModifierStampPrototypes: []
-  m_x: 0
-  m_y: 50
-  m_z: 0
-  m_width: 10
-  m_height: 10
-  m_rotation: 0
-  m_isWorldmapSpawner: 0
-  m_spawnRange: 500
-  m_generateRandomSeed: 0
-  m_randomSeed: 0
-  m_spawnDensity: 1
-  m_resourcesPath: 
-  m_spawnerRules: []
-  m_showGizmos: 1
-  m_showDebug: 0
-  m_showTerrainHelper: 1
-  m_spawnMode: 0
-  imageMasks: []
-  m_clearSpawnsToggleTrees: 0
-  m_clearSpawnsToggleDetails: 0
-  m_clearSpawnsToggleGOs: 0
-  m_clearSpawnsToggleSpawnExtensions: 0
-  m_clearSpawnsToggleProbes: 0
-  m_clearSpawnsFor: 1
-  m_clearSpawnsFrom: 0
-  m_lastGUIDSaved: 
-  m_stampDensity: 0
-  m_stampJitter: 0.25
-  m_stampWidth: 100
-  m_stampHeight: 100
 --- !u!1 &1167863301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,286 +1190,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
---- !u!114 &1599682105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
-  m_resources:
-    m_resourcesID: 38ca01f9-56bc-4490-8fee-0f579098b5ef
-    m_name: NewResources
-    m_beachHeight: 5
-    m_terrainHeight: 1000
-    m_texturePrototypes: []
-    m_detailPrototypes: []
-    m_treePrototypes: []
-    m_gameObjectPrototypes: []
-    m_spawnExtensionPrototypes: []
-    m_stampDistributionPrototypes: []
-    m_worldBiomeMaskPrototypes: []
-    m_probePrototypes: []
-    m_terrainModifierStampPrototypes: []
-  m_x: 0
-  m_y: 50
-  m_z: 0
-  m_width: 10
-  m_height: 10
-  m_rotation: 0
-  m_isWorldmapSpawner: 0
-  m_spawnRange: 500
-  m_generateRandomSeed: 0
-  m_randomSeed: 0
-  m_spawnDensity: 1
-  m_resourcesPath: 
-  m_spawnerRules: []
-  m_showGizmos: 1
-  m_showDebug: 0
-  m_showTerrainHelper: 1
-  m_spawnMode: 0
-  imageMasks: []
-  m_clearSpawnsToggleTrees: 0
-  m_clearSpawnsToggleDetails: 0
-  m_clearSpawnsToggleGOs: 0
-  m_clearSpawnsToggleSpawnExtensions: 0
-  m_clearSpawnsToggleProbes: 0
-  m_clearSpawnsFor: 1
-  m_clearSpawnsFrom: 0
-  m_lastGUIDSaved: 
-  m_stampDensity: 0
-  m_stampJitter: 0.25
-  m_stampWidth: 100
-  m_stampHeight: 100
---- !u!114 &1674162277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
-  m_resources:
-    m_resourcesID: 9ac4e246-cba6-4f55-a34d-c1756703a31f
-    m_name: NewResources
-    m_beachHeight: 5
-    m_terrainHeight: 1000
-    m_texturePrototypes: []
-    m_detailPrototypes: []
-    m_treePrototypes: []
-    m_gameObjectPrototypes: []
-    m_spawnExtensionPrototypes: []
-    m_stampDistributionPrototypes: []
-    m_worldBiomeMaskPrototypes: []
-    m_probePrototypes: []
-    m_terrainModifierStampPrototypes: []
-  m_x: 0
-  m_y: 50
-  m_z: 0
-  m_width: 10
-  m_height: 10
-  m_rotation: 0
-  m_isWorldmapSpawner: 0
-  m_spawnRange: 500
-  m_generateRandomSeed: 0
-  m_randomSeed: 0
-  m_spawnDensity: 1
-  m_resourcesPath: 
-  m_spawnerRules: []
-  m_showGizmos: 1
-  m_showDebug: 0
-  m_showTerrainHelper: 1
-  m_spawnMode: 0
-  imageMasks: []
-  m_clearSpawnsToggleTrees: 0
-  m_clearSpawnsToggleDetails: 0
-  m_clearSpawnsToggleGOs: 0
-  m_clearSpawnsToggleSpawnExtensions: 0
-  m_clearSpawnsToggleProbes: 0
-  m_clearSpawnsFor: 1
-  m_clearSpawnsFrom: 0
-  m_lastGUIDSaved: 
-  m_stampDensity: 0
-  m_stampJitter: 0.25
-  m_stampWidth: 100
-  m_stampHeight: 100
---- !u!114 &1712421671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
-  m_resources:
-    m_resourcesID: 6f969b33-9425-414f-ac08-83c4da273931
-    m_name: NewResources
-    m_beachHeight: 5
-    m_terrainHeight: 1000
-    m_texturePrototypes: []
-    m_detailPrototypes: []
-    m_treePrototypes: []
-    m_gameObjectPrototypes: []
-    m_spawnExtensionPrototypes: []
-    m_stampDistributionPrototypes: []
-    m_worldBiomeMaskPrototypes: []
-    m_probePrototypes: []
-    m_terrainModifierStampPrototypes: []
-  m_x: 0
-  m_y: 50
-  m_z: 0
-  m_width: 10
-  m_height: 10
-  m_rotation: 0
-  m_isWorldmapSpawner: 0
-  m_spawnRange: 500
-  m_generateRandomSeed: 0
-  m_randomSeed: 0
-  m_spawnDensity: 1
-  m_resourcesPath: 
-  m_spawnerRules: []
-  m_showGizmos: 1
-  m_showDebug: 0
-  m_showTerrainHelper: 1
-  m_spawnMode: 0
-  imageMasks: []
-  m_clearSpawnsToggleTrees: 0
-  m_clearSpawnsToggleDetails: 0
-  m_clearSpawnsToggleGOs: 0
-  m_clearSpawnsToggleSpawnExtensions: 0
-  m_clearSpawnsToggleProbes: 0
-  m_clearSpawnsFor: 1
-  m_clearSpawnsFrom: 0
-  m_lastGUIDSaved: 
-  m_stampDensity: 0
-  m_stampJitter: 0.25
-  m_stampWidth: 100
-  m_stampHeight: 100
---- !u!114 &1813441008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
-  m_resources:
-    m_resourcesID: 0d9689cb-a456-43e7-8775-e6f1562dddf3
-    m_name: NewResources
-    m_beachHeight: 5
-    m_terrainHeight: 1000
-    m_texturePrototypes: []
-    m_detailPrototypes: []
-    m_treePrototypes: []
-    m_gameObjectPrototypes: []
-    m_spawnExtensionPrototypes: []
-    m_stampDistributionPrototypes: []
-    m_worldBiomeMaskPrototypes: []
-    m_probePrototypes: []
-    m_terrainModifierStampPrototypes: []
-  m_x: 0
-  m_y: 50
-  m_z: 0
-  m_width: 10
-  m_height: 10
-  m_rotation: 0
-  m_isWorldmapSpawner: 0
-  m_spawnRange: 500
-  m_generateRandomSeed: 0
-  m_randomSeed: 0
-  m_spawnDensity: 1
-  m_resourcesPath: 
-  m_spawnerRules: []
-  m_showGizmos: 1
-  m_showDebug: 0
-  m_showTerrainHelper: 1
-  m_spawnMode: 0
-  imageMasks: []
-  m_clearSpawnsToggleTrees: 0
-  m_clearSpawnsToggleDetails: 0
-  m_clearSpawnsToggleGOs: 0
-  m_clearSpawnsToggleSpawnExtensions: 0
-  m_clearSpawnsToggleProbes: 0
-  m_clearSpawnsFor: 1
-  m_clearSpawnsFrom: 0
-  m_lastGUIDSaved: 
-  m_stampDensity: 0
-  m_stampJitter: 0.25
-  m_stampWidth: 100
-  m_stampHeight: 100
---- !u!114 &1848119969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d61257710f55f478816040e1d1dfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GaiaCore::Gaia.SpawnerSettings
-  m_resources:
-    m_resourcesID: c74903fd-040e-4ff1-a9c0-9b71f9b2495d
-    m_name: NewResources
-    m_beachHeight: 5
-    m_terrainHeight: 1000
-    m_texturePrototypes: []
-    m_detailPrototypes: []
-    m_treePrototypes: []
-    m_gameObjectPrototypes: []
-    m_spawnExtensionPrototypes: []
-    m_stampDistributionPrototypes: []
-    m_worldBiomeMaskPrototypes: []
-    m_probePrototypes: []
-    m_terrainModifierStampPrototypes: []
-  m_x: 0
-  m_y: 50
-  m_z: 0
-  m_width: 10
-  m_height: 10
-  m_rotation: 0
-  m_isWorldmapSpawner: 0
-  m_spawnRange: 500
-  m_generateRandomSeed: 0
-  m_randomSeed: 0
-  m_spawnDensity: 1
-  m_resourcesPath: 
-  m_spawnerRules: []
-  m_showGizmos: 1
-  m_showDebug: 0
-  m_showTerrainHelper: 1
-  m_spawnMode: 0
-  imageMasks: []
-  m_clearSpawnsToggleTrees: 0
-  m_clearSpawnsToggleDetails: 0
-  m_clearSpawnsToggleGOs: 0
-  m_clearSpawnsToggleSpawnExtensions: 0
-  m_clearSpawnsToggleProbes: 0
-  m_clearSpawnsFor: 1
-  m_clearSpawnsFrom: 0
-  m_lastGUIDSaved: 
-  m_stampDensity: 0
-  m_stampJitter: 0.25
-  m_stampWidth: 100
-  m_stampHeight: 100
 --- !u!1001 &1941914887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1919,6 +1247,134 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c41ea139678f10c22a2b7f7b3f3b6c16, type: 3}
+--- !u!1 &2006323763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2006323768}
+  - component: {fileID: 2006323767}
+  - component: {fileID: 2006323766}
+  - component: {fileID: 2006323765}
+  - component: {fileID: 2006323764}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2006323764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006323763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6f4ab03f68788c48af2f956af206b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  interactableName: Sphere
+  itemIcon: {fileID: 0}
+  itemWeight: 10
+  itemHealth: 100
+--- !u!135 &2006323765
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006323763}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &2006323766
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006323763}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 003f45c94730b9f498051fd22ebb0c87, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2006323767
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006323763}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2006323768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006323763}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 244.33, y: 0.641, z: 139.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2101603253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,3 +1465,4 @@ SceneRoots:
   - {fileID: 1167863305}
   - {fileID: 1316366429}
   - {fileID: 732114328}
+  - {fileID: 2006323768}
