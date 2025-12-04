@@ -14,8 +14,6 @@ public class TargetPanel : MonoBehaviour
 
     void Update()
     {
-        
-
         if (focusScript.playerTarget == null)
         {
             targetNameText.text = "No Target";

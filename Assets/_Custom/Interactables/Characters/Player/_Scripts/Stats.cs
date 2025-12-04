@@ -4,8 +4,8 @@ public class Stats : Character
 {
     //references
     public HealthBar healthbar;
-    EXPBar expBar;
-    Equipment equipment;
+    //EXPBar expBar;
+    //Equipment equipment;
     
     //General
     public string characterName;
@@ -51,6 +51,19 @@ public class Stats : Character
     public int sizeModifier;
     public int armorBonus;
     
+    void Awake()
+    {
+        //expBar = GetComponentInChildren<EXPBar>();
+        
+        CalculateAttributesAndStats();
+        currentHitPoints = maxHitpoints;
+    }
+
+    void Update()
+    {
+        CalculateAttributesAndStats();
+    }
+    
     int CalculateLevel(int experience)
     {
         characterLevel = Mathf.FloorToInt((1 + Mathf.Sqrt(experience / 125 + 1)) / 2);
@@ -59,7 +72,7 @@ public class Stats : Character
         return characterLevel;
     }
     
-    public void CalculateAttributesAndStats()
+    void CalculateAttributesAndStats()
     {
         characterLevel = CalculateLevel(experience);
 
@@ -90,14 +103,14 @@ public class Stats : Character
             healthbar.SetHealth(currentHitPoints);
         }
 
-        if (expBar != null)
-        {
-            expBar.SetEXP(percentage);
-        }
+        //if (expBar != null)
+       // {
+       //     expBar.SetEXP(percentage);
+       // }
 
         sizeModifier = characterRace.sizeAcBonus;
 
-        int armorBonus = equipment.ArmorAC + characterRace.naturalAcBonus;
+        //int armorBonus = equipment.ArmorAC + characterRace.naturalAcBonus;
         armorClass = 10 + armorBonus + dexterityModifier + sizeModifier;
     }
     
