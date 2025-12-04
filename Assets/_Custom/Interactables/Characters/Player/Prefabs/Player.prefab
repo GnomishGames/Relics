@@ -286,7 +286,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124390115311311842}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ec66c2893399208a868e389e3266814, type: 3}
   m_Name: 
@@ -8513,7 +8513,6 @@ GameObject:
   - component: {fileID: 3381596616461225196}
   - component: {fileID: 2485279128725273925}
   - component: {fileID: 8336426116971998996}
-  - component: {fileID: 6895790647837654313}
   - component: {fileID: 9038100543017965368}
   m_Layer: 5
   m_Name: StatsPanel
@@ -8581,20 +8580,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6895790647837654313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4707760035665184092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4d499c13b50820c2b24d6bbaa204eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TargetPanel
-  targetNameText: {fileID: 4094665267669179715}
-  focusScript: {fileID: -8416364110541351380}
 --- !u!114 &9038100543017965368
 MonoBehaviour:
   m_ObjectHideFlags: 0
