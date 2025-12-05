@@ -7,7 +7,8 @@ public class Item : Interactable
     // Item properties
     public Sprite itemIcon;
     public float itemWeight;
-    public int itemHealth;
+    public ItemSO item;
+    //public int itemHealth;
 
     public override void Interact()
     {

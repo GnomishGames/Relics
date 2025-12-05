@@ -7,12 +7,13 @@ public class Interactable : MonoBehaviour
     //Base class for all interactable objects in the game
     public string interactableName;
     bool isFocus = false;
+    Transform playerTransform;
 
     void Update()
     {
         if (isFocus)
         {
-            Debug.Log("Interacting with " + transform.name);
+            //Debug.Log("Interacting with " + transform.name);
         }
     }
 
@@ -24,5 +25,10 @@ public class Interactable : MonoBehaviour
     public virtual void Interact()
     {
         Debug.Log("Base Interact method called on " + transform.name);
+    }
+
+    public void onDeFocus()
+    {
+        playerTransform = null;
     }
 }

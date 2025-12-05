@@ -9,10 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e5e357a5c9356c1a17ef60c4c731f2, type: 3}
-  m_Name: Stick
-  m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemName: Stick
+  m_Script: {fileID: 11500000, guid: 88a57b67dcf9ef6ccb31c2ec01629c2a, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSO
+  itemName: Sword
   itemIcon: {fileID: 0}
   itemWeight: 1
-  itemHealth: 100
+  itemHealth: 1
+  ArmorBonus: 1
+  VisualsName1: 
+  VisualsName2: 
+  VisualsName3: 
+  Damage: 1
+  Range: 1

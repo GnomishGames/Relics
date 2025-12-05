@@ -1259,7 +1259,7 @@ GameObject:
   - component: {fileID: 2006323767}
   - component: {fileID: 2006323766}
   - component: {fileID: 2006323765}
-  - component: {fileID: 2006323764}
+  - component: {fileID: 2006323769}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1267,22 +1267,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2006323764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006323763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6f4ab03f68788c48af2f956af206b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Item
-  interactableName: Sphere
-  itemIcon: {fileID: 0}
-  itemWeight: 10
-  itemHealth: 100
 --- !u!135 &2006323765
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1375,6 +1359,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2006323769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006323763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6f4ab03f68788c48af2f956af206b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  interactableName: 
+  itemIcon: {fileID: 0}
+  itemWeight: 0
+  itemSO: {fileID: 11400000, guid: ab08f324f47f28151a27da740ac8bc53, type: 2}
 --- !u!1 &2101603253
 GameObject:
   m_ObjectHideFlags: 0
