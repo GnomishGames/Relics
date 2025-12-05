@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: Assembly-CSharp::WeaponSO
   itemName: Sword
-  sprite: {fileID: 21300000, guid: 075b00eda10b04d4399c1331487f385c, type: 3}
+  sprite: {fileID: 21300000, guid: 20c8731ec8bfc1f4399be346e4084439, type: 3}
   itemWeight: 1
   itemHealth: 1
   slotType: 0

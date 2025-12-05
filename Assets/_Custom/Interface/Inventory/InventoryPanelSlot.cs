@@ -7,6 +7,7 @@ public class InventoryPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
     private RectTransform rectTransform;
     [SerializeField] private Canvas canvas;
     private CanvasGroup canvasGroup;
+    public Sprite emptyIcon;
 
     //player reference
     public Transform player;
@@ -42,8 +43,8 @@ public class InventoryPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
         }
         if (inventory.inventoryItem[slotNumber] == null)
         {
-            GetComponent<Image>().sprite = null;
-            GetComponent<Image>().color = new Color(255, 255, 255, 0);
+            GetComponent<Image>().sprite = emptyIcon;
+            GetComponent<Image>().color = new Color(255, 255, 255, .5f);
         }
     }
 

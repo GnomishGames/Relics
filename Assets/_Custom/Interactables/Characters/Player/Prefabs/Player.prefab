@@ -1087,6 +1087,7 @@ GameObject:
   - component: {fileID: 4293023000948447045}
   - component: {fileID: 1787522836348829343}
   - component: {fileID: 3189235444466707791}
+  - component: {fileID: 5475382351898301757}
   m_Layer: 5
   m_Name: Slot (1)
   m_TagString: Untagged
@@ -1165,11 +1166,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
-  inventoryPanel: {fileID: 4293161882332825151}
+  inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 0}
   containerPanel: {fileID: 0}
   slotNumber: 1
+--- !u!225 &5475382351898301757
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741985344250934359}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &809511997836606948
 GameObject:
   m_ObjectHideFlags: 0
@@ -3231,6 +3245,7 @@ GameObject:
   - component: {fileID: 5776982387964976668}
   - component: {fileID: 454775955337495381}
   - component: {fileID: 7626103025862314132}
+  - component: {fileID: 7314053755534904630}
   m_Layer: 5
   m_Name: Slot (3)
   m_TagString: Untagged
@@ -3309,11 +3324,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
-  inventoryPanel: {fileID: 4293161882332825151}
+  inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 0}
   containerPanel: {fileID: 0}
   slotNumber: 3
+--- !u!225 &7314053755534904630
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306053580315847372}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2312610638431669332
 GameObject:
   m_ObjectHideFlags: 0
@@ -4988,6 +5016,7 @@ GameObject:
   - component: {fileID: 3340865448741256535}
   - component: {fileID: 8336754701608887406}
   - component: {fileID: 8031646979862220643}
+  - component: {fileID: 3439683260553602474}
   m_Layer: 5
   m_Name: Slot (6)
   m_TagString: Untagged
@@ -5066,11 +5095,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
-  inventoryPanel: {fileID: 4293161882332825151}
+  inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 0}
   containerPanel: {fileID: 0}
   slotNumber: 6
+--- !u!225 &3439683260553602474
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3735336012658664395}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3822626398668838350
 GameObject:
   m_ObjectHideFlags: 0
@@ -5082,7 +5124,6 @@ GameObject:
   - component: {fileID: 4325036802449666948}
   - component: {fileID: 6507542798980993168}
   - component: {fileID: 7857871838370399803}
-  - component: {fileID: 4293161882332825151}
   m_Layer: 5
   m_Name: InventoryPanel
   m_TagString: Untagged
@@ -5150,20 +5191,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4293161882332825151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3822626398668838350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7470ef996979fd56ca439f45133a8174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryPanel
-  fromSlot: 0
-  fromPanel: 
 --- !u!1 &4000129225675024162
 GameObject:
   m_ObjectHideFlags: 0
@@ -8570,6 +8597,7 @@ GameObject:
   - component: {fileID: 387242043024441841}
   - component: {fileID: 7430678327239788610}
   - component: {fileID: 2278134487421666420}
+  - component: {fileID: 6625967641447324408}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -8618,14 +8646,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8648,11 +8676,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
-  inventoryPanel: {fileID: 4293161882332825151}
+  inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 0}
   containerPanel: {fileID: 0}
   slotNumber: 0
+--- !u!225 &6625967641447324408
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4734568590637303908}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4860729350979400047
 GameObject:
   m_ObjectHideFlags: 0
@@ -9519,6 +9560,7 @@ GameObject:
   - component: {fileID: 4110816326500868295}
   - component: {fileID: 2846814752750887330}
   - component: {fileID: 7075808390530954596}
+  - component: {fileID: 6184002415917669113}
   m_Layer: 5
   m_Name: Slot (5)
   m_TagString: Untagged
@@ -9597,11 +9639,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
-  inventoryPanel: {fileID: 4293161882332825151}
+  inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 0}
   containerPanel: {fileID: 0}
   slotNumber: 5
+--- !u!225 &6184002415917669113
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5377252574972037082}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5458889580459092306
 GameObject:
   m_ObjectHideFlags: 0
@@ -10063,6 +10118,7 @@ GameObject:
   - component: {fileID: 4863531738903465078}
   - component: {fileID: 1824858047710384793}
   - component: {fileID: 7305015467590262395}
+  - component: {fileID: 7483484311140837779}
   m_Layer: 5
   m_Name: Slot (4)
   m_TagString: Untagged
@@ -10141,11 +10197,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
-  inventoryPanel: {fileID: 4293161882332825151}
+  inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 0}
   containerPanel: {fileID: 0}
   slotNumber: 4
+--- !u!225 &7483484311140837779
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665107874003256091}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5761927398615301435
 GameObject:
   m_ObjectHideFlags: 0
@@ -11758,8 +11827,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2504819740000324221}
   - component: {fileID: 5875633989110651442}
+  - component: {fileID: 2781496489974753276}
   m_Layer: 5
-  m_Name: Layout
+  m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11789,8 +11859,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 366.0643, y: 311.5057}
+  m_AnchoredPosition: {x: 156.1, y: -22.7}
+  m_SizeDelta: {x: 110.5355, y: 222.5036}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5875633989110651442
 MonoBehaviour:
@@ -11816,6 +11886,20 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &2781496489974753276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6849392697794120752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7470ef996979fd56ca439f45133a8174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryPanel
+  fromSlot: 0
+  fromPanel: 
 --- !u!1 &6911223828096611958
 GameObject:
   m_ObjectHideFlags: 0
@@ -11948,6 +12032,7 @@ GameObject:
   - component: {fileID: 6071638875002075393}
   - component: {fileID: 1328309564567940985}
   - component: {fileID: 2416385380520880114}
+  - component: {fileID: 9220541532475894415}
   m_Layer: 5
   m_Name: Slot (2)
   m_TagString: Untagged
@@ -12026,11 +12111,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
-  inventoryPanel: {fileID: 4293161882332825151}
+  inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 0}
   containerPanel: {fileID: 0}
   slotNumber: 2
+--- !u!225 &9220541532475894415
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6999107010182957563}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7099043831446497865
 GameObject:
   m_ObjectHideFlags: 0
@@ -14219,6 +14317,7 @@ GameObject:
   - component: {fileID: 4033623983192818560}
   - component: {fileID: 631377362074135595}
   - component: {fileID: 8954308158907343775}
+  - component: {fileID: 8429530766258417483}
   m_Layer: 5
   m_Name: Slot (7)
   m_TagString: Untagged
@@ -14297,11 +14396,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
-  inventoryPanel: {fileID: 4293161882332825151}
+  inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 0}
   containerPanel: {fileID: 0}
   slotNumber: 7
+--- !u!225 &8429530766258417483
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106412162824894587}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &9157602828744186788
 GameObject:
   m_ObjectHideFlags: 0
