@@ -1371,10 +1371,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6f4ab03f68788c48af2f956af206b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  interactableName: 
-  itemIcon: {fileID: 0}
+  interactableName: Sphere
+  itemIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   itemWeight: 0
-  itemSO: {fileID: 11400000, guid: ab08f324f47f28151a27da740ac8bc53, type: 2}
+  item: {fileID: 11400000, guid: ab08f324f47f28151a27da740ac8bc53, type: 2}
 --- !u!1 &2101603253
 GameObject:
   m_ObjectHideFlags: 0
