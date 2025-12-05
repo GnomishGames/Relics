@@ -1085,7 +1085,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8557548532995717219}
   - component: {fileID: 7607122391408340059}
-  - component: {fileID: 6690234005376338809}
   - component: {fileID: 8674317284999306250}
   m_Layer: 5
   m_Name: Right
@@ -1127,36 +1126,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683766974815245041}
   m_CullTransparentMesh: 1
---- !u!114 &6690234005376338809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683766974815245041}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &8674317284999306250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1276,8 +1245,9 @@ MonoBehaviour:
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
+  inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
-  equipmentPanel: {fileID: 0}
+  equipmentPanel: {fileID: 5568772140819163929}
   containerPanel: {fileID: 0}
   slotNumber: 1
 --- !u!225 &5475382351898301757
@@ -1504,14 +1474,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ee71e85eb53f88b428deb24d87246a10, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1546,6 +1516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: ee71e85eb53f88b428deb24d87246a10, type: 3}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -1736,14 +1707,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84de0e53e4ebf0e42be94394945ba295, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1778,6 +1749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 84de0e53e4ebf0e42be94394945ba295, type: 3}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -3389,14 +3361,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 10cbdb2dd7deae14cb4899a2bb452517, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3431,6 +3403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 10cbdb2dd7deae14cb4899a2bb452517, type: 3}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -3911,8 +3884,9 @@ MonoBehaviour:
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
+  inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
-  equipmentPanel: {fileID: 0}
+  equipmentPanel: {fileID: 5568772140819163929}
   containerPanel: {fileID: 0}
   slotNumber: 3
 --- !u!225 &7314053755534904630
@@ -4111,7 +4085,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.4052, y: 0}
+  m_AnchoredPosition: {x: 3.4051971, y: 0}
   m_SizeDelta: {x: -122.82, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5986987931014189604
@@ -4213,14 +4187,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ffeb3220ce3bf8a4ba5a4054f5af50fb, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4255,6 +4229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: ffeb3220ce3bf8a4ba5a4054f5af50fb, type: 3}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -4533,14 +4508,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d9543e2123017e04495ca91b00accb3c, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4575,6 +4550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: d9543e2123017e04495ca91b00accb3c, type: 3}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -4792,14 +4768,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 06eb647fe5f664c4ab94269f973adbbc, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4834,6 +4810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 06eb647fe5f664c4ab94269f973adbbc, type: 3}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -6352,14 +6329,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 75b406d89fdc92846a9b9ab3b00136fe, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6394,6 +6371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 75b406d89fdc92846a9b9ab3b00136fe, type: 3}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -6493,8 +6471,9 @@ MonoBehaviour:
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
+  inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
-  equipmentPanel: {fileID: 0}
+  equipmentPanel: {fileID: 5568772140819163929}
   containerPanel: {fileID: 0}
   slotNumber: 9
 --- !u!225 &3851477769595350805
@@ -6602,8 +6581,9 @@ MonoBehaviour:
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
+  inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
-  equipmentPanel: {fileID: 0}
+  equipmentPanel: {fileID: 5568772140819163929}
   containerPanel: {fileID: 0}
   slotNumber: 6
 --- !u!225 &3439683260553602474
@@ -10484,8 +10464,9 @@ MonoBehaviour:
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
+  inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
-  equipmentPanel: {fileID: 0}
+  equipmentPanel: {fileID: 5568772140819163929}
   containerPanel: {fileID: 0}
   slotNumber: 0
 --- !u!225 &6625967641447324408
@@ -11522,8 +11503,9 @@ MonoBehaviour:
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
+  inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
-  equipmentPanel: {fileID: 0}
+  equipmentPanel: {fileID: 5568772140819163929}
   containerPanel: {fileID: 0}
   slotNumber: 5
 --- !u!225 &6184002415917669113
@@ -11727,6 +11709,7 @@ GameObject:
   - component: {fileID: 7253188170260263747}
   - component: {fileID: 2222051926120663867}
   - component: {fileID: 3464447429195375397}
+  - component: {fileID: 3507841131774482172}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -11906,6 +11889,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!143 &7253188170260263747
 CharacterController:
   m_ObjectHideFlags: 0
@@ -11987,6 +11972,35 @@ MonoBehaviour:
   _ownerAuth: 1
   _autoSyncParameters: 1
   _dontSyncParameters: []
+--- !u!114 &3507841131774482172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584339292830879391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967661ee504063ef8a9be1761a117098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Equipment
+  armorSOs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  weaponSOs:
+  - {fileID: 0}
+  - {fileID: 0}
+  ArmorAC: 0
 --- !u!1 &5665107874003256091
 GameObject:
   m_ObjectHideFlags: 0
@@ -12080,8 +12094,9 @@ MonoBehaviour:
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
+  inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
-  equipmentPanel: {fileID: 0}
+  equipmentPanel: {fileID: 5568772140819163929}
   containerPanel: {fileID: 0}
   slotNumber: 4
 --- !u!225 &7483484311140837779
@@ -12106,7 +12121,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6291121829115314827}
   - component: {fileID: 7597151520998894118}
-  - component: {fileID: 3672497125495002082}
   - component: {fileID: 5248852577722024885}
   m_Layer: 5
   m_Name: Left
@@ -12148,36 +12162,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5691446441139623248}
   m_CullTransparentMesh: 1
---- !u!114 &3672497125495002082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5691446441139623248}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &5248852577722024885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13227,8 +13211,9 @@ MonoBehaviour:
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
+  inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
-  equipmentPanel: {fileID: 0}
+  equipmentPanel: {fileID: 5568772140819163929}
   containerPanel: {fileID: 0}
   slotNumber: 8
 --- !u!225 &4709336729094533252
@@ -13661,14 +13646,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ff8444197b8825b4e94c3ffc4c98f31a, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -13703,6 +13688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: ff8444197b8825b4e94c3ffc4c98f31a, type: 3}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -13770,14 +13756,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f53258d70b1ea4746b7efee9f14dad21, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -13812,6 +13798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: f53258d70b1ea4746b7efee9f14dad21, type: 3}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -14506,8 +14493,9 @@ MonoBehaviour:
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
+  inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
-  equipmentPanel: {fileID: 0}
+  equipmentPanel: {fileID: 5568772140819163929}
   containerPanel: {fileID: 0}
   slotNumber: 2
 --- !u!225 &9220541532475894415
@@ -15351,14 +15339,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f8a54a8c47e8af744bdb702d2bba08cd, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -15393,6 +15381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: f8a54a8c47e8af744bdb702d2bba08cd, type: 3}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -16110,14 +16099,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 233a77205485c7041b356d6db13d4ee4, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -16152,6 +16141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 233a77205485c7041b356d6db13d4ee4, type: 3}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -16219,14 +16209,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f00f656f7f6b754a9bb1521a667a6fb, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -16261,6 +16251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
+  emptyIcon: {fileID: 21300000, guid: 1f00f656f7f6b754a9bb1521a667a6fb, type: 3}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -17255,8 +17246,9 @@ MonoBehaviour:
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
   player: {fileID: 1877399389646004039}
+  inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
-  equipmentPanel: {fileID: 0}
+  equipmentPanel: {fileID: 5568772140819163929}
   containerPanel: {fileID: 0}
   slotNumber: 7
 --- !u!225 &8429530766258417483

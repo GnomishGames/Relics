@@ -13,7 +13,7 @@ public class InventoryPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
     public Transform player;
 
     //array references
-    Inventory inventory;
+    public Inventory inventory;
 
     //panel references
     public InventoryPanel inventoryPanel;
