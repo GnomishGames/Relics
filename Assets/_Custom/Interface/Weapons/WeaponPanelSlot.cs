@@ -49,7 +49,7 @@ public class WeaponsPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragHa
         if (equipment.weaponSOs[slotNumber] == null)
         {
             GetComponent<Image>().sprite = null;
-            GetComponent<Image>().color = new Color(255, 255, 255, 1);
+            GetComponent<Image>().color = new Color(255, 255, 255, 0);
         }
     }
 
