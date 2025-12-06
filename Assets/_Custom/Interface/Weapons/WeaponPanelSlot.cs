@@ -7,7 +7,6 @@ public class WeaponsPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     private RectTransform rectTransform;
     [SerializeField] private Canvas canvas;
     private CanvasGroup canvasGroup;
-    public Sprite emptyIcon;
     private Vector2 originalAnchoredPosition;
 
     //player reference
@@ -49,7 +48,7 @@ public class WeaponsPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragHa
         }
         if (equipment.weaponSOs[slotNumber] == null)
         {
-            GetComponent<Image>().sprite = emptyIcon;
+            GetComponent<Image>().sprite = null;
             GetComponent<Image>().color = new Color(255, 255, 255, 1);
         }
     }
