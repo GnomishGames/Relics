@@ -1244,6 +1244,50 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &558378163047831277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6079008795125459618}
+  - component: {fileID: 8224718874838042858}
+  m_Layer: 5
+  m_Name: DragLayer
+  m_TagString: DragLayer
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6079008795125459618
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558378163047831277}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4673164215010698473}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8224718874838042858
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558378163047831277}
+  m_CullTransparentMesh: 1
 --- !u!1 &681494861508544430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,6 +1602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
@@ -1761,10 +1806,10 @@ RectTransform:
   - {fileID: 9031649396708310013}
   m_Father: {fileID: 2504819740000324221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: -50}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6979795962008783439
 CanvasRenderer:
@@ -1951,6 +1996,7 @@ RectTransform:
   - {fileID: 2916119231594143722}
   - {fileID: 4325036802449666948}
   - {fileID: 7973442312677845979}
+  - {fileID: 6079008795125459618}
   m_Father: {fileID: 1877399389646004039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2189,10 +2235,10 @@ RectTransform:
   - {fileID: 591718207701534221}
   m_Father: {fileID: 2504819740000324221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: -50}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2759692627100583609
 CanvasRenderer:
@@ -3795,10 +3841,10 @@ RectTransform:
   - {fileID: 7405888890623056524}
   m_Father: {fileID: 2504819740000324221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 49.99997}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7424327034597599393
 CanvasRenderer:
@@ -4164,6 +4210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
@@ -4291,10 +4338,10 @@ RectTransform:
   - {fileID: 5646320970412600799}
   m_Father: {fileID: 2504819740000324221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: 99.99997}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &759723739496884870
 CanvasRenderer:
@@ -5801,10 +5848,10 @@ RectTransform:
   - {fileID: 2503085140465812331}
   m_Father: {fileID: 2504819740000324221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.732178, y: 100.224945}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7619118235289418989
 CanvasRenderer:
@@ -7158,6 +7205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
@@ -7266,6 +7314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
@@ -7398,10 +7447,10 @@ RectTransform:
   - {fileID: 1337526442509268183}
   m_Father: {fileID: 2504819740000324221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: -100}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8343929253353807124
 CanvasRenderer:
@@ -10390,10 +10439,10 @@ RectTransform:
   - {fileID: 1059643363966738618}
   m_Father: {fileID: 2504819740000324221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7512290126755834948
 CanvasRenderer:
@@ -11417,6 +11466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  dragLayer: {fileID: 6079008795125459618}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
@@ -12745,6 +12795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
@@ -13409,6 +13460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
@@ -13537,10 +13589,10 @@ RectTransform:
   - {fileID: 790704092158720945}
   m_Father: {fileID: 2504819740000324221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: -100}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3196054349542506735
 CanvasRenderer:
@@ -14825,6 +14877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
@@ -15089,10 +15142,10 @@ RectTransform:
   - {fileID: 3509794450707751093}
   m_Father: {fileID: 2504819740000324221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4234104008558555850
 CanvasRenderer:
@@ -15983,7 +16036,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6849392697794120752}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
   m_Name: 
@@ -16299,6 +16352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
@@ -17605,10 +17659,10 @@ RectTransform:
   - {fileID: 2250581728579199813}
   m_Father: {fileID: 2504819740000324221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: 49.99997}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4165233756016050611
 CanvasRenderer:
@@ -19498,6 +19552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
