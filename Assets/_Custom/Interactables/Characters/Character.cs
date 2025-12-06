@@ -10,10 +10,10 @@ public class Character : Interactable
     public bool dead;
     public int xpToGive;
 
-        //references
+    //references
     public HealthBar healthbar;
     public EXPBar expBar;
-    //Equipment equipment;
+    public InventoryStats inventoryStats;
     
     //General
     public Sprite icon;
@@ -71,6 +71,7 @@ public class Character : Interactable
         CalculateAttributesAndStats();
         UpdateHealthBar();
         UpdateExpBar();
+        UpdateInventoryStats();
     }
     
     int CalculateLevel(int experience)
@@ -130,6 +131,7 @@ public class Character : Interactable
         {
             healthbar.SetMaxHealth(maxHitpoints);
             healthbar.SetHealth(currentHitPoints);
+            healthbar.SetName(interactableName);
         }
     }
 
@@ -139,5 +141,16 @@ public class Character : Interactable
         {
             expBar.SetEXP(percentage);
         }
+    }
+
+    void UpdateInventoryStats()
+    {
+        //update the stats shown in the inventory
+        if (inventoryStats != null)
+        {
+            inventoryStats.SetName(interactableName);
+            inventoryStats.UpdateStats(this);
+        }
+
     }
 }
