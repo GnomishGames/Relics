@@ -9,17 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88a57b67dcf9ef6ccb31c2ec01629c2a, type: 3}
-  m_Name: Sword
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponSO
-  itemName: Sword
-  sprite: {fileID: 21300000, guid: 20c8731ec8bfc1f4399be346e4084439, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f08877eb187a390b82f1b45f272f69f, type: 3}
+  m_Name: Hat
+  m_EditorClassIdentifier: Assembly-CSharp::ArmorSO
+  itemName: Hat
+  sprite: {fileID: 21300000, guid: 3d3d71227fdd6194bba61f510cadae5c, type: 3}
   itemWeight: 1
   itemHealth: 1
-  slotType: 9
+  slotType: 0
   ArmorBonus: 1
   VisualsName1: 
   VisualsName2: 
   VisualsName3: 
-  Damage: 1
-  Range: 1

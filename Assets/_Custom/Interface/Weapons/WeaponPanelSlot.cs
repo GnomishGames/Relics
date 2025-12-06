@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class EquipmentPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+public class WeaponsPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
     private RectTransform rectTransform;
     [SerializeField] private Canvas canvas;
@@ -15,10 +15,9 @@ public class EquipmentPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
     //panels
     public InventoryPanel inventoryPanel;
     public EquipmentPanel equipmentPanel;
-    public ContainerPanel containerPanel;
 
     //class references
-    //Inventory inventory;
+    Inventory inventory;
     Equipment equipment;
 
     public int slotNumber; //manually set on the interface
@@ -27,7 +26,7 @@ public class EquipmentPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
     private void Awake()
     {
         //set arrays
-        //inventory = player.GetComponent<Inventory>();
+        inventory = player.GetComponent<Inventory>();
         equipment = player.GetComponent<Equipment>();
 
         //set ui elements
@@ -42,15 +41,15 @@ public class EquipmentPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
 
     private void UpdateSlotIcons()
     {
-        if (equipment.armorSOs[slotNumber] != null)
+        if (equipment.weaponSOs[slotNumber] != null)
         {
-            GetComponent<Image>().sprite = equipment.armorSOs[slotNumber].sprite;
+            GetComponent<Image>().sprite = equipment.weaponSOs[slotNumber].sprite;
             GetComponent<Image>().color = new Color(255, 255, 255, 1);
         }
-        if (equipment.armorSOs[slotNumber] == null)
+        if (equipment.weaponSOs[slotNumber] == null)
         {
             GetComponent<Image>().sprite = emptyIcon;
-            GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+            GetComponent<Image>().color = new Color(255, 255, 255, 1);
         }
     }
 
@@ -71,19 +70,17 @@ public class EquipmentPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
         {
             if (inventoryPanel.fromPanel == "Inventory")
             {
-                equipment.EquipArmor(inventoryPanel.fromSlot, slotNumber, slotType);
+                equipment.EquipWeapon(inventoryPanel.fromSlot, slotNumber, slotType);
             }
 
-            if (equipmentPanel.fromPanel == "Armor")
+            if (equipmentPanel.fromPanel == "Weapon")
             {
-                equipment.MoveArmor(equipmentPanel.fromSlot, slotNumber, slotType);
+                equipment.MoveWeapon(equipmentPanel.fromSlot, slotNumber, slotType);
             }
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
         }
         inventoryPanel.fromPanel = null;
         equipmentPanel.fromPanel = null;
-
-        //player.GetComponent<PlayerScript>().Save();
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -96,6 +93,8 @@ public class EquipmentPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
     public void OnPointerDown(PointerEventData eventData)
     {
         equipmentPanel.fromSlot = slotNumber;
-        equipmentPanel.fromPanel = "Armor";
+        equipmentPanel.fromPanel = "Weapon";
     }
+
+    
 }

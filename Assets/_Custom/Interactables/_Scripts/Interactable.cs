@@ -7,7 +7,7 @@ public class Interactable : MonoBehaviour
     //Base class for all interactable objects in the game
     public string interactableName;
     bool isFocus = false;
-    Transform playerTransform;
+    //Transform playerTransform;
 
     void Update()
     {
@@ -29,6 +29,6 @@ public class Interactable : MonoBehaviour
 
     public void onDeFocus()
     {
-        playerTransform = null;
+        //playerTransform = null;
     }
 }

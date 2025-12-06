@@ -8,6 +8,7 @@ public class InventoryPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
     [SerializeField] private Canvas canvas;
     private CanvasGroup canvasGroup;
     public Sprite emptyIcon;
+    private Vector2 originalAnchoredPosition;
 
     //player reference
     public Transform player;
@@ -58,13 +59,16 @@ public class InventoryPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
     {
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = .6f;
+        // remember the original anchored position so we can restore if the drag is cancelled
+        originalAnchoredPosition = rectTransform.anchoredPosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
-        eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+        // restore this slot's rect position (in case the drag was not dropped on another slot)
+        rectTransform.anchoredPosition = originalAnchoredPosition;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -92,7 +96,12 @@ public class InventoryPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
             {
                 inventory.LootItem(slotNumber, containerPanel.fromSlot);
             }
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+            // snap the dragged item's RectTransform to this slot's anchored position
+            var draggedRect = eventData.pointerDrag.GetComponent<RectTransform>();
+            if (draggedRect != null)
+            {
+                draggedRect.anchoredPosition = rectTransform.anchoredPosition;
+            }
         }
         inventoryPanel.fromPanel = null;
         equipmentPanel.fromPanel = null;
