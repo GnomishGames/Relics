@@ -45,7 +45,7 @@ public class InventoryPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
         if (inventory.inventoryItem[slotNumber] == null)
         {
             GetComponent<Image>().sprite = emptyIcon;
-            GetComponent<Image>().color = new Color(255, 255, 255, .5f);
+            GetComponent<Image>().color = new Color(255, 255, 255, 0);
         }
     }
 

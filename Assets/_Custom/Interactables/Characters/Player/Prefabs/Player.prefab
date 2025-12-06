@@ -30,8 +30,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 995031278139828048}
-  - {fileID: 6175569440039156575}
+  - {fileID: 4162315385177767815}
+  - {fileID: 7725551869767638146}
   m_Father: {fileID: 4325036802449666948}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1166,17 +1166,17 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2314428763341302114}
-  - {fileID: 7582347389409465245}
-  - {fileID: 5351418253469008084}
-  - {fileID: 3387856936307907427}
-  - {fileID: 9143062912636751776}
+  - {fileID: 4525947523704899295}
+  - {fileID: 4601055042636074810}
+  - {fileID: 7162046129082141872}
+  - {fileID: 201150111099582380}
+  - {fileID: 57254779229877624}
   m_Father: {fileID: 5165274344759800759}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 107.27545, y: 31.74}
-  m_SizeDelta: {x: -214.5509, y: -63.479}
+  m_AnchoredPosition: {x: 107.27545, y: 13.607002}
+  m_SizeDelta: {x: -214.5509, y: -27.213}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7607122391408340059
 CanvasRenderer:
@@ -1203,7 +1203,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -1302,12 +1302,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
-  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 4673164215010698473}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
-  containerPanel: {fileID: 0}
   slotNumber: 1
 --- !u!225 &5475382351898301757
 CanvasGroup:
@@ -1504,12 +1504,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 57254779229877624}
-  m_Father: {fileID: 8557548532995717219}
+  m_Children: []
+  m_Father: {fileID: 57254779229877624}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1577,6 +1576,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: ee71e85eb53f88b428deb24d87246a10, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -3207,12 +3208,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5293296269342790119}
-  m_Father: {fileID: 6291121829115314827}
+  m_Children: []
+  m_Father: {fileID: 5293296269342790119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3280,6 +3280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 10cbdb2dd7deae14cb4899a2bb452517, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -3446,7 +3448,7 @@ GameObject:
   - component: {fileID: 1378209129640131210}
   - component: {fileID: 6625155104146336007}
   m_Layer: 5
-  m_Name: SlotBG
+  m_Name: Slot0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3463,11 +3465,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5920954229739698219}
+  m_Children:
+  - {fileID: 5920954229739698219}
+  m_Father: {fileID: 6291121829115314827}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3758,12 +3761,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
-  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 4673164215010698473}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
-  containerPanel: {fileID: 0}
   slotNumber: 3
 --- !u!225 &7314053755534904630
 CanvasGroup:
@@ -3962,7 +3965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.4051971, y: 0}
+  m_AnchoredPosition: {x: -0.000015258789, y: 0.00048828125}
   m_SizeDelta: {x: -122.82, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5986987931014189604
@@ -4034,12 +4037,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6163982506340619036}
-  m_Father: {fileID: 6291121829115314827}
+  m_Children: []
+  m_Father: {fileID: 6163982506340619036}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4107,6 +4109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: ffeb3220ce3bf8a4ba5a4054f5af50fb, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -4355,12 +4359,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4601055042636074810}
-  m_Father: {fileID: 8557548532995717219}
+  m_Children: []
+  m_Father: {fileID: 4601055042636074810}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4428,6 +4431,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: d9543e2123017e04495ca91b00accb3c, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -4540,12 +4545,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7162046129082141872}
-  m_Father: {fileID: 8557548532995717219}
+  m_Children: []
+  m_Father: {fileID: 7162046129082141872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4613,6 +4617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 06eb647fe5f664c4ab94269f973adbbc, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -5152,7 +5158,7 @@ GameObject:
   - component: {fileID: 6511552019126212165}
   - component: {fileID: 675003094499189750}
   m_Layer: 5
-  m_Name: SlotBG
+  m_Name: Slot5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5169,11 +5175,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2314428763341302114}
+  m_Children:
+  - {fileID: 2314428763341302114}
+  m_Father: {fileID: 8557548532995717219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5575,7 +5582,7 @@ GameObject:
   - component: {fileID: 1055035102228543921}
   - component: {fileID: 7927646847851260257}
   m_Layer: 5
-  m_Name: SlotBG
+  m_Name: Slot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5592,11 +5599,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6468921688438012545}
+  m_Children:
+  - {fileID: 6468921688438012545}
+  m_Father: {fileID: 6291121829115314827}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5872,7 +5880,7 @@ GameObject:
   - component: {fileID: 607842499741407729}
   - component: {fileID: 3692715528462240176}
   m_Layer: 5
-  m_Name: SlotBG
+  m_Name: Slot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5889,11 +5897,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9166294962285856294}
+  m_Children:
+  - {fileID: 9166294962285856294}
+  m_Father: {fileID: 6291121829115314827}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5966,13 +5975,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7725551869767638146}
-  m_Father: {fileID: 7271724877877779829}
+  m_Children: []
+  m_Father: {fileID: 7725551869767638146}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 242.55, y: 34.97}
+  m_AnchoredPosition: {x: 25.000076, y: 25}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7503781908913056556
@@ -6039,6 +6047,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponsPanelSlot
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 84de0e53e4ebf0e42be94394945ba295, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -6211,12 +6221,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 201150111099582380}
-  m_Father: {fileID: 8557548532995717219}
+  m_Children: []
+  m_Father: {fileID: 201150111099582380}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6284,6 +6293,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 75b406d89fdc92846a9b9ab3b00136fe, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -6380,12 +6391,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
-  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 4673164215010698473}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
-  containerPanel: {fileID: 0}
   slotNumber: 9
 --- !u!225 &3851477769595350805
 CanvasGroup:
@@ -6489,12 +6500,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
-  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 4673164215010698473}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
-  containerPanel: {fileID: 0}
   slotNumber: 6
 --- !u!225 &3439683260553602474
 CanvasGroup:
@@ -9514,7 +9525,7 @@ GameObject:
   - component: {fileID: 4803384177922861127}
   - component: {fileID: 812959246664242034}
   m_Layer: 5
-  m_Name: SlotBG
+  m_Name: Slot8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9531,11 +9542,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3387856936307907427}
+  m_Children:
+  - {fileID: 3387856936307907427}
+  m_Father: {fileID: 8557548532995717219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9665,7 +9677,7 @@ GameObject:
   - component: {fileID: 6281985381910078120}
   - component: {fileID: 4213529856437781013}
   m_Layer: 5
-  m_Name: SlotBG
+  m_Name: Slot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9682,12 +9694,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6175569440039156575}
+  m_Children:
+  - {fileID: 6175569440039156575}
+  m_Father: {fileID: 7271724877877779829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 106.27344, y: 2.485199}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6281985381910078120
@@ -10090,13 +10103,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4162315385177767815}
-  m_Father: {fileID: 7271724877877779829}
+  m_Children: []
+  m_Father: {fileID: 4162315385177767815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 30, y: 34.97}
+  m_AnchoredPosition: {x: 25.000061, y: 25}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2778652152360632836
@@ -10163,6 +10175,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponsPanelSlot
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: ff8444197b8825b4e94c3ffc4c98f31a, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -10255,7 +10269,7 @@ GameObject:
   - component: {fileID: 3000653381198886650}
   - component: {fileID: 5573656765960330740}
   m_Layer: 5
-  m_Name: SlotBG
+  m_Name: Slot4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10272,11 +10286,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1339816742214392643}
+  m_Children:
+  - {fileID: 1339816742214392643}
+  m_Father: {fileID: 6291121829115314827}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10330,7 +10345,7 @@ GameObject:
   - component: {fileID: 5132166674002903898}
   - component: {fileID: 5382045072610482704}
   m_Layer: 5
-  m_Name: SlotBG
+  m_Name: Slot7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10347,11 +10362,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5351418253469008084}
+  m_Children:
+  - {fileID: 5351418253469008084}
+  m_Father: {fileID: 8557548532995717219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10558,12 +10574,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
-  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 4673164215010698473}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
-  containerPanel: {fileID: 0}
   slotNumber: 0
 --- !u!225 &6625967641447324408
 CanvasGroup:
@@ -10589,7 +10605,7 @@ GameObject:
   - component: {fileID: 3259814020666763402}
   - component: {fileID: 4970152805856633142}
   m_Layer: 5
-  m_Name: SlotBG
+  m_Name: Slot9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10606,11 +10622,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9143062912636751776}
+  m_Children:
+  - {fileID: 9143062912636751776}
+  m_Father: {fileID: 8557548532995717219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11596,12 +11613,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
-  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 4673164215010698473}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
-  containerPanel: {fileID: 0}
   slotNumber: 5
 --- !u!225 &6184002415917669113
 CanvasGroup:
@@ -11976,8 +11993,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
   inventoryItem:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 7a782215156892031bfc5e0ec9b1602d, type: 2}
+  - {fileID: 11400000, guid: ab08f324f47f28151a27da740ac8bc53, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -12186,12 +12203,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
-  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 4673164215010698473}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
-  containerPanel: {fileID: 0}
   slotNumber: 4
 --- !u!225 &7483484311140837779
 CanvasGroup:
@@ -12235,17 +12252,17 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5920954229739698219}
-  - {fileID: 7601090273459938150}
-  - {fileID: 9166294962285856294}
-  - {fileID: 6468921688438012545}
-  - {fileID: 1339816742214392643}
+  - {fileID: 5293296269342790119}
+  - {fileID: 1828165347366439739}
+  - {fileID: 7905320056562507669}
+  - {fileID: 6163982506340619036}
+  - {fileID: 291954188829959375}
   m_Father: {fileID: 5165274344759800759}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -103.87012, y: 31.7396}
-  m_SizeDelta: {x: -207.7402, y: -63.4792}
+  m_AnchoredPosition: {x: -108.25568, y: 13.606705}
+  m_SizeDelta: {x: -216.5113, y: -27.2135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7597151520998894118
 CanvasRenderer:
@@ -12272,7 +12289,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -13302,12 +13319,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
-  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 4673164215010698473}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
-  containerPanel: {fileID: 0}
   slotNumber: 8
 --- !u!225 &4709336729094533252
 CanvasGroup:
@@ -13691,7 +13708,7 @@ GameObject:
   - component: {fileID: 4735979479607857994}
   - component: {fileID: 3812525101225237436}
   m_Layer: 5
-  m_Name: SlotBG
+  m_Name: Slot0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13708,12 +13725,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 995031278139828048}
+  m_Children:
+  - {fileID: 995031278139828048}
+  m_Father: {fileID: 7271724877877779829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -106.27655, y: 2.485199}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4735979479607857994
@@ -13785,12 +13803,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4525947523704899295}
-  m_Father: {fileID: 8557548532995717219}
+  m_Children: []
+  m_Father: {fileID: 4525947523704899295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -13858,6 +13875,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: f53258d70b1ea4746b7efee9f14dad21, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -14549,12 +14568,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
-  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 4673164215010698473}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
-  containerPanel: {fileID: 0}
   slotNumber: 2
 --- !u!225 &9220541532475894415
 CanvasGroup:
@@ -15367,12 +15386,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7905320056562507669}
-  m_Father: {fileID: 6291121829115314827}
+  m_Children: []
+  m_Father: {fileID: 7905320056562507669}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -15440,6 +15458,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: f8a54a8c47e8af744bdb702d2bba08cd, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -16034,7 +16054,7 @@ GameObject:
   - component: {fileID: 6348856396591960095}
   - component: {fileID: 2790500491413023899}
   m_Layer: 5
-  m_Name: SlotBG
+  m_Name: Slot6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16051,11 +16071,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7582347389409465245}
+  m_Children:
+  - {fileID: 7582347389409465245}
+  m_Father: {fileID: 8557548532995717219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16128,12 +16149,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 291954188829959375}
-  m_Father: {fileID: 6291121829115314827}
+  m_Children: []
+  m_Father: {fileID: 291954188829959375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16201,6 +16221,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 233a77205485c7041b356d6db13d4ee4, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -16238,12 +16260,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1828165347366439739}
-  m_Father: {fileID: 6291121829115314827}
+  m_Children: []
+  m_Father: {fileID: 1828165347366439739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16311,6 +16332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentPanelSlot
   canvas: {fileID: 7585075794459923425}
   emptyIcon: {fileID: 21300000, guid: 1f00f656f7f6b754a9bb1521a667a6fb, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 0}
   player: {fileID: 1877399389646004039}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
@@ -17302,12 +17325,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryPanelSlot
   canvas: {fileID: 7585075794459923425}
-  emptyIcon: {fileID: 21300000, guid: 88d4d6e205a0bca4182279e9e8630e3b, type: 3}
+  snapDuration: 0.12
+  dragLayer: {fileID: 4673164215010698473}
   player: {fileID: 1877399389646004039}
   inventory: {fileID: 1694662179195538751}
   inventoryPanel: {fileID: 2781496489974753276}
   equipmentPanel: {fileID: 5568772140819163929}
-  containerPanel: {fileID: 0}
   slotNumber: 7
 --- !u!225 &8429530766258417483
 CanvasGroup:
@@ -17410,7 +17433,7 @@ GameObject:
   - component: {fileID: 8491100025459993332}
   - component: {fileID: 3422677575887925400}
   m_Layer: 5
-  m_Name: SlotBG
+  m_Name: Slot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17427,11 +17450,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7601090273459938150}
+  m_Children:
+  - {fileID: 7601090273459938150}
+  m_Father: {fileID: 6291121829115314827}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
