@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e35458a7efdf23d1876d6d2fa368525, type: 3}
-  m_Name: GoblinBeh
+  m_Name: Wanderer
   m_EditorClassIdentifier: Assembly-CSharp::BehaviorSO
-  roamDistance: 10
+  roamDistance: 0
   respawnTimer: 0

@@ -2900,7 +2900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCMovement
   animator: {fileID: 3051179684182946464}
-  behaviorSO: {fileID: 11400000, guid: 9cc428904cdc67244a373c0027f50b9e, type: 2}
+  behaviorSO: {fileID: 11400000, guid: 19d75fdce52edb9e2bea7f0452cb068b, type: 2}
 --- !u!114 &3214528459889820158
 MonoBehaviour:
   m_ObjectHideFlags: 0
