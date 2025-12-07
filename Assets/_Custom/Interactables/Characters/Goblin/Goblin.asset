@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e84c59f80144ad37291ef1a6f03e6ec3, type: 3}
-  m_Name: Wolf
+  m_Name: Goblin
   m_EditorClassIdentifier: Assembly-CSharp::Race
-  name: WolfSO
+  name: 
   strengthBonus: 10
   constitutionBonus: 10
   dexterityBonus: 10
   intelligenceBonus: 10
   wisdomBonus: 10
   charismaBonus: 10
-  unarmedDamage: 10
+  unarmedDamage: 1
   viewRadius: 100
   hearRadius: 100
-  viewAngle: 155
+  viewAngle: 150
   aggroRadius: 100
-  attackDistance: 6
+  attackDistance: 10
   tooClose: 5
   attackSpeed: 1
   kickSpeed: 1
