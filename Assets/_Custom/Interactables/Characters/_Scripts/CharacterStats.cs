@@ -1,19 +1,13 @@
 using UnityEngine;
 
-public class Character : Interactable
+public class CharacterStats : Character
 {
-    //references
-    public Race characterRace;
-    public Class characterClass;
-    
-    //vars
-    public bool dead;
-    public int xpToGive;
-
     //references
     public HealthBar healthbar;
     public EXPBar expBar;
     public InventoryStats inventoryStats;
+    //public FactionSO factionSO;
+    //public BehaviorSO behaviorSO;
     
     //General
     public Sprite icon;

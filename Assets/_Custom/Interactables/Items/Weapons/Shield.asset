@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a57b67dcf9ef6ccb31c2ec01629c2a, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: Assembly-CSharp::WeaponSO
-  itemName: Sword
-  sprite: {fileID: 21300000, guid: 20c8731ec8bfc1f4399be346e4084439, type: 3}
+  itemName: Shield
+  sprite: {fileID: 21300000, guid: a9ec9b1350fca574f925766496253fb5, type: 3}
   itemWeight: 1
   itemHealth: 1
   slotType: 9

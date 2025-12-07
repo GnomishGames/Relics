@@ -24,18 +24,18 @@ public class InventoryStats : MonoBehaviour
         interactableName.text = name;
     }
 
-    public void UpdateStats(Character character)
+    public void UpdateStats(CharacterStats characterStats)
     {
-        maxHitpoints.text = character.maxHitpoints.ToString();
-        armorClass.text = character.armorClass.ToString();
-        maxStamina.text = character.maxStamina.ToString();
-        maxMana.text = character.maxMana.ToString();
+        maxHitpoints.text = characterStats.maxHitpoints.ToString();
+        armorClass.text = characterStats.armorClass.ToString();
+        maxStamina.text = characterStats.maxStamina.ToString();
+        maxMana.text = characterStats.maxMana.ToString();
 
-        strengthScore.text = character.strengthScore.ToString();
-        dexterityScore.text = character.dexterityScore.ToString();
-        constitutionScore.text = character.constitutionScore.ToString();
-        intelligenceScore.text = character.intelligenceScore.ToString();
-        wisdomScore.text = character.wisdomScore.ToString();
-        charismaScore.text = character.charismaScore.ToString();
+        strengthScore.text = characterStats.strengthScore.ToString();
+        dexterityScore.text = characterStats.dexterityScore.ToString();
+        constitutionScore.text = characterStats.constitutionScore.ToString();
+        intelligenceScore.text = characterStats.intelligenceScore.ToString();
+        wisdomScore.text = characterStats.wisdomScore.ToString();
+        charismaScore.text = characterStats.charismaScore.ToString();
     }
 }
