@@ -38,16 +38,18 @@ public class NPCMovement : MonoBehaviour
             //there are players targeting me get top item in list and face them
             Transform targetPlayer = npcFocus.playersTargetingMe[0].transform;
             FaceTarget(targetPlayer.position, transform);
-            
+            //stop moving and clear astar path
+            astar.destination = transform.position;
+            astar.SearchPath();
+            astar.maxSpeed = 0;
         }
  
     }
 
     public void Roam()
     {
-        if (/*hateListScript.target == null &&*/ !characterStats.dead)
+        if (/*hateListScript.target == null &&*/ !characterStats.dead && npcFocus.playersTargetingMe.Count == 0)
         {
-            //PathUtilities.IsPathPossible
             if (!astar.pathPending && (astar.reachedEndOfPath || !astar.hasPath)) //i need a new path
             {
                 astar.SearchPath();

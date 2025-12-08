@@ -264,6 +264,7 @@ MonoBehaviour:
   hpSlider: {fileID: 5934070928120299817}
   focus: {fileID: 0}
   characterStats: {fileID: -7887123403363579381}
+  staminaSlider: {fileID: 3939751350224234353}
 --- !u!1 &175410596997125860
 GameObject:
   m_ObjectHideFlags: 0
