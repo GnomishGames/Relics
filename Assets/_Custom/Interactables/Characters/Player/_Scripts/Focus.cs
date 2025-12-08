@@ -4,9 +4,9 @@ using UnityEngine.EventSystems;
 
 public class Focus : MonoBehaviour
 {
+    //references
     Camera cam;
-
-    public Interactable focus;
+    public Interactable playerFocus;
     Inventory inventory;
     //public ContainerPanel containerPanel;
 
@@ -22,7 +22,7 @@ public class Focus : MonoBehaviour
 
     void Update()
     {
-        //don't click throug the UI
+        //don't click through the UI
         if (EventSystem.current.IsPointerOverGameObject())
         {
             return;
@@ -41,7 +41,6 @@ public class Focus : MonoBehaviour
                 if (character != null)
                 {
                     SetCharacterFocus(character); //if i click on character
-                    //character.GetComponent<Focus>().OnFocused(transform); //tell the character it's being focused
                 }
                 if (item != null)
                 {
@@ -57,14 +56,14 @@ public class Focus : MonoBehaviour
 
     void SetCharacterFocus(Character character)
     {
-        if (character != focus)
+        if (character != playerFocus)
         {
-            if (focus != null)
+            if (playerFocus != null)
             {
-                focus.onDeFocus();
+                playerFocus.onDeFocus();
                 character.GetComponent<NPCFocus>().OnDeFocus(transform);
             }
-            focus = character; //set new focus
+            playerFocus = character; //set new focus
 
             //add this player to the character's list of players targeting it
             character.GetComponent<NPCFocus>().OnFocused(transform);
@@ -74,13 +73,13 @@ public class Focus : MonoBehaviour
     
     void SetItemFocus(Item item)
     {
-        if (item != focus)
+        if (item != playerFocus)
         {
-            if (focus != null)
+            if (playerFocus != null)
             {
-                focus.onDeFocus();
+                playerFocus.onDeFocus();
             }
-            focus = item;
+            playerFocus = item;
         }
         item.OnFocused(transform);
 
@@ -89,24 +88,24 @@ public class Focus : MonoBehaviour
 
     void SetContainerFocus(Container container)
     {
-        if (container != focus) 
+        if (container != playerFocus) 
         {
-            if (focus != null) 
+            if (playerFocus != null) 
             {
-                focus.onDeFocus();
+                playerFocus.onDeFocus();
             }
-            focus = container;
+            playerFocus = container;
         }
         container.OnFocused(transform);
     }
 
     void RemoveFocus()
     {
-        if (focus != null)
+        if (playerFocus != null)
         {
-            focus.onDeFocus();
+            playerFocus.onDeFocus();
         }
-        focus = null;
+        playerFocus = null;
     }
 
     void OnFocused(Transform item)

@@ -261,7 +261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetPanel
   targetNameText: {fileID: 436887201644611510}
+  hpSlider: {fileID: 5934070928120299817}
   focus: {fileID: 0}
+  characterStats: {fileID: -7887123403363579381}
 --- !u!1 &175410596997125860
 GameObject:
   m_ObjectHideFlags: 0
@@ -6769,7 +6771,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 100
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15094,7 +15096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bfbf538b068d50e0ba77bfe1a7ab12f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Focus
-  focus: {fileID: 0}
+  playerFocus: {fileID: 0}
+  playersTargetingMe: []
 --- !u!114 &-7887123403363579381
 MonoBehaviour:
   m_ObjectHideFlags: 0

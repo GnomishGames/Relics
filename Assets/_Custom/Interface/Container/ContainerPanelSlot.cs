@@ -34,7 +34,7 @@ public class ContainerPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
 
     private void Update()
     {
-        focus = player.GetComponent<Focus>().focus;
+        focus = player.GetComponent<Focus>().playerFocus;
         if (focus != null)
         {
             container = (Container)focus.GetComponent<Container>();

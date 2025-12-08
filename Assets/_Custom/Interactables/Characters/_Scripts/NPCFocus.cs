@@ -28,7 +28,7 @@ public class NPCFocus : MonoBehaviour
             }
 
             // player's Focus.focus is the Interactable they are currently targeting
-            if (player.focus != selfInteractable)
+            if (player.playerFocus != selfInteractable)
             {
                 playersTargetingMe.RemoveAt(i);
             }
