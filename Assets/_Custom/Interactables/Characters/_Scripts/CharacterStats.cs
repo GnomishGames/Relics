@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterStats : Character
@@ -8,6 +9,9 @@ public class CharacterStats : Character
     public InventoryStats inventoryStats;
     //public FactionSO factionSO;
     //public BehaviorSO behaviorSO;
+
+    //lists
+    
     
     //General
     public Sprite icon;
@@ -147,4 +151,6 @@ public class CharacterStats : Character
         }
 
     }
+
+
 }

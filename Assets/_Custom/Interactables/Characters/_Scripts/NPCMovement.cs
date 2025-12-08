@@ -8,6 +8,7 @@ public class NPCMovement : MonoBehaviour
     CharacterStats characterStats;
     //HateListScript hateListScript;
     public BehaviorSO behaviorSO;
+    NPCFocus npcFocus;
 
     Vector3 spawnPosition;
     Quaternion spawnRotation;
@@ -19,15 +20,27 @@ public class NPCMovement : MonoBehaviour
     private void Start()
     {
         astar = GetComponent<IAstarAI>();
-        //animator = GetComponent<Animator>();
         characterStats = GetComponent<CharacterStats>();
         //hateListScript = GetComponent<HateListScript>();
+        npcFocus = GetComponent<NPCFocus>();
 
         //find my location
         spawnPosition = transform.position;
         spawnRotation = transform.rotation;
 
         respawnTimer = behaviorSO.respawnTimer;
+    }
+
+    void Update()
+    {
+        if (npcFocus.playersTargetingMe.Count > 0)
+        {
+            //there are players targeting me get top item in list and face them
+            Transform targetPlayer = npcFocus.playersTargetingMe[0].transform;
+            FaceTarget(targetPlayer.position, transform);
+            
+        }
+ 
     }
 
     public void Roam()
@@ -71,6 +84,59 @@ public class NPCMovement : MonoBehaviour
         if (characterStats.dead)
         {
             astar.maxSpeed = 0;
+        }
+    }
+
+    private void Despawn()
+    {
+        if (characterStats.dead && !despawned)
+        {
+            despawnTimer -= Time.deltaTime;
+        }
+
+        if (despawnTimer <= 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetComponent<AIPath>().enabled = false;
+            despawned = true;
+            //hateListScript.hateList.Clear();
+            //hateListScript.target = null;
+
+            despawnTimer = 10f;
+        }
+    }
+
+    private void Respawn()
+    {
+        if (despawned && characterStats.dead)
+        {
+            respawnTimer -= Time.deltaTime;
+        }
+
+        if (respawnTimer <= 0)
+        {
+            despawned = false;
+            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetComponent<AIPath>().enabled = true;
+            astar.destination = transform.position;
+            characterStats.currentHitPoints = characterStats.maxHitpoints;
+            characterStats.dead = false;
+            animator.SetBool("Dead", false);
+            //characterStats.gaveXP = false;
+
+            respawnTimer = behaviorSO.respawnTimer;
+        }
+    }
+
+    public static void FaceTarget(Vector3 targetLocation, Transform transform)
+    {
+
+        Vector3 direction = (targetLocation - transform.position).normalized;
+
+        if (direction != Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
         }
     }
 }

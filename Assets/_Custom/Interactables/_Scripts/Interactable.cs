@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
@@ -8,6 +9,7 @@ public class Interactable : MonoBehaviour
     public string interactableName;
     bool isFocus = false;
     //Transform playerTransform;
+
 
     void Update()
     {
@@ -30,5 +32,7 @@ public class Interactable : MonoBehaviour
     public void onDeFocus()
     {
         //playerTransform = null;
+        Debug.Log(transform.name + " has been de-focused.");
+        isFocus = false;
     }
 }

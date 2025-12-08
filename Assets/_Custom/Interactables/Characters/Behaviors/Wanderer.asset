@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e35458a7efdf23d1876d6d2fa368525, type: 3}
   m_Name: Wanderer
   m_EditorClassIdentifier: Assembly-CSharp::BehaviorSO
-  roamDistance: 0
+  roamDistance: 100
   respawnTimer: 0

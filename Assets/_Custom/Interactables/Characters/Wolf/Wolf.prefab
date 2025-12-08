@@ -1655,6 +1655,7 @@ GameObject:
   - component: {fileID: 1929934594251173029}
   - component: {fileID: 8704876164116869599}
   - component: {fileID: 6604422475734577444}
+  - component: {fileID: 3043260406093935807}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Untagged
@@ -1887,6 +1888,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &3043260406093935807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879652896023530545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc20c917d357609fa7bdaf232bbcffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCFocus
+  focus: {fileID: 0}
+  playersTargetingMe: []
 --- !u!1 &9182764484791785533
 GameObject:
   m_ObjectHideFlags: 0

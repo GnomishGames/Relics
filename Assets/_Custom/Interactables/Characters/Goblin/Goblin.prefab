@@ -1154,7 +1154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2404616857213464661
 Transform:
   m_ObjectHideFlags: 0
@@ -1948,7 +1948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4949272599823811569
 Transform:
   m_ObjectHideFlags: 0
@@ -2657,7 +2657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &660711879677502553
 Transform:
   m_ObjectHideFlags: 0
@@ -2814,6 +2814,7 @@ GameObject:
   - component: {fileID: 1521485215840569202}
   - component: {fileID: 6024093168616196461}
   - component: {fileID: 2301176005384629242}
+  - component: {fileID: 6501895083918417894}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -2829,7 +2830,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8125831373407689766}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.99915904, z: -0, w: 0.04100376}
+  m_LocalRotation: {x: 0, y: 0.99915904, z: 0, w: 0.04100376}
   m_LocalPosition: {x: 244.23, y: 0, z: 136.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3046,6 +3047,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.92, z: 0}
+--- !u!114 &6501895083918417894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125831373407689766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc20c917d357609fa7bdaf232bbcffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCFocus
+  focus: {fileID: 0}
+  playersTargetingMe: []
 --- !u!1 &8233326738561010459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3095,7 +3110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &268844828903395869
 Transform:
   m_ObjectHideFlags: 0
