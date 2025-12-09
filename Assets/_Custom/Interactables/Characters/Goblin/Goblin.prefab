@@ -2808,13 +2808,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8250794396767637170}
-  - component: {fileID: 6379612227631651102}
-  - component: {fileID: 5755834685975914934}
-  - component: {fileID: 3214528459889820158}
   - component: {fileID: 1521485215840569202}
   - component: {fileID: 6024093168616196461}
   - component: {fileID: 2301176005384629242}
   - component: {fileID: 6501895083918417894}
+  - component: {fileID: 3214528459889820158}
+  - component: {fileID: 5755834685975914934}
+  - component: {fileID: 6379612227631651102}
+  - component: {fileID: 3629236516849131124}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -2838,82 +2839,6 @@ Transform:
   - {fileID: 2960143335093494221}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 175.3, z: 0}
---- !u!114 &6379612227631651102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8125831373407689766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 641a6b4a887488944ad577e7654c3d47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
-  interactableName: Goblin
-  characterRace: {fileID: 11400000, guid: 80f36c2a3d35bbfc0a60ff407d996c3a, type: 2}
-  characterClass: {fileID: 11400000, guid: 5853435df10b45b719c098207802d798, type: 2}
-  dead: 0
-  xpToGive: 0
-  healthbar: {fileID: 0}
-  expBar: {fileID: 0}
-  inventoryStats: {fileID: 0}
-  icon: {fileID: 0}
-  currentHitPoints: 0
-  maxHitpoints: 0
-  armorClass: 0
-  currentStamina: 0
-  maxStamina: 0
-  currentMana: 0
-  maxMana: 0
-  strengthBase: 0
-  dexterityBase: 0
-  constitutionBase: 0
-  intelligenceBase: 0
-  wisdomBase: 0
-  charismaBase: 0
-  strengthModifier: 0
-  dexterityModifier: 0
-  constitutionModifier: 0
-  intelligenceModifier: 0
-  wisdomModifier: 0
-  charismaModifier: 0
-  strengthScore: 0
-  dexterityScore: 0
-  constitutionScore: 0
-  intelligenceScore: 0
-  wisdomScore: 0
-  charismaScore: 0
-  characterLevel: 0
-  experience: 0
-  sizeModifier: 0
-  armorBonus: 0
---- !u!114 &5755834685975914934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8125831373407689766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 926c9cfa124016a92907a333d36b8915, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCMovement
-  animator: {fileID: 3051179684182946464}
-  behaviorSO: {fileID: 11400000, guid: 19d75fdce52edb9e2bea7f0452cb068b, type: 2}
---- !u!114 &3214528459889820158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8125831373407689766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 443b1f6689fe31ec387778d3c8d2dfdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCTimers
 --- !u!114 &1521485215840569202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3061,6 +2986,99 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCFocus
   focus: {fileID: 0}
   playersTargetingMe: []
+--- !u!114 &3214528459889820158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125831373407689766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443b1f6689fe31ec387778d3c8d2dfdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCTimers
+--- !u!114 &5755834685975914934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125831373407689766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 926c9cfa124016a92907a333d36b8915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCMovement
+  animator: {fileID: 3051179684182946464}
+  behaviorSO: {fileID: 11400000, guid: bdcefb1401fd4f468baafb52c13c5d54, type: 2}
+--- !u!114 &6379612227631651102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125831373407689766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641a6b4a887488944ad577e7654c3d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
+  interactableName: Goblin
+  characterRace: {fileID: 11400000, guid: 80f36c2a3d35bbfc0a60ff407d996c3a, type: 2}
+  characterClass: {fileID: 11400000, guid: 5853435df10b45b719c098207802d798, type: 2}
+  dead: 0
+  xpToGive: 0
+  healthbar: {fileID: 0}
+  expBar: {fileID: 0}
+  inventoryStats: {fileID: 0}
+  icon: {fileID: 0}
+  currentHitPoints: 0
+  maxHitpoints: 0
+  armorClass: 0
+  currentStamina: 0
+  maxStamina: 0
+  currentMana: 0
+  maxMana: 0
+  strengthBase: 0
+  dexterityBase: 0
+  constitutionBase: 0
+  intelligenceBase: 0
+  wisdomBase: 0
+  charismaBase: 0
+  strengthModifier: 0
+  dexterityModifier: 0
+  constitutionModifier: 0
+  intelligenceModifier: 0
+  wisdomModifier: 0
+  charismaModifier: 0
+  strengthScore: 0
+  dexterityScore: 0
+  constitutionScore: 0
+  intelligenceScore: 0
+  wisdomScore: 0
+  charismaScore: 0
+  characterLevel: 0
+  experience: 0
+  sizeModifier: 0
+  armorBonus: 0
+--- !u!114 &3629236516849131124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125831373407689766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331224bcbb46b8943b0a20b48cf33f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Faction
+  Greenskins: 100
+  Canis: 0
+  Rattus: 0
+  Vampyrus: 0
+  Humans: 0
 --- !u!1 &8233326738561010459
 GameObject:
   m_ObjectHideFlags: 0

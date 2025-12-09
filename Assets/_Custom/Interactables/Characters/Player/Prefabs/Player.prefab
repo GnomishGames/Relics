@@ -14980,15 +14980,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1877399389646004039}
+  - component: {fileID: 7253188170260263747}
+  - component: {fileID: 2222051926120663867}
+  - component: {fileID: 3464447429195375397}
   - component: {fileID: 8672781565064369472}
   - component: {fileID: 3223126590919185411}
   - component: {fileID: -8416364110541351380}
   - component: {fileID: -7887123403363579381}
   - component: {fileID: 1694662179195538751}
   - component: {fileID: 3507841131774482172}
-  - component: {fileID: 7253188170260263747}
-  - component: {fileID: 2222051926120663867}
-  - component: {fileID: 3464447429195375397}
+  - component: {fileID: 2720680167289374948}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -15014,6 +15015,87 @@ Transform:
   - {fileID: 4673164215010698473}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &7253188170260263747
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584339292830879391}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.8
+  m_Radius: 0.2
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &2222051926120663867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584339292830879391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817fe5016bd0a2a49a95b6eb338bb132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PurrNet.Runtime::PurrNet.NetworkTransform
+  _networkRules: {fileID: 0}
+  _visitiblityRules: {fileID: 0}
+  _isSetup: 0
+  _prefabId: -2147483648
+  _componentIndex: -2147483648
+  _shouldBePooled: 0
+  _parent: {fileID: 0}
+  _invertedPathToNearestParent: 
+  _directChildren: []
+  _syncPosition: 1
+  _syncRotation: 1
+  _syncScale: 1
+  _syncParent: 1
+  _interpolateSettings: 7
+  _minBufferSize: 1
+  _maxBufferSize: 2
+  _characterControllerPatch: 0
+  _ownerAuth: 1
+  _interpolationTiming: 0
+--- !u!114 &3464447429195375397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584339292830879391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b598b9d8509d64abb9fdaf07fa3f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PurrNet.Runtime::PurrNet.NetworkAnimator
+  _networkRules: {fileID: 0}
+  _visitiblityRules: {fileID: 0}
+  _isSetup: 0
+  _prefabId: -2147483648
+  _componentIndex: -2147483648
+  _shouldBePooled: 0
+  _parent: {fileID: 0}
+  _invertedPathToNearestParent: 
+  _directChildren: []
+  _animator: {fileID: 4013091829438836949}
+  _ownerAuth: 1
+  _autoSyncParameters: 1
+  _dontSyncParameters: []
 --- !u!114 &8672781565064369472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15201,32 +15283,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ArmorAC: 0
---- !u!143 &7253188170260263747
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5584339292830879391}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 1.8
-  m_Radius: 0.2
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &2222051926120663867
+--- !u!114 &2720680167289374948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15235,53 +15292,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5584339292830879391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 817fe5016bd0a2a49a95b6eb338bb132, type: 3}
+  m_Script: {fileID: 11500000, guid: 331224bcbb46b8943b0a20b48cf33f7b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: PurrNet.Runtime::PurrNet.NetworkTransform
-  _networkRules: {fileID: 0}
-  _visitiblityRules: {fileID: 0}
-  _isSetup: 0
-  _prefabId: -2147483648
-  _componentIndex: -2147483648
-  _shouldBePooled: 0
-  _parent: {fileID: 0}
-  _invertedPathToNearestParent: 
-  _directChildren: []
-  _syncPosition: 1
-  _syncRotation: 1
-  _syncScale: 1
-  _syncParent: 1
-  _interpolateSettings: 7
-  _minBufferSize: 1
-  _maxBufferSize: 2
-  _characterControllerPatch: 0
-  _ownerAuth: 1
-  _interpolationTiming: 0
---- !u!114 &3464447429195375397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5584339292830879391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7b598b9d8509d64abb9fdaf07fa3f6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: PurrNet.Runtime::PurrNet.NetworkAnimator
-  _networkRules: {fileID: 0}
-  _visitiblityRules: {fileID: 0}
-  _isSetup: 0
-  _prefabId: -2147483648
-  _componentIndex: -2147483648
-  _shouldBePooled: 0
-  _parent: {fileID: 0}
-  _invertedPathToNearestParent: 
-  _directChildren: []
-  _animator: {fileID: 4013091829438836949}
-  _ownerAuth: 1
-  _autoSyncParameters: 1
-  _dontSyncParameters: []
+  m_EditorClassIdentifier: Assembly-CSharp::Faction
+  Greenskins: 0
+  Canis: 0
+  Rattus: 0
+  Vampyrus: 0
+  Humans: 100
 --- !u!1 &5665107874003256091
 GameObject:
   m_ObjectHideFlags: 0
