@@ -56,8 +56,6 @@ public class PlayerCamera : NetworkIdentity
 
         currentYaw = (target != null) ? target.eulerAngles.y : transform.eulerAngles.y;
         currentPitch = 15f;
-
-        Debug.Log($"PlayerCamera.Awake: cam={(cam!=null)}, target={(target!=null ? target.name : "null")}");
     }
 
     protected override void OnDespawned()

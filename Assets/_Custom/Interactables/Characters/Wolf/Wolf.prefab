@@ -1657,7 +1657,8 @@ GameObject:
   - component: {fileID: 1136457431197162007}
   - component: {fileID: 6009259335194169887}
   - component: {fileID: 4705739738992964809}
-  m_Layer: 0
+  - component: {fileID: 6668142791204201521}
+  m_Layer: 6
   m_Name: Wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1916,6 +1917,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreatureFaction
   faction: {fileID: 11400000, guid: a8185b8b2dbfb1aa6b3bc6958cdd50e9, type: 2}
+--- !u!114 &6668142791204201521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879652896023530545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec5750fdc00f01b89114bde004c4bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FieldOfView
+  viewRadius: 0
+  viewAngle: 0
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  obsticleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  visibleTargets: []
+  hearableTargets: []
 --- !u!1 &9182764484791785533
 GameObject:
   m_ObjectHideFlags: 0

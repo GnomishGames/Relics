@@ -14990,7 +14990,8 @@ GameObject:
   - component: {fileID: 1694662179195538751}
   - component: {fileID: 3507841131774482172}
   - component: {fileID: 7128105993938130771}
-  m_Layer: 0
+  - component: {fileID: -2293306360083415633}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -15296,6 +15297,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreatureFaction
   faction: {fileID: 11400000, guid: 42f55a03ffd7b1891bc4b6ca9a5442ce, type: 2}
+--- !u!114 &-2293306360083415633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584339292830879391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec5750fdc00f01b89114bde004c4bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FieldOfView
+  viewRadius: 0
+  viewAngle: 0
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  obsticleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  visibleTargets: []
+  hearableTargets: []
 --- !u!1 &5665107874003256091
 GameObject:
   m_ObjectHideFlags: 0
