@@ -42,6 +42,8 @@ public class FactionManager : MonoBehaviour
             foreach (var rel in f.defaultRelationships)
             {
                 _runtimeRelationships[(f.factionName, rel.otherFaction.factionName)] = rel.relationshipValue;
+                Debug.Log($"Loading defaults for {f.factionName}: {rel.otherFaction} = {rel.relationshipValue}");
+
             }
         }
     }
@@ -69,13 +71,23 @@ public class FactionManager : MonoBehaviour
     public int GetRelationship(Faction a, Faction b)
     {
         if (_runtimeRelationships.TryGetValue((a.factionName, b.factionName), out int val))
+        {
+            Debug.Log($"Relationship between {a.factionName} and {b.factionName} is {val}");
             return val;
-
+        }
+        Debug.Log($"No relationship data between {a.factionName} and {b.factionName}, defaulting to 0");
         return 0;
     }
 
-    public bool IsHostile(Faction a, Faction b) => GetRelationship(a, b) < 0;
-    public bool IsFriendly(Faction a, Faction b) => GetRelationship(a, b) > 0;
+    public bool IsHostile(Faction a, Faction b)
+    {
+        return GetRelationship(a, b) < 0;
+    }
+
+    public bool IsFriendly(Faction a, Faction b)
+    {
+        return GetRelationship(a, b) > 0;
+    }
 
     // ----------------------------------------------------
     // STEP 4: Modify relationships dynamically

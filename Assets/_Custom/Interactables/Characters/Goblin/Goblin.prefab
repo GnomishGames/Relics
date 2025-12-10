@@ -2817,6 +2817,7 @@ GameObject:
   - component: {fileID: 6379612227631651102}
   - component: {fileID: 5611070701515725908}
   - component: {fileID: 6294362316270861199}
+  - component: {fileID: 9079958083919111838}
   m_Layer: 6
   m_Name: Goblin
   m_TagString: Untagged
@@ -3013,6 +3014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCMovement
   animator: {fileID: 3051179684182946464}
   behaviorSO: {fileID: 11400000, guid: 19d75fdce52edb9e2bea7f0452cb068b, type: 2}
+  distanceToTarget: 0
 --- !u!114 &6379612227631651102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3098,6 +3100,20 @@ MonoBehaviour:
     m_Bits: 0
   visibleTargets: []
   hearableTargets: []
+--- !u!114 &9079958083919111838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125831373407689766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c4799908e58bcacabac7e0e6cb6ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HateList
+  hateList: []
+  target: {fileID: 0}
 --- !u!1 &8233326738561010459
 GameObject:
   m_ObjectHideFlags: 0

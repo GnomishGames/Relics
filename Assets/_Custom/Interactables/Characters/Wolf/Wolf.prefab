@@ -1658,6 +1658,7 @@ GameObject:
   - component: {fileID: 6009259335194169887}
   - component: {fileID: 4705739738992964809}
   - component: {fileID: 6668142791204201521}
+  - component: {fileID: 7267062595557226235}
   m_Layer: 6
   m_Name: Wolf
   m_TagString: Untagged
@@ -1854,6 +1855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCMovement
   animator: {fileID: 3139095062985466727}
   behaviorSO: {fileID: 11400000, guid: bdcefb1401fd4f468baafb52c13c5d54, type: 2}
+  distanceToTarget: 0
 --- !u!114 &6009259335194169887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1939,6 +1941,20 @@ MonoBehaviour:
     m_Bits: 0
   visibleTargets: []
   hearableTargets: []
+--- !u!114 &7267062595557226235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879652896023530545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c4799908e58bcacabac7e0e6cb6ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HateList
+  hateList: []
+  target: {fileID: 0}
 --- !u!1 &9182764484791785533
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,6 @@ MonoBehaviour:
   factionName: Canis
   defaultRelationships:
   - otherFaction: {fileID: 11400000, guid: 42f55a03ffd7b1891bc4b6ca9a5442ce, type: 2}
-    relationshipValue: 0
+    relationshipValue: -10
   - otherFaction: {fileID: 11400000, guid: f7e1f4d35bb32e5d3acdbeaf4beca83e, type: 2}
-    relationshipValue: 0
+    relationshipValue: -10

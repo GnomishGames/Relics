@@ -24,12 +24,6 @@ public class FieldOfView : MonoBehaviour
         viewAngle = characterStats.characterRace.viewAngle;
     }
 
-    void Update()
-    {
-        FindVisibleTargets();
-        FindHearableTargets();
-    }
-
     public void FindVisibleTargets()
     {
         visibleTargets.Clear();

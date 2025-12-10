@@ -10,18 +10,18 @@ public class NPCTimers : MonoBehaviour
     float tickOneHundred = 100f;
 
     //references
-    //FieldOfView fieldOfView;
+    FieldOfView fieldOfView;
     NPCMovement npcMovement;
     CharacterStats characterStats;
-    //HateListScript hateListScript;
+    HateList hateList;
     IAstarAI astar;
 
     private void Start()
     {
-        //fieldOfView = GetComponent<FieldOfView>();
+        fieldOfView = GetComponent<FieldOfView>();
         npcMovement = GetComponent<NPCMovement>();
         characterStats = GetComponent<CharacterStats>();
-        //hateListScript = GetComponent<HateListScript>();
+        hateList = GetComponent<HateList>();
         astar = GetComponent<IAstarAI>();
     }
 
@@ -40,11 +40,11 @@ public class NPCTimers : MonoBehaviour
         {
             tickPointOne = 0.1f; //reset timer
             /* v Start code here v */
-            //fieldOfView.FindVisibleTargets();
-            //fieldOfView.FindHearableTargets();
+            fieldOfView.FindVisibleTargets();
+            fieldOfView.FindHearableTargets();
             npcMovement.CheckAstarVelocity();
-            //hateListScript.HateList();
-            //hateListScript.AggroTarget();
+            hateList.UpdateHateList();
+            hateList.AggroTarget();
         }
     }
 

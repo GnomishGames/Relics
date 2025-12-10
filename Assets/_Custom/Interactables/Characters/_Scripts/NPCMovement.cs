@@ -6,7 +6,7 @@ public class NPCMovement : MonoBehaviour
     IAstarAI astar;
     public Animator animator;
     CharacterStats characterStats;
-    //HateListScript hateListScript;
+    HateList hateList;
     public BehaviorSO behaviorSO;
     NPCFocus npcFocus;
 
@@ -21,7 +21,7 @@ public class NPCMovement : MonoBehaviour
     {
         astar = GetComponent<IAstarAI>();
         characterStats = GetComponent<CharacterStats>();
-        //hateListScript = GetComponent<HateListScript>();
+        hateList = GetComponent<HateList>();
         npcFocus = GetComponent<NPCFocus>();
 
         //find my location
@@ -38,6 +38,7 @@ public class NPCMovement : MonoBehaviour
             //there are players targeting me get top item in list and face them
             Transform targetPlayer = npcFocus.playersTargetingMe[0].transform;
             FaceTarget(targetPlayer.position, transform);
+
             //stop moving and clear astar path
             astar.destination = transform.position;
             astar.SearchPath();
@@ -48,7 +49,7 @@ public class NPCMovement : MonoBehaviour
 
     public void Roam()
     {
-        if (/*hateListScript.target == null &&*/ !characterStats.dead && npcFocus.playersTargetingMe.Count == 0)
+        if (hateList.target == null && !characterStats.dead && npcFocus.playersTargetingMe.Count == 0)
         {
             if (!astar.pathPending && (astar.reachedEndOfPath || !astar.hasPath)) //i need a new path
             {
@@ -101,8 +102,8 @@ public class NPCMovement : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetComponent<AIPath>().enabled = false;
             despawned = true;
-            //hateListScript.hateList.Clear();
-            //hateListScript.target = null;
+            hateList.hateList.Clear();
+            hateList.target = null;
 
             despawnTimer = 10f;
         }

@@ -12,12 +12,14 @@ public class HateList : MonoBehaviour
     FieldOfView fieldOfView;
     NPCMovement nPCMovement;
     CharacterStats characterStats;
+    CreatureFaction creatureFaction;
 
     private void Awake()
     {
         fieldOfView = GetComponent<FieldOfView>();
         nPCMovement = GetComponent<NPCMovement>();
         characterStats = GetComponent<CharacterStats>();
+        creatureFaction = GetComponent<CreatureFaction>();
     }
 
     private void Update()
@@ -26,8 +28,6 @@ public class HateList : MonoBehaviour
         {
             NPCMovement.FaceTarget(target.transform.position, transform);
         }
-
-        UpdateHateList();
     }
 
     public void UpdateHateList()
@@ -38,15 +38,13 @@ public class HateList : MonoBehaviour
             {
                 if (!hateList.Contains(item))
                 {
-                    //check for faction via faction system
-                    CreatureFaction itemFaction = item.GetComponent<CreatureFaction>();
-                    CreatureFaction myFaction = GetComponent<CreatureFaction>();
-                    if (itemFaction != null && myFaction != null)
+                    if (IsHostileTo(item.GetComponent<CreatureFaction>()))
                     {
-                        if (myFaction.IsEnemy(itemFaction))
-                        {
-                            hateList.Add(item); //add to hate list if enemy
-                        }
+                        hateList.Add(item);
+                    }else
+                    {
+                        //not hostile do nothing
+                        Debug.Log("Not hostile to " + item.name);
                     }
                 }
             }
@@ -67,6 +65,11 @@ public class HateList : MonoBehaviour
                 }
             }
         }
+    }
+
+    public bool IsHostileTo(CreatureFaction other)
+    {
+        return creatureFaction.IsEnemy(other);
     }
 
     public void AggroTarget()
