@@ -7,8 +7,8 @@ public class FieldOfView : MonoBehaviour
     public float viewRadius;
     public float viewAngle;
 
-    public LayerMask targetMask;
-    public LayerMask obsticleMask;
+    public LayerMask targetMask; //creatures that can be seen/heard
+    public LayerMask obsticleMask; //walls/objects that block sight/hearing
 
     public List<Interactable> visibleTargets = new List<Interactable>();
     public List<Interactable> hearableTargets = new List<Interactable>();
@@ -35,6 +35,7 @@ public class FieldOfView : MonoBehaviour
         visibleTargets.Clear();
         if (!characterStats.dead)
         {
+            //all characters need the character layer to be detected
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, characterStats.characterRace.viewRadius, targetMask);
 
             for (int i = 0; i < targetsInViewRadius.Length; i++)
@@ -59,6 +60,7 @@ public class FieldOfView : MonoBehaviour
         hearableTargets.Clear();
         if (!characterStats.dead)
         {
+            //all characters need the character layer to be detected
             Collider[] targetsInHearRadius = Physics.OverlapSphere(transform.position, characterStats.characterRace.hearRadius, targetMask);
 
             for (int i = 0; i < targetsInHearRadius.Length; i++)

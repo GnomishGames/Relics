@@ -141,4 +141,23 @@ public class NPCMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
         }
     }
+
+    public float distanceToTarget;
+    public void RunToTarget(Transform target)
+    {
+        //Debug.Log(transform.name + "RunToTarget");
+        if (!characterStats.dead && target != null)
+        {
+            distanceToTarget = Vector3.Distance(target.transform.position, transform.position); //distance to target
+            if (distanceToTarget <= characterStats.characterRace.aggroRadius && distanceToTarget >= characterStats.characterRace.attackDistance)
+            {//less than agro radius and more than attack distnace
+                astar.destination = target.position/* + new Vector3(0,0,3)*/;
+                astar.maxSpeed = characterStats.characterRace.runSpeed;
+            }
+            else
+            {
+                astar.maxSpeed = 0;
+            }
+        }
+    }
 }
