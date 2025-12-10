@@ -1656,7 +1656,7 @@ GameObject:
   - component: {fileID: 5345500730461444583}
   - component: {fileID: 1136457431197162007}
   - component: {fileID: 6009259335194169887}
-  - component: {fileID: 3465388424255848048}
+  - component: {fileID: 4705739738992964809}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Untagged
@@ -1903,7 +1903,7 @@ MonoBehaviour:
   experience: 0
   sizeModifier: 0
   armorBonus: 0
---- !u!114 &3465388424255848048
+--- !u!114 &4705739738992964809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1912,14 +1912,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8879652896023530545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 331224bcbb46b8943b0a20b48cf33f7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a1a7203e5dde8bc3ba9fe2263917a71, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Faction
-  Greenskins: 0
-  Canis: 100
-  Rattus: 0
-  Vampyrus: 0
-  Humans: 0
+  m_EditorClassIdentifier: Assembly-CSharp::CreatureFaction
+  faction: {fileID: 11400000, guid: a8185b8b2dbfb1aa6b3bc6958cdd50e9, type: 2}
 --- !u!1 &9182764484791785533
 GameObject:
   m_ObjectHideFlags: 0

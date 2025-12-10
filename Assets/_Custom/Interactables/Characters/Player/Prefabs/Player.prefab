@@ -14989,7 +14989,7 @@ GameObject:
   - component: {fileID: -7887123403363579381}
   - component: {fileID: 1694662179195538751}
   - component: {fileID: 3507841131774482172}
-  - component: {fileID: 2720680167289374948}
+  - component: {fileID: 7128105993938130771}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -15283,7 +15283,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ArmorAC: 0
---- !u!114 &2720680167289374948
+--- !u!114 &7128105993938130771
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15292,14 +15292,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5584339292830879391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 331224bcbb46b8943b0a20b48cf33f7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a1a7203e5dde8bc3ba9fe2263917a71, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Faction
-  Greenskins: 0
-  Canis: 0
-  Rattus: 0
-  Vampyrus: 0
-  Humans: 100
+  m_EditorClassIdentifier: Assembly-CSharp::CreatureFaction
+  faction: {fileID: 11400000, guid: 42f55a03ffd7b1891bc4b6ca9a5442ce, type: 2}
 --- !u!1 &5665107874003256091
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,11 +1,18 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Faction : MonoBehaviour
+[CreateAssetMenu(menuName = "Scriptable Object/Faction")]
+public class Faction : ScriptableObject
 {
-    //this script will calculate and store faction relationships
-    [Range(0, 100)] public int Greenskins;
-    [Range(0, 100)] public int Canis;
-    [Range(0, 100)] public int Rattus;
-    [Range(0, 100)] public int Vampyrus;
-    [Range(0, 100)] public int Humans;
+    public string factionName;
+
+    [Serializable]
+    public class FactionRelationship
+    {
+        public Faction otherFaction;
+        public int relationshipValue;
+    }
+
+    public List<FactionRelationship> defaultRelationships;
 }
