@@ -7,12 +7,8 @@ public class CharacterStats : Character
     public HealthBar healthbar;
     public EXPBar expBar;
     public InventoryStats inventoryStats;
-    //public FactionSO factionSO;
-    //public BehaviorSO behaviorSO;
+    
 
-    //lists
-    
-    
     //General
     public Sprite icon;
     
@@ -152,5 +148,8 @@ public class CharacterStats : Character
 
     }
 
-
+    public bool IsEnemy(CreatureFaction other)
+    {
+        return FactionManager.Instance.IsHostile(faction, other.faction);
+    }
 }

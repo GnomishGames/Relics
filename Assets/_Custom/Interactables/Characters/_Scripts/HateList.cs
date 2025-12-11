@@ -41,10 +41,6 @@ public class HateList : MonoBehaviour
                     if (IsHostileTo(item.GetComponent<CreatureFaction>()))
                     {
                         hateList.Add(item);
-                    }else
-                    {
-                        //not hostile do nothing
-                        Debug.Log("Not hostile to " + item.name);
                     }
                 }
             }

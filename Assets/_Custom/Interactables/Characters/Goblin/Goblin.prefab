@@ -3013,7 +3013,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCMovement
   animator: {fileID: 3051179684182946464}
-  behaviorSO: {fileID: 11400000, guid: 19d75fdce52edb9e2bea7f0452cb068b, type: 2}
   distanceToTarget: 0
 --- !u!114 &6379612227631651102
 MonoBehaviour:
@@ -3030,6 +3029,8 @@ MonoBehaviour:
   interactableName: Goblin
   characterRace: {fileID: 11400000, guid: 80f36c2a3d35bbfc0a60ff407d996c3a, type: 2}
   characterClass: {fileID: 11400000, guid: 5853435df10b45b719c098207802d798, type: 2}
+  behaviorSO: {fileID: 11400000, guid: 19d75fdce52edb9e2bea7f0452cb068b, type: 2}
+  faction: {fileID: 0}
   dead: 0
   xpToGive: 0
   healthbar: {fileID: 0}
@@ -3072,7 +3073,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8125831373407689766}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a1a7203e5dde8bc3ba9fe2263917a71, type: 3}
   m_Name: 

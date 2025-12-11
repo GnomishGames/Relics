@@ -15197,6 +15197,8 @@ MonoBehaviour:
   interactableName: Clay
   characterRace: {fileID: 11400000, guid: 9032cb76d591ea8c9a8e01835d788e3d, type: 2}
   characterClass: {fileID: 11400000, guid: 5853435df10b45b719c098207802d798, type: 2}
+  behaviorSO: {fileID: 0}
+  faction: {fileID: 11400000, guid: 42f55a03ffd7b1891bc4b6ca9a5442ce, type: 2}
   dead: 0
   xpToGive: 0
   healthbar: {fileID: 9038100543017965368}
@@ -15291,7 +15293,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5584339292830879391}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a1a7203e5dde8bc3ba9fe2263917a71, type: 3}
   m_Name: 

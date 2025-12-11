@@ -7,7 +7,6 @@ public class NPCMovement : MonoBehaviour
     public Animator animator;
     CharacterStats characterStats;
     HateList hateList;
-    public BehaviorSO behaviorSO;
     NPCFocus npcFocus;
 
     Vector3 spawnPosition;
@@ -16,6 +15,7 @@ public class NPCMovement : MonoBehaviour
     float despawnTimer = 10f;
     float respawnTimer;
     bool despawned;
+    public float distanceToTarget;
 
     private void Start()
     {
@@ -28,66 +28,7 @@ public class NPCMovement : MonoBehaviour
         spawnPosition = transform.position;
         spawnRotation = transform.rotation;
 
-        respawnTimer = behaviorSO.respawnTimer;
-    }
-
-    void Update()
-    {
-        if (npcFocus.playersTargetingMe.Count > 0)
-        {
-            //there are players targeting me get top item in list and face them
-            Transform targetPlayer = npcFocus.playersTargetingMe[0].transform;
-            FaceTarget(targetPlayer.position, transform);
-
-            //stop moving and clear astar path
-            astar.destination = transform.position;
-            astar.SearchPath();
-            astar.maxSpeed = 0;
-        }
- 
-    }
-
-    public void Roam()
-    {
-        if (hateList.target == null && !characterStats.dead && npcFocus.playersTargetingMe.Count == 0)
-        {
-            if (!astar.pathPending && (astar.reachedEndOfPath || !astar.hasPath)) //i need a new path
-            {
-                astar.SearchPath();
-                astar.destination = PickRandomPoint(behaviorSO.roamDistance, transform);
-                astar.maxSpeed = characterStats.characterRace.walkSpeed;
-            }
-            else
-            {
-                astar.maxSpeed = characterStats.characterRace.walkSpeed;
-            }
-        }
-    }
-
-    public static Vector3 PickRandomPoint(float radius, Transform transform)
-    {
-        //Debug.Log(transform.name + "PickRandomPoint");
-        
-        var point = Random.insideUnitSphere * radius;
-        point.y = 0;
-        point += transform.position;
-        return point;
-    }
-
-    public void CheckAstarVelocity()
-    {
-        if (astar.velocity.x != 0 || astar.velocity.y != 0 || astar.velocity.z != 0)
-        {
-            animator.SetFloat("VelocityX", astar.maxSpeed);
-        }
-        else
-        {
-            animator.SetFloat("VelocityX", 0);
-        }
-        if (characterStats.dead)
-        {
-            astar.maxSpeed = 0;
-        }
+        respawnTimer = characterStats.behaviorSO.respawnTimer;
     }
 
     private void Despawn()
@@ -127,7 +68,72 @@ public class NPCMovement : MonoBehaviour
             animator.SetBool("Dead", false);
             //characterStats.gaveXP = false;
 
-            respawnTimer = behaviorSO.respawnTimer;
+            respawnTimer = characterStats.behaviorSO.respawnTimer;
+        }
+    }
+
+    public void ResetPosition()
+    {
+        if (despawned)
+        {
+            //Debug.Log(transform.name + " resetting position to " + spawnPosition + " from " + gameObject.transform.position);
+            gameObject.transform.SetPositionAndRotation(spawnPosition, spawnRotation);
+        }
+    }
+
+    public void ResponseToBeingTargeted()
+    {
+        if (npcFocus.playersTargetingMe.Count > 0 && !characterStats.dead && hateList.target == null)
+        {
+            //there are players targeting me get top item in list and face them
+            Transform targetPlayer = npcFocus.playersTargetingMe[0].transform;
+            FaceTarget(targetPlayer.position, transform);
+
+            //stop moving and clear astar path
+            astar.destination = transform.position;
+            astar.SearchPath();
+            astar.maxSpeed = 0;
+        }
+    }
+
+    public void Roam()
+    {
+        if (hateList.target == null && !characterStats.dead && npcFocus.playersTargetingMe.Count == 0)
+        {
+            if (!astar.pathPending && (astar.reachedEndOfPath || !astar.hasPath)) //i need a new path
+            {
+                astar.SearchPath();
+                astar.destination = PickRandomPoint(characterStats.behaviorSO.roamDistance, transform);
+                astar.maxSpeed = characterStats.characterRace.walkSpeed;
+            }
+            else
+            {
+                astar.maxSpeed = characterStats.characterRace.walkSpeed;
+            }
+        }
+    }
+
+    public static Vector3 PickRandomPoint(float radius, Transform transform)
+    {
+        var point = Random.insideUnitSphere * radius;
+        point.y = 0;
+        point += transform.position;
+        return point;
+    }
+
+    public void CheckAstarVelocity()
+    {
+        if (astar.velocity.x != 0 || astar.velocity.y != 0 || astar.velocity.z != 0)
+        {
+            animator.SetFloat("VelocityX", astar.maxSpeed);
+        }
+        else
+        {
+            animator.SetFloat("VelocityX", 0);
+        }
+        if (characterStats.dead)
+        {
+            astar.maxSpeed = 0;
         }
     }
 
@@ -143,7 +149,7 @@ public class NPCMovement : MonoBehaviour
         }
     }
 
-    public float distanceToTarget;
+    
     public void RunToTarget(Transform target)
     {
         //Debug.Log(transform.name + "RunToTarget");
@@ -160,5 +166,10 @@ public class NPCMovement : MonoBehaviour
                 astar.maxSpeed = 0;
             }
         }
+    }
+
+    public void AnimationCheck()
+    {
+        animator.SetFloat("VelocityX", astar.maxSpeed);
     }
 }

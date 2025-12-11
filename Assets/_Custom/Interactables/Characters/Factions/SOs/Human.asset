@@ -17,4 +17,4 @@ MonoBehaviour:
   - otherFaction: {fileID: 11400000, guid: f7e1f4d35bb32e5d3acdbeaf4beca83e, type: 2}
     relationshipValue: -100
   - otherFaction: {fileID: 11400000, guid: a8185b8b2dbfb1aa6b3bc6958cdd50e9, type: 2}
-    relationshipValue: -100
+    relationshipValue: 10
