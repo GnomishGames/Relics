@@ -29,6 +29,6 @@ MonoBehaviour:
   attackSpeed: 1
   kickSpeed: 1
   walkSpeed: 1
-  runSpeed: 3
+  runSpeed: 5
   sizeAcBonus: 1
   naturalAcBonus: 1

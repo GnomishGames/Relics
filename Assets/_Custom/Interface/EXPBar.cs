@@ -5,13 +5,30 @@ public class EXPBar : MonoBehaviour
 {
     public Slider slider;
 
-    public void SetMaxEXP(int maxEXP, int minEXP)
+    private CharacterStats stats;   // the specific stats this bar listens to
+
+    public void Initialize(CharacterStats target)
+    {
+        // unsubscribe if reused
+        if (stats != null)
+            stats.OnEXPChanged -= SetEXP;
+
+        stats = target;
+
+        // subscribe to THIS character
+        stats.OnEXPChanged += SetEXP;
+
+        // set initial values
+        SetEXP(stats.experience);
+    }
+    
+    public void SetMaxEXP(float maxEXP, float minEXP)
     {
         slider.maxValue = maxEXP;
         slider.minValue = minEXP;
-        //slider.value = maxEXP;
     }
 
+    //this is a percentage value between min and max EXP for the current level
     public void SetEXP(float EXP)
     {
         slider.maxValue = 1;

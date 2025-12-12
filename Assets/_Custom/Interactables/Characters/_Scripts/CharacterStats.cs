@@ -1,17 +1,20 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class CharacterStats : Character
 {
+    //events
+    public event Action<int> OnHealthChanged;
+    public event Action<float> OnEXPChanged;
+
     //references
-    public HealthBar healthbar;
-    public EXPBar expBar;
+    //public HealthBar healthbar;
+    //public EXPBar expBar;
     public InventoryStats inventoryStats;
-    
 
     //General
     public Sprite icon;
-    
+
     //Base Attributes
     public int currentHitPoints;
     public int maxHitpoints;
@@ -20,14 +23,14 @@ public class CharacterStats : Character
     public int maxStamina;
     public int currentMana;
     public int maxMana;
-    
+
     public int strengthBase; //initial attribute choices
     public int dexterityBase;
     public int constitutionBase;
     public int intelligenceBase;
     public int wisdomBase;
     public int charismaBase;
-    
+
     //Attribute modifiers
     public int strengthModifier; //score minus 10 divided by 2
     public int dexterityModifier;
@@ -35,7 +38,7 @@ public class CharacterStats : Character
     public int intelligenceModifier;
     public int wisdomModifier;
     public int charismaModifier;
-    
+
     //Stat Scores
     public int strengthScore; //base plus bonuses
     public int dexterityScore;
@@ -43,39 +46,45 @@ public class CharacterStats : Character
     public int intelligenceScore;
     public int wisdomScore;
     public int charismaScore;
-    
+
     //Progression
     public int characterLevel;
     public int experience;
     private float percentage;
-    
+
     public int sizeModifier;
     public int armorBonus;
 
-        void Awake()
+    void Awake()
     {
         //expBar = GetComponentInChildren<EXPBar>();
-        
+
         CalculateAttributesAndStats();
         currentHitPoints = maxHitpoints;
+
     }
 
     void Update()
     {
         CalculateAttributesAndStats();
-        UpdateHealthBar();
-        UpdateExpBar();
         UpdateInventoryStats();
-    }
-    
-    int CalculateLevel(int experience)
-    {
-        characterLevel = Mathf.FloorToInt((1 + Mathf.Sqrt(experience / 125 + 1)) / 2);
-        percentage = ((1 + Mathf.Sqrt(experience / 125 + 1)) / 2 % 1);
 
-        return characterLevel;
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            TakeDamage(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Heal(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            GainExperience(50);
+        }
     }
-    
+
     void CalculateAttributesAndStats()
     {
         characterLevel = CalculateLevel(experience);
@@ -106,7 +115,7 @@ public class CharacterStats : Character
         //int armorBonus = equipment.ArmorAC + characterRace.naturalAcBonus;
         armorClass = 10 + armorBonus + dexterityModifier + sizeModifier;
     }
-    
+
     int CalculateStatScore(int statBase, int raceBonus)
     {
         int statScore = statBase + raceBonus;
@@ -117,24 +126,6 @@ public class CharacterStats : Character
     {
         int statModifier = (statScore - 10) / 2;
         return statModifier;
-    }
-
-    void UpdateHealthBar()
-    {
-        if (healthbar != null)
-        {
-            healthbar.SetMaxHealth(maxHitpoints);
-            healthbar.SetHealth(currentHitPoints);
-            healthbar.SetName(interactableName);
-        }
-    }
-
-    void UpdateExpBar()
-    {
-        if (expBar != null)
-        {
-            expBar.SetEXP(percentage);
-        }
     }
 
     void UpdateInventoryStats()
@@ -151,5 +142,43 @@ public class CharacterStats : Character
     public bool IsEnemy(CreatureFaction other)
     {
         return FactionManager.Instance.IsHostile(faction, other.faction);
+    }
+
+    public void ModifyHealth(int amount)
+    {
+        currentHitPoints += amount;
+        currentHitPoints = Mathf.Clamp(currentHitPoints, 0, maxHitpoints);
+
+        OnHealthChanged?.Invoke(currentHitPoints);
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        ModifyHealth(-dmg);
+    }
+
+    public void Heal(int amount)
+    {
+        ModifyHealth(amount);
+    }
+
+    public void GainExperience(int amount)
+    {
+        ModifyExperience(amount);
+    }
+
+    public void ModifyExperience(int amount)
+    {
+        experience += amount;
+
+        OnEXPChanged?.Invoke(percentage);
+    }
+
+    int CalculateLevel(int experience)
+    {
+        characterLevel = Mathf.FloorToInt((1 + Mathf.Sqrt(experience / 125 + 1)) / 2);
+        percentage = (1 + Mathf.Sqrt(experience / 125 + 1)) / 2 % 1;
+
+        return characterLevel;
     }
 }

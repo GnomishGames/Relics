@@ -3030,7 +3030,7 @@ MonoBehaviour:
   characterRace: {fileID: 11400000, guid: 80f36c2a3d35bbfc0a60ff407d996c3a, type: 2}
   characterClass: {fileID: 11400000, guid: 5853435df10b45b719c098207802d798, type: 2}
   behaviorSO: {fileID: 11400000, guid: 19d75fdce52edb9e2bea7f0452cb068b, type: 2}
-  faction: {fileID: 0}
+  faction: {fileID: 11400000, guid: f7e1f4d35bb32e5d3acdbeaf4beca83e, type: 2}
   dead: 0
   xpToGive: 0
   healthbar: {fileID: 0}
