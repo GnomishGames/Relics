@@ -14,7 +14,6 @@ public class NPCTimers : MonoBehaviour
     NPCMovement npcMovement;
     CharacterStats characterStats;
     HateList hateList;
-    IAstarAI astar;
 
     private void Start()
     {
@@ -22,7 +21,6 @@ public class NPCTimers : MonoBehaviour
         npcMovement = GetComponent<NPCMovement>();
         characterStats = GetComponent<CharacterStats>();
         hateList = GetComponent<HateList>();
-        astar = GetComponent<IAstarAI>();
     }
 
     private void Update()
