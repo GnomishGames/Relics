@@ -2718,6 +2718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUI
   healthBar: {fileID: 9038100543017965368}
+  staminaBar: {fileID: 1981600769890011236}
   EXPBar: {fileID: 4126962811398079126}
   playerStats: {fileID: -7887123403363579381}
   optionsPanel: {fileID: 8421236410216980389}
@@ -12978,6 +12979,7 @@ GameObject:
   - component: {fileID: 3381596616461225196}
   - component: {fileID: 2485279128725273925}
   - component: {fileID: 9038100543017965368}
+  - component: {fileID: 1981600769890011236}
   - component: {fileID: 4126962811398079126}
   m_Layer: 5
   m_Name: BottomPanel
@@ -13029,6 +13031,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthBar
   slider: {fileID: 8344931383526345800}
   targetNameText: {fileID: 4094665267669179715}
+--- !u!114 &1981600769890011236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4707760035665184092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c8921f0a6a0d4b5962b6ab74566aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StaminaBar
+  slider: {fileID: 4559178594513578757}
 --- !u!114 &4126962811398079126
 MonoBehaviour:
   m_ObjectHideFlags: 0

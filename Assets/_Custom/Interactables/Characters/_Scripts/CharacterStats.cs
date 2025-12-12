@@ -5,6 +5,7 @@ public class CharacterStats : Character
 {
     //events
     public event Action<int> OnHealthChanged;
+    public event Action<int> OnStaminaChanged;
     public event Action<float> OnEXPChanged;
 
     //references
@@ -57,6 +58,7 @@ public class CharacterStats : Character
     {
         CalculateAttributesAndStats();
         currentHitPoints = maxHitpoints;
+        currentStamina = maxStamina;
     }
 
     void Update()
@@ -66,17 +68,18 @@ public class CharacterStats : Character
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            TakeDamage(1);
+            SubtractHealth(1);
+            SubtractStamina(1);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            Heal(1);
+            AddHealth(1);
         }
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            GainExperience(50);
+            AddExperience(50);
         }
     }
 
@@ -104,6 +107,7 @@ public class CharacterStats : Character
         charismaModifier = CalculateStatModifier(charismaScore);
 
         maxHitpoints = (characterClass.hitDie * characterLevel) + constitutionModifier; //(level * base) + con modifier
+        maxStamina = (characterClass.hitDie * characterLevel) + constitutionModifier; //(level * base) + con modifier
 
         sizeModifier = characterRace.sizeAcBonus;
 
@@ -138,6 +142,24 @@ public class CharacterStats : Character
         return FactionManager.Instance.IsHostile(faction, other.faction);
     }
 
+    public void ModifyStamina(int amount)
+    {
+        currentStamina += amount;
+        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+
+        OnStaminaChanged?.Invoke(currentStamina);
+    }
+
+    public void SubtractStamina(int amount)
+    {
+        ModifyStamina(-amount);
+    }
+
+    public void AddStamina(int amount)
+    {
+        ModifyStamina(amount);
+    }
+
     public void ModifyHealth(int amount)
     {
         currentHitPoints += amount;
@@ -146,19 +168,24 @@ public class CharacterStats : Character
         OnHealthChanged?.Invoke(currentHitPoints);
     }
 
-    public void TakeDamage(int dmg)
+    public void SubtractHealth(int amount)
     {
-        ModifyHealth(-dmg);
+        ModifyHealth(-amount);
     }
 
-    public void Heal(int amount)
+    public void AddHealth(int amount)
     {
         ModifyHealth(amount);
     }
 
-    public void GainExperience(int amount)
+    public void AddExperience(int amount)
     {
         ModifyExperience(amount);
+    }
+
+    public void SubtractExperience(int amount)
+    {
+        ModifyExperience(-amount);
     }
 
     public void ModifyExperience(int amount)
