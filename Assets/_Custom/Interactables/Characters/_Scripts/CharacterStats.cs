@@ -8,8 +8,6 @@ public class CharacterStats : Character
     public event Action<float> OnEXPChanged;
 
     //references
-    //public HealthBar healthbar;
-    //public EXPBar expBar;
     public InventoryStats inventoryStats;
 
     //General
@@ -57,11 +55,8 @@ public class CharacterStats : Character
 
     void Awake()
     {
-        //expBar = GetComponentInChildren<EXPBar>();
-
         CalculateAttributesAndStats();
         currentHitPoints = maxHitpoints;
-
     }
 
     void Update()
@@ -136,7 +131,6 @@ public class CharacterStats : Character
             inventoryStats.SetName(interactableName);
             inventoryStats.UpdateStats(this);
         }
-
     }
 
     public bool IsEnemy(CreatureFaction other)

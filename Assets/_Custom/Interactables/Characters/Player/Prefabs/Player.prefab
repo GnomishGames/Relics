@@ -2379,7 +2379,6 @@ GameObject:
   - component: {fileID: 7585075794459923425}
   - component: {fileID: 8791650043604198575}
   - component: {fileID: 1287204000107558334}
-  - component: {fileID: 4226200366095374328}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2477,20 +2476,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4226200366095374328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1004116587387415156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bfe653bec79112828ec49189a09eb3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIScript
-  optionsPanel: {fileID: 8421236410216980389}
-  settingsPanel: {fileID: 3068480081869018551}
 --- !u!1 &1021707609745592540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,6 +2720,8 @@ MonoBehaviour:
   healthBar: {fileID: 9038100543017965368}
   EXPBar: {fileID: 4126962811398079126}
   playerStats: {fileID: -7887123403363579381}
+  optionsPanel: {fileID: 8421236410216980389}
+  keybindings: {fileID: 819191757475659884}
 --- !u!1 &1268102974225129463
 GameObject:
   m_ObjectHideFlags: 0
@@ -15036,8 +15023,8 @@ GameObject:
   - component: {fileID: -7887123403363579381}
   - component: {fileID: 1694662179195538751}
   - component: {fileID: 3507841131774482172}
-  - component: {fileID: 7128105993938130771}
   - component: {fileID: -2293306360083415633}
+  - component: {fileID: 819191757475659884}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -15249,7 +15236,6 @@ MonoBehaviour:
   faction: {fileID: 11400000, guid: 42f55a03ffd7b1891bc4b6ca9a5442ce, type: 2}
   dead: 0
   xpToGive: 0
-  expBar: {fileID: 4126962811398079126}
   inventoryStats: {fileID: 7323585059371529380}
   icon: {fileID: 0}
   currentHitPoints: 0
@@ -15333,19 +15319,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ArmorAC: 0
---- !u!114 &7128105993938130771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5584339292830879391}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a1a7203e5dde8bc3ba9fe2263917a71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CreatureFaction
-  faction: {fileID: 11400000, guid: 42f55a03ffd7b1891bc4b6ca9a5442ce, type: 2}
 --- !u!114 &-2293306360083415633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15368,6 +15341,18 @@ MonoBehaviour:
     m_Bits: 0
   visibleTargets: []
   hearableTargets: []
+--- !u!114 &819191757475659884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584339292830879391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cdf0811cdb5ece1b062bf98020ab80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeyBindings
 --- !u!1 &5665107874003256091
 GameObject:
   m_ObjectHideFlags: 0
@@ -21285,6 +21270,7 @@ GameObject:
   - component: {fileID: 5565298887670619060}
   - component: {fileID: 3127314383644847466}
   - component: {fileID: 4814403926526044032}
+  - component: {fileID: 9116777245672294573}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -21353,6 +21339,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &9116777245672294573
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8421236410216980389}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8544260889204409057
 GameObject:
   m_ObjectHideFlags: 0

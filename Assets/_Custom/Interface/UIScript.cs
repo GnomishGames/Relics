@@ -7,7 +7,7 @@ public class UIScript : MonoBehaviour
 
     private void Update()
     {
-        PanelHotkeys();
+        //PanelHotkeys();
     }
 
     public void PanelHotkeys()
@@ -40,7 +40,5 @@ public class UIScript : MonoBehaviour
                 }
             }
         }
-
-
     }
 }

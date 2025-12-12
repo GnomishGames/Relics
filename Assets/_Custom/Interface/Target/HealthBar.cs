@@ -8,29 +8,29 @@ public class HealthBar : MonoBehaviour
     public Slider slider;
     public TextMeshProUGUI targetNameText;
 
-    private CharacterStats stats;   // the specific stats this bar listens to
+    private CharacterStats characterStats; // the specific stats this bar listens to
 
-    public void Initialize(CharacterStats target)
+    public void Initialize(CharacterStats stats)//"stats" sets who the bar is connected to (which character)
     {
         // unsubscribe if reused
-        if (stats != null)
-            stats.OnHealthChanged -= SetHealth;
+        if (characterStats != null)
+            characterStats.OnHealthChanged -= SetHealth;
 
-        stats = target;
+        characterStats = stats;
 
         // subscribe to THIS character
-        stats.OnHealthChanged += SetHealth;
+        characterStats.OnHealthChanged += SetHealth;
 
         // set initial values
-        SetMaxHealth(stats.maxHitpoints);
-        SetHealth(stats.currentHitPoints);
-        targetNameText.text = stats.interactableName;
+        SetMaxHealth(characterStats.maxHitpoints);
+        SetHealth(characterStats.currentHitPoints);
+        targetNameText.text = characterStats.interactableName;
     }
 
     private void OnDestroy()
     {
-        if (stats != null)
-            stats.OnHealthChanged -= SetHealth;
+        if (characterStats != null)
+            characterStats.OnHealthChanged -= SetHealth;
     }
 
     public void SetMaxHealth(int health)
