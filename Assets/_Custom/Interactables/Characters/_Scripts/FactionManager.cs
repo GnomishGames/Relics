@@ -42,7 +42,7 @@ public class FactionManager : MonoBehaviour
             foreach (var rel in f.defaultRelationships)
             {
                 _runtimeRelationships[(f.factionName, rel.otherFaction.factionName)] = rel.relationshipValue;
-                Debug.Log($"Loading defaults for {f.factionName}: {rel.otherFaction} = {rel.relationshipValue}");
+                //Debug.Log($"Loading defaults for {f.factionName}: {rel.otherFaction} = {rel.relationshipValue}");
 
             }
         }

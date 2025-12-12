@@ -13031,6 +13031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthBar
   slider: {fileID: 8344931383526345800}
   targetNameText: {fileID: 4094665267669179715}
+  characterStats: {fileID: -7887123403363579381}
 --- !u!114 &1981600769890011236
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,23 +5,20 @@ public class EXPBar : MonoBehaviour
 {
     public Slider slider;
 
-    private CharacterStats stats;   // the specific stats this bar listens to
+    private CharacterStats characterStats;   // the specific stats this bar listens to
 
-    public void Initialize(CharacterStats target)
+    private void Start()
     {
-        // unsubscribe if reused
-        if (stats != null)
-            stats.OnEXPChanged -= SetEXP;
+        // Get reference to CharacterStats if not set
+        characterStats = GetComponentInParent<CharacterStats>();
 
-        stats = target;
+        // Initialize max EXP once
+        SetEXP(characterStats.experience);
 
-        // subscribe to THIS character
-        stats.OnEXPChanged += SetEXP;
-
-        // set initial values
-        SetEXP(stats.experience);
+        // Subscribe to EXP changes for updates
+        characterStats.OnEXPChanged += SetEXP;
     }
-    
+
     public void SetMaxEXP(float maxEXP, float minEXP)
     {
         slider.maxValue = maxEXP;

@@ -6,21 +6,16 @@ public class StaminaBar : MonoBehaviour
     public Slider slider;
     private CharacterStats characterStats;
 
-    //subscribe to CharacterStats stamina event
-    public void Initialize(CharacterStats stats)
+    void Start()
     {
-        // unsubscribe if reused
-        if (characterStats != null)
-            characterStats.OnStaminaChanged -= SetStamina;
+        // Get reference to CharacterStats if not set
+        characterStats = GetComponentInParent<CharacterStats>();
 
-        characterStats = stats;
-
-        // subscribe to THIS character
-        characterStats.OnStaminaChanged += SetStamina;
-
-        // set initial values
+        // Initialize max stamina once
         SetMaxStamina(characterStats.maxStamina);
-        SetStamina(characterStats.currentStamina);
+        
+        // Subscribe to stamina changes for updates
+        characterStats.OnStaminaChanged += SetStamina;
     }
 
     private void OnDestroy()
