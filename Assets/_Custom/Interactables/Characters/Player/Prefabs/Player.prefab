@@ -18488,7 +18488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillBook
   skillSOs:
   - {fileID: 11400000, guid: 79ab5d112d89cc2b193235f16cb3c6a4, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 68bc333be55f3c8658bc7cd6503fe41a, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

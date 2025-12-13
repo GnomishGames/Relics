@@ -38,7 +38,7 @@ public class HateList : MonoBehaviour
             {
                 if (!hateList.Contains(item))
                 {
-                    if (IsHostileTo(item.GetComponent<CreatureFaction>()))
+                    if (IsHostileTo(item.GetComponent<CharacterStats>()))
                     {
                         hateList.Add(item);
                     }
@@ -63,9 +63,9 @@ public class HateList : MonoBehaviour
         }
     }
 
-    public bool IsHostileTo(CreatureFaction other)
+    public bool IsHostileTo(CharacterStats other)
     {
-        return creatureFaction.IsEnemy(other);
+        return characterStats.IsEnemy(other);
     }
 
     public void AggroTarget()

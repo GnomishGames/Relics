@@ -56,6 +56,16 @@ public class CharacterStats : Character
 
     void Awake()
     {
+        // Basic null safety before initial calculations
+        if (characterRace == null)
+        {
+            Debug.LogWarning($"CharacterStats: 'characterRace' is null on {name}. Attribute bonuses will default to 0.");
+        }
+        if (characterClass == null)
+        {
+            Debug.LogWarning($"CharacterStats: 'characterClass' is null on {name}. Max HP/Stamina calculations will default to base values.");
+        }
+
         CalculateAttributesAndStats();
         currentHitPoints = maxHitpoints;
         currentStamina = maxStamina;
@@ -63,6 +73,21 @@ public class CharacterStats : Character
 
     void Update()
     {
+        // Guard against missing dependencies each frame (useful during scene setup)
+        if (characterRace == null || characterClass == null)
+        {
+            // Avoid spamming logs every frame; only compute minimal safe values
+            if (characterRace == null)
+            {
+                // one-time log per frame for visibility
+                Debug.LogWarning($"CharacterStats.Update: Missing 'characterRace' on {name}.");
+            }
+            if (characterClass == null)
+            {
+                Debug.LogWarning($"CharacterStats.Update: Missing 'characterClass' on {name}.");
+            }
+        }
+
         CalculateAttributesAndStats();
         UpdateInventoryStats();
 
@@ -85,6 +110,33 @@ public class CharacterStats : Character
 
     void CalculateAttributesAndStats()
     {
+        // If core data is missing, compute conservative defaults and exit
+        if (characterRace == null || characterClass == null)
+        {
+            // Defaults when data is missing
+            characterLevel = CalculateLevel(experience);
+            strengthScore = strengthBase;
+            dexterityScore = dexterityBase;
+            constitutionScore = constitutionBase;
+            intelligenceScore = intelligenceBase;
+            wisdomScore = wisdomBase;
+            charismaScore = charismaBase;
+
+            strengthModifier = CalculateStatModifier(strengthScore);
+            dexterityModifier = CalculateStatModifier(dexterityScore);
+            constitutionModifier = CalculateStatModifier(constitutionScore);
+            intelligenceModifier = CalculateStatModifier(intelligenceScore);
+            wisdomModifier = CalculateStatModifier(wisdomScore);
+            charismaModifier = CalculateStatModifier(charismaScore);
+
+            // Fallback max values without class/race bonuses
+            maxHitpoints = Mathf.Max(1, characterLevel + constitutionModifier);
+            maxStamina = Mathf.Max(1, characterLevel + constitutionModifier);
+            sizeModifier = 0;
+            armorClass = 10 + armorBonus + dexterityModifier + sizeModifier;
+            return;
+        }
+
         characterLevel = CalculateLevel(experience);
 
         //calculate attributes
@@ -137,9 +189,36 @@ public class CharacterStats : Character
         }
     }
 
-    public bool IsEnemy(CreatureFaction other)
+    public bool IsEnemy(CharacterStats other)
     {
-        return FactionManager.Instance.IsHostile(faction, other.faction);
+        // Safety checks
+        if (FactionManager.Instance == null)
+        {
+            Debug.LogError($"IsEnemy: FactionManager.Instance is null for {name}");
+            return false;
+        }
+
+        if (other == null)
+        {
+            Debug.LogWarning($"IsEnemy: 'other' CharacterStats is null for {name}");
+            return false;
+        }
+
+        if (faction == null)
+        {
+            Debug.LogWarning($"IsEnemy: Self faction is null on {name}");
+            return false;
+        }
+
+        if (other.faction == null)
+        {
+            Debug.LogWarning($"IsEnemy: Other faction is null on {other.name}");
+            return false;
+        }
+
+        bool hostile = FactionManager.Instance.IsHostile(faction, other.faction);
+        Debug.Log($"IsEnemy: {name}({faction.name}) vs {other.name}({other.faction.name}) => hostile={hostile}");
+        return hostile;
     }
 
     public void ModifyStamina(int amount)

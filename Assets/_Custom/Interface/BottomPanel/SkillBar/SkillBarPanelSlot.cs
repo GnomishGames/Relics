@@ -58,6 +58,8 @@ public class SkillBarPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragH
     {
         skillBarPanel.fromSlot = slotNumber;
         skillBarPanel.fromPanel = "SkillBar";
+        Debug.Log("Clicked SkillBar Slot " + slotNumber);
+        Debug.Log("Skill Name: " + skillBar.skillSOs[slotNumber].itemName);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
