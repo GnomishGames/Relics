@@ -4,8 +4,8 @@ using UnityEngine;
 public class CharacterStats : Character
 {
     //events
-    public event Action<int> OnHealthChanged;
-    public event Action<int> OnStaminaChanged;
+    public event Action<float> OnHealthChanged;
+    public event Action<float> OnStaminaChanged;
     public event Action<float> OnEXPChanged;
 
     //references
@@ -15,44 +15,44 @@ public class CharacterStats : Character
     public Sprite icon;
 
     //Base Attributes
-    public int currentHitPoints;
-    public int maxHitpoints;
-    public int armorClass; //10 + armorBonus + dexMod + sizeMod
-    public int currentStamina;
-    public int maxStamina;
-    public int currentMana;
-    public int maxMana;
+    public float currentHitPoints;
+    public float maxHitpoints;
+    public float armorClass; //10 + armorBonus + dexMod + sizeMod
+    public float currentStamina;
+    public float maxStamina;
+    public float currentMana;
+    public float maxMana;
 
-    public int strengthBase; //initial attribute choices
-    public int dexterityBase;
-    public int constitutionBase;
-    public int intelligenceBase;
-    public int wisdomBase;
-    public int charismaBase;
+    public float strengthBase; //initial attribute choices
+    public float dexterityBase;
+    public float constitutionBase;
+    public float intelligenceBase;
+    public float wisdomBase;
+    public float charismaBase;
 
     //Attribute modifiers
-    public int strengthModifier; //score minus 10 divided by 2
-    public int dexterityModifier;
-    public int constitutionModifier;
-    public int intelligenceModifier;
-    public int wisdomModifier;
-    public int charismaModifier;
+    public float strengthModifier; //score minus 10 divided by 2
+    public float dexterityModifier;
+    public float constitutionModifier;
+    public float intelligenceModifier;
+    public float wisdomModifier;
+    public float charismaModifier;
 
     //Stat Scores
-    public int strengthScore; //base plus bonuses
-    public int dexterityScore;
-    public int constitutionScore;
-    public int intelligenceScore;
-    public int wisdomScore;
-    public int charismaScore;
+    public float strengthScore; //base plus bonuses
+    public float dexterityScore;
+    public float constitutionScore;
+    public float intelligenceScore;
+    public float wisdomScore;
+    public float charismaScore;
 
     //Progression
-    public int characterLevel;
-    public int experience;
+    public float characterLevel;
+    public float experience;
     private float percentage;
 
-    public int sizeModifier;
-    public int armorBonus;
+    public float sizeModifier;
+    public float armorBonus;
 
     void Awake()
     {
@@ -167,15 +167,15 @@ public class CharacterStats : Character
         armorClass = 10 + armorBonus + dexterityModifier + sizeModifier;
     }
 
-    int CalculateStatScore(int statBase, int raceBonus)
+    float CalculateStatScore(float statBase, float raceBonus)
     {
-        int statScore = statBase + raceBonus;
+        float statScore = statBase + raceBonus;
         return statScore;
     }
 
-    int CalculateStatModifier(int statScore)
+    float CalculateStatModifier(float statScore)
     {
-        int statModifier = (statScore - 10) / 2;
+        float statModifier = (statScore - 10) / 2f;
         return statModifier;
     }
 
@@ -221,7 +221,7 @@ public class CharacterStats : Character
         return hostile;
     }
 
-    public void ModifyStamina(int amount)
+    public void ModifyStamina(float amount)
     {
         currentStamina += amount;
         currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
@@ -229,17 +229,17 @@ public class CharacterStats : Character
         OnStaminaChanged?.Invoke(currentStamina);
     }
 
-    public void SubtractStamina(int amount)
+    public void SubtractStamina(float amount)
     {
         ModifyStamina(-amount);
     }
 
-    public void AddStamina(int amount)
+    public void AddStamina(float amount)
     {
         ModifyStamina(amount);
     }
 
-    public void ModifyHealth(int amount)
+    public void ModifyHealth(float amount)
     {
         currentHitPoints += amount;
         currentHitPoints = Mathf.Clamp(currentHitPoints, 0, maxHitpoints);
@@ -247,34 +247,34 @@ public class CharacterStats : Character
         OnHealthChanged?.Invoke(currentHitPoints);
     }
 
-    public void SubtractHealth(int amount)
+    public void SubtractHealth(float amount)
     {
         ModifyHealth(-amount);
     }
 
-    public void AddHealth(int amount)
+    public void AddHealth(float amount)
     {
         ModifyHealth(amount);
     }
 
-    public void AddExperience(int amount)
+    public void AddExperience(float amount)
     {
         ModifyExperience(amount);
     }
 
-    public void SubtractExperience(int amount)
+    public void SubtractExperience(float amount)
     {
         ModifyExperience(-amount);
     }
 
-    public void ModifyExperience(int amount)
+    public void ModifyExperience(float amount)
     {
         experience += amount;
 
         OnEXPChanged?.Invoke(percentage);
     }
 
-    int CalculateLevel(int experience)
+    float CalculateLevel(float experience)
     {
         characterLevel = Mathf.FloorToInt((1 + Mathf.Sqrt(experience / 125 + 1)) / 2);
         percentage = (1 + Mathf.Sqrt(experience / 125 + 1)) / 2 % 1;

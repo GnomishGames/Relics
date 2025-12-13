@@ -24,13 +24,13 @@ public class StaminaBar : MonoBehaviour
             characterStats.OnStaminaChanged -= SetStamina;
     }
 
-    public void SetMaxStamina(int stamina)
+    public void SetMaxStamina(float stamina)
     {
         slider.maxValue = stamina;
         slider.value = stamina;
     }
 
-    public void SetStamina(int stamina)
+    public void SetStamina(float stamina)
     {
         slider.value = stamina;
     }

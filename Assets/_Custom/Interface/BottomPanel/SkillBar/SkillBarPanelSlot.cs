@@ -58,8 +58,28 @@ public class SkillBarPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragH
     {
         skillBarPanel.fromSlot = slotNumber;
         skillBarPanel.fromPanel = "SkillBar";
-        Debug.Log("Clicked SkillBar Slot " + slotNumber);
+
+        //null check
+        if (skillBar.skillSOs[slotNumber] == null)
+        {
+            Debug.LogWarning("No skill assigned to this slot.");
+            return;
+        }
+
+        DoSkill();
+    }
+
+    private void DoSkill()
+    {
+        //do the skill
+        Debug.Log("Target is: " + player.GetComponent<Focus>().playerFocus.name);
         Debug.Log("Skill Name: " + skillBar.skillSOs[slotNumber].itemName);
+        Debug.Log("Stamina Cost: " + skillBar.skillSOs[slotNumber].staminaCost);
+        player.GetComponent<CharacterStats>().SubtractStamina(skillBar.skillSOs[slotNumber].staminaCost);
+        Debug.Log("Cooldown Time: " + skillBar.skillSOs[slotNumber].cooldownTime);
+        Debug.Log("Target Damage: " + skillBar.skillSOs[slotNumber].targetDamage);
+        player.GetComponent<Focus>().playerFocus.GetComponent<CharacterStats>().SubtractHealth(skillBar.skillSOs[slotNumber].targetDamage);
+        Debug.Log("Self Damage: " + skillBar.skillSOs[slotNumber].selfDamage);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
