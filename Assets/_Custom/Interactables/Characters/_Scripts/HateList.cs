@@ -12,14 +12,12 @@ public class HateList : MonoBehaviour
     FieldOfView fieldOfView;
     NPCMovement nPCMovement;
     CharacterStats characterStats;
-    CreatureFaction creatureFaction;
 
     private void Awake()
     {
         fieldOfView = GetComponent<FieldOfView>();
         nPCMovement = GetComponent<NPCMovement>();
         characterStats = GetComponent<CharacterStats>();
-        creatureFaction = GetComponent<CreatureFaction>();
     }
 
     private void Update()
