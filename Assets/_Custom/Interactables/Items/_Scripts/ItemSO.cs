@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ItemSO : ScriptableObject
@@ -7,4 +8,6 @@ public class ItemSO : ScriptableObject
     public float itemWeight;
     public int itemHealth;
     public SlotType slotType;
+
+
 }

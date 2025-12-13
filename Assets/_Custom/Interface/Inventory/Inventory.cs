@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
         inventoryItem[from] = null;
     }
 
-        public void UnEquipArmor(int inventorySlot, int equipmentSlot)
+    public void UnEquipArmor(int inventorySlot, int equipmentSlot)
     {
         if (inventoryItem[inventorySlot] == null)
         {

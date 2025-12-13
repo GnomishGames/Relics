@@ -38,7 +38,7 @@ public class InventoryPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
 
     private void Update()
     {
-        UpdateSlotIcons();//move to timer
+        UpdateSlotIcons();//move to timer or events
     }
 
     private void UpdateSlotIcons()
