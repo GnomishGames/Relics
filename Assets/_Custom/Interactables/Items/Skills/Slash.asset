@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca45808c3580f11886b938c8febe80a, type: 3}
   m_Name: Slash
   m_EditorClassIdentifier: Assembly-CSharp::SkillSO
-  itemName: 
-  sprite: {fileID: 21300000, guid: 269c01fa7118a8f45abcf76ba67fadb1, type: 3}
+  itemName: Slash
+  sprite: {fileID: 21300000, guid: 5b33796ce922e4b4ea68673d6b7c122e, type: 3}
   itemWeight: 0
   itemHealth: 0
-  slotType: 0
-  skillName: Slash
-  staminaCost: 0
-  cooldownTime: 0
+  slotType: 13
+  staminaCost: 1
+  cooldownTime: 1
+  targetDamage: 1
+  selfDamage: 0
