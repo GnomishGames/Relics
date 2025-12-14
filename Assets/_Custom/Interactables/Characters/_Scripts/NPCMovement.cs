@@ -6,7 +6,7 @@ public class NPCMovement : MonoBehaviour
     IAstarAI astar;
     public Animator animator;
     CharacterStats characterStats;
-    HateList hateList;
+    HateManager hateManager;
     NPCFocus npcFocus;
 
     Vector3 spawnPosition;
@@ -21,7 +21,7 @@ public class NPCMovement : MonoBehaviour
     {
         astar = GetComponent<IAstarAI>();
         characterStats = GetComponent<CharacterStats>();
-        hateList = GetComponent<HateList>();
+        hateManager = GetComponent<HateManager>();
         npcFocus = GetComponent<NPCFocus>();
 
         //find my location
@@ -43,8 +43,8 @@ public class NPCMovement : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetComponent<AIPath>().enabled = false;
             despawned = true;
-            hateList.hateList.Clear();
-            hateList.target = null;
+            hateManager.hateList.Clear();
+            hateManager.target = null;
 
             despawnTimer = 10f;
         }
@@ -83,7 +83,7 @@ public class NPCMovement : MonoBehaviour
 
     public void ResponseToBeingTargeted()
     {
-        if (npcFocus.playersTargetingMe.Count > 0 && !characterStats.dead && hateList.target == null)
+        if (npcFocus.playersTargetingMe.Count > 0 && !characterStats.dead && hateManager.target == null)
         {
             //there are players targeting me get top item in list and face them
             Transform targetPlayer = npcFocus.playersTargetingMe[0].transform;
@@ -98,7 +98,7 @@ public class NPCMovement : MonoBehaviour
 
     public void Roam()
     {
-        if (hateList.target == null && !characterStats.dead && npcFocus.playersTargetingMe.Count == 0)
+        if (hateManager.target == null && !characterStats.dead && npcFocus.playersTargetingMe.Count == 0)
         {
             if (!astar.pathPending && (astar.reachedEndOfPath || !astar.hasPath)) //i need a new path
             {
@@ -149,20 +149,46 @@ public class NPCMovement : MonoBehaviour
         }
     }
 
-    
-    public void RunToTarget(Transform target)
+    public void ApproachTarget(Transform target)
     {
-        //Debug.Log(transform.name + "RunToTarget");
+
+        // If we have anything on the hate list, force pursue/attack the top entry regardless of sensing or aggro radius
+        if (hateManager.hateList.Count > 0 && !characterStats.dead)
+        {
+            var top = hateManager.hateList[0];
+            if (top != null)
+            {
+                Debug.Log(transform.name + " pursuing hate target " + top.name);
+                target = top.transform;
+                // Always face and move toward the target, ignoring aggro/sense constraints
+                FaceTarget(target.position, transform);
+                astar.destination = target.position;
+                astar.maxSpeed = characterStats.characterRace.runSpeed;
+
+                // If within attack distance, stop movement (actual attack handled elsewhere by animation/events)
+                distanceToTarget = Vector3.Distance(target.position, transform.position);
+                if (distanceToTarget <= characterStats.characterRace.attackDistance)
+                {
+                    astar.destination = transform.position;
+                    astar.maxSpeed = 0;
+                }
+                return; // skip roaming when we have a hate target
+            }
+        }
+        
         if (!characterStats.dead && target != null)
         {
             distanceToTarget = Vector3.Distance(target.transform.position, transform.position); //distance to target
             if (distanceToTarget <= characterStats.characterRace.aggroRadius && distanceToTarget >= characterStats.characterRace.attackDistance)
-            {//less than agro radius and more than attack distnace
-                astar.destination = target.position/* + new Vector3(0,0,3)*/;
+            {
+                //less than agro radius and more than attack distnace
+                astar.destination = target.position;
                 astar.maxSpeed = characterStats.characterRace.runSpeed;
             }
             else
             {
+                //within attack distance stop moving
+                astar.destination = transform.position;
                 astar.maxSpeed = 0;
             }
         }

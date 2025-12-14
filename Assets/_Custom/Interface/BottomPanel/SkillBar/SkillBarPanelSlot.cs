@@ -72,14 +72,21 @@ public class SkillBarPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragH
     private void DoSkill()
     {
         //do the skill
-        Debug.Log("Target is: " + player.GetComponent<Focus>().playerFocus.name);
-        Debug.Log("Skill Name: " + skillBar.skillSOs[slotNumber].itemName);
-        Debug.Log("Stamina Cost: " + skillBar.skillSOs[slotNumber].staminaCost);
+        //Debug.Log("Target is: " + player.GetComponent<Focus>().playerFocus.name);
+        //Debug.Log("Skill Name: " + skillBar.skillSOs[slotNumber].itemName);
+
+        //get stamina cost and subtract from player
         player.GetComponent<CharacterStats>().SubtractStamina(skillBar.skillSOs[slotNumber].staminaCost);
-        Debug.Log("Cooldown Time: " + skillBar.skillSOs[slotNumber].cooldownTime);
-        Debug.Log("Target Damage: " + skillBar.skillSOs[slotNumber].targetDamage);
+        //Debug.Log("Cooldown Time: " + skillBar.skillSOs[slotNumber].cooldownTime);
+
+        //apply damage to target
         player.GetComponent<Focus>().playerFocus.GetComponent<CharacterStats>().SubtractHealth(skillBar.skillSOs[slotNumber].targetDamage);
-        Debug.Log("Self Damage: " + skillBar.skillSOs[slotNumber].selfDamage);
+
+        //Debug.Log("Self Damage: " + skillBar.skillSOs[slotNumber].selfDamage);
+
+        //add player to target hate list
+        player.GetComponent<Focus>().playerFocus.GetComponent<HateManager>().AddToHateList(player.GetComponent<Interactable>());
+        
     }
 
     public void OnBeginDrag(PointerEventData eventData)

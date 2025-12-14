@@ -13,14 +13,14 @@ public class NPCTimers : MonoBehaviour
     FieldOfView fieldOfView;
     NPCMovement npcMovement;
     CharacterStats characterStats;
-    HateList hateList;
+    HateManager hateList;
 
     private void Start()
     {
         fieldOfView = GetComponent<FieldOfView>();
         npcMovement = GetComponent<NPCMovement>();
         characterStats = GetComponent<CharacterStats>();
-        hateList = GetComponent<HateList>();
+        hateList = GetComponent<HateManager>();
     }
 
     private void Update()

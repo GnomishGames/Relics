@@ -196,31 +196,6 @@ public class CharacterStats : Character
 
     public bool IsEnemy(CharacterStats other)
     {
-        // Safety checks
-        if (FactionManager.Instance == null)
-        {
-            Debug.LogError($"IsEnemy: FactionManager.Instance is null for {name}");
-            return false;
-        }
-
-        if (other == null)
-        {
-            Debug.LogWarning($"IsEnemy: 'other' CharacterStats is null for {name}");
-            return false;
-        }
-
-        if (faction == null)
-        {
-            Debug.LogWarning($"IsEnemy: Self faction is null on {name}");
-            return false;
-        }
-
-        if (other.faction == null)
-        {
-            Debug.LogWarning($"IsEnemy: Other faction is null on {other.name}");
-            return false;
-        }
-
         bool hostile = FactionManager.Instance.IsHostile(faction, other.faction);
         Debug.Log($"IsEnemy: {name}({faction.name}) vs {other.name}({other.faction.name}) => hostile={hostile}");
         return hostile;

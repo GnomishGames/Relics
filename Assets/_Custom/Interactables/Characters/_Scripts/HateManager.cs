@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class HateList : MonoBehaviour
+public class HateManager : MonoBehaviour
 {
     //anger management
     public List<Interactable> hateList = new List<Interactable>();
@@ -68,17 +68,29 @@ public class HateList : MonoBehaviour
 
     public void AggroTarget()
     {
-        if ( target != null && !characterStats.dead)
+
+        if (target != null && !characterStats.dead)
         {
             float distanceToTarget = Vector3.Distance(target.transform.position, transform.position);
             if (distanceToTarget <= characterStats.characterRace.aggroRadius)
             {
-                nPCMovement.RunToTarget(target.transform);
+                nPCMovement.ApproachTarget(target.transform);
             }
-            if (distanceToTarget > characterStats.characterRace.aggroRadius)
+            if (distanceToTarget > characterStats.characterRace.aggroRadius && hateList.Count > 0)
             {
-                hateList.Remove(target);
+                //hateManager.hateList.Remove(target);
+                target = hateList[0];
+                nPCMovement.ApproachTarget(target.transform);
             }
+        }
+    }
+
+    //add specific interactable to hate list
+    public void AddToHateList(Interactable interactable)
+    {
+        if (!hateList.Contains(interactable))
+        {
+            hateList.Add(interactable); //add to hate list 
         }
     }
 }

@@ -18882,7 +18882,10 @@ MonoBehaviour:
   dead: 0
   xpToGive: 0
   inventoryStats: {fileID: 7323585059371529380}
+  charactersWhoHitMe: []
+  gaveXP: 0
   icon: {fileID: 0}
+  animator: {fileID: 0}
   currentHitPoints: 0
   maxHitpoints: 0
   armorClass: 0
@@ -19011,7 +19014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillBook
   skillSOs:
-  - {fileID: 11400000, guid: 79ab5d112d89cc2b193235f16cb3c6a4, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 68bc333be55f3c8658bc7cd6503fe41a, type: 2}
   - {fileID: 0}
   - {fileID: 0}
@@ -19036,7 +19039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillBar
   skillSOs:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 79ab5d112d89cc2b193235f16cb3c6a4, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
