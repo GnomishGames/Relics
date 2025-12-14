@@ -8,12 +8,15 @@ public class NPCTimers : MonoBehaviour
     float tickOne = 1f;
     float tickTen = 10f;
     float tickOneHundred = 100f;
+    
 
     //references
     FieldOfView fieldOfView;
     NPCMovement npcMovement;
     CharacterStats characterStats;
     HateManager hateList;
+
+
 
     private void Start()
     {

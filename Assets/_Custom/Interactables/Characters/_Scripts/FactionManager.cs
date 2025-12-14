@@ -8,7 +8,7 @@ public class FactionManager : MonoBehaviour
     public static FactionManager Instance;
 
     [Header("List of ALL factions (drag SOs here)")]
-    public List<Faction> factions;
+    public List<FactionSO> factions;
 
     private Dictionary<(string, string), int> _runtimeRelationships;
 
@@ -68,7 +68,7 @@ public class FactionManager : MonoBehaviour
     // ----------------------------------------------------
     // STEP 3: Query relationships during gameplay
     // ----------------------------------------------------
-    public int GetRelationship(Faction a, Faction b)
+    public int GetRelationship(FactionSO a, FactionSO b)
     {
         if (_runtimeRelationships.TryGetValue((a.factionName, b.factionName), out int val))
         {
@@ -79,12 +79,12 @@ public class FactionManager : MonoBehaviour
         return 0;
     }
 
-    public bool IsHostile(Faction a, Faction b)
+    public bool IsHostile(FactionSO a, FactionSO b)
     {
         return GetRelationship(a, b) < 0;
     }
 
-    public bool IsFriendly(Faction a, Faction b)
+    public bool IsFriendly(FactionSO a, FactionSO b)
     {
         return GetRelationship(a, b) > 0;
     }
@@ -92,7 +92,7 @@ public class FactionManager : MonoBehaviour
     // ----------------------------------------------------
     // STEP 4: Modify relationships dynamically
     // ----------------------------------------------------
-    public void ModifyRelationship(Faction a, Faction b, int amount)
+    public void ModifyRelationship(FactionSO a, FactionSO b, int amount)
     {
         var key = (a.factionName, b.factionName);
 

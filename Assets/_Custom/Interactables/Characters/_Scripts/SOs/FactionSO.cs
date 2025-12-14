@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable Object/Faction")]
-public class Faction : ScriptableObject
+public class FactionSO : ScriptableObject
 {
     public string factionName;
 
     [Serializable]
     public class FactionRelationship
     {
-        public Faction otherFaction;
+        public FactionSO otherFaction;
         public int relationshipValue;
     }
 

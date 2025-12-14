@@ -3,10 +3,10 @@ using UnityEngine;
 public class Character : Interactable
 {
     //references
-    public Race characterRace;
-    public Class characterClass;
+    public RaceSO characterRace;
+    public ClassSO characterClass;
     public BehaviorSO behaviorSO;
-    public Faction faction;
+    public FactionSO faction;
     
     //vars
     public bool dead;

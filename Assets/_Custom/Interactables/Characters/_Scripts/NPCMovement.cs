@@ -12,7 +12,7 @@ public class NPCMovement : MonoBehaviour
     Vector3 spawnPosition;
     Quaternion spawnRotation;
 
-    public float despawnTimer = 10f;
+    public float despawnTimer;
     public float respawnTimer;
     public bool despawned;
     public float distanceToTarget;
@@ -46,7 +46,7 @@ public class NPCMovement : MonoBehaviour
             hateManager.hateList.Clear();
             hateManager.target = null;
 
-            despawnTimer = 10f;
+            despawnTimer = characterStats.behaviorSO.despawnTimer;
         }
     }
 

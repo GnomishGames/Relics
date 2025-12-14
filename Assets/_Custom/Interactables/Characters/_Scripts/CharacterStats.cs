@@ -56,6 +56,7 @@ public class CharacterStats : Character
     public float experience;
     private float percentage;
 
+    //armor and size
     public float sizeModifier;
     public float armorBonus;
 

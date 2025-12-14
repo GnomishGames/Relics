@@ -5,4 +5,5 @@ public class BehaviorSO : ScriptableObject
 {
     public int roamDistance;
     public float respawnTimer;
+    public float despawnTimer;
 }
