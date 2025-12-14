@@ -2815,7 +2815,6 @@ GameObject:
   - component: {fileID: 3214528459889820158}
   - component: {fileID: 5755834685975914934}
   - component: {fileID: 6379612227631651102}
-  - component: {fileID: 5611070701515725908}
   - component: {fileID: 6294362316270861199}
   - component: {fileID: 9079958083919111838}
   m_Layer: 6
@@ -3033,10 +3032,11 @@ MonoBehaviour:
   faction: {fileID: 11400000, guid: f7e1f4d35bb32e5d3acdbeaf4beca83e, type: 2}
   dead: 0
   xpToGive: 0
-  healthbar: {fileID: 0}
-  expBar: {fileID: 0}
   inventoryStats: {fileID: 0}
+  charactersWhoHitMe: []
+  gaveXP: 0
   icon: {fileID: 0}
+  animator: {fileID: 3051179684182946464}
   currentHitPoints: 0
   maxHitpoints: 0
   armorClass: 0
@@ -3066,19 +3066,6 @@ MonoBehaviour:
   experience: 0
   sizeModifier: 0
   armorBonus: 0
---- !u!114 &5611070701515725908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8125831373407689766}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a1a7203e5dde8bc3ba9fe2263917a71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CreatureFaction
-  faction: {fileID: 11400000, guid: f7e1f4d35bb32e5d3acdbeaf4beca83e, type: 2}
 --- !u!114 &6294362316270861199
 MonoBehaviour:
   m_ObjectHideFlags: 0

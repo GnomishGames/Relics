@@ -43,6 +43,7 @@ public class NPCTimers : MonoBehaviour
             npcMovement.CheckAstarVelocity();
             hateList.UpdateHateList();
             hateList.AggroTarget();
+            characterStats.DeathCheck();
             //npcMovement.ResponseToBeingTargeted();
         }
     }

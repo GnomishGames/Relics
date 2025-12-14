@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterStats : Character
@@ -11,8 +12,12 @@ public class CharacterStats : Character
     //references
     public InventoryStats inventoryStats;
 
+    public List<Character> charactersWhoHitMe = new List<Character>();
+    public bool gaveXP = false;
+
     //General
     public Sprite icon;
+    public Animator animator;
 
     //Base Attributes
     public float currentHitPoints;
@@ -280,5 +285,25 @@ public class CharacterStats : Character
         percentage = (1 + Mathf.Sqrt(experience / 125 + 1)) / 2 % 1;
 
         return characterLevel;
+    }
+
+    public void DeathCheck()
+    {
+        if (currentHitPoints <= 0)
+        {
+            currentHitPoints = 0;
+
+            animator.SetBool("Dead", true);
+            dead = true;
+
+            if (!gaveXP)
+            {
+                foreach (var character in charactersWhoHitMe)
+                {
+                    character.GetComponent<CharacterStats>().experience += xpToGive;
+                }
+                gaveXP = true;
+            }
+        }
     }
 }
