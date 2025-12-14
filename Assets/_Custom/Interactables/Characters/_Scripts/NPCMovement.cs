@@ -12,9 +12,9 @@ public class NPCMovement : MonoBehaviour
     Vector3 spawnPosition;
     Quaternion spawnRotation;
 
-    float despawnTimer = 10f;
-    float respawnTimer;
-    bool despawned;
+    public float despawnTimer = 10f;
+    public float respawnTimer;
+    public bool despawned;
     public float distanceToTarget;
 
     private void Start()
@@ -31,7 +31,7 @@ public class NPCMovement : MonoBehaviour
         respawnTimer = characterStats.behaviorSO.respawnTimer;
     }
 
-    private void Despawn()
+    public void Despawn()
     {
         if (characterStats.dead && !despawned)
         {
@@ -50,7 +50,7 @@ public class NPCMovement : MonoBehaviour
         }
     }
 
-    private void Respawn()
+    public void Respawn()
     {
         if (despawned && characterStats.dead)
         {

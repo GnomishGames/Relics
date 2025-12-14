@@ -55,7 +55,9 @@ public class NPCTimers : MonoBehaviour
         {
             tickOne = 1f; //reset timer
             /* v Start code here v */
-            //npcMovement.ResetPosition();
+            npcMovement.Despawn();
+            npcMovement.ResetPosition();
+            npcMovement.Respawn();
         }
     }
     private void TickTen() //do every ten seconds
