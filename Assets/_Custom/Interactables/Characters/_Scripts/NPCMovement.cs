@@ -7,7 +7,7 @@ public class NPCMovement : MonoBehaviour
     public Animator animator;
     CharacterStats characterStats;
     HateManager hateManager;
-    NPCFocus npcFocus;
+    CharacterFocus characterFocus;
 
     Vector3 spawnPosition;
     Quaternion spawnRotation;
@@ -22,7 +22,7 @@ public class NPCMovement : MonoBehaviour
         astar = GetComponent<IAstarAI>();
         characterStats = GetComponent<CharacterStats>();
         hateManager = GetComponent<HateManager>();
-        npcFocus = GetComponent<NPCFocus>();
+        characterFocus = GetComponent<CharacterFocus>();
 
         //find my location
         spawnPosition = transform.position;
@@ -83,10 +83,10 @@ public class NPCMovement : MonoBehaviour
 
     public void ResponseToBeingTargeted()
     {
-        if (npcFocus.playersTargetingMe.Count > 0 && !characterStats.dead && hateManager.target == null)
+        if (characterFocus != null && characterFocus.charactersTargetingMe.Count > 0 && !characterStats.dead && hateManager.target == null)
         {
             //there are players targeting me get top item in list and face them
-            Transform targetPlayer = npcFocus.playersTargetingMe[0].transform;
+            Transform targetPlayer = characterFocus.charactersTargetingMe[0].transform;
             FaceTarget(targetPlayer.position, transform);
 
             //stop moving and clear astar path
@@ -98,7 +98,7 @@ public class NPCMovement : MonoBehaviour
 
     public void Roam()
     {
-        if (hateManager.target == null && !characterStats.dead && npcFocus.playersTargetingMe.Count == 0)
+        if (hateManager.target == null && !characterStats.dead && characterFocus.charactersTargetingMe.Count == 0)
         {
             if (!astar.pathPending && (astar.reachedEndOfPath || !astar.hasPath)) //i need a new path
             {

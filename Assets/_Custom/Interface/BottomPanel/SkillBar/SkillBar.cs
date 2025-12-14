@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterStats))]
 public class SkillBar : MonoBehaviour
 {
     //skills that are equipped to the skill panel
@@ -41,5 +42,28 @@ public class SkillBar : MonoBehaviour
             skillSOs[skillBarSlot] = skillBook.skillSOs[skillBookSlot];
             skillBook.skillSOs[skillBookSlot] = (SkillSO)buffer;
         }
+    }
+
+    public void DoSkill(int slotNumber)
+    {
+        //null check
+        if (skillSOs[slotNumber] == null)
+        {
+            Debug.LogWarning("No skill assigned to this slot.");
+            return;
+        }
+
+        //use skill
+        this.GetComponent<CharacterStats>().SubtractStamina(skillSOs[slotNumber].staminaCost);
+        var cf = this.GetComponent<CharacterFocus>();
+        if (cf != null && cf.currentFocus != null)
+        {
+            var targetStats = cf.currentFocus.GetComponent<CharacterStats>();
+            if (targetStats != null)
+            {
+                targetStats.SubtractHealth(skillSOs[slotNumber].targetDamage);
+            }
+        }
+                
     }
 }

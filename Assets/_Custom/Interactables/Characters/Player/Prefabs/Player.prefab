@@ -18662,7 +18662,6 @@ GameObject:
   - component: {fileID: 3464447429195375397}
   - component: {fileID: 8672781565064369472}
   - component: {fileID: 3223126590919185411}
-  - component: {fileID: -8416364110541351380}
   - component: {fileID: -7887123403363579381}
   - component: {fileID: 1694662179195538751}
   - component: {fileID: 3507841131774482172}
@@ -18670,6 +18669,7 @@ GameObject:
   - component: {fileID: 819191757475659884}
   - component: {fileID: 2361561545167191655}
   - component: {fileID: -1814246146945092732}
+  - component: {fileID: -8912055278044659478}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -18848,20 +18848,6 @@ MonoBehaviour:
   orbitSensitivityY: 120
   minPitch: -10
   maxPitch: 75
---- !u!114 &-8416364110541351380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5584339292830879391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bfbf538b068d50e0ba77bfe1a7ab12f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Focus
-  playerFocus: {fileID: 0}
-  playersTargetingMe: []
 --- !u!114 &-7887123403363579381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19048,6 +19034,23 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   skillBook: {fileID: 2361561545167191655}
+--- !u!114 &-8912055278044659478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584339292830879391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66150d8556a7ba818bc049accbad6d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterFocus
+  isPlayer: 1
+  currentFocus: {fileID: 0}
+  cam: {fileID: 0}
+  inventory: {fileID: 0}
+  charactersTargetingMe: []
 --- !u!1 &5665107874003256091
 GameObject:
   m_ObjectHideFlags: 0

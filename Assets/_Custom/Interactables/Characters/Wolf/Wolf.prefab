@@ -1652,13 +1652,12 @@ GameObject:
   - component: {fileID: 1929934594251173029}
   - component: {fileID: 8704876164116869599}
   - component: {fileID: 6604422475734577444}
-  - component: {fileID: 3043260406093935807}
   - component: {fileID: 5345500730461444583}
   - component: {fileID: 1136457431197162007}
   - component: {fileID: 6009259335194169887}
-  - component: {fileID: 4705739738992964809}
   - component: {fileID: 6668142791204201521}
   - component: {fileID: 7267062595557226235}
+  - component: {fileID: 3001132995409869810}
   m_Layer: 6
   m_Name: Wolf
   m_TagString: Untagged
@@ -1815,20 +1814,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &3043260406093935807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8879652896023530545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc20c917d357609fa7bdaf232bbcffa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCFocus
-  focus: {fileID: 0}
-  playersTargetingMe: []
 --- !u!114 &5345500730461444583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1854,6 +1839,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCMovement
   animator: {fileID: 3139095062985466727}
+  despawnTimer: 0
+  respawnTimer: 0
+  despawned: 0
   distanceToTarget: 0
 --- !u!114 &6009259335194169887
 MonoBehaviour:
@@ -1874,10 +1862,11 @@ MonoBehaviour:
   faction: {fileID: 11400000, guid: a8185b8b2dbfb1aa6b3bc6958cdd50e9, type: 2}
   dead: 0
   xpToGive: 0
-  healthbar: {fileID: 0}
-  expBar: {fileID: 0}
   inventoryStats: {fileID: 0}
+  charactersWhoHitMe: []
+  gaveXP: 0
   icon: {fileID: 0}
+  animator: {fileID: 0}
   currentHitPoints: 0
   maxHitpoints: 0
   armorClass: 0
@@ -1907,19 +1896,6 @@ MonoBehaviour:
   experience: 0
   sizeModifier: 0
   armorBonus: 0
---- !u!114 &4705739738992964809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8879652896023530545}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a1a7203e5dde8bc3ba9fe2263917a71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CreatureFaction
-  faction: {fileID: 11400000, guid: a8185b8b2dbfb1aa6b3bc6958cdd50e9, type: 2}
 --- !u!114 &6668142791204201521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1956,6 +1932,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HateList
   hateList: []
   target: {fileID: 0}
+--- !u!114 &3001132995409869810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879652896023530545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66150d8556a7ba818bc049accbad6d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterFocus
+  isPlayer: 0
+  currentFocus: {fileID: 0}
+  cam: {fileID: 0}
+  inventory: {fileID: 0}
+  charactersTargetingMe: []
 --- !u!1 &9182764484791785533
 GameObject:
   m_ObjectHideFlags: 0

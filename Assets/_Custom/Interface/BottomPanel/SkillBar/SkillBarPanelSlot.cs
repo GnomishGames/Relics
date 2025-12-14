@@ -66,26 +66,36 @@ public class SkillBarPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragH
             return;
         }
 
-        DoSkill();
+        skillBar.DoSkill(slotNumber);
     }
 
     private void DoSkill()
     {
         //do the skill
-        //Debug.Log("Target is: " + player.GetComponent<Focus>().playerFocus.name);
+        //Debug.Log("Target is: " + player.GetComponent<CharacterFocus>().currentFocus.name);
         //Debug.Log("Skill Name: " + skillBar.skillSOs[slotNumber].itemName);
 
         //get stamina cost and subtract from player
         player.GetComponent<CharacterStats>().SubtractStamina(skillBar.skillSOs[slotNumber].staminaCost);
         //Debug.Log("Cooldown Time: " + skillBar.skillSOs[slotNumber].cooldownTime);
 
-        //apply damage to target
-        player.GetComponent<Focus>().playerFocus.GetComponent<CharacterStats>().SubtractHealth(skillBar.skillSOs[slotNumber].targetDamage);
+        var cf = player.GetComponent<CharacterFocus>();
+        if (cf != null && cf.currentFocus != null)
+        {
+            //apply damage to target
+            var targetStats = cf.currentFocus.GetComponent<CharacterStats>();
+            if (targetStats != null)
+            {
+                targetStats.SubtractHealth(skillBar.skillSOs[slotNumber].targetDamage);
+            }
 
-        //Debug.Log("Self Damage: " + skillBar.skillSOs[slotNumber].selfDamage);
-
-        //add player to target hate list
-        player.GetComponent<Focus>().playerFocus.GetComponent<HateManager>().AddToHateList(player.GetComponent<Interactable>());
+            //add player to target hate list
+            var targetHate = cf.currentFocus.GetComponent<HateManager>();
+            if (targetHate != null)
+            {
+                targetHate.AddToHateList(player.GetComponent<Interactable>());
+            }
+        }
         
     }
 

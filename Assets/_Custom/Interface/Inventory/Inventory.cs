@@ -78,7 +78,8 @@ public class Inventory : MonoBehaviour
 
     internal void LootItem(int inventorySlot, int containerSlot)
     {
-        focus = GetComponent<Focus>().playerFocus;
+        var cf = GetComponent<CharacterFocus>();
+        focus = cf != null ? cf.currentFocus : null;
         container = (Container)focus.GetComponent<Container>();
         if (inventoryItem[inventorySlot] == null)
         {

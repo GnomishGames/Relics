@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Wanderer
   m_EditorClassIdentifier: Assembly-CSharp::BehaviorSO
   roamDistance: 100
-  respawnTimer: 5
+  respawnTimer: 1
+  despawnTimer: 1

@@ -2811,12 +2811,13 @@ GameObject:
   - component: {fileID: 1521485215840569202}
   - component: {fileID: 6024093168616196461}
   - component: {fileID: 2301176005384629242}
-  - component: {fileID: 6501895083918417894}
   - component: {fileID: 3214528459889820158}
   - component: {fileID: 5755834685975914934}
   - component: {fileID: 6379612227631651102}
   - component: {fileID: 6294362316270861199}
   - component: {fileID: 9079958083919111838}
+  - component: {fileID: -971210894823298198}
+  - component: {fileID: -2543813623565115898}
   m_Layer: 6
   m_Name: Goblin
   m_TagString: Untagged
@@ -2973,20 +2974,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.92, z: 0}
---- !u!114 &6501895083918417894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8125831373407689766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc20c917d357609fa7bdaf232bbcffa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCFocus
-  focus: {fileID: 0}
-  playersTargetingMe: []
 --- !u!114 &3214528459889820158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3012,6 +2999,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCMovement
   animator: {fileID: 3051179684182946464}
+  despawnTimer: 10
+  respawnTimer: 0
+  despawned: 0
   distanceToTarget: 0
 --- !u!114 &6379612227631651102
 MonoBehaviour:
@@ -3102,6 +3092,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HateList
   hateList: []
   target: {fileID: 0}
+--- !u!114 &-971210894823298198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125831373407689766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0b9a7a8685197e9a3451ec866fb446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillBar
+  skillSOs:
+  - {fileID: 11400000, guid: 79ab5d112d89cc2b193235f16cb3c6a4, type: 2}
+  - {fileID: 11400000, guid: 68bc333be55f3c8658bc7cd6503fe41a, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillBook: {fileID: 0}
+--- !u!114 &-2543813623565115898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125831373407689766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66150d8556a7ba818bc049accbad6d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterFocus
+  isPlayer: 0
+  currentFocus: {fileID: 0}
+  cam: {fileID: 0}
+  inventory: {fileID: 0}
+  charactersTargetingMe: []
 --- !u!1 &8233326738561010459
 GameObject:
   m_ObjectHideFlags: 0
