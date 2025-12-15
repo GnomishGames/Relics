@@ -44,7 +44,7 @@ public class NPCMovement : MonoBehaviour
             transform.GetComponent<AIPath>().enabled = false;
             despawned = true;
             hateManager.hateList.Clear();
-            hateManager.target = null;
+            characterFocus.currentFocus = null;
 
             despawnTimer = characterStats.behaviorSO.despawnTimer;
         }
@@ -81,24 +81,11 @@ public class NPCMovement : MonoBehaviour
         }
     }
 
-    public void ResponseToBeingTargeted()
-    {
-        if (characterFocus != null && characterFocus.charactersTargetingMe.Count > 0 && !characterStats.dead && hateManager.target == null)
-        {
-            //there are players targeting me get top item in list and face them
-            Transform targetPlayer = characterFocus.charactersTargetingMe[0].transform;
-            FaceTarget(targetPlayer.position, transform);
-
-            //stop moving and clear astar path
-            astar.destination = transform.position;
-            astar.SearchPath();
-            astar.maxSpeed = 0;
-        }
-    }
+    // ResponseToBeingTargeted moved to HateManager.ResponseToBeingTargeted()
 
     public void Roam()
     {
-        if (hateManager.target == null && !characterStats.dead && characterFocus.charactersTargetingMe.Count == 0)
+        if (characterFocus.currentFocus == null && !characterStats.dead && characterFocus.charactersTargetingMe.Count == 0)
         {
             if (!astar.pathPending && (astar.reachedEndOfPath || !astar.hasPath)) //i need a new path
             {
@@ -139,7 +126,10 @@ public class NPCMovement : MonoBehaviour
 
     public static void FaceTarget(Vector3 targetLocation, Transform transform)
     {
-
+        //check null
+        if (transform == null)
+            return;
+        
         Vector3 direction = (targetLocation - transform.position).normalized;
 
         if (direction != Vector3.zero)

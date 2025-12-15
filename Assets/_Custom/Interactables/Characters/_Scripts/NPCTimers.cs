@@ -14,7 +14,7 @@ public class NPCTimers : MonoBehaviour
     FieldOfView fieldOfView;
     NPCMovement npcMovement;
     CharacterStats characterStats;
-    HateManager hateList;
+    HateManager hateManager;
     NPCSkillManager nPCSkillManager;
 
 
@@ -24,7 +24,7 @@ public class NPCTimers : MonoBehaviour
         fieldOfView = GetComponent<FieldOfView>();
         npcMovement = GetComponent<NPCMovement>();
         characterStats = GetComponent<CharacterStats>();
-        hateList = GetComponent<HateManager>();
+        hateManager = GetComponent<HateManager>();
         nPCSkillManager = GetComponent<NPCSkillManager>();
     }
 
@@ -46,8 +46,9 @@ public class NPCTimers : MonoBehaviour
             fieldOfView.FindVisibleTargets();
             fieldOfView.FindHearableTargets();
             npcMovement.CheckAstarVelocity();
-            hateList.UpdateHateList();
-            hateList.AggroTarget();
+            hateManager.UpdateHateList();
+            //hateManager.ResponseToBeingTargeted();
+            hateManager.AggroTarget();
             characterStats.DeathCheck();
             //npcMovement.ResponseToBeingTargeted();
         }

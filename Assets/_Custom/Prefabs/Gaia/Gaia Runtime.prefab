@@ -142,8 +142,8 @@ MonoBehaviour:
   m_enableUnderwaterEffects: 1
   RenderPipeline: 3
   m_weatherSystemExists: 0
-  m_startingUnderwater: 1
-  m_seaLevel: 0
+  m_startingUnderwater: 0
+  m_seaLevel: -0.17446
   m_playerCamera: {fileID: 0}
   m_underwaterParticles: {fileID: 2732620256593569453}
   m_horizonObject: {fileID: 4835538073550454978}
@@ -339,6 +339,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
+  m_postProcessProfile: {fileID: 0}
   m_playbackVolume: 0.5
   m_submergeSoundFXDown: {fileID: 8300000, guid: 04cc72e5926e8cf42813b02207ec23cb, type: 3}
   m_submergeSoundFXUp: {fileID: 8300000, guid: 28126f01cb4582c4987e5bbbef2c3e8c, type: 3}
@@ -558,7 +559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7738685140378723374
 Transform:
   m_ObjectHideFlags: 0
@@ -617,7 +618,7 @@ Transform:
   m_GameObject: {fileID: 920253953038897182}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3500, z: 0}
+  m_LocalPosition: {x: -239.76439, y: -3500, z: -151.71594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6136,6 +6137,7 @@ MonoBehaviour:
     m_typeOfWater: Deep Blue Ocean
     m_profileRename: 
     m_userCustomProfile: 0
+    m_postProcessProfileBuiltIn: {fileID: 0}
     m_postProcessingProfileGUIDBuiltIn: 621882b688d3a034a8377536e9c0ef66
     m_directToCamera: 0
     m_postProcessingProfileGUIDURP: eab86dbbf9117fb4f9a54b786b342118
@@ -6348,7 +6350,7 @@ MonoBehaviour:
   m_minSurfaceLight: 0.5
   m_maxSurfaceLight: 2
   m_updatingSeaLevel: 0
-  m_seaLevel: 0
+  m_seaLevel: -0.17446
   m_planarReflections: {fileID: 0}
   m_HDPlanarReflections: {fileID: 1385236331452424809}
   m_weatherSystemPresent: 0
@@ -6928,7 +6930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7794651009119782656
 Transform:
   m_ObjectHideFlags: 0
