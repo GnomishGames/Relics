@@ -129,7 +129,7 @@ public class NPCMovement : MonoBehaviour
         //check null
         if (transform == null)
             return;
-        
+
         Vector3 direction = (targetLocation - transform.position).normalized;
 
         if (direction != Vector3.zero)
@@ -141,43 +141,68 @@ public class NPCMovement : MonoBehaviour
 
     public void ApproachTarget(Transform target)
     {
-        // If we have anything on the hate list, force pursue/attack the top entry regardless of sensing or aggro radius
-        if (hateManager.hateList.Count > 0 && !characterStats.dead)
+        if (!characterStats.dead && target != null)
         {
-            var top = hateManager.hateList[0];
-            if (top != null)
-            {
-                target = top.transform;
-                // Always face and move toward the target, ignoring aggro/sense constraints
-                FaceTarget(target.position, transform);
-                astar.destination = target.position;
-                astar.maxSpeed = characterStats.characterRace.runSpeed;
+            distanceToTarget = Vector3.Distance(target.position, transform.position);
 
-                // If within attack distance, stop movement (actual attack handled elsewhere by animation/events)
-                distanceToTarget = Vector3.Distance(target.position, transform.position);
-                if (distanceToTarget <= characterStats.characterRace.attackDistance)
+            // Face the target
+            FaceTarget(target.position, transform);
+
+            // Within attack distance: stop moving
+            if (distanceToTarget <= characterStats.characterRace.attackDistance)
+            {
+                astar.destination = transform.position;
+                astar.SearchPath();
+                astar.maxSpeed = 0;
+                astar.isStopped = true;
+            }
+            // Within aggro radius but outside attack distance: run toward target
+            else if (distanceToTarget <= characterStats.characterRace.aggroRadius)
+            {
+                astar.destination = target.position;
+                astar.SearchPath();
+                astar.maxSpeed = characterStats.characterRace.runSpeed;
+                astar.isStopped = false;
+            }
+            // Outside aggro radius: walk slowly toward target (or stop if you prefer)
+            else if (distanceToTarget > characterStats.characterRace.attackDistance && distanceToTarget < characterStats.characterRace.viewRadius)
+            {
+                astar.destination = target.position;
+                astar.SearchPath();
+                astar.maxSpeed = characterStats.characterRace.walkSpeed;
+                astar.isStopped = false;
+            }
+            // Outside view radius: return to spawn
+            else
+            {
+                //clear hate list of distant targets
+                hateManager.hateList.Clear();
+                astar.destination = spawnPosition;
+                //astar.rotation = spawnRotation;
+                astar.SearchPath();
+                astar.maxSpeed = characterStats.characterRace.walkSpeed;
+                astar.isStopped = false;
+
+				// If close to spawn, stop and face original rotation
+				if (Vector3.Distance(transform.position, spawnPosition) <= 0.5f)
+				{
+					astar.destination = transform.position;
+                    astar.maxSpeed = 0;
+					astar.isStopped = true;
+					transform.rotation = Quaternion.Slerp(transform.rotation, spawnRotation, Time.deltaTime * 5f);
+				}
+            }
+
+            // If idle at spawn, ensure facing spawn rotation
+            if (characterFocus.currentFocus == null && hateManager.hateList.Count == 0)
+            {
+                if (Vector3.Distance(transform.position, spawnPosition) <= 0.5f)
                 {
                     astar.destination = transform.position;
                     astar.maxSpeed = 0;
+                    astar.isStopped = true;
+                    transform.rotation = Quaternion.Slerp(transform.rotation, spawnRotation, Time.deltaTime * 5f);
                 }
-                return; // skip roaming when we have a hate target
-            }
-        }
-        
-        if (!characterStats.dead && target != null)
-        {
-            distanceToTarget = Vector3.Distance(target.transform.position, transform.position); //distance to target
-            if (distanceToTarget <= characterStats.characterRace.aggroRadius && distanceToTarget >= characterStats.characterRace.attackDistance)
-            {
-                //less than agro radius and more than attack distnace
-                astar.destination = target.position;
-                astar.maxSpeed = characterStats.characterRace.runSpeed;
-            }
-            else
-            {
-                //within attack distance stop moving
-                astar.destination = transform.position;
-                astar.maxSpeed = 0;
             }
         }
     }

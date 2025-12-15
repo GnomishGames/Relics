@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,6 +10,7 @@ public class CharacterFocus : MonoBehaviour
 
 	[Header("State")]
 	public Interactable currentFocus; // for players: what they are focusing; for NPCs: optional
+    public float distanceToFocus;
 
 	[Header("Player refs")]
 	public Camera cam;
@@ -17,12 +19,17 @@ public class CharacterFocus : MonoBehaviour
 	[Header("Tracking")]
 	public List<CharacterFocus> charactersTargetingMe = new List<CharacterFocus>();
 
+	[Header("Perception")]
+	public FieldOfView fieldOfView;
+
 	// cached reference to this object's Interactable (owner)
 	private Interactable selfInteractable;
 
 	void Awake()
 	{
 		selfInteractable = GetComponent<Interactable>();
+		if (fieldOfView == null)
+			fieldOfView = GetComponent<FieldOfView>();
 
 		if (isPlayer)
 		{
@@ -38,12 +45,34 @@ public class CharacterFocus : MonoBehaviour
 		if (isPlayer)
 		{
 			HandlePlayerInput();
+            fieldOfView.FindVisibleTargets();
 		}
 		else
 		{
 			PruneStaleTargeters();
 		}
-	}
+
+		if (currentFocus != null)
+		{
+			distanceToFocus = Vector3.Distance(currentFocus.transform.position, transform.position);
+
+			// Drop focus if out of view radius or not in visible targets
+			if (fieldOfView != null)
+			{
+				float viewRadius = fieldOfView.viewRadius;
+				bool tooFar = distanceToFocus > viewRadius;
+				bool notVisibleList = !fieldOfView.visibleTargets.Contains(currentFocus);
+				if (tooFar || notVisibleList)
+				{
+					RemoveFocus();
+				}
+			}
+		}
+		else
+		{
+			distanceToFocus = 0f;
+		}
+    }
 
 	private void HandlePlayerInput()
 	{
@@ -170,10 +199,10 @@ public class CharacterFocus : MonoBehaviour
 
 	public void OnDeFocus(Transform source)
 	{
-		var cf = source != null ? source.GetComponent<CharacterFocus>() : null;
-		if (cf != null)
+		var characterFocus = source != null ? source.GetComponent<CharacterFocus>() : null;
+		if (characterFocus != null)
 		{
-			charactersTargetingMe.Remove(cf);
+			charactersTargetingMe.Remove(characterFocus);
 		}
 	}
 }

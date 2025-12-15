@@ -105,15 +105,22 @@ public class HateManager : MonoBehaviour
         if (characterFocus.currentFocus != null && !characterStats.dead)
         {
             float distanceToTarget = Vector3.Distance(characterFocus.currentFocus.transform.position, transform.position);
-            if (distanceToTarget <= characterStats.characterRace.aggroRadius)
+            
+            // Only approach if within aggro radius OR already on hate list
+            if (distanceToTarget <= characterStats.characterRace.aggroRadius || hateList.Contains(characterFocus.currentFocus))
             {
                 nPCMovement.ApproachTarget(characterFocus.currentFocus.transform);
             }
-            if (distanceToTarget > characterStats.characterRace.aggroRadius && hateList.Count > 0)
+            else
             {
-                //hateManager.hateList.Remove(target);
-                characterFocus.currentFocus = hateList[0];
-                nPCMovement.ApproachTarget(characterFocus.currentFocus.transform);
+                // Outside aggro radius and not on hate list: stop pursuing
+                if (astar != null)
+                {
+                    astar.destination = transform.position;
+                    astar.SearchPath();
+                    astar.maxSpeed = 0;
+                    astar.isStopped = true;
+                }
             }
         }
     }

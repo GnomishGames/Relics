@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2833694301553944604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7428154341102765439}
+  - component: {fileID: 6608215106438783170}
+  - component: {fileID: 8484361313905126748}
+  m_Layer: 0
+  m_Name: A_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7428154341102765439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2833694301553944604}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6608215106438783170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2833694301553944604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::AstarPath
+  version: 1073741824
+  data:
+    dataString: UEsDBBQAAAgIAACYn+uzNkVXYwIAAOkEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1v2zAM/SuBz2sR203X7Lik6w79GOIAKzrswMi0LVSWMklOmhb97yVlOUnX7ST4kY8iH5/8kogGLAiPdgGl7FzyZTQ+nXwaJcJobzp7A0+X1hpLeMYoKlXIZwxpGedtQT3CSuF3lHXjY9oAzpRsV/uSLTwVyqyZnI/778uyxmvUtW+YGUCpF1hLo+M1OWFYSm/sUiqMYJpdEOwjcP8BedgjnUPm8VzedkjIGu017NDemFJWUoCnuzj863cfXKK1IPX/c0rZonaEUJSbSeYDkM8Tiq9APNbWdLpcWtigdbCSSvodp/6MwnCeRYUb0P7KwropOluBwH1Jc2v8Av900oZcYZRCwW0U6L3UNXfzcgQPxNC2Y8q62TkpXCFQc0R3Sv2FZvMDrsK44B657ijZgOqYdZKOXllXqGMsKGDBkWFI5xndL0u+cC/vPnaDrgm6V6Dcu0hU+B+cpcXjVfk+sbdWC+u52WoH7VqRAN/ItMGWeZSH+1gMheboQSp2AUWNnvU67VvioXkua3zYbT/0EzuV0F08n/kM81fGCiy/8k7dDDXdcWBMxgMnm3w+HU8nkUn4B26078BMs8icpGenWToQ0ywQXWO23PFd52lgPMjCgVva98xo3W/fvQ8yKxrqENAIFp0v6BDNnVa7+4ej5aBmW97CpiXurAseO3DrTpbvjZFkq4vpFCGHUkyxOludQJ5XYpKfn+Xj8zSr8iQMIbX0EtQPqq/8ICz9A462r6ENFRcoaH2j8BzYwKWF7ZV8bs3RdFJXphDkEn3X1xj6d7R2UCRveRl+FkfPJHl5TV7fAFBLAwQUAAAICAAAmJ/roqLQHG4AAAB5AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDVM9Ez1VFQSi9KLMgoBgoYgjilmSkgdrSSUZKFpWVqonFiSrJlappJkm6isXFasqmxmYmxgZmhUZqxUixQfUllQapfYm4qRE9AYklGWmZeSmZeul5QanJicYk7yHCl2FoAUEsBAi0AFAAACAgAAJif67M2RVdjAgAA6QQAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJif66Ki0BxuAAAAeQAAAAkAJAAAAAAAAAAAAAAAsAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABpAwAAAAA=
+    file_cachedStartup: {fileID: 0}
+    cacheStartup: 0
+  showNavGraphs: 0
+  showUnwalkableNodes: 1
+  debugMode: 0
+  graphUpdateDebugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 4
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors: []
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: -1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  navmeshUpdates:
+    updateInterval: 0
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 10
+  showGraphs: 0
+  showGraphsInStandalonePlayer: 0
+--- !u!114 &8484361313905126748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2833694301553944604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f586f285b3847808d79083bd19ef1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.FunnelModifier
+  version: 1073741824
+  quality: 0
+  splitAtEveryPortal: 0
+  accountForGridPenalties: 0
