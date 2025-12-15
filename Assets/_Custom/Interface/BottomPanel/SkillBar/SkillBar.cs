@@ -67,6 +67,13 @@ public class SkillBar : MonoBehaviour
             return;
         }
 
+        //stamina check
+        if (myCharacterStats.currentStamina < skillSOs[slotNumber].staminaCost)
+        {
+            Debug.LogWarning("Not enough stamina to use this skill.");
+            return;
+        }
+
         //use skill
         if (myCharacterFocus != null && myCharacterFocus.currentFocus != null)
         {
