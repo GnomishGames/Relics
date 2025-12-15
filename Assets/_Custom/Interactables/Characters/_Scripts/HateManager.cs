@@ -12,12 +12,16 @@ public class HateManager : MonoBehaviour
     FieldOfView fieldOfView;
     NPCMovement nPCMovement;
     CharacterStats characterStats;
+    NPCSkillManager nPCSkillManager;
+    CharacterFocus characterFocus;
 
     private void Awake()
     {
         fieldOfView = GetComponent<FieldOfView>();
         nPCMovement = GetComponent<NPCMovement>();
         characterStats = GetComponent<CharacterStats>();
+        nPCSkillManager = GetComponent<NPCSkillManager>();
+        characterFocus = GetComponent<CharacterFocus>();
     }
 
     private void Update()
@@ -38,6 +42,9 @@ public class HateManager : MonoBehaviour
                 {
                     if (IsHostileTo(item.GetComponent<CharacterStats>()))
                     {
+                        //add item as my target
+                        target = item;
+                        characterFocus.SetCharacterFocus(item.GetComponent<Character>());
                         hateList.Add(item);
                     }
                 }
@@ -68,7 +75,6 @@ public class HateManager : MonoBehaviour
 
     public void AggroTarget()
     {
-
         if (target != null && !characterStats.dead)
         {
             float distanceToTarget = Vector3.Distance(target.transform.position, transform.position);

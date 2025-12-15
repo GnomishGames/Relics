@@ -17,6 +17,7 @@ MonoBehaviour:
   itemWeight: 0
   itemHealth: 0
   slotType: 13
+  attackRange: 3
   staminaCost: 2
   cooldownTime: 2
   targetDamage: 2

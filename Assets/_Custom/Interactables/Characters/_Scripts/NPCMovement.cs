@@ -151,14 +151,12 @@ public class NPCMovement : MonoBehaviour
 
     public void ApproachTarget(Transform target)
     {
-
         // If we have anything on the hate list, force pursue/attack the top entry regardless of sensing or aggro radius
         if (hateManager.hateList.Count > 0 && !characterStats.dead)
         {
             var top = hateManager.hateList[0];
             if (top != null)
             {
-                Debug.Log(transform.name + " pursuing hate target " + top.name);
                 target = top.transform;
                 // Always face and move toward the target, ignoring aggro/sense constraints
                 FaceTarget(target.position, transform);

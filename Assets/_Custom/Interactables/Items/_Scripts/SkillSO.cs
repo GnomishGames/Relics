@@ -5,6 +5,7 @@ using UnityEngine;
 public class SkillSO : ItemSO
 {
     //public string skillName; // Inherited from ItemSO as itemName
+    public float attackRange;
     public float staminaCost;
     public float cooldownTime;
     public float targetDamage;

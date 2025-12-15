@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterStats))]
+[RequireComponent(typeof(CharacterFocus))]
 public class SkillBar : MonoBehaviour
 {
     //skills that are equipped to the skill panel
@@ -14,7 +15,7 @@ public class SkillBar : MonoBehaviour
     private void Awake()
     {
         skillBook = GetComponent<SkillBook>();
-    } 
+    }
 
     public void MoveSkill(int from, int to)
     {
@@ -54,16 +55,32 @@ public class SkillBar : MonoBehaviour
         }
 
         //use skill
-        this.GetComponent<CharacterStats>().SubtractStamina(skillSOs[slotNumber].staminaCost);
-        var cf = this.GetComponent<CharacterFocus>();
-        if (cf != null && cf.currentFocus != null)
+
+        var myCharacterStats = this.GetComponent<CharacterStats>(); //get my stats
+        var myCharacterFocus = this.GetComponent<CharacterFocus>(); //get my target
+        var targetCharacterStats = myCharacterFocus.currentFocus.GetComponent<CharacterStats>(); //target stats
+        var targetHateManager = myCharacterFocus.currentFocus.GetComponent<HateManager>(); //target hate manager
+
+
+        if (myCharacterFocus != null && myCharacterFocus.currentFocus != null)
         {
-            var targetStats = cf.currentFocus.GetComponent<CharacterStats>();
-            if (targetStats != null)
+            if (targetCharacterStats != null) //doing the skill stuff
             {
-                targetStats.SubtractHealth(skillSOs[slotNumber].targetDamage);
+                //subtract stamina cost from me
+                myCharacterStats.SubtractStamina(skillSOs[slotNumber].staminaCost);
+
+                //apply health damage to target
+                targetCharacterStats.SubtractHealth(skillSOs[slotNumber].targetDamage);
+
+            }
+
+            //add aggressor to target hate list
+            if (targetHateManager != null)
+            {
+                targetHateManager.AddToHateList(this.GetComponent<Interactable>());
             }
         }
-                
+
+
     }
 }

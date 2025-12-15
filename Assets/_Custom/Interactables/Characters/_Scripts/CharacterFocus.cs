@@ -2,11 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-/// <summary>
-/// Unified focus handler for both players and NPCs.
-/// - Players: raycast on click to set focus (characters, items, containers) and notify targets.
-/// - NPCs: maintain list of characters targeting them and prune stale entries.
-/// </summary>
 public class CharacterFocus : MonoBehaviour
 {
 	[Header("Role")]
@@ -90,25 +85,25 @@ public class CharacterFocus : MonoBehaviour
 
 		for (int i = charactersTargetingMe.Count - 1; i >= 0; i--)
 		{
-			var cf = charactersTargetingMe[i];
-			if (cf == null)
+			var characterFocus = charactersTargetingMe[i];
+			if (characterFocus == null)
 			{
 				charactersTargetingMe.RemoveAt(i);
 				continue;
 			}
 
 			// Remove if that character is no longer focusing on this interactable
-			if (cf.currentFocus != selfInteractable)
+			if (characterFocus.currentFocus != selfInteractable)
 			{
 				charactersTargetingMe.RemoveAt(i);
 			}
 		}
 	}
 
-	private void SetCharacterFocus(Character character)
+	public void SetCharacterFocus(Character character)
 	{
 		if (character == null) return;
-		if (character != currentFocus)
+		if (character != currentFocus) //new focus
 		{
 			if (currentFocus != null)
 				currentFocus.onDeFocus();
@@ -123,7 +118,8 @@ public class CharacterFocus : MonoBehaviour
 			currentFocus = character;
 		}
 
-		character.OnFocused(transform);
+
+		character.OnFocused(transform); // Notify the character
 	}
 
 	private void SetItemFocus(Item item)

@@ -2818,6 +2818,7 @@ GameObject:
   - component: {fileID: 9079958083919111838}
   - component: {fileID: -971210894823298198}
   - component: {fileID: -2543813623565115898}
+  - component: {fileID: 5681322042226231491}
   m_Layer: 6
   m_Name: Goblin
   m_TagString: Untagged
@@ -3131,6 +3132,18 @@ MonoBehaviour:
   cam: {fileID: 0}
   inventory: {fileID: 0}
   charactersTargetingMe: []
+--- !u!114 &5681322042226231491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125831373407689766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f5d3e5589ba9c7aa44aead771ca139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCSkillManager
 --- !u!1 &8233326738561010459
 GameObject:
   m_ObjectHideFlags: 0

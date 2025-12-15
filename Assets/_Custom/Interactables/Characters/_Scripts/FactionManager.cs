@@ -72,10 +72,8 @@ public class FactionManager : MonoBehaviour
     {
         if (_runtimeRelationships.TryGetValue((a.factionName, b.factionName), out int val))
         {
-            Debug.Log($"Relationship between {a.factionName} and {b.factionName} is {val}");
             return val;
         }
-        Debug.Log($"No relationship data between {a.factionName} and {b.factionName}, defaulting to 0");
         return 0;
     }
 

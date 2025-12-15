@@ -15,6 +15,7 @@ public class NPCTimers : MonoBehaviour
     NPCMovement npcMovement;
     CharacterStats characterStats;
     HateManager hateList;
+    NPCSkillManager nPCSkillManager;
 
 
 
@@ -24,6 +25,7 @@ public class NPCTimers : MonoBehaviour
         npcMovement = GetComponent<NPCMovement>();
         characterStats = GetComponent<CharacterStats>();
         hateList = GetComponent<HateManager>();
+        nPCSkillManager = GetComponent<NPCSkillManager>();
     }
 
     private void Update()
@@ -71,6 +73,7 @@ public class NPCTimers : MonoBehaviour
             tickTen = 10f; //reset timer
             /* v Start code here v */
             npcMovement.Roam();
+            nPCSkillManager.ExecuteRandomSkill();
             //characterStats.ConstitutionRecovery(1 + characterStats.constitutionModifier);
         }
     }
