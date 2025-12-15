@@ -54,14 +54,20 @@ public class SkillBar : MonoBehaviour
             return;
         }
 
-        //use skill
-
         var myCharacterStats = this.GetComponent<CharacterStats>(); //get my stats
         var myCharacterFocus = this.GetComponent<CharacterFocus>(); //get my target
         var targetCharacterStats = myCharacterFocus.currentFocus.GetComponent<CharacterStats>(); //target stats
         var targetHateManager = myCharacterFocus.currentFocus.GetComponent<HateManager>(); //target hate manager
 
+        //range check
+        float distanceToTarget = Vector3.Distance(this.transform.position, myCharacterFocus.currentFocus.transform.position);
+        if (distanceToTarget > skillSOs[slotNumber].attackRange)
+        {
+            Debug.LogWarning("Target is out of range for this skill.");
+            return;
+        }
 
+        //use skill
         if (myCharacterFocus != null && myCharacterFocus.currentFocus != null)
         {
             if (targetCharacterStats != null) //doing the skill stuff
