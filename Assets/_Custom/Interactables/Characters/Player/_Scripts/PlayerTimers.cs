@@ -1,31 +1,22 @@
-using Pathfinding;
 using UnityEngine;
 
-public class NPCTimers : MonoBehaviour
+public class PlayerTimers : MonoBehaviour
 {
     //timers
     float tickPointOne = 0.1f;
     float tickOne = 1f;
     float tickTen = 10f;
     float tickOneHundred = 100f;
-    
 
     //references
     FieldOfView fieldOfView;
-    NPCMovement npcMovement;
     CharacterStats characterStats;
-    HateManager hateManager;
-    NPCSkillManager nPCSkillManager;
-
-
+    PlayerMovement playerMovement;
 
     private void Start()
     {
         fieldOfView = GetComponent<FieldOfView>();
-        npcMovement = GetComponent<NPCMovement>();
         characterStats = GetComponent<CharacterStats>();
-        hateManager = GetComponent<HateManager>();
-        nPCSkillManager = GetComponent<NPCSkillManager>();
     }
 
     private void Update()
@@ -36,57 +27,48 @@ public class NPCTimers : MonoBehaviour
         TickOneHundred();
     }
 
-    private void TickPointOne() //do every tenth of a second
+    private void TickPointOne()
     {
         tickPointOne -= Time.deltaTime;
         if (tickPointOne <= 0)
         {
-            tickPointOne = 0.1f; //reset timer
+            tickPointOne = 0.1f;
             /* v Start code here v */
             fieldOfView.FindVisibleTargets();
             fieldOfView.FindHearableTargets();
-            npcMovement.CheckAstarVelocity();
-            hateManager.UpdateHateList();
-            //hateManager.ResponseToBeingTargeted();
-            hateManager.AggroTarget();
             characterStats.DeathCheck();
-            //npcMovement.ResponseToBeingTargeted();
         }
     }
 
-    private void TickOne() //do every second
+    private void TickOne()
     {
         tickOne -= Time.deltaTime;
         if (tickOne <= 0)
         {
-            tickOne = 1f; //reset timer
+            tickOne = 1f;
             /* v Start code here v */
-            npcMovement.Despawn();
-            npcMovement.ResetPosition();
-            npcMovement.Respawn();
         }
     }
-    private void TickTen() //do every ten seconds
+
+    private void TickTen()
     {
         tickTen -= Time.deltaTime;
         if (tickTen <= 0)
         {
-            tickTen = 10f; //reset timer
+            tickTen = 10f;
             /* v Start code here v */
-            npcMovement.Roam();
-
-            nPCSkillManager.ExecuteRandomSkill();
 
             //regenerate health
             characterStats.RegenerateStats();
         }
     }
-    private void TickOneHundred() //do every Hundred seconds
+
+    private void TickOneHundred()
     {
         tickOneHundred -= Time.deltaTime;
         if (tickOneHundred <= 0)
         {
-            tickOneHundred = 100f; //reset timer
+            tickOneHundred = 100f;
             /* v Start code here v */
         }
     }

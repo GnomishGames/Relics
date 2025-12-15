@@ -20,11 +20,11 @@ MonoBehaviour:
   wisdomBonus: 10
   charismaBonus: 10
   unarmedDamage: 10
-  viewRadius: 10
-  hearRadius: 10
+  viewRadius: 40
+  hearRadius: 20
   viewAngle: 180
   aggroRadius: 10
-  attackDistance: 10
+  attackDistance: 2
   tooClose: 10
   attackSpeed: 10
   kickSpeed: 10

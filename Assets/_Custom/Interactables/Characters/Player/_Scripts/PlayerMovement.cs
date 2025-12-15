@@ -2,7 +2,7 @@ using PurrNet;
 using UnityEngine;
 
 
-public class movement : NetworkIdentity
+public class PlayerMovement : NetworkIdentity
 {
     //references
     public CharacterController controller;

@@ -18670,6 +18670,7 @@ GameObject:
   - component: {fileID: 2361561545167191655}
   - component: {fileID: -1814246146945092732}
   - component: {fileID: -8912055278044659478}
+  - component: {fileID: -8444293703089332401}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -19048,9 +19049,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterFocus
   isPlayer: 1
   currentFocus: {fileID: 0}
+  distanceToFocus: 0
   cam: {fileID: 0}
   inventory: {fileID: 0}
   charactersTargetingMe: []
+  fieldOfView: {fileID: 0}
+--- !u!114 &-8444293703089332401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584339292830879391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae695359f9aca685b66cd2485e121a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTimers
 --- !u!1 &5665107874003256091
 GameObject:
   m_ObjectHideFlags: 0

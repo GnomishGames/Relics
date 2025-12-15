@@ -45,7 +45,6 @@ public class CharacterFocus : MonoBehaviour
 		if (isPlayer)
 		{
 			HandlePlayerInput();
-            fieldOfView.FindVisibleTargets();
 		}
 		else
 		{

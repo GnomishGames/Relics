@@ -205,7 +205,7 @@ public class CharacterStats : Character
     public void ModifyStamina(float amount)
     {
         currentStamina += amount;
-        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina); //keep it between 0 and max
 
         OnStaminaChanged?.Invoke(currentStamina);
     }
@@ -223,7 +223,7 @@ public class CharacterStats : Character
     public void ModifyHealth(float amount)
     {
         currentHitPoints += amount;
-        currentHitPoints = Mathf.Clamp(currentHitPoints, 0, maxHitpoints);
+        currentHitPoints = Mathf.Clamp(currentHitPoints, 0, maxHitpoints); //keep it between 0 and max
 
         OnHealthChanged?.Invoke(currentHitPoints);
     }
@@ -280,6 +280,22 @@ public class CharacterStats : Character
                 }
                 gaveXP = true;
             }
+        }
+    }
+
+    public void RegenerateStats()
+    {
+        //regenerate health
+        if (!sitting)//if not sitting
+        {
+            AddHealth(1 + constitutionModifier);
+            AddStamina(1 + constitutionModifier);
+        }
+
+        if (sitting)//extra regen if sitting
+        {
+            AddHealth(1 + constitutionModifier * 2);
+            AddStamina(1 + constitutionModifier * 2);
         }
     }
 }

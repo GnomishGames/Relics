@@ -8,7 +8,10 @@ public class Character : Interactable
     public BehaviorSO behaviorSO;
     public FactionSO faction;
     
-    //vars
+    //status
     public bool dead;
+    public bool sitting;
+
+    //experience
     public int xpToGive;
 }

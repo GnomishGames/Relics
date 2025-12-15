@@ -47,7 +47,7 @@ public class PlayerCamera : NetworkIdentity
 
         if (target == null)
         {
-            var mv = UnityEngine.Object.FindAnyObjectByType<movement>();
+            var mv = UnityEngine.Object.FindAnyObjectByType<PlayerMovement>();
             if (mv != null)
             {
                 target = mv.transform;
