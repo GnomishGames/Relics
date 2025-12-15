@@ -42,7 +42,7 @@ public class NPCSkillManager : MonoBehaviour
         //execute skill
         SkillSO skillToUse = ChooseRandomSkill();
         int skillIndex = System.Array.IndexOf(skillBar.skillSOs, skillToUse);
-        skillBar.DoSkill(skillIndex);   
+        skillBar.DoSkill(skillIndex, skillBar.skillTimer[skillIndex]);   
         Debug.Log("NPC used skill: " + skillToUse.itemName);
     }
 

@@ -6,6 +6,7 @@ public class SkillBar : MonoBehaviour
 {
     //skills that are equipped to the skill panel
     public SkillSO[] skillSOs = new SkillSO[8];
+    public float[] skillTimer = new float[8];
 
     //references
     public SkillBook skillBook;
@@ -15,6 +16,19 @@ public class SkillBar : MonoBehaviour
     private void Awake()
     {
         skillBook = GetComponent<SkillBook>();
+    }
+
+    void Update()
+    {
+        //coldown timers
+        for (int i = 0; i < skillTimer.Length; i++)
+        {
+            if (skillTimer[i] > 0)
+            {
+                skillTimer[i] -= Time.deltaTime;
+                if (skillTimer[i] < 0) skillTimer[i] = 0;
+            }
+        }
     }
 
     public void MoveSkill(int from, int to)
@@ -45,7 +59,7 @@ public class SkillBar : MonoBehaviour
         }
     }
 
-    public void DoSkill(int slotNumber)
+    public void DoSkill(int slotNumber, float timer)
     {
         //null check
         if (skillSOs[slotNumber] == null)
@@ -58,6 +72,15 @@ public class SkillBar : MonoBehaviour
         var myCharacterFocus = this.GetComponent<CharacterFocus>(); //get my target
         var targetCharacterStats = myCharacterFocus.currentFocus.GetComponent<CharacterStats>(); //target stats
         var targetHateManager = myCharacterFocus.currentFocus.GetComponent<HateManager>(); //target hate manager
+
+        //cooldown check
+        if (timer > 0)
+        {
+            Debug.LogWarning("Skill is on cooldown.");
+            return;
+        }
+
+        skillTimer[slotNumber] = CoolDownTimer(skillSOs[slotNumber].cooldownTime);
 
         //range check
         float distanceToTarget = Vector3.Distance(this.transform.position, myCharacterFocus.currentFocus.transform.position);
@@ -95,5 +118,17 @@ public class SkillBar : MonoBehaviour
         }
 
 
+    }
+
+    float CoolDownTimer(float skillTimer)
+    {
+        //float timer;
+        skillTimer -= Time.deltaTime;
+        if (skillTimer <= 0)
+        {
+            skillTimer = 0;
+            return skillTimer;
+        }
+        return skillTimer;
     }
 }

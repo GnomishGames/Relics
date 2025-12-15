@@ -66,7 +66,7 @@ public class SkillBarPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragH
             return;
         }
 
-        skillBar.DoSkill(slotNumber);
+        skillBar.DoSkill(slotNumber, skillBar.skillTimer[slotNumber]);
     }
 
     private void DoSkill()
