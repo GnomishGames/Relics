@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -23,6 +24,8 @@ public class SkillBarPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragH
     public SkillBarPanel skillBarPanel;
     public SkillBookPanel skillBookPanel;
     //public ContainerPanel containerPanel;
+
+    public TMP_Text cooldownText;
     
     public int slotNumber;  //manually set on the interface
 
@@ -51,6 +54,17 @@ public class SkillBarPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragH
         {
             GetComponent<Image>().sprite = null;
             GetComponent<Image>().color = new Color(255, 255, 255, 0);
+        }
+
+        //update cooldown text
+        float timer = skillBar.skillTimer[slotNumber];
+        if (timer > 0)
+        {
+            cooldownText.text = Mathf.CeilToInt(timer).ToString();
+        }
+        else
+        {
+            cooldownText.text = "";
         }
     }
 

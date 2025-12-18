@@ -19,6 +19,6 @@ MonoBehaviour:
   slotType: 13
   attackRange: 3
   staminaCost: 2
-  cooldownTime: 2
-  targetDamage: 2
+  cooldownTime: 5
+  targetDamage: 7
   selfDamage: 1
