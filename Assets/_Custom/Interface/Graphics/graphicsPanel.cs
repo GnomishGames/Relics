@@ -38,20 +38,31 @@ public class graphicsPanel : MonoBehaviour
         cam = Camera.main;
         clippingSlider.value = cam.farClipPlane;
         fovSlider.value = cam.fieldOfView;
-        Application.targetFrameRate = 60; // Set target frame rate
+        
+        //Application.targetFrameRate = 60; // Set target frame rate
 
+        //vSync
         QualitySettings.vSyncCount = 0;  // Disable VSync
+        vSyncToggle.isOn = false;
+        
+        //anti-aliasing
         QualitySettings.antiAliasing = 0; // Set anti-aliasing level, 0,2,4,8
-        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable; // Enable anisotropic filtering
+        antiAliasingDropdown.value = 0;
 
-        // shadow settings
+        //anisotropic filtering
+        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable; // Enable anisotropic filtering
+        anisotropicFilteringToggle.isOn = false;
+
+        //shadow settings
         QualitySettings.shadowDistance = 10f; // Set shadow distance
         QualitySettings.shadowResolution = ShadowResolution.Low; // Set shadow resolution
+        shadowQualityDropdown.value = 0;
 
-        // texture quality
+        //texture quality
         QualitySettings.globalTextureMipmapLimit = 0; // Set texture quality (0 = Full Res, 1 = Half Res, etc.)
+        textureQualityDropdown.value = 0;
 
-        // fps counter
+        //fps counter
         fpsCounter = FindFirstObjectByType<FPSCounter>();
         if (fpsToggle != null && fpsCounter != null)
         {
@@ -134,6 +145,16 @@ public class graphicsPanel : MonoBehaviour
                 break;
         }
 
+
+        //debug area for checking if all of these settings are on or off or set correctly
+        //Debug.Log("Clipping Plane: " + cam.farClipPlane);
+        //Debug.Log("Field of View: " + cam.fieldOfView);
+        //Debug.Log("VSync: " + QualitySettings.vSyncCount);
+        //Debug.Log("Anti-Aliasing: " + QualitySettings.antiAliasing);
+        //Debug.Log("Anisotropic Filtering: " + QualitySettings.anisotropicFiltering);
+        //Debug.Log("Shadow Resolution: " + QualitySettings.shadowResolution);
+        //Debug.Log("Texture Quality Mipmap Limit: " + QualitySettings.globalTextureMipmapLimit);
+    
         
     }
 }
