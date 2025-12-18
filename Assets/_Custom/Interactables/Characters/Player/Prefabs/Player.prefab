@@ -21280,7 +21280,7 @@ MonoBehaviour:
   enableCameraCollision: 1
   cameraCollisionMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 3903
   minCameraDistance: 0.5
   enableOrbit: 1
   orbitSensitivityX: 120

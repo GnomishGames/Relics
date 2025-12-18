@@ -17,6 +17,12 @@ public class PlayerCamera : NetworkIdentity
     private Vector3 cameraVelocity = Vector3.zero;
     public float cameraYawFollowSpeed = 8f;
 
+    [Tooltip("Smooth target position to reduce jitter from character movement")]
+    public bool interpolateTargetPosition = true;
+    public float targetPositionSmoothTime = 0.05f;
+    private Vector3 smoothedTargetPosition;
+    private Vector3 targetVelocity = Vector3.zero;
+
     [Tooltip("Enable camera collision (prevents clipping through geometry)")]
     public bool enableCameraCollision = true;
     public LayerMask cameraCollisionMask = ~0;
@@ -56,6 +62,11 @@ public class PlayerCamera : NetworkIdentity
 
         currentYaw = (target != null) ? target.eulerAngles.y : transform.eulerAngles.y;
         currentPitch = 15f;
+
+        if (target != null)
+        {
+            smoothedTargetPosition = target.position;
+        }
     }
 
     protected override void OnDespawned()
@@ -70,6 +81,17 @@ public class PlayerCamera : NetworkIdentity
     {
         if (cam == null) return;
         if (target == null) return;
+
+        // Smooth target position to reduce jitter from character movement
+        Vector3 currentTargetPos = target.position;
+        if (interpolateTargetPosition)
+        {
+            smoothedTargetPosition = Vector3.SmoothDamp(smoothedTargetPosition, currentTargetPos, ref targetVelocity, targetPositionSmoothTime);
+        }
+        else
+        {
+            smoothedTargetPosition = currentTargetPos;
+        }
 
         // Handle orbit input (hold right mouse button to rotate)
         if (enableOrbit && Input.GetMouseButton(1))
@@ -86,7 +108,7 @@ public class PlayerCamera : NetworkIdentity
         }
 
         // Compute look target point at player's head height
-        Vector3 lookTarget = target.position + Vector3.up * lookAtHeight;
+        Vector3 lookTarget = smoothedTargetPosition + Vector3.up * lookAtHeight;
 
         // Compute rotation from orbit angles
         Quaternion orbitRotation = Quaternion.Euler(currentPitch, currentYaw, 0f);
@@ -110,8 +132,7 @@ public class PlayerCamera : NetworkIdentity
         // Smoothly move camera to desired position
         cam.transform.position = Vector3.SmoothDamp(cam.transform.position, desiredPosition, ref cameraVelocity, cameraSmoothTime);
 
-        // Always look at the lookTarget point
-        Quaternion desiredRotation = Quaternion.LookRotation(lookTarget - cam.transform.position);
-        cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, desiredRotation, Time.deltaTime * 10f);
+        // Directly set rotation to look at target (no additional smoothing to prevent jitter)
+        cam.transform.rotation = Quaternion.LookRotation(lookTarget - cam.transform.position);
     }
 }
