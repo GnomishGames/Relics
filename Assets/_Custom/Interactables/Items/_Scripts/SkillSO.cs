@@ -8,7 +8,7 @@ public class SkillSO : ItemSO
     public float attackRange;
     public float staminaCost;
     public float cooldownTime;
-    public float targetDamage;
+    public int targetDamage;
     public float selfDamage;
 
     public static explicit operator int(SkillSO v)

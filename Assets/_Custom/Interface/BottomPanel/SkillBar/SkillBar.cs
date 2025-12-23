@@ -128,15 +128,32 @@ public class SkillBar : MonoBehaviour
                 //subtract stamina cost from me
                 myCharacterStats.SubtractStamina(skillSOs[slotNumber].staminaCost);
 
-                //apply health damage to target
-                targetCharacterStats.SubtractHealth(skillSOs[slotNumber].targetDamage);
+                //check if attack hits (attack roll)
+                int attackRoll = myCharacterStats.AttackRoll();
 
-                //log combat message
-                CombatLogMessage(true, this.GetComponent<Interactable>(), myCharacterFocus.currentFocus.GetComponent<Interactable>(), (int)skillSOs[slotNumber].targetDamage);
+                //check damage vs target armor
+                int weaponDamage = Random.Range(1, skillSOs[slotNumber].targetDamage + 1);
+
+                //calculate total damage
+                if (attackRoll >= targetCharacterStats.armorClass)
+                {
+                    float strengthModifier = myCharacterStats.strengthModifier;
+                    float damage = strengthModifier + weaponDamage;
+
+                    //apply health damage to target
+                    targetCharacterStats.SubtractHealth(damage);
+                
+                    CombatLogMessage(true, this.GetComponent<Interactable>(), myCharacterFocus.currentFocus.GetComponent<Interactable>(), (int)damage);
+                }
+                else
+                {
+                    //missed attack
+                    CombatLogMessage(false, this.GetComponent<Interactable>(), myCharacterFocus.currentFocus.GetComponent<Interactable>(), 0);
+                }
             }
 
-            targetHateManager = myCharacterFocus.currentFocus.GetComponent<HateManager>(); //get target hate manager
             //add aggressor to target hate list
+            targetHateManager = myCharacterFocus.currentFocus.GetComponent<HateManager>(); //get target hate manager
             if (targetHateManager != null)
             {
                 targetHateManager.AddToHateList(this.GetComponent<Interactable>());

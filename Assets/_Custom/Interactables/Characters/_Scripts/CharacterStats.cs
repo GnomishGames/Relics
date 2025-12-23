@@ -65,6 +65,9 @@ public class CharacterStats : Character
 
     void Awake()
     {
+        // Initialize the random number generator with a unique seed
+        rand = new Unity.Mathematics.Random((uint)System.DateTime.Now.Ticks + (uint)GetInstanceID());
+        
         // Basic null safety before initial calculations
         if (characterRace == null)
         {
