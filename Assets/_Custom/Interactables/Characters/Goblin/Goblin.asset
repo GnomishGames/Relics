@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84c59f80144ad37291ef1a6f03e6ec3, type: 3}
   m_Name: Goblin
   m_EditorClassIdentifier: Assembly-CSharp::Race
-  name: 
+  name: Goblin Guard
   strengthBonus: 10
   constitutionBonus: 10
   dexterityBonus: 10

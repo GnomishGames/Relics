@@ -12,6 +12,7 @@ public class CharacterStats : Character
     //references
     public InventoryStats inventoryStats;
 
+    //xp Tracking
     public List<Character> charactersWhoHitMe = new List<Character>();
     public bool gaveXP = false;
 
@@ -81,6 +82,8 @@ public class CharacterStats : Character
         CalculateAttributesAndStats();
         currentHitPoints = maxHitpoints;
         currentStamina = maxStamina;
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
