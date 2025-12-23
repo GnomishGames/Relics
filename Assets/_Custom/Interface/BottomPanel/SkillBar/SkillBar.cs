@@ -76,7 +76,6 @@ public class SkillBar : MonoBehaviour
         //null check
         if (skillSOs[slotNumber] == null)
         {
-            Debug.LogWarning("No skill assigned to this slot.");
             ChatLogMessage("No skill assigned to this slot.");
             return;
         }
@@ -84,7 +83,6 @@ public class SkillBar : MonoBehaviour
         //check for target null
         if (this.GetComponent<CharacterFocus>().currentFocus == null)
         {
-            Debug.LogWarning("No target selected.");
             ChatLogMessage("No target selected.");
             return;
         }
@@ -93,17 +91,23 @@ public class SkillBar : MonoBehaviour
         float distanceToTarget = Vector3.Distance(this.transform.position, myCharacterFocus.currentFocus.transform.position);
         if (distanceToTarget > skillSOs[slotNumber].attackRange)
         {
-            Debug.LogWarning("Target is out of range for this skill.");
             ChatLogMessage("Target is out of range for this skill.");
             return;
         }
 
         //cooldown check
-        if (timer > 0)
+        if (timer > 0) //skill is on cooldown but not autoattack
         {
-            Debug.LogWarning("Skill is on cooldown.");
-            ChatLogMessage("Skill is on cooldown.");
-            return;
+            if (slotNumber == 0)
+            {
+                //ChatLogMessage("Auto Attack is on cooldown.");
+                return;
+            }
+            else
+            {
+                ChatLogMessage("Skill is on cooldown.");
+                return;
+            }
         }
 
         skillTimer[slotNumber] = CoolDownTimer(skillSOs[slotNumber].cooldownTime);
@@ -111,7 +115,6 @@ public class SkillBar : MonoBehaviour
         //stamina check
         if (myCharacterStats.currentStamina < skillSOs[slotNumber].staminaCost)
         {
-            Debug.LogWarning("Not enough stamina to use this skill.");
             ChatLogMessage("Not enough stamina to use this skill.");
             return;
         }
