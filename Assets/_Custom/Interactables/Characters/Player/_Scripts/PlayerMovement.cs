@@ -7,9 +7,12 @@ public class PlayerMovement : NetworkIdentity
     //references
     public CharacterController controller;
     public Animator animator;
+    CharacterStats characterStats;
+    CharacterFocus characterFocus;
 
     [Header("Movement")]
-    public float moveSpeed = 5f;
+    public float runSpeed = 5f;
+    public float walkSpeed = 2f;
     [Header("Rotation")]
     [Tooltip("Degrees per second the player rotates when pressing turn keys")]
     public float turnSpeed = 180f;
@@ -23,13 +26,20 @@ public class PlayerMovement : NetworkIdentity
     [SerializeField] private float jumpHeight;
     private bool turnLeft, turnRight, forward, rearward, stepLeft, stepRight, jump;
 
+    public float despawnTimer;
+    public float respawnTimer;
+    public bool despawned;
+    Vector3 spawnPosition;
+    Quaternion spawnRotation;
+    bool positionReset;
+
 
     protected override void OnSpawned()
     {
         base.OnSpawned();
 
         enabled = isOwner;
-        
+
         controller = GetComponent<CharacterController>();
         jumpHeight = 2f;
     }
@@ -38,15 +48,28 @@ public class PlayerMovement : NetworkIdentity
     {
         base.OnDespawned();
 
-        if (!isOwner) 
+        if (!isOwner)
             return;
+    }
+
+    void Start()
+    {
+        characterStats = GetComponent<CharacterStats>();
+        characterFocus = GetComponent<CharacterFocus>();
+
+        //spawning and despawning
+        despawned = false;
+        spawnPosition = transform.position;
+        spawnRotation = transform.rotation;
+        respawnTimer = characterStats.behaviorSO.respawnTimer;
+        despawnTimer = characterStats.behaviorSO.despawnTimer;
     }
 
     void Update()
     {
         GroundCheck(groundMask, groundCheck);
         keyPresses();
-        MovementLogic(moveSpeed);
+        MovementLogic(runSpeed);
         ApplyGravityAndMove();
     }
 
@@ -60,96 +83,114 @@ public class PlayerMovement : NetworkIdentity
         stepRight = Input.GetKey(KeyCode.E);
         jump = Input.GetKey(KeyCode.Space);
     }
-    
+
     private void MovementLogic(float moveSpeed)
     {
+        // Calculate movement direction
         Vector3 horizontalMove = Vector3.zero;
+        float velocityX = 0f;
+        float velocityY = 0f;
+
+        // Forward/backward movement
         if (forward)
         {
             horizontalMove += transform.forward * moveSpeed;
-            //animate walk forward
-            if (isGrounded)
-            {
-                animator.SetBool("Forward", true);
-            }
-        }else
-        {
-            //stop walk forward animation
-            animator.SetBool("Forward", false);
+            velocityY = moveSpeed;  // Actual speed value for blend tree thresholds
         }
-
-        if (rearward)
+        else if (rearward)
         {
             horizontalMove -= transform.forward * moveSpeed;
-            //animate walk backward
-            if (isGrounded)
-            {
-                animator.SetBool("Back", true);
-            }
-        }else
-        {
-            //stop walk backward animation
-            animator.SetBool("Back", false);
-        }
-    
-
-        if (stepLeft)
-        {
-            horizontalMove -= transform.right * moveSpeed;
-            if (isGrounded)
-            {
-                animator.SetBool("StrafeLeft", true);
-            }
-        }else
-        {
-            animator.SetBool("StrafeLeft", false);
+            velocityY = -moveSpeed;  // Negative for backward
         }
 
+        // Strafe movement
         if (stepRight)
         {
             horizontalMove += transform.right * moveSpeed;
-            if (isGrounded)
-            {
-                animator.SetBool("StrafeRight", true);
-            }
-        }else
+            velocityX = moveSpeed;  // Actual speed value for blend tree thresholds
+        }
+        else if (stepLeft)
         {
-            animator.SetBool("StrafeRight", false);
+            horizontalMove -= transform.right * moveSpeed;
+            velocityX = -moveSpeed;  // Negative for left
         }
 
-        //turning logic: use configurable turnSpeed (degrees/second)
+        // Update animator with actual velocity values (for blend tree thresholds)
+        if (isGrounded)
+        {
+            animator.SetFloat("VelocityX", velocityX);
+            animator.SetFloat("VelocityY", velocityY);
+        }
+
+        // Turning
         if (turnLeft)
         {
             transform.Rotate(0f, -turnSpeed * Time.deltaTime, 0f);
         }
-        if (turnRight)
+        else if (turnRight)
         {
             transform.Rotate(0f, turnSpeed * Time.deltaTime, 0f);
         }
 
-        //jump
+        // Jump
         if (jump && isGrounded)
         {
-            // v = sqrt(2 * jumpHeight * -gravity)
             velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
         }
 
-        //falling
-        if (!isGrounded)
-        {
-            // Optionally, you can add mid-air control here if desired
-            animator.SetBool("InAir", true);
-        }else
-        {
-            animator.SetBool("InAir", false);
-        }
+        // In air state
+        animator.SetBool("InAir", !isGrounded);
 
-        // Move horizontally (vertical handled in ApplyGravityAndMove)
+        // Move horizontally
         controller.Move(horizontalMove * Time.deltaTime);
-        
     }
 
-    
+    public void DespawnCharacter()
+    {
+        if (characterStats.dead && !despawned)
+        {
+            despawnTimer -= Time.deltaTime;
+        }
+
+        if (despawnTimer <= 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            despawned = true;
+            characterFocus.currentFocus = null;
+
+            despawnTimer = characterStats.behaviorSO.despawnTimer;
+        }
+    }
+
+    public void RespawnCharacter()
+    {
+        if (despawned && characterStats.dead)
+        {
+            respawnTimer -= Time.deltaTime;
+        }
+
+        if (respawnTimer <= 0)
+        {
+            despawned = false;
+            transform.GetChild(0).gameObject.SetActive(true);
+            characterStats.currentHitPoints = characterStats.maxHitpoints;
+            characterStats.dead = false;
+            animator.SetBool("Dead", false);
+            positionReset = false;
+
+            respawnTimer = characterStats.behaviorSO.respawnTimer;
+        }
+    }
+
+    public void ResetPosition()
+    {
+        if (despawned && !positionReset)
+        {
+            gameObject.transform.SetPositionAndRotation(spawnPosition, spawnRotation);
+            positionReset = true;
+        }
+    }
+
     private bool GroundCheck(LayerMask groundMask, Transform groundCheck)
     {
         float groundDistance = .4f;

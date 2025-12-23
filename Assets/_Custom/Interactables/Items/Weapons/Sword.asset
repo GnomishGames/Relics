@@ -21,5 +21,6 @@ MonoBehaviour:
   VisualsName1: 
   VisualsName2: 
   VisualsName3: 
+  damageType: 2
   Damage: 1
   Range: 1

@@ -18,6 +18,7 @@ public class PlayerTimers : MonoBehaviour
     {
         fieldOfView = GetComponent<FieldOfView>();
         characterStats = GetComponent<CharacterStats>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     private void Update()
@@ -52,6 +53,10 @@ public class PlayerTimers : MonoBehaviour
             {
                 skillbar.DoSkill(0, skillbar.skillTimer[0]);
             }
+
+            playerMovement.DespawnCharacter();
+            playerMovement.ResetPosition();
+            playerMovement.RespawnCharacter();
         }
     }
 

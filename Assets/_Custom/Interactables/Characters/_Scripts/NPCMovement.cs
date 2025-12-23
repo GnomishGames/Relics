@@ -11,6 +11,7 @@ public class NPCMovement : MonoBehaviour
 
     Vector3 spawnPosition;
     Quaternion spawnRotation;
+    bool positionReset;
 
     public float despawnTimer;
     public float respawnTimer;
@@ -29,9 +30,10 @@ public class NPCMovement : MonoBehaviour
         spawnRotation = transform.rotation;
 
         respawnTimer = characterStats.behaviorSO.respawnTimer;
+        despawnTimer = characterStats.behaviorSO.despawnTimer;
     }
 
-    public void Despawn()
+    public void DespawnCharacter()
     {
         if (characterStats.dead && !despawned)
         {
@@ -45,12 +47,13 @@ public class NPCMovement : MonoBehaviour
             despawned = true;
             hateManager.hateList.Clear();
             characterFocus.currentFocus = null;
+            positionReset = false;
 
             despawnTimer = characterStats.behaviorSO.despawnTimer;
         }
     }
 
-    public void Respawn()
+    public void RespawnCharacter()
     {
         if (despawned && characterStats.dead)
         {
@@ -66,6 +69,7 @@ public class NPCMovement : MonoBehaviour
             characterStats.currentHitPoints = characterStats.maxHitpoints;
             characterStats.dead = false;
             animator.SetBool("Dead", false);
+            positionReset = false;
             //characterStats.gaveXP = false;
 
             respawnTimer = characterStats.behaviorSO.respawnTimer;
@@ -74,10 +78,11 @@ public class NPCMovement : MonoBehaviour
 
     public void ResetPosition()
     {
-        if (despawned)
+        if (despawned && !positionReset)
         {
             //Debug.Log(transform.name + " resetting position to " + spawnPosition + " from " + gameObject.transform.position);
             gameObject.transform.SetPositionAndRotation(spawnPosition, spawnRotation);
+            positionReset = true;
         }
     }
 
