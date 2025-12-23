@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CombatLog : MonoBehaviour
 {
-    public int maxMessages = 25;
+    public int maxMessages = 20;
 
     public GameObject combatLogContent, textObject;
     public Color info, npcAttack, playerAttack;

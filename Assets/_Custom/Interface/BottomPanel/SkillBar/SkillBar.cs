@@ -17,10 +17,16 @@ public class SkillBar : MonoBehaviour
 
     //vars
     public bool autoattackOn = false;
+    CharacterStats myCharacterStats; //get my stats
+    CharacterFocus myCharacterFocus; //get my target
+    CharacterStats targetCharacterStats; //target stats
+    HateManager targetHateManager; //target hate manager
 
     private void Awake()
     {
         skillBook = GetComponent<SkillBook>();
+        myCharacterStats = GetComponent<CharacterStats>();
+        myCharacterFocus = GetComponent<CharacterFocus>();
         //chatPanel = GetComponent<ChatPanel>();
     }
 
@@ -83,11 +89,6 @@ public class SkillBar : MonoBehaviour
             return;
         }
 
-        var myCharacterStats = this.GetComponent<CharacterStats>(); //get my stats
-        var myCharacterFocus = this.GetComponent<CharacterFocus>(); //get my target
-        var targetCharacterStats = myCharacterFocus.currentFocus.GetComponent<CharacterStats>(); //target stats
-        var targetHateManager = myCharacterFocus.currentFocus.GetComponent<HateManager>(); //target hate manager
-
         //range check
         float distanceToTarget = Vector3.Distance(this.transform.position, myCharacterFocus.currentFocus.transform.position);
         if (distanceToTarget > skillSOs[slotNumber].attackRange)
@@ -118,6 +119,7 @@ public class SkillBar : MonoBehaviour
         //use skill
         if (myCharacterFocus != null && myCharacterFocus.currentFocus != null)
         {
+            targetCharacterStats = myCharacterFocus.currentFocus.GetComponent<CharacterStats>(); //get target characterstats
             if (targetCharacterStats != null) //doing the skill stuff
             {
                 //subtract stamina cost from me
@@ -130,6 +132,7 @@ public class SkillBar : MonoBehaviour
                 CombatLogMessage(true, this.GetComponent<Interactable>(), myCharacterFocus.currentFocus.GetComponent<Interactable>(), (int)skillSOs[slotNumber].targetDamage);
             }
 
+            targetHateManager = myCharacterFocus.currentFocus.GetComponent<HateManager>(); //get target hate manager
             //add aggressor to target hate list
             if (targetHateManager != null)
             {
