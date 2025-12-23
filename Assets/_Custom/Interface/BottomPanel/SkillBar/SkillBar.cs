@@ -14,6 +14,7 @@ public class SkillBar : MonoBehaviour
     Interactable focus;
     public ChatPanel chatPanel;
     public CombatLog combatLog;
+    public Equipment equipment;
 
     //vars
     public bool autoattackOn = false;
@@ -128,11 +129,16 @@ public class SkillBar : MonoBehaviour
                 //subtract stamina cost from me
                 myCharacterStats.SubtractStamina(skillSOs[slotNumber].staminaCost);
 
-                //check if attack hits (attack roll)
+                //check if attack hits (attack roll) against target armor class
                 int attackRoll = myCharacterStats.AttackRoll();
 
-                //check damage vs target armor
-                int weaponDamage = Random.Range(1, skillSOs[slotNumber].targetDamage + 1);
+                //skill damage plus weapon damage
+                if(equipment.weaponSOs[0] == null)
+                {
+                    ChatLogMessage("No weapon equipped.");
+                    return;
+                }
+                int weaponDamage = Random.Range(1, skillSOs[slotNumber].targetDamage + equipment.weaponSOs[0].Damage);
 
                 //calculate total damage
                 if (attackRoll >= targetCharacterStats.armorClass)

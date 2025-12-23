@@ -128,6 +128,7 @@ public class CharacterStats : Character
             // Fallback max values without class/race bonuses
             maxHitpoints = Mathf.Max(1, characterLevel + constitutionModifier);
             maxStamina = Mathf.Max(1, characterLevel + constitutionModifier);
+            maxMana = Mathf.Max(1, characterLevel + intelligenceModifier);
             sizeModifier = 0;
             armorClass = 10 + armorBonus + dexterityModifier + sizeModifier;
             return;
@@ -136,26 +137,27 @@ public class CharacterStats : Character
         characterLevel = CalculateLevel(experience);
 
         //calculate attributes
-        strengthScore = CalculateStatScore(strengthBase, characterRace.strengthBonus);
+        strengthScore = CalculateStatScore(strengthBase, characterRace.strengthBonus, characterLevel);
         strengthModifier = CalculateStatModifier(strengthScore);
 
-        dexterityScore = CalculateStatScore(dexterityBase, characterRace.dexterityBonus);
+        dexterityScore = CalculateStatScore(dexterityBase, characterRace.dexterityBonus, characterLevel);
         dexterityModifier = CalculateStatModifier(dexterityScore);
 
-        constitutionScore = CalculateStatScore(constitutionBase, characterRace.constitutionBonus);
+        constitutionScore = CalculateStatScore(constitutionBase, characterRace.constitutionBonus, characterLevel);
         constitutionModifier = CalculateStatModifier(constitutionScore);
 
-        intelligenceScore = CalculateStatScore(intelligenceBase, characterRace.intelligenceBonus);
+        intelligenceScore = CalculateStatScore(intelligenceBase, characterRace.intelligenceBonus, characterLevel);
         intelligenceModifier = CalculateStatModifier(intelligenceScore);
 
-        wisdomScore = CalculateStatScore(wisdomBase, characterRace.wisdomBonus);
+        wisdomScore = CalculateStatScore(wisdomBase, characterRace.wisdomBonus, characterLevel);
         wisdomModifier = CalculateStatModifier(wisdomScore);
 
-        charismaScore = CalculateStatScore(charismaBase, characterRace.charismaBonus);
+        charismaScore = CalculateStatScore(charismaBase, characterRace.charismaBonus, characterLevel);
         charismaModifier = CalculateStatModifier(charismaScore);
 
         maxHitpoints = (characterClass.hitDie * characterLevel) + constitutionModifier; //(level * base) + con modifier
         maxStamina = (characterClass.hitDie * characterLevel) + constitutionModifier; //(level * base) + con modifier
+        maxMana = (characterClass.manaDie * characterLevel) + intelligenceModifier; //(level * base) + int modifier
 
         sizeModifier = characterRace.sizeAcBonus;
 
@@ -163,9 +165,9 @@ public class CharacterStats : Character
         armorClass = 10 + armorBonus + dexterityModifier + sizeModifier;
     }
 
-    float CalculateStatScore(float statBase, float raceBonus)
+    float CalculateStatScore(float statBase, float raceBonus, float characterLevel)
     {
-        float statScore = statBase + raceBonus;
+        float statScore = statBase + raceBonus + characterLevel;
         return statScore;
     }
 
