@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChatPanel : MonoBehaviour
 {
-    public int maxMessages = 25;
+    public int maxMessages = 20;
 
     public GameObject chatLogContentGO, textObject;
     public Color playerMessage, info;

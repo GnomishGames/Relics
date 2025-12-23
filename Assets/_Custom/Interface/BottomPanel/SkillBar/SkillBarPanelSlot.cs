@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SkillBarPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+public class SkillBarPanelSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
     private RectTransform rectTransform;
     [SerializeField] private Canvas canvas;
@@ -68,11 +68,8 @@ public class SkillBarPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragH
         }
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        skillBarPanel.fromSlot = slotNumber;
-        skillBarPanel.fromPanel = "SkillBar";
-
         //null check
         if (skillBar.skillSOs[slotNumber] == null)
         {
@@ -83,38 +80,11 @@ public class SkillBarPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDragH
         skillBar.DoSkill(slotNumber, skillBar.skillTimer[slotNumber]);
     }
 
-    private void DoSkill()
-    {
-        //do the skill
-        //Debug.Log("Target is: " + player.GetComponent<CharacterFocus>().currentFocus.name);
-        //Debug.Log("Skill Name: " + skillBar.skillSOs[slotNumber].itemName);
-
-        //get stamina cost and subtract from player
-        player.GetComponent<CharacterStats>().SubtractStamina(skillBar.skillSOs[slotNumber].staminaCost);
-        //Debug.Log("Cooldown Time: " + skillBar.skillSOs[slotNumber].cooldownTime);
-
-        var cf = player.GetComponent<CharacterFocus>();
-        if (cf != null && cf.currentFocus != null)
-        {
-            //apply damage to target
-            var targetStats = cf.currentFocus.GetComponent<CharacterStats>();
-            if (targetStats != null)
-            {
-                targetStats.SubtractHealth(skillBar.skillSOs[slotNumber].targetDamage);
-            }
-
-            //add player to target hate list
-            var targetHate = cf.currentFocus.GetComponent<HateManager>();
-            if (targetHate != null)
-            {
-                targetHate.AddToHateList(player.GetComponent<Interactable>());
-            }
-        }
-        
-    }
-
     public void OnBeginDrag(PointerEventData eventData)
     {
+        skillBarPanel.fromSlot = slotNumber;
+        skillBarPanel.fromPanel = "SkillBar";
+        
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = .6f;
         // remember the original anchored position so we can restore if the drag is cancelled
