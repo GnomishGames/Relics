@@ -4,4 +4,5 @@ using UnityEngine;
 public class ClassSO : ScriptableObject
 {
     public int hitDie;
+    public int manaDie;
 }
