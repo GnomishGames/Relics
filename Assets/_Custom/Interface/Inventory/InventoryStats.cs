@@ -19,6 +19,25 @@ public class InventoryStats : MonoBehaviour
     public TextMeshProUGUI wisdomScore;
     public TextMeshProUGUI charismaScore;
 
+    //subscribe to character stats and update display
+    private CharacterStats characterStats;
+
+
+
+    void Start()
+    {
+        //subscribe to character name changes
+        characterStats.OnNameChanged += SetName;
+    }
+
+    private void OnDestroy() //unsubscribe from events
+    {
+        if (characterStats != null)
+        {
+            characterStats.OnNameChanged -= SetName;
+        }
+    }
+
     public void SetName(string name)
     {
         interactableName.text = name;
@@ -26,6 +45,8 @@ public class InventoryStats : MonoBehaviour
 
     public void UpdateStats(CharacterStats characterStats)
     {
+
+
         maxHitpoints.text = characterStats.maxHitpoints.ToString();
         armorClass.text = characterStats.armorClass.ToString();
         maxStamina.text = characterStats.maxStamina.ToString();
