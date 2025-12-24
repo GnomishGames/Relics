@@ -104,12 +104,12 @@ public class PlayerMovement : NetworkIdentity
         }
 
         // Strafe movement
-        if (stepRight)
+        if (stepRight && !forward && !rearward)
         {
             horizontalMove += transform.right * moveSpeed;
             velocityX = moveSpeed;  // Actual speed value for blend tree thresholds
         }
-        else if (stepLeft)
+        else if (stepLeft && !forward && !rearward)
         {
             horizontalMove -= transform.right * moveSpeed;
             velocityX = -moveSpeed;  // Negative for left

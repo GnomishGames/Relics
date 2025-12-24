@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Guard
   m_EditorClassIdentifier: Assembly-CSharp::BehaviorSO
   roamDistance: 0
-  respawnTimer: 1
-  despawnTimer: 1
+  respawnTimer: 0.2
+  despawnTimer: 0.2
