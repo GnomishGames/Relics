@@ -1,4 +1,5 @@
 using PurrNet;
+using TMPro;
 using UnityEngine;
 
 
@@ -32,6 +33,7 @@ public class PlayerMovement : NetworkIdentity
     Vector3 spawnPosition;
     Quaternion spawnRotation;
     bool positionReset;
+    public TMP_InputField chatBox;
 
 
     protected override void OnSpawned()
@@ -68,9 +70,12 @@ public class PlayerMovement : NetworkIdentity
     void Update()
     {
         GroundCheck(groundMask, groundCheck);
-        keyPresses();
+
         MovementLogic(runSpeed);
         ApplyGravityAndMove();
+
+        if (!chatBox.isFocused)
+            keyPresses();
     }
 
     private void keyPresses()
