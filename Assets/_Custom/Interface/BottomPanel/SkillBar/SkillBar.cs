@@ -28,6 +28,7 @@ public class SkillBar : MonoBehaviour
         skillBook = GetComponent<SkillBook>();
         myCharacterStats = GetComponent<CharacterStats>();
         myCharacterFocus = GetComponent<CharacterFocus>();
+        equipment = GetComponent<Equipment>();
         //chatPanel = GetComponent<ChatPanel>();
     }
 
@@ -133,7 +134,7 @@ public class SkillBar : MonoBehaviour
                 int attackRoll = myCharacterStats.AttackRoll();
 
                 //skill damage plus weapon damage
-                if(equipment.weaponSOs[0] == null)
+                if (equipment.weaponSOs[0] == null)
                 {
                     ChatLogMessage("No weapon equipped.");
                     return;
@@ -148,7 +149,7 @@ public class SkillBar : MonoBehaviour
 
                     //apply health damage to target
                     targetCharacterStats.SubtractHealth(damage);
-                
+
                     CombatLogMessage(true, this.GetComponent<Interactable>(), myCharacterFocus.currentFocus.GetComponent<Interactable>(), (int)damage);
                 }
                 else
@@ -182,20 +183,38 @@ public class SkillBar : MonoBehaviour
     //logging
     private void CombatLogMessage(bool hit, Interactable interactable, Interactable target, int damage)
     {
-        //check for null combat log
-        if (combatLog == null)
+        // Determine which combat log to use
+        CombatLog logToUse = null;
+        
+        // If this is a player (has a combat log), use it
+        if (combatLog != null)
+        {
+            logToUse = combatLog;
+        }
+        // If this is an NPC, send to the target's combat log
+        else
+        {
+            var targetSkillBar = target.GetComponent<SkillBar>();
+            if (targetSkillBar != null && targetSkillBar.combatLog != null) //my target has a combat log (is a player)
+            {
+                logToUse = targetSkillBar.combatLog; //send to target combat log of player
+            }
+        }
+
+        // If no combat log available, return
+        if (logToUse == null)
             return;
 
         if (hit)
         {
-            combatLog.SendMessageToCombatLog(interactable.GetComponent<CharacterStats>().interactableName
+            logToUse.SendMessageToCombatLog(interactable.GetComponent<CharacterStats>().interactableName
                 + " deals " + damage + " damage to "
                 + target.GetComponent<CharacterStats>().interactableName + ".",
                 CombatMessage.CombatMessageType.playerAttack);
         }
         else
         {
-            combatLog.SendMessageToCombatLog(interactable.GetComponent<CharacterStats>().interactableName
+            logToUse.SendMessageToCombatLog(interactable.GetComponent<CharacterStats>().interactableName
                 + " attacks but misses "
                 + target.GetComponent<CharacterStats>().interactableName + ".",
                 CombatMessage.CombatMessageType.playerAttack);

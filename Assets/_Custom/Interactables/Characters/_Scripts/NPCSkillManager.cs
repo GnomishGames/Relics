@@ -32,19 +32,35 @@ public class NPCSkillManager : MonoBehaviour
         //check for a target
         var target = characterFocus.currentFocus;
         if (target == null) return;
-        Debug.Log("NPC Target: " + target.name);
 
         //check distance to target
         float distanceToTarget = Vector3.Distance(target.transform.position, transform.position);
         if (distanceToTarget > ChooseRandomSkill().attackRange) return;
-        Debug.Log("NPC Target within range: " + target.name);
 
         //execute skill
         SkillSO skillToUse = ChooseRandomSkill();
         int skillIndex = System.Array.IndexOf(skillBar.skillSOs, skillToUse);
-        skillBar.DoSkill(skillIndex, skillBar.skillTimer[skillIndex]);   
-        Debug.Log("NPC used skill: " + skillToUse.itemName);
+        skillBar.DoSkill(skillIndex, skillBar.skillTimer[skillIndex]);
     }
 
-
+    private static void CombatLogMessage(bool hit, Interactable interactable, Interactable target, int damage)
+    {
+        if (target.GetComponent<CombatLog>())
+        {
+            if (hit)
+            {
+                target.GetComponent<CombatLog>().SendMessageToCombatLog(interactable.GetComponent<CharacterStats>().interactableName +
+                    " deals " + damage + " damage to " +
+                    target.GetComponent<CharacterStats>().interactableName + ".",
+                    CombatMessage.CombatMessageType.npcAttack);
+            }
+            else
+            {
+                target.GetComponent<CombatLog>().SendMessageToCombatLog(interactable.GetComponent<CharacterStats>().interactableName
+                    + " attacks but misses "
+                    + target.GetComponent<CharacterStats>().interactableName + ".",
+                    CombatMessage.CombatMessageType.npcAttack);
+            }
+        }
+    }
 }
