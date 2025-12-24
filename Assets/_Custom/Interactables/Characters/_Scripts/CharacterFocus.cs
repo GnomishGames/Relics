@@ -1,5 +1,5 @@
+using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,7 +10,7 @@ public class CharacterFocus : MonoBehaviour
 
 	[Header("State")]
 	public Interactable currentFocus; // for players: what they are focusing; for NPCs: optional
-    public float distanceToFocus;
+	public float distanceToFocus;
 
 	[Header("Player refs")]
 	public Camera cam;
@@ -24,6 +24,12 @@ public class CharacterFocus : MonoBehaviour
 
 	// cached reference to this object's Interactable (owner)
 	private Interactable selfInteractable;
+
+	//target panel
+	public TargetPanel targetPanel;
+
+	// create event for when this character has a focus
+	public event Action<string, float, float> OnTargetFocused;
 
 	void Awake()
 	{
@@ -71,7 +77,17 @@ public class CharacterFocus : MonoBehaviour
 		{
 			distanceToFocus = 0f;
 		}
-    }
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			RemoveFocus();
+		}
+
+		if (currentFocus != null)
+			targetPanel.gameObject.SetActive(true);
+		else
+			targetPanel.gameObject.SetActive(false);
+	}
 
 	private void HandlePlayerInput()
 	{
@@ -86,13 +102,14 @@ public class CharacterFocus : MonoBehaviour
 			Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out RaycastHit hit, 100f))
 			{
-				Character character = hit.collider.GetComponent<Character>();
+				CharacterStats character = hit.collider.GetComponent<CharacterStats>();
 				Item item = hit.collider.GetComponent<Item>();
 				Container container = hit.collider.GetComponent<Container>();
 
 				if (character != null)
 				{
 					SetCharacterFocus(character);
+					OnTargetFocused?.Invoke(character.name, character.currentHitPoints, character.currentStamina);
 				}
 				else if (item != null)
 				{
@@ -128,7 +145,7 @@ public class CharacterFocus : MonoBehaviour
 		}
 	}
 
-	public void SetCharacterFocus(Character character)
+	public void SetCharacterFocus(CharacterStats character)
 	{
 		if (character == null) return;
 		if (character != currentFocus) //new focus
@@ -142,6 +159,7 @@ public class CharacterFocus : MonoBehaviour
 			{
 				targetCF.OnFocused(this.transform);
 			}
+			// activate target panel
 
 			currentFocus = character;
 		}

@@ -9,7 +9,7 @@ public class KeyBindings : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             ToggleOptions();
         }
