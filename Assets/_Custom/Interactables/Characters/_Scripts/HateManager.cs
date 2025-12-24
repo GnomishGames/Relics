@@ -45,7 +45,7 @@ public class HateManager : MonoBehaviour
                     {
                         //add item as my target
                         characterFocus.currentFocus = item;
-                        characterFocus.SetCharacterFocus(item.GetComponent<Character>());
+                        characterFocus.SetCharacterFocus(item.GetComponent<CharacterStats>());
                         hateList.Add(item);
                     }
                 }
