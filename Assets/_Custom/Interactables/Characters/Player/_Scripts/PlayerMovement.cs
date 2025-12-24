@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerMovement : NetworkIdentity
 {
     //references
-    public CharacterController controller;
-    public Animator animator;
+    CharacterController controller;
+    Animator animator;
     CharacterStats characterStats;
     CharacterFocus characterFocus;
 
@@ -58,6 +58,8 @@ public class PlayerMovement : NetworkIdentity
     {
         characterStats = GetComponent<CharacterStats>();
         characterFocus = GetComponent<CharacterFocus>();
+        animator = GetComponentInChildren<Animator>();
+        controller = GetComponent<CharacterController>();
 
         //spawning and despawning
         despawned = false;
@@ -109,12 +111,12 @@ public class PlayerMovement : NetworkIdentity
         }
 
         // Strafe movement
-        if (stepRight && !forward && !rearward)
+        if (stepRight  && !rearward)
         {
             horizontalMove += transform.right * moveSpeed;
             velocityX = moveSpeed;  // Actual speed value for blend tree thresholds
         }
-        else if (stepLeft && !forward && !rearward)
+        else if (stepLeft && !rearward)
         {
             horizontalMove -= transform.right * moveSpeed;
             velocityX = -moveSpeed;  // Negative for left
