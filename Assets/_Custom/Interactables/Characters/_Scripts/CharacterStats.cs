@@ -8,6 +8,8 @@ public class CharacterStats : Character
     public event Action<float> OnHealthChanged;
     public event Action<float> OnStaminaChanged;
     public event Action<float> OnEXPChanged;
+    public event Action<string> OnNameChanged;
+    public event Action<float> OnLevelChanged;
 
     //references
     public InventoryStats inventoryStats;
@@ -68,7 +70,7 @@ public class CharacterStats : Character
     {
         // Initialize the random number generator with a unique seed
         rand = new Unity.Mathematics.Random((uint)System.DateTime.Now.Ticks + (uint)GetInstanceID());
-        
+
         // Basic null safety before initial calculations
         if (characterRace == null)
         {
@@ -180,6 +182,8 @@ public class CharacterStats : Character
         return statModifier;
     }
 
+
+
     void UpdateInventoryStats()
     {
         //update the stats shown in the inventory
@@ -257,12 +261,25 @@ public class CharacterStats : Character
         OnEXPChanged?.Invoke(percentage);
     }
 
+    public void SetName(string newName)
+    {
+        interactableName = newName;
+        OnNameChanged?.Invoke(interactableName);
+    }
+
     float CalculateLevel(float experience)
     {
         characterLevel = Mathf.FloorToInt((1 + Mathf.Sqrt(experience / 125 + 1)) / 2);
         percentage = (1 + Mathf.Sqrt(experience / 125 + 1)) / 2 % 1;
 
+        LevelChanged();
+
         return characterLevel;
+    }
+
+    void LevelChanged()
+    {
+        OnLevelChanged?.Invoke(characterLevel);
     }
 
     public void DeathCheck()
