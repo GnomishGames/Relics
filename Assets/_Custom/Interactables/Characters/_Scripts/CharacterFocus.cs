@@ -83,10 +83,14 @@ public class CharacterFocus : MonoBehaviour
 			RemoveFocus();
 		}
 
-		if (currentFocus != null && targetPanel != null)
-			targetPanel.gameObject.SetActive(true);
-		else
-			targetPanel.gameObject.SetActive(false);
+		//update target panel
+		if (targetPanel != null) //npcs may not have a target panel
+		{
+			if (currentFocus != null)
+				targetPanel.gameObject.SetActive(true);
+			else
+				targetPanel.gameObject.SetActive(false);
+		}
 	}
 
 	private void HandlePlayerInput()

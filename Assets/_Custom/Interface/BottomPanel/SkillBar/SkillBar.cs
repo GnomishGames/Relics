@@ -9,12 +9,13 @@ public class SkillBar : MonoBehaviour
     public float[] skillTimer = new float[8];
 
     //references
-    public SkillBook skillBook;
+    SkillBook skillBook;
     Container container;
     Interactable focus;
     public ChatPanel chatPanel;
     public CombatLog combatLog;
-    public Equipment equipment;
+    Equipment equipment;
+    Animator animator;
 
     //vars
     public bool autoattackOn = false;
@@ -29,6 +30,7 @@ public class SkillBar : MonoBehaviour
         myCharacterStats = GetComponent<CharacterStats>();
         myCharacterFocus = GetComponent<CharacterFocus>();
         equipment = GetComponent<Equipment>();
+        animator = GetComponentInChildren<Animator>();
         //chatPanel = GetComponent<ChatPanel>();
     }
 
@@ -157,6 +159,8 @@ public class SkillBar : MonoBehaviour
                     //missed attack
                     CombatLogMessage(false, this.GetComponent<Interactable>(), myCharacterFocus.currentFocus.GetComponent<Interactable>(), 0);
                 }
+
+                animator.SetTrigger("Attack");
             }
 
             //add aggressor to target hate list
