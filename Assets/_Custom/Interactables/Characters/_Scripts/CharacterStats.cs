@@ -21,6 +21,7 @@ public class CharacterStats : Character
     //General
     public Sprite icon;
     public Animator animator;
+    public bool isQuadruped = false;
 
     //Base Attributes
     public float currentHitPoints;

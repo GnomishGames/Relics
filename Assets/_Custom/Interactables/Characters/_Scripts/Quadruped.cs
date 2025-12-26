@@ -6,7 +6,7 @@ public class Quadruped : MonoBehaviour
     [SerializeField] private float tiltSpeed = 5f;
     [SerializeField] private LayerMask groundLayer;
 
-    void Update()
+    void LateUpdate()
     {
         AlignToTerrain();
     }
@@ -16,8 +16,14 @@ public class Quadruped : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))
         {
-            // Calculate the target rotation based on the ground normal
-            Quaternion targetRotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            // Get current forward direction (where character is facing)
+            Vector3 forward = transform.forward;
+            
+            // Project the forward direction onto the plane defined by the ground normal
+            Vector3 projectedForward = Vector3.ProjectOnPlane(forward, hit.normal).normalized;
+            
+            // Create rotation with ground normal as up and projected forward as forward
+            Quaternion targetRotation = Quaternion.LookRotation(projectedForward, hit.normal);
             
             // Smoothly rotate towards the target
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
