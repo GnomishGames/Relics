@@ -197,7 +197,6 @@ public class CharacterStats : Character
     public bool IsEnemy(CharacterStats other)
     {
         bool hostile = FactionManager.Instance.IsHostile(faction, other.faction);
-        Debug.Log($"IsEnemy: {name}({faction.name}) vs {other.name}({other.faction.name}) => hostile={hostile}");
         return hostile;
     }
 
