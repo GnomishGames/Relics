@@ -18,6 +18,10 @@ public class NPCMovement : MonoBehaviour
     public bool despawned;
     public float distanceToTarget;
 
+    [SerializeField] private float groundCheckDistance = 2f;
+    [SerializeField] private float tiltSpeed = 5f;
+    [SerializeField] private LayerMask groundLayer;
+
     private void Start()
     {
         astar = GetComponent<IAstarAI>();
@@ -31,6 +35,13 @@ public class NPCMovement : MonoBehaviour
 
         respawnTimer = characterStats.behaviorSO.respawnTimer;
         despawnTimer = characterStats.behaviorSO.despawnTimer;
+
+        groundLayer = LayerMask.GetMask("Ground");
+    }
+
+    void Update()
+    {
+        AlignToTerrain();
     }
 
     public void DespawnCharacter()
@@ -96,6 +107,7 @@ public class NPCMovement : MonoBehaviour
             {
                 astar.SearchPath();
                 astar.destination = PickRandomPoint(characterStats.behaviorSO.roamDistance, transform);
+                
                 astar.maxSpeed = characterStats.characterRace.walkSpeed;
             }
             else
@@ -118,6 +130,16 @@ public class NPCMovement : MonoBehaviour
         if (astar.velocity.x != 0 || astar.velocity.y != 0 || astar.velocity.z != 0)
         {
             animator.SetFloat("VelocityX", astar.maxSpeed);
+            // Face the direction of movement when roaming
+            if (characterFocus.currentFocus == null && !characterStats.dead)
+            {
+                Vector3 velocityDirection = new Vector3(astar.velocity.x, 0, astar.velocity.z);
+                if (velocityDirection != Vector3.zero)
+                {
+                    Quaternion lookRotation = Quaternion.LookRotation(velocityDirection);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
+                }
+            }
         }
         else
         {
@@ -140,7 +162,7 @@ public class NPCMovement : MonoBehaviour
         if (direction != Vector3.zero)
         {
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
         }
     }
 
@@ -150,28 +172,60 @@ public class NPCMovement : MonoBehaviour
         {
             distanceToTarget = Vector3.Distance(target.position, transform.position);
 
-            // Face the target
-            FaceTarget(target.position, transform);
-
-            // Within attack distance: stop moving
+            // Within attack distance: stop moving and face target directly
             if (distanceToTarget <= characterStats.characterRace.attackDistance)
             {
+                // Face the target directly when in attack range
+                FaceTarget(target.position, transform);
+                
                 astar.destination = transform.position;
                 astar.SearchPath();
                 astar.maxSpeed = 0;
                 astar.isStopped = true;
             }
-            // Within aggro radius but outside attack distance: run toward target
-            else if (distanceToTarget <= characterStats.characterRace.aggroRadius)
+            // Has hate on target: run toward target
+            else if (hateManager.hateList.Count > 0 && hateManager.hateList.Contains(characterFocus.currentFocus))
             {
+                // Face movement direction when running
+                Vector3 velocityDirection = new Vector3(astar.velocity.x, 0, astar.velocity.z);
+                if (velocityDirection != Vector3.zero)
+                {
+                    Quaternion lookRotation = Quaternion.LookRotation(velocityDirection);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
+                }
+                
                 astar.destination = target.position;
                 astar.SearchPath();
                 astar.maxSpeed = characterStats.characterRace.runSpeed;
                 astar.isStopped = false;
             }
-            // Outside aggro radius: walk slowly toward target (or stop if you prefer)
-            else if (distanceToTarget > characterStats.characterRace.attackDistance && distanceToTarget < characterStats.characterRace.viewRadius)
+            // Within aggro radius but outside attack distance: run toward target
+            else if (distanceToTarget <= characterStats.characterRace.aggroRadius)
             {
+                // Face movement direction when running
+                Vector3 velocityDirection = new Vector3(astar.velocity.x, 0, astar.velocity.z);
+                if (velocityDirection != Vector3.zero)
+                {
+                    Quaternion lookRotation = Quaternion.LookRotation(velocityDirection);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
+                }
+                
+                astar.destination = target.position;
+                astar.SearchPath();
+                astar.maxSpeed = characterStats.characterRace.runSpeed;
+                astar.isStopped = false;
+            }
+            // Outside aggro radius but within view: walk slowly toward target
+            else if (distanceToTarget < characterStats.characterRace.viewRadius)
+            {
+                // Face movement direction when walking
+                Vector3 velocityDirection = new Vector3(astar.velocity.x, 0, astar.velocity.z);
+                if (velocityDirection != Vector3.zero)
+                {
+                    Quaternion lookRotation = Quaternion.LookRotation(velocityDirection);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
+                }
+                
                 astar.destination = target.position;
                 astar.SearchPath();
                 astar.maxSpeed = characterStats.characterRace.walkSpeed;
@@ -180,10 +234,8 @@ public class NPCMovement : MonoBehaviour
             // Outside view radius: return to spawn
             else
             {
-                //clear hate list of distant targets
-                hateManager.hateList.Clear();
+                // No hate, return to spawn
                 astar.destination = spawnPosition;
-                //astar.rotation = spawnRotation;
                 astar.SearchPath();
                 astar.maxSpeed = characterStats.characterRace.walkSpeed;
                 astar.isStopped = false;
@@ -194,7 +246,11 @@ public class NPCMovement : MonoBehaviour
 					astar.destination = transform.position;
                     astar.maxSpeed = 0;
 					astar.isStopped = true;
-					transform.rotation = Quaternion.Slerp(transform.rotation, spawnRotation, Time.deltaTime * 5f);
+					transform.rotation = Quaternion.Slerp(transform.rotation, spawnRotation, Time.deltaTime * 10f);
+                    
+                    // Only clear hate when back at spawn
+                    hateManager.hateList.Clear();
+                    characterFocus.currentFocus = null;
 				}
             }
 
@@ -206,8 +262,40 @@ public class NPCMovement : MonoBehaviour
                     astar.destination = transform.position;
                     astar.maxSpeed = 0;
                     astar.isStopped = true;
-                    transform.rotation = Quaternion.Slerp(transform.rotation, spawnRotation, Time.deltaTime * 5f);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, spawnRotation, Time.deltaTime * 10f);
                 }
+            }
+        }
+    }
+
+    public void AlignToTerrain()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))
+        {
+            // Get current forward direction (where character is facing)
+            Vector3 forward = transform.forward;
+            forward.y = 0; // Keep forward direction horizontal
+            forward.Normalize();
+            
+            if (forward == Vector3.zero)
+                return;
+            
+            // Calculate right vector perpendicular to forward and ground normal
+            Vector3 right = Vector3.Cross(hit.normal, forward).normalized;
+            
+            // Recalculate forward to be perpendicular to right and aligned with terrain
+            Vector3 adjustedForward = Vector3.Cross(right, hit.normal).normalized;
+            
+            // Create rotation with ground normal as up and adjusted forward as forward
+            Quaternion targetRotation = Quaternion.LookRotation(adjustedForward, hit.normal);
+            
+            // Only apply tilt if the angle difference is significant (reduces jitter)
+            float angleDifference = Quaternion.Angle(transform.rotation, targetRotation);
+            if (angleDifference > 0.5f) // Only tilt if more than 0.5 degrees different
+            {
+                // Smoothly rotate towards the target with slower speed for smoother movement
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime * 0.5f);
             }
         }
     }

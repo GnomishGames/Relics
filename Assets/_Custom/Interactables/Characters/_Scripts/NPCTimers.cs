@@ -47,10 +47,10 @@ public class NPCTimers : MonoBehaviour
             fieldOfView.FindHearableTargets();
             npcMovement.CheckAstarVelocity();
             hateManager.UpdateHateList();
-            //hateManager.ResponseToBeingTargeted();
-            hateManager.AggroTarget();
+            //hateManager.AggroTarget();
             characterStats.DeathCheck();
-            //npcMovement.ResponseToBeingTargeted();
+            
+
         }
     }
 

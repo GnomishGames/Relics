@@ -27,10 +27,7 @@ public class HateManager : MonoBehaviour
 
     private void Update()
     {
-        if (characterFocus.currentFocus != null && !characterStats.dead)
-        {
-            NPCMovement.FaceTarget(characterFocus.currentFocus.transform.position, transform);
-        }
+        AggroTarget();
     }
 
     public void UpdateHateList()
@@ -84,7 +81,7 @@ public class HateManager : MonoBehaviour
         if (characterFocus != null && characterFocus.charactersTargetingMe.Count > 0 && !characterStats.dead && characterFocus.currentFocus == null)
         {
             Transform targetPlayer = characterFocus.charactersTargetingMe[0].transform;
-            NPCMovement.FaceTarget(targetPlayer.position, transform);
+            //NPCMovement.FaceTarget(targetPlayer.position, transform);
 
             if (astar != null)
             {
