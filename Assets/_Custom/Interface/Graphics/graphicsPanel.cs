@@ -1,3 +1,4 @@
+using System;
 using Gaia;
 using TMPro;
 using UnityEngine;
@@ -5,15 +6,24 @@ using UnityEngine.UI;
 
 public class graphicsPanel : MonoBehaviour
 {
-    public Camera cam;
+    Camera cam;
+
+    //events
+    public event Action<float> OnDetailDistanceChanged;
+    public event Action<float> OnDetailDensityChanged;
+    public event Action<int> OnTextureQualityChanged;
+    public event Action<int> OnShadowQualityChanged;
+    public event Action<int> OnAntialiasingChanged;
+    public event Action<bool> OnAnisotropicFilteringChanged;
+    public event Action<bool> OnVsyncChanged;
+    public event Action<float> OnFieldOfViewChanged;
+    public event Action<float> OnClippingPlaneChanged;
 
     //clipping plane
     public Slider clippingSlider;
-    public TextMeshProUGUI clippingValueText;
 
     //field of view
     public Slider fovSlider;
-    public TextMeshProUGUI fovValueText;
 
     //vsync
     public Toggle vSyncToggle;
@@ -32,48 +42,20 @@ public class graphicsPanel : MonoBehaviour
 
     //fps counter
     public Toggle fpsToggle;
-    private FPSCounter fpsCounter;
+    public FPSCounter fpsCounter;
 
     //terrain
     public Terrain targetTerrain;
-    
+
     //terrain detail distance
     public Slider detailDistanceSlider;
-    public float detailDistance;
-    public TMP_Text detailDistanceValueText;
 
     //terrain detail density
     public Slider detailDensitySlider;
-    public float detailDensity;
-    public TMP_Text detailDensityValueText;
 
     void Start()
     {
         cam = Camera.main;
-        clippingSlider.value = cam.farClipPlane;
-        fovSlider.value = cam.fieldOfView;
-        
-        //vSync
-        QualitySettings.vSyncCount = 0;  // Disable VSync
-        vSyncToggle.isOn = false;
-        
-        //anti-aliasing
-        QualitySettings.antiAliasing = 0; // Set anti-aliasing level, 0,2,4,8
-        antiAliasingDropdown.value = 0;
-
-        //anisotropic filtering
-        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable; // Enable anisotropic filtering
-        anisotropicFilteringToggle.isOn = false;
-
-        //shadow settings
-        QualitySettings.shadowDistance = 10f; // Set shadow distance
-        QualitySettings.shadowResolution = ShadowResolution.Low; // Set shadow resolution
-        shadowQualityDropdown.value = 0;
-
-        //texture quality
-        QualitySettings.globalTextureMipmapLimit = 0; // Set texture quality (0 = Full Res, 1 = Half Res, etc.)
-        textureQualityDropdown.value = 0;
-
         //fps counter
         fpsCounter = FindFirstObjectByType<FPSCounter>();
         if (fpsToggle != null && fpsCounter != null)
@@ -87,6 +69,25 @@ public class graphicsPanel : MonoBehaviour
         {
             targetTerrain = Terrain.activeTerrain;
         }
+
+        detailDistanceSlider.onValueChanged.AddListener(OnDetailDistanceSliderChanged);
+        detailDensitySlider.onValueChanged.AddListener(OnDetailDensitySliderChanged);
+        textureQualityDropdown.onValueChanged.AddListener(OnTextureQualityDropdownChanged);
+        shadowQualityDropdown.onValueChanged.AddListener(OnShadowQualityDropdownChanged);
+        antiAliasingDropdown.onValueChanged.AddListener(OnAntiAliasingDropdownChanged);
+        anisotropicFilteringToggle.onValueChanged.AddListener(OnAnostropicFilteringToggleChanged);
+        vSyncToggle.onValueChanged.AddListener(OnVsyncToggleChanged);
+        fovSlider.onValueChanged.AddListener(OnFieldOfViewSliderChanged);
+        clippingSlider.onValueChanged.AddListener(OnClippingPlaneSliderChanged);
+
+        //update the slider values to match current settings
+        if (cam == null)
+            return;
+        fovSlider.value = cam.fieldOfView;
+        clippingSlider.value = cam.farClipPlane;
+        detailDensitySlider.value = targetTerrain.detailObjectDensity;
+        detailDistanceSlider.value = targetTerrain.detailObjectDistance;
+
     }
 
     void OnFPSToggleChanged(bool isOn)
@@ -97,84 +98,48 @@ public class graphicsPanel : MonoBehaviour
         }
     }
 
-    void Update()
+    private void OnDetailDistanceSliderChanged(float value)
     {
-        //put on event listener later
+        OnDetailDistanceChanged?.Invoke(value);
+    }
 
-        //update clipping plane
-        cam.farClipPlane = clippingSlider.value;
-        clippingValueText.text = cam.farClipPlane.ToString();
+    private void OnDetailDensitySliderChanged(float value)
+    {
+        OnDetailDensityChanged?.Invoke(value);
+    }
 
-        //field of view
-        cam.fieldOfView = fovSlider.value;
-        fovValueText.text = cam.fieldOfView.ToString();
+    private void OnTextureQualityDropdownChanged(int value)
+    {
+        OnTextureQualityChanged?.Invoke(value);
+    }
 
-        //vsync
-        QualitySettings.vSyncCount = vSyncToggle.isOn ? 1 : 0;
+    private void OnShadowQualityDropdownChanged(int value)
+    {
+        OnShadowQualityChanged?.Invoke(value);
+    }
 
-        //anisotropic filtering
-        QualitySettings.anisotropicFiltering = anisotropicFilteringToggle.isOn ? AnisotropicFiltering.Enable : AnisotropicFiltering.Disable;
+    private void OnAntiAliasingDropdownChanged(int value)
+    {
+        OnAntialiasingChanged?.Invoke(value);
+    }
 
-        //Anti-aliasing
-        switch (antiAliasingDropdown.value)
-        {
-            case 0:
-                QualitySettings.antiAliasing = 0;
-                break;
-            case 1:
-                QualitySettings.antiAliasing = 2;
-                break;
-            case 2:
-                QualitySettings.antiAliasing = 4;
-                break;
-            case 3:
-                QualitySettings.antiAliasing = 8;
-                break;
-        }
+    private void OnAnostropicFilteringToggleChanged(bool isOn)
+    {
+        OnAnisotropicFilteringChanged?.Invoke(isOn);
+    }
 
-        //shadow quality
-        switch (shadowQualityDropdown.value)
-        {
-            case 0:
-                QualitySettings.shadowResolution = ShadowResolution.Low;
-                break;
-            case 1:
-                QualitySettings.shadowResolution = ShadowResolution.Medium;
-                break;
-            case 2:
-                QualitySettings.shadowResolution = ShadowResolution.High;
-                break;
-        }
+    private void OnVsyncToggleChanged(bool isOn)
+    {
+        OnVsyncChanged?.Invoke(isOn);
+    }
 
-        //texture quality
-        switch (textureQualityDropdown.value)
-        {
-            case 0:
-                QualitySettings.globalTextureMipmapLimit = 0; // Full Res       
-                break;
-            case 1: 
-                QualitySettings.globalTextureMipmapLimit = 1; // Half Res
-                break;
-            case 2:
-                QualitySettings.globalTextureMipmapLimit = 2; // Quarter Res
-                break;
-            case 3:
-                QualitySettings.globalTextureMipmapLimit = 3; // Eighth Res
-                break;
-        }
+    private void OnFieldOfViewSliderChanged(float value)
+    {
+        OnFieldOfViewChanged?.Invoke(value);
+    }
 
-        //terrain detail distance and density
-        if (targetTerrain != null)
-        {
-            //terrain detail distance
-            detailDistance = detailDistanceSlider.value;
-            targetTerrain.detailObjectDistance = detailDistance;
-            detailDistanceValueText.text = detailDistance.ToString();
-
-            //terrain detail density
-            detailDensity = detailDensitySlider.value;
-            targetTerrain.detailObjectDensity = detailDensity;
-            detailDensityValueText.text = detailDensity.ToString();
-        }
+    private void OnClippingPlaneSliderChanged(float value)
+    {
+        OnClippingPlaneChanged?.Invoke(value);
     }
 }
