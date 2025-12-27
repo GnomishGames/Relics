@@ -1,7 +1,32 @@
 using Pathfinding;
+using PurrNet;
 using UnityEngine;
 
-public class NPCMovement : MonoBehaviour
+//All NPC reuired Components
+//movement and pathfinding
+[RequireComponent(typeof(Seeker))]
+[RequireComponent(typeof(AIPath))]
+[RequireComponent(typeof(RaycastModifier))]
+[RequireComponent(typeof(CharacterController))]
+
+[RequireComponent(typeof(NPCTimers))]
+[RequireComponent(typeof(CharacterStats))]
+[RequireComponent(typeof(HateManager))]
+[RequireComponent(typeof(CharacterFocus))]
+[RequireComponent(typeof(FieldOfView))]
+
+//inventory
+[RequireComponent(typeof(Inventory))]
+[RequireComponent(typeof(Equipment))]
+[RequireComponent(typeof(SkillBar))]
+[RequireComponent(typeof(NPCSkillManager))]
+
+//Network
+[RequireComponent(typeof(NetworkTransform))]
+[RequireComponent(typeof(NetworkAnimator))]
+
+
+public class NPCMovement : NetworkIdentity
 {
     IAstarAI astar;
     public Animator animator;
@@ -80,11 +105,8 @@ public class NPCMovement : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(true);
             transform.GetComponent<AIPath>().enabled = true;
             astar.destination = transform.position;
-            characterStats.currentHitPoints = characterStats.maxHitpoints;
-            characterStats.dead = false;
-            animator.SetBool("Dead", false);
+            characterStats.Revive();
             positionReset = false;
-            //characterStats.gaveXP = false;
 
             respawnTimer = characterStats.behaviorSO.respawnTimer;
         }

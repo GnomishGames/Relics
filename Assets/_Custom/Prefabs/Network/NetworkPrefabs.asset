@@ -18,11 +18,23 @@ MonoBehaviour:
   folder: {fileID: 102900000, guid: fbe0c8d95c9d324cda81b96f665fddfe, type: 3}
   linkedNetworkPrefabs: []
   prefabs:
-  - guid: 5d2c644c3b50b361fa326f28ef16f149
-    prefab: {fileID: 5584339292830879391, guid: 5d2c644c3b50b361fa326f28ef16f149, type: 3}
-    pooled: 0
-    warmupCount: 5
   - guid: b980a77a20a68c69c92c175378ed6238
     prefab: {fileID: 5584339292830879391, guid: b980a77a20a68c69c92c175378ed6238, type: 3}
+    pooled: 0
+    warmupCount: 5
+  - guid: 3563147dffc203e29962037bb31a026c
+    prefab: {fileID: 8125831373407689766, guid: 3563147dffc203e29962037bb31a026c, type: 3}
+    pooled: 0
+    warmupCount: 5
+  - guid: 67af79875472540e78abc5f33dcc1dd2
+    prefab: {fileID: 8125831373407689766, guid: 67af79875472540e78abc5f33dcc1dd2, type: 3}
+    pooled: 0
+    warmupCount: 5
+  - guid: 81b6df47b0b666b9cbf70ec44448e012
+    prefab: {fileID: 8879652896023530545, guid: 81b6df47b0b666b9cbf70ec44448e012, type: 3}
+    pooled: 0
+    warmupCount: 5
+  - guid: aa40c680f68e536a481011544eeab97d
+    prefab: {fileID: 3830977390888334118, guid: aa40c680f68e536a481011544eeab97d, type: 3}
     pooled: 0
     warmupCount: 5

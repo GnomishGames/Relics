@@ -16,16 +16,20 @@ public class HealthBar : MonoBehaviour
         characterStats = GetComponentInParent<CharacterStats>();
 
         // Initialize max health once
-        SetMaxHealth(characterStats.maxHitpoints);
+        //SetMaxHealth(characterStats.maxHitpoints);
         
         // Subscribe to health changes for updates
+        characterStats.OnMaxHealthChanged += SetMaxHealth;
         characterStats.OnHealthChanged += SetHealth;
     }
 
     private void OnDestroy()
     {
         if (characterStats != null)
+        {
+            characterStats.OnMaxHealthChanged -= SetMaxHealth;
             characterStats.OnHealthChanged -= SetHealth;
+        }
     }
 
     public void SetMaxHealth(float maxHealth)

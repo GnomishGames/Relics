@@ -22,12 +22,31 @@ public class InventoryStats : MonoBehaviour
     //subscribe to character stats and update display
     private CharacterStats characterStats;
 
-
-
-    void Start()
+    void Awake()
     {
-        //subscribe to character name changes
+        characterStats = GetComponentInParent<CharacterStats>();
+
+        //subscribe to character stats changes
         characterStats.OnNameChanged += SetName;
+        characterStats.OnMaxHealthChanged += SetMaxHealth;
+        characterStats.OnArmorClassChanged += SetArmorClass;
+        characterStats.OnMaxStaminaChanged += SetMaxStamina;
+        characterStats.OnMaxManaChanged += SetMaxMana;
+        characterStats.OnStrengthScoreChanged += SetStrengthScore;
+        characterStats.OnDexterityScoreChanged += SetDexterityScore;
+        characterStats.OnConstitutionScoreChanged += SetConstitutionScore;
+        characterStats.OnIntelligenceScoreChanged += SetIntelligenceScore;
+        characterStats.OnWisdomScoreChanged += SetWisdomScore;
+        characterStats.OnCharismaScoreChanged += SetCharismaScore;
+    }
+
+    void OnEnable()
+    {
+        // Request current values when inventory is opened
+        if (characterStats != null)
+        {
+            characterStats.FireAllStatsEvents();
+        }
     }
 
     private void OnDestroy() //unsubscribe from events
@@ -35,6 +54,16 @@ public class InventoryStats : MonoBehaviour
         if (characterStats != null)
         {
             characterStats.OnNameChanged -= SetName;
+            characterStats.OnMaxHealthChanged -= SetMaxHealth;
+            characterStats.OnArmorClassChanged -= SetArmorClass;
+            characterStats.OnMaxStaminaChanged -= SetMaxStamina;
+            characterStats.OnMaxManaChanged -= SetMaxMana;
+            characterStats.OnStrengthScoreChanged -= SetStrengthScore;
+            characterStats.OnDexterityScoreChanged -= SetDexterityScore;
+            characterStats.OnConstitutionScoreChanged -= SetConstitutionScore;
+            characterStats.OnIntelligenceScoreChanged -= SetIntelligenceScore;
+            characterStats.OnWisdomScoreChanged -= SetWisdomScore;
+            characterStats.OnCharismaScoreChanged -= SetCharismaScore;
         }
     }
 
@@ -43,20 +72,53 @@ public class InventoryStats : MonoBehaviour
         interactableName.text = name;
     }
 
-    public void UpdateStats(CharacterStats characterStats)
+    void SetMaxHealth(float maxHealth)
     {
+        maxHitpoints.text = maxHealth.ToString();
+    }
 
+    void SetArmorClass(float ac)
+    {
+        armorClass.text = ac.ToString();
+    }
 
-        maxHitpoints.text = characterStats.maxHitpoints.ToString();
-        armorClass.text = characterStats.armorClass.ToString();
-        maxStamina.text = characterStats.maxStamina.ToString();
-        maxMana.text = characterStats.maxMana.ToString();
+    void SetMaxStamina(float stamina)
+    {
+        maxStamina.text = stamina.ToString();
+    }
 
-        strengthScore.text = characterStats.strengthScore.ToString();
-        dexterityScore.text = characterStats.dexterityScore.ToString();
-        constitutionScore.text = characterStats.constitutionScore.ToString();
-        intelligenceScore.text = characterStats.intelligenceScore.ToString();
-        wisdomScore.text = characterStats.wisdomScore.ToString();
-        charismaScore.text = characterStats.charismaScore.ToString();
+    void SetMaxMana(float mana)
+    {
+        maxMana.text = mana.ToString();
+    }
+
+    void SetStrengthScore(float score)
+    {
+        strengthScore.text = score.ToString();
+    }
+
+    void SetDexterityScore(float score)
+    {
+        dexterityScore.text = score.ToString();
+    }
+
+    void SetConstitutionScore(float score)
+    {
+        constitutionScore.text = score.ToString();
+    }
+
+    void SetIntelligenceScore(float score)
+    {
+        intelligenceScore.text = score.ToString();
+    }
+
+    void SetWisdomScore(float score)
+    {
+        wisdomScore.text = score.ToString();
+    }
+
+    void SetCharismaScore(float score)
+    {
+        charismaScore.text = score.ToString();
     }
 }

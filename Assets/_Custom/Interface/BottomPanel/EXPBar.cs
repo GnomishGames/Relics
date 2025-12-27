@@ -7,13 +7,10 @@ public class EXPBar : MonoBehaviour
 
     private CharacterStats characterStats;   // the specific stats this bar listens to
 
-    private void Start()
+    private void Awake()
     {
         // Get reference to CharacterStats if not set
         characterStats = GetComponentInParent<CharacterStats>();
-
-        // Initialize max EXP once
-        SetEXP(characterStats.experience);
 
         // Subscribe to EXP changes for updates
         characterStats.OnEXPChanged += SetEXP;
