@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: Human
   m_EditorClassIdentifier: Assembly-CSharp::Race
   name: Human
-  strengthBonus: 10
-  constitutionBonus: 10
-  dexterityBonus: 10
-  intelligenceBonus: 10
-  wisdomBonus: 10
-  charismaBonus: 10
-  unarmedDamage: 10
+  strengthBonus: 1
+  constitutionBonus: 1
+  dexterityBonus: 1
+  intelligenceBonus: 1
+  wisdomBonus: 1
+  charismaBonus: 1
+  unarmedDamage: 1
   viewRadius: 40
   hearRadius: 20
   viewAngle: 180
   aggroRadius: 10
   attackDistance: 2
-  tooClose: 10
-  attackSpeed: 10
-  kickSpeed: 10
-  walkSpeed: 10
-  runSpeed: 10
-  sizeAcBonus: 10
-  naturalAcBonus: 10
+  tooClose: 1
+  attackSpeed: 1
+  kickSpeed: 1
+  walkSpeed: 2
+  runSpeed: 5
+  sizeAcBonus: 2
+  naturalAcBonus: 1

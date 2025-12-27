@@ -88,8 +88,20 @@ public class CharacterFocus : MonoBehaviour
 		{
 			if (currentFocus != null)
 				targetPanel.gameObject.SetActive(true);
+				
+				
 			else
 				targetPanel.gameObject.SetActive(false);
+		}
+	}
+
+	void OnNewFocus()
+	{
+		if (targetPanel != null && currentFocus != null)
+		{
+			// Activate panel and update with new target
+			targetPanel.gameObject.SetActive(true);
+			targetPanel.SetNewTarget(currentFocus.GetComponent<CharacterStats>());
 		}
 	}
 
@@ -163,11 +175,10 @@ public class CharacterFocus : MonoBehaviour
 			{
 				targetCF.OnFocused(this.transform);
 			}
-			// activate target panel
 
 			currentFocus = character;
+			OnNewFocus();
 		}
-
 
 		character.OnFocused(transform); // Notify the character
 	}

@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: Assembly-CSharp::Race
   name: Goblin Guard
-  strengthBonus: 10
-  constitutionBonus: 10
-  dexterityBonus: 10
-  intelligenceBonus: 10
-  wisdomBonus: 10
-  charismaBonus: 10
+  strengthBonus: 1
+  constitutionBonus: 1
+  dexterityBonus: 1
+  intelligenceBonus: 1
+  wisdomBonus: 1
+  charismaBonus: 1
   unarmedDamage: 1
   viewRadius: 20
   hearRadius: 10
@@ -30,5 +30,5 @@ MonoBehaviour:
   kickSpeed: 1
   walkSpeed: 2
   runSpeed: 5
-  sizeAcBonus: 1
+  sizeAcBonus: 2
   naturalAcBonus: 1

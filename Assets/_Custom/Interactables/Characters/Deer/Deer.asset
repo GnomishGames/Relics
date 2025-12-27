@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e84c59f80144ad37291ef1a6f03e6ec3, type: 3}
-  m_Name: Wolf
-  m_EditorClassIdentifier: Assembly-CSharp::Race
-  name: WolfSO
-  strengthBonus: 1
-  constitutionBonus: 1
-  dexterityBonus: 1
-  intelligenceBonus: 1
-  wisdomBonus: 1
-  charismaBonus: 1
+  m_Name: Deer
+  m_EditorClassIdentifier: Assembly-CSharp::RaceSO
+  name: 
+  strengthBonus: 0
+  constitutionBonus: 0
+  dexterityBonus: 0
+  intelligenceBonus: 0
+  wisdomBonus: 0
+  charismaBonus: 0
   unarmedDamage: 1
   viewRadius: 20
-  hearRadius: 40
-  viewAngle: 120
-  aggroRadius: 10
+  hearRadius: 20
+  viewAngle: 259
+  aggroRadius: 0
   attackDistance: 2
   tooClose: 1
   attackSpeed: 1
   kickSpeed: 1
   walkSpeed: 2
-  runSpeed: 5
-  sizeAcBonus: 1
+  runSpeed: 7
+  sizeAcBonus: 3
   naturalAcBonus: 1

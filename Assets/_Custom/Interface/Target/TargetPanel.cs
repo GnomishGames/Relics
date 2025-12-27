@@ -6,36 +6,73 @@ public class TargetPanel : MonoBehaviour
 {
     public TextMeshProUGUI targetNameText;
     public Slider hpSlider;
-    public CharacterFocus focus;
-    public CharacterStats characterStats;
     public Slider staminaSlider;
+    
+    private CharacterStats currentTargetStats;
 
-    void Start()
+    public void SetNewTarget(CharacterStats targetStats)
     {
-        var player = GameObject.FindWithTag("Player");
-        if (player != null)
+        // Unsubscribe from old target
+        if (currentTargetStats != null)
         {
-            focus = player.GetComponent<CharacterFocus>();
+            currentTargetStats.OnHealthChanged -= SetHealth;
+            currentTargetStats.OnMaxHealthChanged -= SetMaxHealth;
+            currentTargetStats.OnStaminaChanged -= SetStamina;
+            currentTargetStats.OnMaxStaminaChanged -= SetMaxStamina;
+            currentTargetStats.OnNameChanged -= SetName;
+        }
+
+        currentTargetStats = targetStats;
+
+        if (currentTargetStats != null)
+        {
+            // Subscribe to new target's events
+            currentTargetStats.OnHealthChanged += SetHealth;
+            currentTargetStats.OnMaxHealthChanged += SetMaxHealth;
+            currentTargetStats.OnStaminaChanged += SetStamina;
+            currentTargetStats.OnMaxStaminaChanged += SetMaxStamina;
+            currentTargetStats.OnNameChanged += SetName;
+
+            // Get initial values
+            currentTargetStats.FireAllStatsEvents();
         }
     }
 
-    void Update()
+    void OnDisable()
     {
-        if (focus == null || focus.currentFocus == null)
+        // Unsubscribe when panel closes
+        if (currentTargetStats != null)
         {
-            targetNameText.text = "No Target";
-            return;
-        }else{
-            //update target name text
-            targetNameText.text = focus.currentFocus.name;
-            
-            //update hp slider
-            hpSlider.value = focus.currentFocus.GetComponent<CharacterStats>().currentHitPoints;
-            hpSlider.maxValue = focus.currentFocus.GetComponent<CharacterStats>().maxHitpoints;
-
-            //update stanmina slider
-            staminaSlider.value = focus.currentFocus.GetComponent<CharacterStats>().currentStamina;
-            staminaSlider.maxValue = focus.currentFocus.GetComponent<CharacterStats>().maxStamina;
+            currentTargetStats.OnHealthChanged -= SetHealth;
+            currentTargetStats.OnMaxHealthChanged -= SetMaxHealth;
+            currentTargetStats.OnStaminaChanged -= SetStamina;
+            currentTargetStats.OnMaxStaminaChanged -= SetMaxStamina;
+            currentTargetStats.OnNameChanged -= SetName;
         }
+    }
+
+    void SetName(string name)
+    {
+        targetNameText.text = name;
+    }
+
+    void SetHealth(float health)
+    {
+        hpSlider.value = health;
+    }
+
+    void SetMaxHealth(float maxHealth)
+    {
+        hpSlider.maxValue = maxHealth;
+    }
+
+    void SetStamina(float stamina)
+    {
+        staminaSlider.value = stamina;
+    }
+
+    void SetMaxStamina(float maxStamina)
+    {
+        staminaSlider.maxValue = maxStamina;
     }
 }

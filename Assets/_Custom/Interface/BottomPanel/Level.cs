@@ -6,10 +6,9 @@ public class Level : MonoBehaviour
     public TextMeshProUGUI levelText;
     private CharacterStats characterStats;
 
-    void Start()
+    void Awake()
     {
         characterStats = GetComponentInParent<CharacterStats>();
-        levelText.text = characterStats.characterLevel.ToString();
 
         //subscribe to level changes
         characterStats.OnLevelChanged += UpdateLevel;

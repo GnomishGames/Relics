@@ -18,6 +18,7 @@ public class KeyBindings : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.O)) ToggleOptions();
             if (Input.GetKeyDown(KeyCode.I)) ToggleInventory();
+            
         }
     }
 

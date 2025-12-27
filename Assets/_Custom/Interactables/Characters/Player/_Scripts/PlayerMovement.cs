@@ -2,6 +2,37 @@ using PurrNet;
 using TMPro;
 using UnityEngine;
 
+//all of the required components for a character
+//All NPC reuired Components
+//movement and pathfinding
+[RequireComponent(typeof(CharacterController))]
+
+//Network
+[RequireComponent(typeof(NetworkTransform))]
+[RequireComponent(typeof(NetworkAnimator))]
+
+[RequireComponent(typeof(PlayerMovement))]
+
+[RequireComponent(typeof(PlayerCamera))]
+
+[RequireComponent(typeof(CharacterStats))]
+[RequireComponent(typeof(PlayerTimers))]
+[RequireComponent(typeof(CharacterFocus))]
+[RequireComponent(typeof(FieldOfView))]
+
+//inventory
+[RequireComponent(typeof(Inventory))]
+[RequireComponent(typeof(Equipment))]
+[RequireComponent(typeof(SkillBar))]
+
+//options
+[RequireComponent(typeof(GraphicsOptions))]
+[RequireComponent(typeof(KeyBindings))]
+
+//combat
+[RequireComponent(typeof(SkillBook))]
+[RequireComponent(typeof(SkillBar))]
+
 
 public class PlayerMovement : NetworkIdentity
 {
@@ -180,10 +211,8 @@ public class PlayerMovement : NetworkIdentity
         {
             despawned = false;
             transform.GetChild(0).gameObject.SetActive(true);
-            characterStats.currentHitPoints = characterStats.maxHitpoints;
-            characterStats.dead = false;
-            animator.SetBool("Dead", false);
             positionReset = false;
+            characterStats.Revive();
 
             respawnTimer = characterStats.behaviorSO.respawnTimer;
         }
