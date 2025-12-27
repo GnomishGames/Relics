@@ -48,8 +48,8 @@ public class CharacterStats : Character
 
     //Max Attributes
     float maxHitpoints;
-    public float maxStamina;
-    public float maxMana;
+    float maxStamina;
+    float maxMana;
 
     //current stats
     public float currentHitPoints;
@@ -242,7 +242,6 @@ public class CharacterStats : Character
         currentHitPoints = Mathf.Clamp(currentHitPoints, 0, maxHitpoints); //keep it between 0 and max
 
         OnHealthChanged?.Invoke(currentHitPoints);
-        OnMaxHealthChanged?.Invoke(maxHitpoints);
     }
 
     public void SubtractHealth(float amount)
