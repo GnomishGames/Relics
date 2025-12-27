@@ -64,6 +64,7 @@ public class NPCTimers : MonoBehaviour
             npcMovement.DespawnCharacter();
             npcMovement.ResetPosition();
             npcMovement.RespawnCharacter();
+            nPCSkillManager.ExecuteRandomSkill();
         }
     }
     private void TickTen() //do every ten seconds
@@ -74,8 +75,6 @@ public class NPCTimers : MonoBehaviour
             tickTen = 10f; //reset timer
             /* v Start code here v */
             npcMovement.Roam();
-
-            nPCSkillManager.ExecuteRandomSkill();
 
             //regenerate health
             characterStats.RegenerateStats();

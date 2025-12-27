@@ -21,6 +21,9 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 2f;
     [SerializeField] private float tiltSpeed = 5f;
     [SerializeField] private LayerMask groundLayer;
+    
+    private float terrainAlignTimer = 0f;
+    private const float TERRAIN_ALIGN_INTERVAL = 0.1f; // Only update terrain alignment every 0.1 seconds
 
     private void Start()
     {
@@ -270,12 +273,26 @@ public class NPCMovement : MonoBehaviour
 
     public void AlignToTerrain()
     {
+        // Only update terrain alignment periodically to reduce jitter
+        terrainAlignTimer += Time.deltaTime;
+        if (terrainAlignTimer < TERRAIN_ALIGN_INTERVAL)
+            return;
+            
+        terrainAlignTimer = 0f;
+        
+        // Don't align if not moving (prevents jitter when idle)
+        if (astar != null && astar.velocity.magnitude < 0.1f)
+            return;
+        
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))
         {
-            // Get current forward direction (where character is facing)
+            // Store the current Y rotation (yaw) to preserve it
+            float currentYaw = transform.rotation.eulerAngles.y;
+            
+            // Get horizontal forward direction
             Vector3 forward = transform.forward;
-            forward.y = 0; // Keep forward direction horizontal
+            forward.y = 0;
             forward.Normalize();
             
             if (forward == Vector3.zero)
@@ -288,14 +305,20 @@ public class NPCMovement : MonoBehaviour
             Vector3 adjustedForward = Vector3.Cross(right, hit.normal).normalized;
             
             // Create rotation with ground normal as up and adjusted forward as forward
-            Quaternion targetRotation = Quaternion.LookRotation(adjustedForward, hit.normal);
+            Quaternion terrainRotation = Quaternion.LookRotation(adjustedForward, hit.normal);
+            
+            // Extract euler angles and replace Y with the preserved yaw
+            Vector3 terrainEuler = terrainRotation.eulerAngles;
+            terrainEuler.y = currentYaw; // Force preserve the exact yaw from movement
+            
+            Quaternion targetRotation = Quaternion.Euler(terrainEuler);
             
             // Only apply tilt if the angle difference is significant (reduces jitter)
             float angleDifference = Quaternion.Angle(transform.rotation, targetRotation);
-            if (angleDifference > 0.5f) // Only tilt if more than 0.5 degrees different
+            if (angleDifference > 0.1f) // Increased threshold to reduce micro-adjustments
             {
-                // Smoothly rotate towards the target with slower speed for smoother movement
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime * 0.5f);
+                // Apply tilt more aggressively since we update less frequently
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime * 2f);
             }
         }
     }

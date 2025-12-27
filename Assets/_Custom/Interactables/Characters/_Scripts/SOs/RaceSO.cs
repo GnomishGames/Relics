@@ -21,7 +21,7 @@ public class RaceSO : ScriptableObject
     [Range(0, 360)] public float viewAngle;
     public float aggroRadius; //how far it runs from in order to attack
     public float attackDistance; //distance it stands from target when attacking
-    public float tooClose;
+    public float tooClose; //distance it will back away if target is too close
 
     //attack vars
     public float attackSpeed;
