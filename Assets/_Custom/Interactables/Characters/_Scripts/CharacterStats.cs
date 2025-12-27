@@ -257,8 +257,7 @@ public class CharacterStats : Character
     public void ModifyExperience(float amount)
     {
         experience += amount;
-
-        OnEXPChanged?.Invoke(percentage);
+        CalculateLevel(experience);
     }
 
     public void SetName(string newName)
@@ -272,6 +271,8 @@ public class CharacterStats : Character
         characterLevel = Mathf.FloorToInt((1 + Mathf.Sqrt(experience / 125 + 1)) / 2);
         percentage = (1 + Mathf.Sqrt(experience / 125 + 1)) / 2 % 1;
 
+        OnEXPChanged?.Invoke(percentage);
+        
         LevelChanged();
 
         return characterLevel;
