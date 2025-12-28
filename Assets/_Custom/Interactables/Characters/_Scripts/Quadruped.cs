@@ -1,10 +1,17 @@
 using UnityEngine;
 
+//attach this to quadruped characters to align them to terrain
+//attach only to the model, not the root object
 public class Quadruped : MonoBehaviour
 {
     [SerializeField] private float groundCheckDistance = 2f;
     [SerializeField] private float tiltSpeed = 5f;
     [SerializeField] private LayerMask groundLayer;
+
+    void Start()
+    {
+        groundLayer = LayerMask.GetMask("Ground");
+    }
 
     void LateUpdate()
     {
