@@ -112,6 +112,11 @@ public class CharacterStats : Character
         FireAllStatsEvents();
     }
 
+    void OnEnable()
+    {
+        FireAllStatsEvents();
+    }
+
     public void FireAllStatsEvents()
     {
         OnLevelChanged?.Invoke(characterLevel);
@@ -242,6 +247,7 @@ public class CharacterStats : Character
         currentHitPoints = Mathf.Clamp(currentHitPoints, 0, maxHitpoints); //keep it between 0 and max
 
         OnHealthChanged?.Invoke(currentHitPoints);
+        OnMaxHealthChanged?.Invoke(maxHitpoints);
     }
 
     public void SubtractHealth(float amount)
