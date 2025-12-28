@@ -1,7 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterStats))]
-[RequireComponent(typeof(CharacterFocus))]
 public class SkillBar : MonoBehaviour
 {
     //skills that are equipped to the skill panel
