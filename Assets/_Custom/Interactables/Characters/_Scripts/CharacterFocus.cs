@@ -9,7 +9,7 @@ public class CharacterFocus : MonoBehaviour
 	public bool isPlayer = false;
 
 	[Header("State")]
-	public Interactable currentFocus; // for players: what they are focusing; for NPCs: optional
+	public Interactable target; // for players: what they are focusing; for NPCs: optional
 	public float distanceToFocus;
 
 	[Header("Player refs")]
@@ -57,16 +57,16 @@ public class CharacterFocus : MonoBehaviour
 			PruneStaleTargeters();
 		}
 
-		if (currentFocus != null)
+		if (target != null)
 		{
-			distanceToFocus = Vector3.Distance(currentFocus.transform.position, transform.position);
+			distanceToFocus = Vector3.Distance(target.transform.position, transform.position);
 
 			// Drop focus if out of view radius or not in visible targets
 			if (fieldOfView != null)
 			{
 				float viewRadius = fieldOfView.viewRadius;
 				bool tooFar = distanceToFocus > viewRadius;
-				bool notVisibleList = !fieldOfView.visibleTargets.Contains(currentFocus);
+				bool notVisibleList = !fieldOfView.visibleTargets.Contains(target);
 				if (tooFar || notVisibleList)
 				{
 					RemoveFocus();
@@ -86,7 +86,7 @@ public class CharacterFocus : MonoBehaviour
 		//update target panel
 		if (targetPanel != null) //npcs may not have a target panel
 		{
-			if (currentFocus != null)
+			if (target != null)
 				targetPanel.gameObject.SetActive(true);
 				
 				
@@ -97,11 +97,11 @@ public class CharacterFocus : MonoBehaviour
 
 	void OnNewFocus()
 	{
-		if (targetPanel != null && currentFocus != null)
+		if (targetPanel != null && target != null)
 		{
 			// Activate panel and update with new target
 			targetPanel.gameObject.SetActive(true);
-			targetPanel.SetNewTarget(currentFocus.GetComponent<CharacterStats>());
+			targetPanel.SetNewTarget(target.GetComponent<CharacterStats>());
 		}
 	}
 
@@ -154,7 +154,7 @@ public class CharacterFocus : MonoBehaviour
 			}
 
 			// Remove if that character is no longer focusing on this interactable
-			if (characterFocus.currentFocus != selfInteractable)
+			if (characterFocus.target != selfInteractable)
 			{
 				charactersTargetingMe.RemoveAt(i);
 			}
@@ -164,10 +164,10 @@ public class CharacterFocus : MonoBehaviour
 	public void SetCharacterFocus(CharacterStats character)
 	{
 		if (character == null) return;
-		if (character != currentFocus) //new focus
+		if (character != target) //new focus
 		{
-			if (currentFocus != null)
-				currentFocus.onDeFocus();
+			if (target != null)
+				target.onDeFocus();
 
 			// Tell the target we are focusing it
 			var targetCF = character.GetComponent<CharacterFocus>();
@@ -176,7 +176,7 @@ public class CharacterFocus : MonoBehaviour
 				targetCF.OnFocused(this.transform);
 			}
 
-			currentFocus = character;
+			target = character;
 			OnNewFocus();
 		}
 
@@ -186,11 +186,11 @@ public class CharacterFocus : MonoBehaviour
 	private void SetItemFocus(Item item)
 	{
 		if (item == null) return;
-		if (item != currentFocus)
+		if (item != target)
 		{
-			if (currentFocus != null)
-				currentFocus.onDeFocus();
-			currentFocus = item;
+			if (target != null)
+				target.onDeFocus();
+			target = item;
 		}
 
 		item.OnFocused(transform);
@@ -204,20 +204,20 @@ public class CharacterFocus : MonoBehaviour
 	private void SetContainerFocus(Container container)
 	{
 		if (container == null) return;
-		if (container != currentFocus)
+		if (container != target)
 		{
-			if (currentFocus != null)
-				currentFocus.onDeFocus();
-			currentFocus = container;
+			if (target != null)
+				target.onDeFocus();
+			target = container;
 		}
 		container.OnFocused(transform);
 	}
 
 	public void RemoveFocus()
 	{
-		if (currentFocus != null)
-			currentFocus.onDeFocus();
-		currentFocus = null;
+		if (target != null)
+			target.onDeFocus();
+		target = null;
 	}
 
 	public void OnFocused(Transform source)

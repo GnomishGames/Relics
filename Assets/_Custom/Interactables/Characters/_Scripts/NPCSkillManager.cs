@@ -7,11 +7,13 @@ public class NPCSkillManager : MonoBehaviour
 
     //referecne to character focus to get target
     HateManager hateManager;
+    CharacterFocus characterFocus;
 
     void Start()
     {
         skillBar = GetComponent<SkillBar>();
         hateManager = GetComponent<HateManager>();
+        characterFocus = GetComponent<CharacterFocus>();
     }
 
     //choose random skill from skillbar if the skill is not null
@@ -30,7 +32,7 @@ public class NPCSkillManager : MonoBehaviour
     public void ExecuteRandomSkill()
     {
         //check for a target
-        var target = hateManager.target;
+        var target = characterFocus.target;
         if (target == null) return;
 
         //check distance to target

@@ -79,7 +79,7 @@ public class NPCMovement : NetworkIdentity
             transform.GetComponent<AIPath>().enabled = false;
             despawned = true;
             hateManager.hateList.Clear();
-            characterFocus.currentFocus = null;
+            characterFocus.target = null;
             positionReset = false;
 
             despawnTimer = characterStats.behaviorSO.despawnTimer;
@@ -121,7 +121,7 @@ public class NPCMovement : NetworkIdentity
         if (characterStats.dead) //i'm dead don't roam
             return;
 
-        if (characterFocus.currentFocus != null) // i have focus, don't roam
+        if (characterFocus.target != null) // i have focus, don't roam
             return;
 
         if (hateManager.hateList.Count > 0) //i have hate, don't roam
@@ -171,7 +171,7 @@ public class NPCMovement : NetworkIdentity
         {
             animator.SetFloat("VelocityX", astar.maxSpeed);
             // Face the direction of movement when roaming
-            if (characterFocus.currentFocus == null && !characterStats.dead)
+            if (characterFocus.target == null && !characterStats.dead)
             {
                 Vector3 velocityDirection = new Vector3(astar.velocity.x, 0, astar.velocity.z);
                 if (velocityDirection != Vector3.zero)
@@ -232,7 +232,7 @@ public class NPCMovement : NetworkIdentity
                 astar.isStopped = true;
             }
             // Has hate on target: run toward target
-            else if (hateManager.hateList.Count > 0 && hateManager.hateList.Contains(characterFocus.currentFocus))
+            else if (hateManager.hateList.Count > 0 && hateManager.hateList.Contains(characterFocus.target))
             {
                 // Face movement direction when running
                 Vector3 velocityDirection = new Vector3(astar.velocity.x, 0, astar.velocity.z);
@@ -293,12 +293,12 @@ public class NPCMovement : NetworkIdentity
 
                     // Only clear hate when back at spawn
                     hateManager.hateList.Clear();
-                    characterFocus.currentFocus = null;
+                    characterFocus.target = null;
                 }
             }
 
             // If idle at spawn, ensure facing spawn rotation
-            if (characterFocus.currentFocus == null && hateManager.hateList.Count == 0)
+            if (characterFocus.target == null && hateManager.hateList.Count == 0)
             {
                 if (Vector3.Distance(transform.position, spawnPosition) <= 0.5f)
                 {
