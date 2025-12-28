@@ -6,28 +6,27 @@ public class HateManager : MonoBehaviour
 {
     //anger management
     public List<Interactable> hateList = new List<Interactable>();
+    public Interactable target; //this beings't current target
 
     //references
     FieldOfView fieldOfView;
     NPCMovement nPCMovement;
     CharacterStats characterStats;
-    NPCSkillManager nPCSkillManager;
-    CharacterFocus characterFocus;
-    Pathfinding.IAstarAI astar;
 
     private void Awake()
     {
         fieldOfView = GetComponent<FieldOfView>();
         nPCMovement = GetComponent<NPCMovement>();
         characterStats = GetComponent<CharacterStats>();
-        nPCSkillManager = GetComponent<NPCSkillManager>();
-        characterFocus = GetComponent<CharacterFocus>();
-        astar = GetComponent<Pathfinding.IAstarAI>();
     }
 
     private void Update()
     {
-        AggroTarget();
+        if (target != null && !characterStats.dead)
+        {
+            nPCMovement.FaceTarget(target.transform.position, transform);
+            AggroTarget();
+        }
     }
 
     public void UpdateHateList()
@@ -41,8 +40,7 @@ public class HateManager : MonoBehaviour
                     if (IsHostileTo(item.GetComponent<CharacterStats>()))
                     {
                         //add item as my target
-                        characterFocus.currentFocus = item;
-                        characterFocus.SetCharacterFocus(item.GetComponent<CharacterStats>());
+                        target = item;
                         hateList.Add(item);
                     }
                 }
@@ -52,42 +50,16 @@ public class HateManager : MonoBehaviour
 
             if (hateList.Count > 0)
             {
-                characterFocus.currentFocus = hateList[0]; //set my target as the top of my hatelist
+                target = hateList[0]; //set my target as the top of my hatelist
 
                 foreach (Interactable interactable in hateList.ToList())
                 {
-                    if (interactable.GetComponent<CharacterStats>().dead)
+                    if (interactable.GetComponent<CharacterStats>().dead) //remove dead targets
                     {
                         hateList.Remove(interactable);
-                        characterFocus.currentFocus = null;
+                        target = null;
                     }
                 }
-            }
-        }
-    }
-
-    // When players are targeting this NPC but we don't yet have a target,
-    // face the first targeter and stop movement.
-    public void ResponseToBeingTargeted()
-    {
-        //only respond if I have a target
-        if (characterFocus.currentFocus != null)
-            return;
-
-        //only respond if i am not hostile to player targeting me
-        if (IsHostileTo(characterFocus.currentFocus.GetComponent<CharacterStats>()))
-            return;
-
-        if (characterFocus != null && characterFocus.charactersTargetingMe.Count > 0 && !characterStats.dead && characterFocus.currentFocus == null)
-        {
-            Transform targetPlayer = characterFocus.charactersTargetingMe[0].transform;
-            //NPCMovement.FaceTarget(targetPlayer.position, transform);
-
-            if (astar != null)
-            {
-                astar.destination = transform.position;
-                astar.SearchPath();
-                astar.maxSpeed = 0;
             }
         }
     }
@@ -99,25 +71,17 @@ public class HateManager : MonoBehaviour
 
     public void AggroTarget()
     {
-        if (characterFocus.currentFocus != null && !characterStats.dead)
+        if (target != null)
         {
-            float distanceToTarget = Vector3.Distance(characterFocus.currentFocus.transform.position, transform.position);
-            
-            // Only approach if within aggro radius OR already on hate list
-            if (distanceToTarget <= characterStats.characterRace.aggroRadius || hateList.Contains(characterFocus.currentFocus))
+            float distanceToTarget = Vector3.Distance(target.transform.position, transform.position);
+            if (distanceToTarget <= characterStats.characterRace.aggroRadius)
             {
-                nPCMovement.ApproachTarget(characterFocus.currentFocus.transform);
+                nPCMovement.RunToTarget(target.transform);
             }
-            else
+            if (distanceToTarget > characterStats.characterRace.aggroRadius)
             {
-                // Outside aggro radius and not on hate list: stop pursuing
-                if (astar != null)
-                {
-                    astar.destination = transform.position;
-                    astar.SearchPath();
-                    astar.maxSpeed = 0;
-                    astar.isStopped = true;
-                }
+                hateList.Remove(target);
+                target = null;
             }
         }
     }
@@ -128,10 +92,6 @@ public class HateManager : MonoBehaviour
         if (!hateList.Contains(interactable))
         {
             hateList.Add(interactable); //add to hate list 
-            
-            // Set focus on the attacker
-            characterFocus.currentFocus = interactable;
-            characterFocus.SetCharacterFocus(interactable.GetComponent<CharacterStats>());
         }
     }
 }
