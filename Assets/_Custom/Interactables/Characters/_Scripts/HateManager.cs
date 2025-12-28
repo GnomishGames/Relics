@@ -128,6 +128,10 @@ public class HateManager : MonoBehaviour
         if (!hateList.Contains(interactable))
         {
             hateList.Add(interactable); //add to hate list 
+            
+            // Set focus on the attacker
+            characterFocus.currentFocus = interactable;
+            characterFocus.SetCharacterFocus(interactable.GetComponent<CharacterStats>());
         }
     }
 }
