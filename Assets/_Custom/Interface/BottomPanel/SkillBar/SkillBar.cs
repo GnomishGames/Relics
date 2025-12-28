@@ -83,14 +83,14 @@ public class SkillBar : MonoBehaviour
         }
 
         //check for target null
-        if (this.GetComponent<CharacterFocus>().currentFocus == null)
+        if (this.GetComponent<CharacterFocus>().target == null)
         {
             ChatLogMessage("No target selected.");
             return;
         }
 
         //range check
-        float distanceToTarget = Vector3.Distance(this.transform.position, myCharacterFocus.currentFocus.transform.position);
+        float distanceToTarget = Vector3.Distance(this.transform.position, myCharacterFocus.target.transform.position);
         if (distanceToTarget > skillSOs[slotNumber].attackRange)
         {
             ChatLogMessage("Target is out of range for this skill.");
@@ -122,9 +122,9 @@ public class SkillBar : MonoBehaviour
         }
 
         //use skill
-        if (myCharacterFocus != null && myCharacterFocus.currentFocus != null)
+        if (myCharacterFocus != null && myCharacterFocus.target != null)
         {
-            targetCharacterStats = myCharacterFocus.currentFocus.GetComponent<CharacterStats>(); //get target characterstats
+            targetCharacterStats = myCharacterFocus.target.GetComponent<CharacterStats>(); //get target characterstats
             if (targetCharacterStats != null) //doing the skill stuff
             {
                 //subtract stamina cost from me
@@ -150,19 +150,19 @@ public class SkillBar : MonoBehaviour
                     //apply health damage to target
                     targetCharacterStats.SubtractHealth(damage);
 
-                    CombatLogMessage(true, this.GetComponent<Interactable>(), myCharacterFocus.currentFocus.GetComponent<Interactable>(), (int)damage);
+                    CombatLogMessage(true, this.GetComponent<Interactable>(), myCharacterFocus.target.GetComponent<Interactable>(), (int)damage);
                 }
                 else
                 {
                     //missed attack
-                    CombatLogMessage(false, this.GetComponent<Interactable>(), myCharacterFocus.currentFocus.GetComponent<Interactable>(), 0);
+                    CombatLogMessage(false, this.GetComponent<Interactable>(), myCharacterFocus.target.GetComponent<Interactable>(), 0);
                 }
 
                 animator.SetTrigger("Attack");
             }
 
             //add aggressor to target hate list
-            targetHateManager = myCharacterFocus.currentFocus.GetComponent<HateManager>(); //get target hate manager
+            targetHateManager = myCharacterFocus.target.GetComponent<HateManager>(); //get target hate manager
             if (targetHateManager != null)
             {
                 targetHateManager.AddToHateList(this.GetComponent<Interactable>());

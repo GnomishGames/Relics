@@ -42,7 +42,7 @@ public class SkillBook : MonoBehaviour
     internal void LootItem(int skillBookSlot, int containerSlot)
     {
         var cf = GetComponent<CharacterFocus>();
-        focus = cf != null ? cf.currentFocus : null;
+        focus = cf != null ? cf.target : null;
         container = focus.GetComponent<Container>();
         if (skillSOs[skillBookSlot] == null)
         {

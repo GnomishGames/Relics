@@ -194,7 +194,7 @@ public class PlayerMovement : NetworkIdentity
         {
             transform.GetChild(0).gameObject.SetActive(false);
             despawned = true;
-            characterFocus.currentFocus = null;
+            characterFocus.target = null;
 
             despawnTimer = characterStats.behaviorSO.despawnTimer;
         }

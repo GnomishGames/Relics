@@ -6,26 +6,32 @@ public class HateManager : MonoBehaviour
 {
     //anger management
     public List<Interactable> hateList = new List<Interactable>();
-    public Interactable target; //this beings't current target
 
     //references
     FieldOfView fieldOfView;
     NPCMovement nPCMovement;
     CharacterStats characterStats;
+    CharacterFocus characterFocus;
 
     private void Awake()
     {
         fieldOfView = GetComponent<FieldOfView>();
         nPCMovement = GetComponent<NPCMovement>();
         characterStats = GetComponent<CharacterStats>();
+        characterFocus = GetComponent<CharacterFocus>();
     }
 
     private void Update()
     {
-        if (target != null && !characterStats.dead)
+        if (characterFocus.target != null && !characterStats.dead)
         {
-            nPCMovement.FaceTarget(target.transform.position, transform);
+            nPCMovement.FaceTarget(characterFocus.target.transform.position, transform);
             AggroTarget();
+        }
+
+        if (hateList.Count > 0 && characterFocus.target == null && !characterStats.dead)
+        {
+            characterFocus.target = hateList[0];
         }
     }
 
@@ -40,7 +46,6 @@ public class HateManager : MonoBehaviour
                     if (IsHostileTo(item.GetComponent<CharacterStats>()))
                     {
                         //add item as my target
-                        target = item;
                         hateList.Add(item);
                     }
                 }
@@ -50,14 +55,14 @@ public class HateManager : MonoBehaviour
 
             if (hateList.Count > 0)
             {
-                target = hateList[0]; //set my target as the top of my hatelist
+                characterFocus.target = hateList[0]; //set my target as the top of my hatelist
 
                 foreach (Interactable interactable in hateList.ToList())
                 {
                     if (interactable.GetComponent<CharacterStats>().dead) //remove dead targets
                     {
                         hateList.Remove(interactable);
-                        target = null;
+                        characterFocus.target = null;
                     }
                 }
             }
@@ -71,17 +76,17 @@ public class HateManager : MonoBehaviour
 
     public void AggroTarget()
     {
-        if (target != null)
+        if (characterFocus.target != null)
         {
-            float distanceToTarget = Vector3.Distance(target.transform.position, transform.position);
+            float distanceToTarget = Vector3.Distance(characterFocus.target.transform.position, transform.position);
             if (distanceToTarget <= characterStats.characterRace.aggroRadius)
             {
-                nPCMovement.RunToTarget(target.transform);
+                nPCMovement.RunToTarget(characterFocus.target.transform);
             }
             if (distanceToTarget > characterStats.characterRace.aggroRadius)
             {
-                hateList.Remove(target);
-                target = null;
+                hateList.Remove(characterFocus.target);
+                characterFocus.target = null;
             }
         }
     }
