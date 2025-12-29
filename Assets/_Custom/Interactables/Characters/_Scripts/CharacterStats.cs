@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterStats : Character
 {
     //events
-    public event Action OnStatsChanged;
+    //public event Action OnStatsChanged;
 
     //health events
     public event Action<float> OnHealthChanged;
@@ -92,6 +92,7 @@ public class CharacterStats : Character
     //armor and size
     float sizeModifier;
     float armorBonus;
+    float equipmentAc;
 
     //math
     Unity.Mathematics.Random rand;
@@ -110,7 +111,13 @@ public class CharacterStats : Character
         currentStamina = maxStamina;
 
         //subscribe to equipment changes to recalculate armor class
-        equipment.OnEquipmentChanged += CalculateAttributesAndStats;
+        equipment.OnAcChanged += SetEquipmentAc;
+    }
+
+    private void SetEquipmentAc(float ac)
+    {
+        equipmentAc = ac;
+        CalculateAttributesAndStats();
     }
 
     void Start()
@@ -122,6 +129,11 @@ public class CharacterStats : Character
     void OnEnable()
     {
         FireAllStatsEvents();
+    }
+
+    void OnDestroy()
+    {
+        equipment.OnAcChanged -= SetEquipmentAc;
     }
 
     public void FireAllStatsEvents()
@@ -162,6 +174,7 @@ public class CharacterStats : Character
 
         OnEXPChanged?.Invoke(percentage);
         OnLevelChanged?.Invoke(characterLevel);
+        
 
         //calculate attributes
         strengthScore = CalculateStatScore(strengthBase, characterRace.strengthBonus, characterLevel);
@@ -199,8 +212,9 @@ public class CharacterStats : Character
 
         sizeModifier = characterRace.sizeAcBonus;
 
-        int armorBonus = equipment.ArmorAC + characterRace.naturalAcBonus;
-        armorClass = 10 + armorBonus + dexterityModifier + sizeModifier;
+        armorClass = 10 + equipmentAc + characterRace.naturalAcBonus + dexterityModifier + sizeModifier;
+        OnArmorClassChanged?.Invoke(armorClass);
+
     }
 
     float CalculateStatScore(float statBase, float raceBonus, float characterLevel)

@@ -123,9 +123,13 @@ public class InventoryPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
             {
                 inventory.UnEquipWeapon(slotNumber, equipmentPanel.fromSlot);
             }
-            if(containerPanel.fromPanel == "Container")
+
+            if (containerPanel != null)
             {
-                inventory.LootItem(slotNumber, containerPanel.fromSlot);
+                if(containerPanel.fromPanel == "Container")
+                {
+                    inventory.LootItem(slotNumber, containerPanel.fromSlot);
+                }
             }
             
             // snap the dragged item's RectTransform to this slot's anchored position and reparent it back
@@ -143,8 +147,14 @@ public class InventoryPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
                 draggedRect.SetSiblingIndex(rectTransform.GetSiblingIndex());
             }
         }
-        inventoryPanel.fromPanel = null;
-        equipmentPanel.fromPanel = null;
-        containerPanel.fromPanel = null;
+
+        if (inventoryPanel != null)
+            inventoryPanel.fromPanel = null;
+
+        if (equipmentPanel != null)
+            equipmentPanel.fromPanel = null;
+        
+        if (containerPanel != null)
+            containerPanel.fromPanel = null;
     }
 }
