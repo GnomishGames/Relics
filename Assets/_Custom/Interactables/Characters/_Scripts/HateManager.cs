@@ -84,7 +84,7 @@ public class HateManager : MonoBehaviour
                 nPCMovement.RunToTarget(characterFocus.target.transform); Debug.Log("Running to Target");
             }
             
-            if (distanceToTarget > characterStats.characterRace.aggroRadius)
+            if (distanceToTarget > characterStats.characterRace.aggroRadius || characterFocus.target.GetComponent<CharacterStats>().dead)
             {
                 hateList.Remove(characterFocus.target);
                 characterFocus.target = null;
