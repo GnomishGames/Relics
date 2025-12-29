@@ -76,17 +76,28 @@ public class SkillBar : MonoBehaviour
 
     public void DoSkill(int slotNumber, float timer)
     {
-        //null check
-        if (skillSOs[slotNumber] == null)
-        {
-            ChatLogMessage("No skill assigned to this slot.");
-            return;
-        }
-
+        targetCharacterStats = myCharacterFocus.target.GetComponent<CharacterStats>(); //get target characterstats
+        
         //check for target null
         if (this.GetComponent<CharacterFocus>().target == null)
         {
             ChatLogMessage("No target selected.");
+            autoattackOn = false;
+            return;
+        }
+
+        //dead check
+        if (myCharacterStats.dead || targetCharacterStats.dead)
+        {
+            ChatLogMessage("You are dead and cannot use skills.");
+            autoattackOn = false;
+            return;
+        }
+        
+        //null check
+        if (skillSOs[slotNumber] == null)
+        {
+            ChatLogMessage("No skill assigned to this slot.");
             return;
         }
 
@@ -125,7 +136,7 @@ public class SkillBar : MonoBehaviour
         //use skill
         if (myCharacterFocus != null && myCharacterFocus.target != null)
         {
-            targetCharacterStats = myCharacterFocus.target.GetComponent<CharacterStats>(); //get target characterstats
+            
             if (targetCharacterStats != null) //doing the skill stuff
             {
                 //subtract stamina cost from me
@@ -140,13 +151,16 @@ public class SkillBar : MonoBehaviour
                     ChatLogMessage("No weapon equipped.");
                     return;
                 }
-                int weaponDamage = UnityEngine.Random.Range(1, skillSOs[slotNumber].targetDamage + equipment.weaponSOs[0].Damage);
 
                 //calculate total damage
                 if (attackRoll >= targetCharacterStats.armorClass)
                 {
+                    float weaponDamage = equipment.weaponSOs[0].Damage;
+                    float skillDamage = UnityEngine.Random.Range(1, skillSOs[slotNumber].targetDamage);
                     float strengthModifier = myCharacterStats.strengthModifier;
-                    float damage = strengthModifier + weaponDamage;
+                    //total
+                    float damage = strengthModifier + weaponDamage + skillDamage;
+                    Debug.Log("Character: " + myCharacterStats.interactableName + " Weapon: " + weaponDamage + " Skill: " + skillDamage + " Strength: " + strengthModifier + " Total Damage: " + damage);
 
                     //apply health damage to target
                     targetCharacterStats.SubtractHealth(damage);
