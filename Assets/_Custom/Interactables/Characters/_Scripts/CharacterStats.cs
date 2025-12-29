@@ -5,6 +5,8 @@ using UnityEngine;
 public class CharacterStats : Character
 {
     //events
+    public event Action OnStatsChanged;
+
     //health events
     public event Action<float> OnHealthChanged;
     public event Action<float> OnMaxHealthChanged;
@@ -27,14 +29,16 @@ public class CharacterStats : Character
     public event Action<float> OnIntelligenceScoreChanged;
     public event Action<float> OnWisdomScoreChanged;
     public event Action<float> OnCharismaScoreChanged;
-    
+
+    //name event for name changes
+    public event Action<string> OnNameChanged;
+
     //armor class event
     public event Action<float> OnArmorClassChanged;
-    
-    public event Action<string> OnNameChanged;
 
     //references
     public InventoryStats inventoryStats;
+    public Equipment equipment;
 
     //xp Tracking
     public List<Character> charactersWhoHitMe = new List<Character>();
@@ -95,6 +99,7 @@ public class CharacterStats : Character
     void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        equipment = GetComponent<Equipment>();
 
         // Initialize the random number generator with a unique seed
         rand = new Unity.Mathematics.Random((uint)System.DateTime.Now.Ticks + (uint)GetInstanceID());
@@ -103,6 +108,9 @@ public class CharacterStats : Character
 
         currentHitPoints = maxHitpoints;
         currentStamina = maxStamina;
+
+        //subscribe to equipment changes to recalculate armor class
+        equipment.OnEquipmentChanged += CalculateAttributesAndStats;
     }
 
     void Start()
@@ -132,7 +140,6 @@ public class CharacterStats : Character
         OnIntelligenceScoreChanged?.Invoke(intelligenceScore);
         OnWisdomScoreChanged?.Invoke(wisdomScore);
         OnCharismaScoreChanged?.Invoke(charismaScore);
-        OnArmorClassChanged?.Invoke(armorClass);
     }
 
     void Update()
@@ -192,9 +199,8 @@ public class CharacterStats : Character
 
         sizeModifier = characterRace.sizeAcBonus;
 
-        //int armorBonus = equipment.ArmorAC + characterRace.naturalAcBonus;
+        int armorBonus = equipment.ArmorAC + characterRace.naturalAcBonus;
         armorClass = 10 + armorBonus + dexterityModifier + sizeModifier;
-        OnArmorClassChanged?.Invoke(armorClass);
     }
 
     float CalculateStatScore(float statBase, float raceBonus, float characterLevel)

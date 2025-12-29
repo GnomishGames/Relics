@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Equipment : MonoBehaviour
@@ -7,6 +8,9 @@ public class Equipment : MonoBehaviour
 
     //references
     Inventory inventory;
+
+    //events
+    public event Action OnEquipmentChanged;
 
     //vars
     public int ArmorAC;
@@ -28,7 +32,8 @@ public class Equipment : MonoBehaviour
         if (timer <= 0)
         {
             UpdateEquipped();
-            timer = 0;
+            CalculateArmorClass();
+            timer = 1;
         }
     }
 
@@ -75,6 +80,8 @@ public class Equipment : MonoBehaviour
                 ArmorAC += weaponSOs[i].ArmorBonus;
             }
         }
+
+        OnEquipmentChanged?.Invoke(); //notify listeners that equipment has changed
     }
 
     public void MoveArmor(int from, int to, SlotType slotType)
@@ -109,6 +116,8 @@ public class Equipment : MonoBehaviour
             UpdateVisuals(armorSOs[equipmentSlot].VisualsName1);
             UpdateVisuals(armorSOs[equipmentSlot].VisualsName2);
             UpdateVisuals(armorSOs[equipmentSlot].VisualsName3);
+
+            CalculateArmorClass();
         }
     }
     public void EquipWeapon(int inventorySlot, int equipmentSlot, SlotType slotType)
@@ -122,6 +131,8 @@ public class Equipment : MonoBehaviour
             UpdateVisuals(weaponSOs[equipmentSlot].VisualsName1);
             UpdateVisuals(weaponSOs[equipmentSlot].VisualsName2);
             UpdateVisuals(weaponSOs[equipmentSlot].VisualsName3);
+
+            CalculateArmorClass();
         }
     }
 

@@ -50,6 +50,8 @@ public class Inventory : MonoBehaviour
             inventoryItem[inventorySlot] = equipment.armorSOs[equipmentSlot];
             equipment.armorSOs[equipmentSlot] = (ArmorSO)buffer;
         }
+
+        equipment.CalculateArmorClass();
     }
 
     public void UnEquipWeapon(int inventorySlot, int equipmentSlot)
@@ -74,6 +76,8 @@ public class Inventory : MonoBehaviour
             inventoryItem[inventorySlot] = equipment.weaponSOs[equipmentSlot];
             equipment.weaponSOs[equipmentSlot] = (WeaponSO)buffer;
         }
+
+        equipment.CalculateArmorClass();
     }
 
     internal void LootItem(int inventorySlot, int containerSlot)
