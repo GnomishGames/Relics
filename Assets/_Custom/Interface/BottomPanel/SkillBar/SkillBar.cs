@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SkillBar : MonoBehaviour
@@ -139,7 +140,7 @@ public class SkillBar : MonoBehaviour
                     ChatLogMessage("No weapon equipped.");
                     return;
                 }
-                int weaponDamage = Random.Range(1, skillSOs[slotNumber].targetDamage + equipment.weaponSOs[0].Damage);
+                int weaponDamage = UnityEngine.Random.Range(1, skillSOs[slotNumber].targetDamage + equipment.weaponSOs[0].Damage);
 
                 //calculate total damage
                 if (attackRoll >= targetCharacterStats.armorClass)
@@ -187,7 +188,7 @@ public class SkillBar : MonoBehaviour
     {
         // Determine which combat log to use
         CombatLog logToUse = null;
-        
+
         // If this is a player (has a combat log), use it
         if (combatLog != null)
         {

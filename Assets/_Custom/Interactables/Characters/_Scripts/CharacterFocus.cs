@@ -28,6 +28,8 @@ public class CharacterFocus : MonoBehaviour
 	//target panel
 	public TargetPanel targetPanel;
 
+	public HateManager hateManager;
+
 	// create event for when this character has a focus
 	public event Action<string, float, float> OnTargetFocused;
 
@@ -62,11 +64,24 @@ public class CharacterFocus : MonoBehaviour
 			distanceToFocus = Vector3.Distance(target.transform.position, transform.position);
 
 			// Drop focus if out of view radius or not in visible targets
-			if (fieldOfView != null)
+			if (fieldOfView != null && hateManager != null)
 			{
 				float viewRadius = fieldOfView.viewRadius;
 				bool tooFar = distanceToFocus > viewRadius;
 				bool notVisibleList = !fieldOfView.visibleTargets.Contains(target);
+
+				if (hateManager.hateList != null && hateManager.hateList.Count > 0)
+				{
+					foreach (Interactable hateTarget in hateManager.hateList)
+					{
+						if (hateTarget == target)
+						{
+							notVisibleList = false; //keep focus if target is in hate list
+							break;
+						}
+					}
+				}
+
 				if (tooFar || notVisibleList)
 				{
 					RemoveFocus();
@@ -88,8 +103,8 @@ public class CharacterFocus : MonoBehaviour
 		{
 			if (target != null)
 				targetPanel.gameObject.SetActive(true);
-				
-				
+
+
 			else
 				targetPanel.gameObject.SetActive(false);
 		}

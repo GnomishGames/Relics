@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System;
 
 public class HateManager : MonoBehaviour
 {
@@ -25,8 +26,7 @@ public class HateManager : MonoBehaviour
     {
         if (characterFocus.target != null && !characterStats.dead)
         {
-            nPCMovement.FaceTarget(characterFocus.target.transform.position, transform);
-            AggroTarget();
+            nPCMovement.ApproachTarget(characterFocus.target.transform);
         }
 
         if (hateList.Count > 0 && characterFocus.target == null && !characterStats.dead)
@@ -81,8 +81,9 @@ public class HateManager : MonoBehaviour
             float distanceToTarget = Vector3.Distance(characterFocus.target.transform.position, transform.position);
             if (distanceToTarget <= characterStats.characterRace.aggroRadius)
             {
-                nPCMovement.RunToTarget(characterFocus.target.transform);
+                nPCMovement.RunToTarget(characterFocus.target.transform); Debug.Log("Running to Target");
             }
+            
             if (distanceToTarget > characterStats.characterRace.aggroRadius)
             {
                 hateList.Remove(characterFocus.target);
@@ -98,5 +99,11 @@ public class HateManager : MonoBehaviour
         {
             hateList.Add(interactable); //add to hate list 
         }
+    }
+
+    private void HandleBeingAttacked(Interactable attacker)
+    {
+        AddToHateList(attacker);
+        characterFocus.target = attacker;
     }
 }

@@ -107,7 +107,7 @@ public class PlayerMovement : NetworkIdentity
         MovementLogic(runSpeed);
         ApplyGravityAndMove();
 
-        if (!chatBox.isFocused)
+        if (!chatBox.isFocused && !characterStats.dead)
             keyPresses();
     }
 

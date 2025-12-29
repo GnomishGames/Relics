@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Pathfinding;
 using UnityEngine;
 
 public class CharacterStats : Character

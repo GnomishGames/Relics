@@ -141,18 +141,19 @@ public class NPCMovement : NetworkIdentity
 
     public void RunToTarget(Transform target)
     {
-        //Debug.Log(transform.name + "RunToTarget");
+        Debug.Log(transform.name + "RunToTarget");
         if (!characterStats.dead && target != null)
         {
             distanceToTarget = Vector3.Distance(target.transform.position, transform.position); //distance to target
             if (distanceToTarget <= characterStats.characterRace.aggroRadius && distanceToTarget >= characterStats.characterRace.attackDistance)
-            {//less than agro radius and more than attack distnace
-                astar.destination = target.position/* + new Vector3(0,0,3)*/;
+            {//less than aggro radius and more than attack distance
+                astar.destination = target.position;
                 astar.maxSpeed = characterStats.characterRace.runSpeed;
             }
             else
             {
                 astar.maxSpeed = 0;
+                FaceTarget(target.position, transform);
             }
         }
     }
@@ -201,6 +202,8 @@ public class NPCMovement : NetworkIdentity
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
         }
+
+        //RunToTarget(transform);
     }
 
     //check astar velocity and face that direction
