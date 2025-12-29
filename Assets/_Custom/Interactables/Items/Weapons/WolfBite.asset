@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a57b67dcf9ef6ccb31c2ec01629c2a, type: 3}
   m_Name: WolfBite
   m_EditorClassIdentifier: Assembly-CSharp::WeaponSO
-  itemName: 
+  itemName: Wolf Bite
   sprite: {fileID: 0}
   itemWeight: 0
   itemHealth: 0
-  slotType: 0
+  slotType: 8
   ArmorBonus: 0
   VisualsName1: 
   VisualsName2: 
   VisualsName3: 
-  damageType: 0
-  Damage: 0
-  Range: 0
+  damageType: 1
+  Damage: 2
+  Range: 1
