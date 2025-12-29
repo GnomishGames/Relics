@@ -10,7 +10,7 @@ public class Equipment : MonoBehaviour
     Inventory inventory;
 
     //events
-    public event Action OnEquipmentChanged;
+    public event Action<float> OnAcChanged;
 
     //vars
     public int ArmorAC;
@@ -61,7 +61,6 @@ public class Equipment : MonoBehaviour
         }
     }
 
-
     public void CalculateArmorClass()
     {
         ArmorAC = 0;
@@ -81,7 +80,7 @@ public class Equipment : MonoBehaviour
             }
         }
 
-        OnEquipmentChanged?.Invoke(); //notify listeners that equipment has changed
+        OnAcChanged?.Invoke(ArmorAC); //notify listeners that AC has changed
     }
 
     public void MoveArmor(int from, int to, SlotType slotType)
@@ -106,7 +105,7 @@ public class Equipment : MonoBehaviour
 
     public void EquipArmor(int inventorySlot, int equipmentSlot, SlotType slotType)
     {
-        if (inventory.inventoryItem[inventorySlot].slotType == slotType)
+        if (inventory.inventoryItem[inventorySlot] != null && inventory.inventoryItem[inventorySlot].slotType == slotType)
         {
             var buffer = armorSOs[equipmentSlot];
             armorSOs[equipmentSlot] = (ArmorSO)inventory.inventoryItem[inventorySlot];
@@ -122,7 +121,7 @@ public class Equipment : MonoBehaviour
     }
     public void EquipWeapon(int inventorySlot, int equipmentSlot, SlotType slotType)
     {
-        if (inventory.inventoryItem[inventorySlot].slotType == slotType)
+        if (inventory.inventoryItem[inventorySlot] != null && inventory.inventoryItem[inventorySlot].slotType == slotType)
         {
             var buffer = weaponSOs[equipmentSlot];
             weaponSOs[equipmentSlot] = (WeaponSO)inventory.inventoryItem[inventorySlot];

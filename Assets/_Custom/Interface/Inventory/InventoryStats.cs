@@ -29,7 +29,6 @@ public class InventoryStats : MonoBehaviour
         //subscribe to character stats changes
         characterStats.OnNameChanged += SetName;
         characterStats.OnMaxHealthChanged += SetMaxHealth;
-        characterStats.OnArmorClassChanged += SetArmorClass;
         characterStats.OnMaxStaminaChanged += SetMaxStamina;
         characterStats.OnMaxManaChanged += SetMaxMana;
         characterStats.OnStrengthScoreChanged += SetStrengthScore;
@@ -38,6 +37,7 @@ public class InventoryStats : MonoBehaviour
         characterStats.OnIntelligenceScoreChanged += SetIntelligenceScore;
         characterStats.OnWisdomScoreChanged += SetWisdomScore;
         characterStats.OnCharismaScoreChanged += SetCharismaScore;
+        characterStats.OnArmorClassChanged += SetArmorClass;
     }
 
     void OnEnable()
@@ -55,7 +55,6 @@ public class InventoryStats : MonoBehaviour
         {
             characterStats.OnNameChanged -= SetName;
             characterStats.OnMaxHealthChanged -= SetMaxHealth;
-            characterStats.OnArmorClassChanged -= SetArmorClass;
             characterStats.OnMaxStaminaChanged -= SetMaxStamina;
             characterStats.OnMaxManaChanged -= SetMaxMana;
             characterStats.OnStrengthScoreChanged -= SetStrengthScore;
@@ -64,6 +63,8 @@ public class InventoryStats : MonoBehaviour
             characterStats.OnIntelligenceScoreChanged -= SetIntelligenceScore;
             characterStats.OnWisdomScoreChanged -= SetWisdomScore;
             characterStats.OnCharismaScoreChanged -= SetCharismaScore;
+            characterStats.OnArmorClassChanged -= SetArmorClass;
+
         }
     }
 

@@ -77,7 +77,7 @@ public class SkillBar : MonoBehaviour
     public void DoSkill(int slotNumber, float timer)
     {
         targetCharacterStats = myCharacterFocus.target.GetComponent<CharacterStats>(); //get target characterstats
-        
+
         //check for target null
         if (this.GetComponent<CharacterFocus>().target == null)
         {
@@ -87,9 +87,17 @@ public class SkillBar : MonoBehaviour
         }
 
         //dead check
-        if (myCharacterStats.dead || targetCharacterStats.dead)
+        if (myCharacterStats.dead)
         {
             ChatLogMessage("You are dead and cannot use skills.");
+            autoattackOn = false;
+            return;
+        }
+
+        //target dead check
+        if (targetCharacterStats.dead)
+        {
+            ChatLogMessage("Target is dead.");
             autoattackOn = false;
             return;
         }
