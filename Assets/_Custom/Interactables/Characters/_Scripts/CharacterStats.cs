@@ -354,6 +354,7 @@ public class CharacterStats : Character
     {
         dead = false;
         gaveXP = false;
+        charactersWhoHitMe.Clear();
         animator.SetBool("Dead", false);
         AddHealth(maxHitpoints);
     }
@@ -361,13 +362,13 @@ public class CharacterStats : Character
     public void RegenerateStats()
     {
         //regenerate health
-        if (!sitting)//if not sitting
+        if (!sitting && !dead)//if not sitting
         {
             AddHealth(1 + constitutionModifier);
             AddStamina(1 + constitutionModifier);
         }
 
-        if (sitting)//extra regen if sitting
+        if (sitting && !dead)//extra regen if sitting
         {
             AddHealth(1 + constitutionModifier * 2);
             AddStamina(1 + constitutionModifier * 2);
