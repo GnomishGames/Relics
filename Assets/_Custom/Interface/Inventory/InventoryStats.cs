@@ -25,9 +25,14 @@ public class InventoryStats : MonoBehaviour
     void Awake()
     {
         characterStats = GetComponentInParent<CharacterStats>();
+    }
 
+    void OnEnable()
+    {
         //subscribe to character stats changes
         characterStats.OnNameChanged += SetName;
+        SetName(characterStats.interactableName);
+        
         characterStats.OnMaxHealthChanged += SetMaxHealth;
         characterStats.OnMaxStaminaChanged += SetMaxStamina;
         characterStats.OnMaxManaChanged += SetMaxMana;
@@ -38,15 +43,6 @@ public class InventoryStats : MonoBehaviour
         characterStats.OnWisdomScoreChanged += SetWisdomScore;
         characterStats.OnCharismaScoreChanged += SetCharismaScore;
         characterStats.OnArmorClassChanged += SetArmorClass;
-    }
-
-    void OnEnable()
-    {
-        // Request current values when inventory is opened
-        if (characterStats != null)
-        {
-            characterStats.FireAllStatsEvents();
-        }
     }
 
     private void OnDestroy() //unsubscribe from events

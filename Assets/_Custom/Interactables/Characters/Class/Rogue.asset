@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 875f85836def66a078d0e9d3ab3a1faa, type: 3}
-  m_Name: Fighter
-  m_EditorClassIdentifier: Assembly-CSharp::Class
-  hitDie: 10
+  m_Name: Rogue
+  m_EditorClassIdentifier: Assembly-CSharp::ClassSO
+  hitDie: 8
   manaDie: 0
-  strengthBonus: 1.2
-  dexterityBonus: 1
-  constitutionBonus: 1.2
+  strengthBonus: 1
+  dexterityBonus: 1.2
+  constitutionBonus: 1
   intelligenceBonus: 1
-  wisdomBonus: 1
-  charismaBonus: 1
+  wisdomBonus: 1.1
+  charismaBonus: 1.2

@@ -14,4 +14,6 @@ public class Character : Interactable
 
     //experience
     public int xpToGive;
+
+
 }

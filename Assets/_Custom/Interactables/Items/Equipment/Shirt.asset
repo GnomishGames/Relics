@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArmorSO
   itemName: Shirt
   sprite: {fileID: 21300000, guid: c2618f66ac40e4643887cc8caf50a7de, type: 3}
-  itemWeight: 0
+  itemWeight: 1
   itemHealth: 0
   slotType: 4
-  ArmorBonus: 0
+  ArmorBonus: 1
   VisualsName1: 
   VisualsName2: 
   VisualsName3: 

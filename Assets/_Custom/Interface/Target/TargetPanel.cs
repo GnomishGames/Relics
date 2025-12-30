@@ -34,7 +34,7 @@ public class TargetPanel : MonoBehaviour
             currentTargetStats.OnNameChanged += SetName;
 
             // Get initial values
-            currentTargetStats.FireAllStatsEvents();
+           
         }
     }
 
