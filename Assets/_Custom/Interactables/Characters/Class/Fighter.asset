@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875f85836def66a078d0e9d3ab3a1faa, type: 3}
   m_Name: Fighter
   m_EditorClassIdentifier: Assembly-CSharp::Class
+  className: Fighter
   hitDie: 10
   manaDie: 0
   strengthBonus: 1.2

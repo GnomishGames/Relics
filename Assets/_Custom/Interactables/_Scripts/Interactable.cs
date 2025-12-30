@@ -6,7 +6,7 @@ public class Interactable : MonoBehaviour
     //Iteractables are objects that the player can interact with
 
     //Base class for all interactable objects in the game
-    public string interactableName { get; private set; }
+    public string interactableName;
     bool isFocus = false;
     //Transform playerTransform;
 
