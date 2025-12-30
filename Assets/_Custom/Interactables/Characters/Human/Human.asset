@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84c59f80144ad37291ef1a6f03e6ec3, type: 3}
   m_Name: Human
   m_EditorClassIdentifier: Assembly-CSharp::Race
-  name: Human
+  raceName: Human
   strengthBonus: 1
   constitutionBonus: 1
   dexterityBonus: 1
