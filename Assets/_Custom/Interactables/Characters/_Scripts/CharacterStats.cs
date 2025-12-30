@@ -7,6 +7,11 @@ public class CharacterStats : Character
     //events
     //public event Action OnStatsChanged;
 
+    //General
+    public event Action<string> OnNameChanged;
+    public event Action<ClassSO> OnClassChanged;
+    public event Action<RaceSO> OnRaceChanged;
+
     //health events
     public event Action<float> OnHealthChanged;
     public event Action<float> OnMaxHealthChanged;
@@ -20,18 +25,50 @@ public class CharacterStats : Character
     public event Action<float> OnMaxStaminaChanged;
     
     //mana events
+    public event Action<float> OnManaChanged;
     public event Action<float> OnMaxManaChanged;
     
-    //attribute score events
+    //strength events
+    public event Action<float> OnStrengthBaseChanged;
+    public event Action<float> OnStrengthRaceChanged;
+    public event Action<float> OnStrengthClassChanged;
     public event Action<float> OnStrengthScoreChanged;
-    public event Action<float> OnDexterityScoreChanged;
-    public event Action<float> OnConstitutionScoreChanged;
-    public event Action<float> OnIntelligenceScoreChanged;
-    public event Action<float> OnWisdomScoreChanged;
-    public event Action<float> OnCharismaScoreChanged;
+    public event Action<float> OnStrengthModifierChanged;
 
-    //name event for name changes
-    public event Action<string> OnNameChanged;
+    //dexterity events
+    public event Action<float> OnDexterityBaseChanged;
+    public event Action<float> OnDexterityRaceChanged;
+    public event Action<float> OnDexterityClassChanged;
+    public event Action<float> OnDexterityScoreChanged;
+    public event Action<float> OnDexterityModifierChanged;
+
+    //constitution events
+    public event Action<float> OnConstitutionBaseChanged;
+    public event Action<float> OnConstitutionRaceChanged;
+    public event Action<float> OnConstitutionClassChanged;
+    public event Action<float> OnConstitutionScoreChanged;
+    public event Action<float> OnConstitutionModifierChanged;
+    
+    //intelligence events
+    public event Action<float> OnIntelligenceBaseChanged;
+    public event Action<float> OnIntelligenceRaceChanged;
+    public event Action<float> OnIntelligenceClassChanged;
+    public event Action<float> OnIntelligenceScoreChanged;
+    public event Action<float> OnIntelligenceModifierChanged;
+
+    //wisdom events
+    public event Action<float> OnWisdomBaseChanged;
+    public event Action<float> OnWisdomRaceChanged;
+    public event Action<float> OnWisdomClassChanged;
+    public event Action<float> OnWisdomScoreChanged;
+    public event Action<float> OnWisdomModifierChanged;
+
+    //charisma events
+    public event Action<float> OnCharismaBaseChanged;
+    public event Action<float> OnCharismaRaceChanged;
+    public event Action<float> OnCharismaClassChanged;
+    public event Action<float> OnCharismaScoreChanged;
+    public event Action<float> OnCharismaModifierChanged;
 
     //armor class event
     public event Action<float> OnArmorClassChanged;
@@ -50,49 +87,47 @@ public class CharacterStats : Character
     public bool isQuadruped = false;
 
     //Max Attributes
-    float maxHitpoints;
-    float maxStamina;
-    float maxMana;
+    public float maxHitpoints{ get; private set; }
+    public float maxStamina{ get; private set; }
+    public float maxMana{ get; private set; }
 
     //current stats
-    public float currentHitPoints;
-    public float currentStamina;
-    float currentMana;
-    public float armorClass; //10 + armorBonus + dexMod + sizeMod
+    public float currentHitPoints{  get; private set; }
+    public float currentStamina{ get; private set; }
+    public float currentMana{ get; private set; }
+    public float armorClass{ get; private set; } //10 + armorBonus + dexMod + sizeMod
 
     //base stats these are the initial attribute choices during character creation
-    public float strengthBase;
-    public float dexterityBase;
-    public float constitutionBase;
-    public float intelligenceBase;
-    public float wisdomBase;
-    public float charismaBase;
+    public float strengthBase { get; private set; }
+    public float dexterityBase { get; private set; }
+    public float constitutionBase { get; private set; }
+    public float intelligenceBase { get; private set; }
+    public float wisdomBase { get; private set; }
+    public float charismaBase { get; private set; }
 
     //Attribute modifiers
-    public float strengthModifier; //score minus 10 divided by 2
-    public float dexterityModifier;
-    public float constitutionModifier;
-    public float intelligenceModifier;
-    public float wisdomModifier;
-    public float charismaModifier;
+    public float strengthModifier { get; private set; } //score minus 10 divided by 2
+    public float dexterityModifier { get; private set; }
+    public float constitutionModifier { get; private set; }
+    public float intelligenceModifier { get; private set; }
+    public float wisdomModifier { get; private set; }
+    public float charismaModifier { get; private set; }
 
     //Stat Scores
-    public float strengthScore; //base plus bonuses
-    public float dexterityScore;
-    public float constitutionScore;
-    public float intelligenceScore;
-    public float wisdomScore;
-    public float charismaScore;
+    public float strengthScore{ get; private set; }
+    public float dexterityScore{ get; private set; }
+    public float constitutionScore{ get; private set; }
+    public float intelligenceScore{ get; private set; }
+    public float wisdomScore{ get; private set; }
+    public float charismaScore{ get; private set; }
 
     //Progression
-    float characterLevel;
+    public float characterLevel{ get; private set; }
     float experience;
     float percentage;
 
     //armor and size
-    float sizeModifier;
-    float armorBonus;
-    float equipmentAc;
+    public float equipmentAc{ get; private set; }
 
     //math
     Unity.Mathematics.Random rand;
@@ -105,10 +140,19 @@ public class CharacterStats : Character
         // Initialize the random number generator with a unique seed
         rand = new Unity.Mathematics.Random((uint)System.DateTime.Now.Ticks + (uint)GetInstanceID());
 
+        //base stats can't ever ever be zero
+        strengthBase = Mathf.Max(1, strengthBase);
+        dexterityBase = Mathf.Max(1, dexterityBase);
+        constitutionBase = Mathf.Max(1, constitutionBase);
+        intelligenceBase = Mathf.Max(1, intelligenceBase);
+        wisdomBase = Mathf.Max(1, wisdomBase);
+        charismaBase = Mathf.Max(1, charismaBase);
+
         CalculateAttributesAndStats();
 
         currentHitPoints = maxHitpoints;
         currentStamina = maxStamina;
+        currentMana = maxMana;
 
         //subscribe to equipment changes to recalculate armor class
         equipment.OnAcChanged += SetEquipmentAc;
@@ -120,38 +164,9 @@ public class CharacterStats : Character
         CalculateAttributesAndStats();
     }
 
-    void Start()
-    {
-        //manually invoke the events to get initial value after all subscribers have registered
-        FireAllStatsEvents();
-    }
-
-    void OnEnable()
-    {
-        FireAllStatsEvents();
-    }
-
     void OnDestroy()
     {
         equipment.OnAcChanged -= SetEquipmentAc;
-    }
-
-    public void FireAllStatsEvents()
-    {
-        OnLevelChanged?.Invoke(characterLevel);
-        OnHealthChanged?.Invoke(currentHitPoints);
-        OnMaxHealthChanged?.Invoke(maxHitpoints);
-        OnStaminaChanged?.Invoke(currentStamina);
-        OnMaxStaminaChanged?.Invoke(maxStamina);
-        OnMaxManaChanged?.Invoke(maxMana);
-        OnNameChanged?.Invoke(interactableName);
-        OnEXPChanged?.Invoke(percentage);
-        OnStrengthScoreChanged?.Invoke(strengthScore);
-        OnDexterityScoreChanged?.Invoke(dexterityScore);
-        OnConstitutionScoreChanged?.Invoke(constitutionScore);
-        OnIntelligenceScoreChanged?.Invoke(intelligenceScore);
-        OnWisdomScoreChanged?.Invoke(wisdomScore);
-        OnCharismaScoreChanged?.Invoke(charismaScore);
     }
 
     void Update()
@@ -177,27 +192,27 @@ public class CharacterStats : Character
         
 
         //calculate attributes
-        strengthScore = CalculateStatScore(strengthBase, characterRace.strengthBonus, characterLevel);
+        strengthScore = CalculateStatScore(strengthBase, characterRace.strengthBonus, characterClass.strengthBonus, characterLevel);
         strengthModifier = CalculateStatModifier(strengthScore);
         OnStrengthScoreChanged?.Invoke(strengthScore);
 
-        dexterityScore = CalculateStatScore(dexterityBase, characterRace.dexterityBonus, characterLevel);
+        dexterityScore = CalculateStatScore(dexterityBase, characterRace.dexterityBonus, characterClass.dexterityBonus, characterLevel);
         dexterityModifier = CalculateStatModifier(dexterityScore);
         OnDexterityScoreChanged?.Invoke(dexterityScore);
 
-        constitutionScore = CalculateStatScore(constitutionBase, characterRace.constitutionBonus, characterLevel);
+        constitutionScore = CalculateStatScore(constitutionBase, characterRace.constitutionBonus, characterClass.constitutionBonus, characterLevel);
         constitutionModifier = CalculateStatModifier(constitutionScore);
         OnConstitutionScoreChanged?.Invoke(constitutionScore);
 
-        intelligenceScore = CalculateStatScore(intelligenceBase, characterRace.intelligenceBonus, characterLevel);
+        intelligenceScore = CalculateStatScore(intelligenceBase, characterRace.intelligenceBonus, characterClass.intelligenceBonus, characterLevel);
         intelligenceModifier = CalculateStatModifier(intelligenceScore);
         OnIntelligenceScoreChanged?.Invoke(intelligenceScore);
 
-        wisdomScore = CalculateStatScore(wisdomBase, characterRace.wisdomBonus, characterLevel);
+        wisdomScore = CalculateStatScore(wisdomBase, characterRace.wisdomBonus, characterClass.wisdomBonus, characterLevel);
         wisdomModifier = CalculateStatModifier(wisdomScore);
         OnWisdomScoreChanged?.Invoke(wisdomScore);
 
-        charismaScore = CalculateStatScore(charismaBase, characterRace.charismaBonus, characterLevel);
+        charismaScore = CalculateStatScore(charismaBase, characterRace.charismaBonus, characterClass.charismaBonus, characterLevel);
         charismaModifier = CalculateStatModifier(charismaScore);
         OnCharismaScoreChanged?.Invoke(charismaScore);
 
@@ -210,16 +225,14 @@ public class CharacterStats : Character
         maxMana = (characterClass.manaDie * characterLevel) + intelligenceModifier; //(level * base) + int modifier
         OnMaxManaChanged?.Invoke(maxMana);
 
-        sizeModifier = characterRace.sizeAcBonus;
-
-        armorClass = 10 + equipmentAc + characterRace.naturalAcBonus + dexterityModifier + sizeModifier;
+        armorClass = 10 + equipmentAc + characterRace.naturalAcBonus + dexterityModifier + characterRace.sizeAcBonus;
         OnArmorClassChanged?.Invoke(armorClass);
 
     }
 
-    float CalculateStatScore(float statBase, float raceBonus, float characterLevel)
+    float CalculateStatScore(float statBase, float raceBonus, float classBonus, float characterLevel)
     {
-        float statScore = statBase + raceBonus + characterLevel;
+        float statScore = statBase + characterLevel * raceBonus * classBonus ;
         return statScore;
     }
 
@@ -301,11 +314,11 @@ public class CharacterStats : Character
         CalculateAttributesAndStats();
     }
 
-    public void SetName(string newName)
-    {
-        interactableName = newName;
-        OnNameChanged?.Invoke(interactableName);
-    }
+    //public void SetName(string newName)
+    //{
+    //    interactableName = newName;
+    //    OnNameChanged?.Invoke(interactableName);
+    //}
 
     public void DeathCheck()
     {

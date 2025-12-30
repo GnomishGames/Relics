@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Race", menuName = "Scriptable Object/Character/New Race")]
 public class RaceSO : ScriptableObject
 {
-    public new string name;
+    public string raceName;
 
     //racial bonuses
     public int strengthBonus;
