@@ -172,6 +172,9 @@ public class SkillBar : MonoBehaviour
 
                     //apply health damage to target
                     targetCharacterStats.SubtractHealth(damage);
+                    
+                    if (!targetCharacterStats.charactersWhoHitMe.Contains(this.GetComponent<Character>()))
+                        targetCharacterStats.charactersWhoHitMe.Add(this.GetComponent<Character>()); //add to list of characters who hit me
 
                     CombatLogMessage(true, this.GetComponent<Interactable>(), myCharacterFocus.target.GetComponent<Interactable>(), (int)damage);
                 }
