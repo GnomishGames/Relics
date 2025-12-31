@@ -194,31 +194,43 @@ public class CharacterStats : Character
         //calculate attributes
         strengthScore = CalculateStatScore(strengthBase, characterRace.strengthBonus, characterClass.strengthBonus, characterLevel);
         strengthModifier = CalculateStatModifier(strengthScore, characterLevel);
+        OnStrengthRaceChanged?.Invoke(characterRace.strengthBonus);
+        OnStrengthClassChanged?.Invoke(characterClass.strengthBonus);
         OnStrengthScoreChanged?.Invoke(strengthScore);
         OnStrengthModifierChanged?.Invoke(strengthModifier);
 
         dexterityScore = CalculateStatScore(dexterityBase, characterRace.dexterityBonus, characterClass.dexterityBonus, characterLevel);
         dexterityModifier = CalculateStatModifier(dexterityScore, characterLevel);
+        OnDexterityRaceChanged?.Invoke(characterRace.dexterityBonus);
+        OnDexterityClassChanged?.Invoke(characterClass.dexterityBonus);
         OnDexterityScoreChanged?.Invoke(dexterityScore);
         OnDexterityModifierChanged?.Invoke(dexterityModifier);
 
         constitutionScore = CalculateStatScore(constitutionBase, characterRace.constitutionBonus, characterClass.constitutionBonus, characterLevel);
         constitutionModifier = CalculateStatModifier(constitutionScore, characterLevel);
+        OnConstitutionRaceChanged?.Invoke(characterRace.constitutionBonus);
+        OnConstitutionClassChanged?.Invoke(characterClass.constitutionBonus);
         OnConstitutionScoreChanged?.Invoke(constitutionScore);
         OnConstitutionModifierChanged?.Invoke(constitutionModifier);
 
         intelligenceScore = CalculateStatScore(intelligenceBase, characterRace.intelligenceBonus, characterClass.intelligenceBonus, characterLevel);
         intelligenceModifier = CalculateStatModifier(intelligenceScore, characterLevel);
+        OnIntelligenceRaceChanged?.Invoke(characterRace.intelligenceBonus);
+        OnIntelligenceClassChanged?.Invoke(characterClass.intelligenceBonus);
         OnIntelligenceScoreChanged?.Invoke(intelligenceScore);
         OnIntelligenceModifierChanged?.Invoke(intelligenceModifier);
 
         wisdomScore = CalculateStatScore(wisdomBase, characterRace.wisdomBonus, characterClass.wisdomBonus, characterLevel);
         wisdomModifier = CalculateStatModifier(wisdomScore, characterLevel);
+        OnWisdomRaceChanged?.Invoke(characterRace.wisdomBonus);
+        OnWisdomClassChanged?.Invoke(characterClass.wisdomBonus);
         OnWisdomScoreChanged?.Invoke(wisdomScore);
         OnWisdomModifierChanged?.Invoke(wisdomModifier);
 
         charismaScore = CalculateStatScore(charismaBase, characterRace.charismaBonus, characterClass.charismaBonus, characterLevel);
         charismaModifier = CalculateStatModifier(charismaScore, characterLevel);
+        OnCharismaRaceChanged?.Invoke(characterRace.charismaBonus);
+        OnCharismaClassChanged?.Invoke(characterClass.charismaBonus);
         OnCharismaScoreChanged?.Invoke(charismaScore);
         OnCharismaModifierChanged?.Invoke(charismaModifier);
 
