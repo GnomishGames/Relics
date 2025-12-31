@@ -14,9 +14,6 @@ public class hand_r_weapon : MonoBehaviour
         weaponRig = GetComponentInParent<WeaponRig>();
     }
 
-    // Note: WeaponRig now handles routing weapons to the correct hand
-    // based on slot type, so we don't subscribe directly to equipment events here
-
     // method to set the weapon based on an index
     public void SetWeapon(int index)
     {
@@ -29,7 +26,13 @@ public class hand_r_weapon : MonoBehaviour
             // instantiate the selected weapon prefab as a child of this object
             currentWeapon = Instantiate(weaponRig.weaponPrefabs[index], transform);
 
-            //i might want to do this later so keep it commented out for now
+            Transform gripPoint = currentWeapon.transform.Find("GripPoint");
+            if (gripPoint != null)
+            {
+                currentWeapon.transform.localPosition = -gripPoint.localPosition;
+                currentWeapon.transform.localRotation = Quaternion.Inverse(gripPoint.localRotation);
+            }
+            // i might want to do this later so keep it commented out for now
             //currentWeapon.transform.localPosition = Vector3.zero; // reset position
             //currentWeapon.transform.localRotation = Quaternion.identity; // reset rotation 
         }
