@@ -4,23 +4,31 @@ public class hand_r_weapon : MonoBehaviour
 {
     // an array of prefabs to choose from
     public GameObject[] weaponPrefabs;
-    
+
     private GameObject currentWeapon;
 
-    void Start()
+    //references
+    Equipment equipment;
+
+    void Awake()
     {
-        SetWeapon(0); //default to first weapon
+        equipment = GetComponentInParent<Equipment>();
     }
 
-    void Update()
+    void OnEnable()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        //subscribe to events or initialize as needed
+        if (equipment != null)
         {
-            SetWeapon(0); //equip first weapon
+            equipment.OnEquippedItemChanged += SetWeaponByName;
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha2))
+    }
+
+    void OnDestroy()
+    {
+        if (equipment != null)
         {
-            SetWeapon(1); //equip second weapon
+            equipment.OnEquippedItemChanged -= SetWeaponByName;
         }
     }
 
@@ -29,17 +37,36 @@ public class hand_r_weapon : MonoBehaviour
     {
         // clear any existing weapon
         ClearWeapon();
-        
+
         // check if the index is valid
         if (index >= 0 && index < weaponPrefabs.Length && weaponPrefabs[index] != null)
         {
             // instantiate the selected weapon prefab as a child of this object
             currentWeapon = Instantiate(weaponPrefabs[index], transform);
-            currentWeapon.transform.localPosition = Vector3.zero; // reset position
-            currentWeapon.transform.localRotation = Quaternion.identity; // reset rotation 
+
+            //i might want to do this later so keep it commented out for now
+            //currentWeapon.transform.localPosition = Vector3.zero; // reset position
+            //currentWeapon.transform.localRotation = Quaternion.identity; // reset rotation 
         }
     }
-    
+
+    // method to set the weapon based on the prefab name
+    public void SetWeaponByName(string weaponName)
+    {
+        // find the weapon prefab with the matching name
+        for (int i = 0; i < weaponPrefabs.Length; i++)
+        {
+            if (weaponPrefabs[i] != null && weaponPrefabs[i].name == weaponName)
+            {
+                SetWeapon(i);
+                return;
+            }
+        }
+
+        // if we get here, no weapon with that name was found
+        Debug.LogWarning($"Weapon '{weaponName}' not found in weaponPrefabs array.");
+    }
+
     // method to clear/unequip current weapon
     public void ClearWeapon()
     {
@@ -49,7 +76,7 @@ public class hand_r_weapon : MonoBehaviour
             currentWeapon = null;
         }
     }
-    
+
     // method to show/hide current weapon without destroying it
     public void SetWeaponActive(bool active)
     {
@@ -58,7 +85,7 @@ public class hand_r_weapon : MonoBehaviour
             currentWeapon.SetActive(active);
         }
     }
-    
+
     // get the currently equipped weapon
     public GameObject GetCurrentWeapon()
     {
