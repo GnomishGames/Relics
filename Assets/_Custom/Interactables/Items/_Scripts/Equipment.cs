@@ -11,6 +11,7 @@ public class Equipment : MonoBehaviour
 
     //events
     public event Action<float> OnAcChanged;
+    public event Action<string> OnEquippedItemChanged;
 
     //vars
     public int ArmorAC;
@@ -32,7 +33,7 @@ public class Equipment : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            UpdateEquipped();
+            //UpdateEquipped();
             CalculateArmorClass();
             timer = 1;
         }
@@ -128,9 +129,11 @@ public class Equipment : MonoBehaviour
             weaponSOs[equipmentSlot] = (WeaponSO)inventory.inventoryItem[inventorySlot];
             inventory.inventoryItem[inventorySlot] = buffer;
 
-            UpdateVisuals(weaponSOs[equipmentSlot].VisualsName1);
-            UpdateVisuals(weaponSOs[equipmentSlot].VisualsName2);
-            UpdateVisuals(weaponSOs[equipmentSlot].VisualsName3);
+            OnEquippedItemChanged?.Invoke(weaponSOs[equipmentSlot].name);
+
+            //UpdateVisuals(weaponSOs[equipmentSlot].VisualsName1);
+            //UpdateVisuals(weaponSOs[equipmentSlot].VisualsName2);
+            //UpdateVisuals(weaponSOs[equipmentSlot].VisualsName3);
 
             CalculateArmorClass();
         }
@@ -144,10 +147,8 @@ public class Equipment : MonoBehaviour
             
             foreach (var child in children)
             {
-                Debug.Log($"Checking child: {child.name} against name: {name}");
                 if (child.name == name)
                 {
-                    Debug.Log($"Found matching child: {name}, activating first child");
                     child.GetChild(0).gameObject.SetActive(true);
                     break;
                 }
