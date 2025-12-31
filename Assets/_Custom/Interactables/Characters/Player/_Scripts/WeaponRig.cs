@@ -62,11 +62,9 @@ public class WeaponRig : MonoBehaviour
             return;
         }
         
-        // Check if the prefab has a WeaponSO to determine slot type
-        // For now, we'll check the equipment weaponSOs to find the slot type
         SlotType slotType = SlotType.Primary; // default
         
-        // Check both weapon slots in equipment for this weapon
+        // Check weapon slots in equipment for this weapon
         for (int i = 0; i < equipment.weaponSOs.Length; i++)
         {
             if (equipment.weaponSOs[i] != null && equipment.weaponSOs[i].name == weaponName)
