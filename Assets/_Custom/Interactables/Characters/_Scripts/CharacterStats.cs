@@ -153,15 +153,18 @@ public class CharacterStats : Character
         currentHitPoints = maxHitpoints;
         currentStamina = maxStamina;
         currentMana = maxMana;
-
-        //subscribe to equipment changes to recalculate armor class
-        equipment.OnAcChanged += SetEquipmentAc;
     }
 
     private void SetEquipmentAc(float ac)
     {
         equipmentAc = ac;
         CalculateAttributesAndStats();
+    }
+
+    void OnEnable()
+    {
+        //subscribe to events or initialize as needed
+        equipment.OnAcChanged += SetEquipmentAc;
     }
 
     void OnDestroy()
@@ -183,6 +186,11 @@ public class CharacterStats : Character
 
     void CalculateAttributesAndStats()
     {
+        //invoke name changed event
+        OnNameChanged?.Invoke(interactableName);
+        OnClassChanged?.Invoke(characterClass);
+        OnRaceChanged?.Invoke(characterRace);
+
         //calculate level based on current experience
         characterLevel = Mathf.FloorToInt((1 + Mathf.Sqrt(experience / 125 + 1)) / 2);
         percentage = (1 + Mathf.Sqrt(experience / 125 + 1)) / 2 % 1;
@@ -190,62 +198,70 @@ public class CharacterStats : Character
         OnEXPChanged?.Invoke(percentage);
         OnLevelChanged?.Invoke(characterLevel);
 
-
         //calculate attributes
+        //Strength
         strengthScore = CalculateStatScore(strengthBase, characterRace.strengthBonus, characterClass.strengthBonus, characterLevel);
         strengthModifier = CalculateStatModifier(strengthScore, characterLevel);
         OnStrengthRaceChanged?.Invoke(characterRace.strengthBonus);
         OnStrengthClassChanged?.Invoke(characterClass.strengthBonus);
         OnStrengthScoreChanged?.Invoke(strengthScore);
         OnStrengthModifierChanged?.Invoke(strengthModifier);
-
+        OnStrengthBaseChanged?.Invoke(strengthBase);
+        //Dexterity
         dexterityScore = CalculateStatScore(dexterityBase, characterRace.dexterityBonus, characterClass.dexterityBonus, characterLevel);
         dexterityModifier = CalculateStatModifier(dexterityScore, characterLevel);
         OnDexterityRaceChanged?.Invoke(characterRace.dexterityBonus);
         OnDexterityClassChanged?.Invoke(characterClass.dexterityBonus);
         OnDexterityScoreChanged?.Invoke(dexterityScore);
         OnDexterityModifierChanged?.Invoke(dexterityModifier);
-
+        OnDexterityBaseChanged?.Invoke(dexterityBase);
+        //Constitution
         constitutionScore = CalculateStatScore(constitutionBase, characterRace.constitutionBonus, characterClass.constitutionBonus, characterLevel);
         constitutionModifier = CalculateStatModifier(constitutionScore, characterLevel);
         OnConstitutionRaceChanged?.Invoke(characterRace.constitutionBonus);
         OnConstitutionClassChanged?.Invoke(characterClass.constitutionBonus);
         OnConstitutionScoreChanged?.Invoke(constitutionScore);
         OnConstitutionModifierChanged?.Invoke(constitutionModifier);
-
+        OnConstitutionBaseChanged?.Invoke(constitutionBase);
+        //Intelligence
         intelligenceScore = CalculateStatScore(intelligenceBase, characterRace.intelligenceBonus, characterClass.intelligenceBonus, characterLevel);
         intelligenceModifier = CalculateStatModifier(intelligenceScore, characterLevel);
         OnIntelligenceRaceChanged?.Invoke(characterRace.intelligenceBonus);
         OnIntelligenceClassChanged?.Invoke(characterClass.intelligenceBonus);
         OnIntelligenceScoreChanged?.Invoke(intelligenceScore);
         OnIntelligenceModifierChanged?.Invoke(intelligenceModifier);
-
+        OnIntelligenceBaseChanged?.Invoke(intelligenceBase);
+        //Wisdom
         wisdomScore = CalculateStatScore(wisdomBase, characterRace.wisdomBonus, characterClass.wisdomBonus, characterLevel);
         wisdomModifier = CalculateStatModifier(wisdomScore, characterLevel);
         OnWisdomRaceChanged?.Invoke(characterRace.wisdomBonus);
         OnWisdomClassChanged?.Invoke(characterClass.wisdomBonus);
         OnWisdomScoreChanged?.Invoke(wisdomScore);
         OnWisdomModifierChanged?.Invoke(wisdomModifier);
-
+        OnWisdomBaseChanged?.Invoke(wisdomBase);
+        //Charisma  
         charismaScore = CalculateStatScore(charismaBase, characterRace.charismaBonus, characterClass.charismaBonus, characterLevel);
         charismaModifier = CalculateStatModifier(charismaScore, characterLevel);
         OnCharismaRaceChanged?.Invoke(characterRace.charismaBonus);
         OnCharismaClassChanged?.Invoke(characterClass.charismaBonus);
         OnCharismaScoreChanged?.Invoke(charismaScore);
         OnCharismaModifierChanged?.Invoke(charismaModifier);
+        OnCharismaBaseChanged?.Invoke(charismaBase);
 
         maxHitpoints = (characterClass.hitDie * characterLevel) + constitutionModifier; //(level * base) + con modifier
+        OnHealthChanged?.Invoke(currentHitPoints);
         OnMaxHealthChanged?.Invoke(maxHitpoints);
 
         maxStamina = (characterClass.hitDie * characterLevel) + constitutionModifier; //(level * base) + con modifier
+        OnStaminaChanged?.Invoke(currentStamina);
         OnMaxStaminaChanged?.Invoke(maxStamina);
 
         maxMana = (characterClass.manaDie * characterLevel) + intelligenceModifier; //(level * base) + int modifier
+        OnManaChanged?.Invoke(currentMana);
         OnMaxManaChanged?.Invoke(maxMana);
 
         armorClass = 10 + equipmentAc + characterRace.naturalAcBonus + dexterityModifier + characterRace.sizeAcBonus;
         OnArmorClassChanged?.Invoke(armorClass);
-
     }
 
     float CalculateStatScore(float statBase, float raceBonus, float classBonus, float characterLevel)
@@ -273,7 +289,6 @@ public class CharacterStats : Character
     public int AttackRoll()
     {
         int attackRoll = rand.NextInt(1, 21) + (int)characterLevel + (int)strengthModifier;
-
         return attackRoll;
     }
 
