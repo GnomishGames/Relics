@@ -15,7 +15,8 @@ public class Equipment : MonoBehaviour
     //vars
     public int ArmorAC;
     float timer;
-
+    public GameObject prefab;
+    
     private void Awake()
     {
         inventory = GetComponent<Inventory>();
@@ -140,10 +141,13 @@ public class Equipment : MonoBehaviour
         if (name != "" && name != null)
         {
             var children = GetComponentsInChildren<Transform>();
+            
             foreach (var child in children)
             {
+                Debug.Log($"Checking child: {child.name} against name: {name}");
                 if (child.name == name)
                 {
+                    Debug.Log($"Found matching child: {name}, activating first child");
                     child.GetChild(0).gameObject.SetActive(true);
                     break;
                 }
