@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class hand_r_weapon : MonoBehaviour
+public class hand_l_weapon : MonoBehaviour
 {
-    private GameObject currentWeapon;
+private GameObject currentWeapon;
 
     //references
     Equipment equipment;
