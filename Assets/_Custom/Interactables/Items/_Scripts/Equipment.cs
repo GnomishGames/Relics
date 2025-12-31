@@ -129,6 +129,7 @@ public class Equipment : MonoBehaviour
             weaponSOs[equipmentSlot] = (WeaponSO)inventory.inventoryItem[inventorySlot];
             inventory.inventoryItem[inventorySlot] = buffer;
 
+            Debug.Log("Equip weapon event invoked: " + weaponSOs[equipmentSlot].name);
             OnEquippedItemChanged?.Invoke(weaponSOs[equipmentSlot].name);
 
             //UpdateVisuals(weaponSOs[equipmentSlot].VisualsName1);
