@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 //This goes on the character and holds their inventory items
@@ -10,6 +11,8 @@ public class Inventory : MonoBehaviour
     Equipment equipment;
     Container container;
     Interactable focus;
+
+    public event Action<string> OnEquippedItemChanged;
 
     private void Awake()
     {
@@ -65,6 +68,9 @@ public class Inventory : MonoBehaviour
             var buffer = inventoryItem[inventorySlot];
             inventoryItem[inventorySlot] = equipment.weaponSOs[equipmentSlot];
             equipment.weaponSOs[equipmentSlot] = (WeaponSO)buffer;
+            
+            OnEquippedItemChanged?.Invoke(inventoryItem[inventorySlot]?.itemName ?? "");
+            Debug.Log("Unequip weapon event invoked: " + inventoryItem[inventorySlot]?.itemName);
         }
         else if (inventoryItem[inventorySlot].slotType == equipment.weaponSOs[equipmentSlot].slotType)
         {
@@ -75,6 +81,9 @@ public class Inventory : MonoBehaviour
             var buffer = inventoryItem[inventorySlot];
             inventoryItem[inventorySlot] = equipment.weaponSOs[equipmentSlot];
             equipment.weaponSOs[equipmentSlot] = (WeaponSO)buffer;
+            
+            OnEquippedItemChanged?.Invoke(equipment.weaponSOs[equipmentSlot]?.itemName ?? "");
+            Debug.Log("Unequip weapon event invoked: " + equipment.weaponSOs[equipmentSlot]?.itemName);
         }
 
         equipment.CalculateArmorClass();
