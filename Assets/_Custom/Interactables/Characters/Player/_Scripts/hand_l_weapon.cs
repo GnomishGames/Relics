@@ -29,6 +29,12 @@ private GameObject currentWeapon;
             // instantiate the selected weapon prefab as a child of this object
             currentWeapon = Instantiate(weaponRig.weaponPrefabs[index], transform);
 
+            Transform gripPoint = currentWeapon.transform.Find("GripPoint");
+            if (gripPoint != null)
+            {
+                currentWeapon.transform.localPosition = -gripPoint.localPosition;
+                currentWeapon.transform.localRotation = Quaternion.Inverse(gripPoint.localRotation);
+            }
             //i might want to do this later so keep it commented out for now
             //currentWeapon.transform.localPosition = Vector3.zero; // reset position
             //currentWeapon.transform.localRotation = Quaternion.identity; // reset rotation 
