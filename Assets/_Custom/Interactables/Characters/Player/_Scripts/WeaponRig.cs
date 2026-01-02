@@ -15,8 +15,8 @@ public class WeaponRig : MonoBehaviour
     {
         rightHand = GetComponentInChildren<hand_r_weapon>();
         leftHand = GetComponentInChildren<hand_l_weapon>();
-        equipment = GetComponentInParent<Equipment>();
-        inventory = GetComponentInParent<Inventory>();
+        equipment = GetComponent<Equipment>();
+        inventory = GetComponent<Inventory>();
     }
     
     void OnEnable()
