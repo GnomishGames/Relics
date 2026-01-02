@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a57b67dcf9ef6ccb31c2ec01629c2a, type: 3}
   m_Name: HM_OgreAxe
   m_EditorClassIdentifier: Assembly-CSharp::WeaponSO
-  itemName: HM_OgreAxe
+  itemName: OgreAxe
   sprite: {fileID: 21300000, guid: cea90451fb73814409ab295f9ea3e487, type: 3}
   itemWeight: 1
   itemHealth: 1
   slotType: 8
   ArmorBonus: 1
-  VisualsName1: OgreAxe
+  VisualsName1: 
   VisualsName2: 
   VisualsName3: 
   damageType: 0

@@ -33,4 +33,8 @@ public class RaceSO : ScriptableObject
 
     public int sizeAcBonus; //small +1, large -1
     public int naturalAcBonus; 
+
+    //weapon grip offsets
+    public Vector3 rightHandOffset;
+    public Vector3 leftHandOffset;
 }
