@@ -31,7 +31,7 @@ private GameObject currentWeapon;
             // instantiate the selected weapon prefab as a child of this object
             currentWeapon = Instantiate(weaponRig.weaponPrefabs[index], transform);
 
-            //make sure that green (y axis) points up
+            //make sure that green (y axis) points up and blue (z axis) points forward
             Transform gripPoint = currentWeapon.transform.Find("GripPoint");
             if (gripPoint != null)
             {
