@@ -7,11 +7,13 @@ private GameObject currentWeapon;
     //references
     Equipment equipment;
     WeaponRig weaponRig;
+    CharacterStats characterStats;
 
     void Awake()
     {
         equipment = GetComponentInParent<Equipment>();
         weaponRig = GetComponentInParent<WeaponRig>();
+        characterStats = GetComponentInParent<CharacterStats>();
     }
 
     // Note: WeaponRig now handles routing weapons to the correct hand
@@ -29,15 +31,20 @@ private GameObject currentWeapon;
             // instantiate the selected weapon prefab as a child of this object
             currentWeapon = Instantiate(weaponRig.weaponPrefabs[index], transform);
 
+            //make sure that green (y axis) points up
             Transform gripPoint = currentWeapon.transform.Find("GripPoint");
             if (gripPoint != null)
             {
                 currentWeapon.transform.localPosition = -gripPoint.localPosition;
-                currentWeapon.transform.localRotation = Quaternion.Inverse(gripPoint.localRotation);
+                // For left hand, flip 180° around X-axis to match right hand orientation
+                currentWeapon.transform.localRotation = Quaternion.Inverse(gripPoint.localRotation) * Quaternion.Euler(180, 0, 0);
             }
-            //i might want to do this later so keep it commented out for now
-            //currentWeapon.transform.localPosition = Vector3.zero; // reset position
-            //currentWeapon.transform.localRotation = Quaternion.identity; // reset rotation 
+
+            // Apply race-specific offset
+            if (characterStats != null && characterStats.characterRace != null)
+            {
+                currentWeapon.transform.localPosition += characterStats.characterRace.leftHandOffset;
+            }
         }
     }
 

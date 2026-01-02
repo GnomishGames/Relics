@@ -7,11 +7,13 @@ public class hand_r_weapon : MonoBehaviour
     //references
     Equipment equipment;
     WeaponRig weaponRig;
+    CharacterStats characterStats;
 
     void Awake()
     {
         equipment = GetComponentInParent<Equipment>();
         weaponRig = GetComponentInParent<WeaponRig>();
+        characterStats = GetComponentInParent<CharacterStats>();
     }
 
     // method to set the weapon based on an index
@@ -26,15 +28,19 @@ public class hand_r_weapon : MonoBehaviour
             // instantiate the selected weapon prefab as a child of this object
             currentWeapon = Instantiate(weaponRig.weaponPrefabs[index], transform);
 
+            //make sure that green (y axis) points up
             Transform gripPoint = currentWeapon.transform.Find("GripPoint");
             if (gripPoint != null)
             {
                 currentWeapon.transform.localPosition = -gripPoint.localPosition;
                 currentWeapon.transform.localRotation = Quaternion.Inverse(gripPoint.localRotation);
             }
-            // i might want to do this later so keep it commented out for now
-            //currentWeapon.transform.localPosition = Vector3.zero; // reset position
-            //currentWeapon.transform.localRotation = Quaternion.identity; // reset rotation 
+
+            // Apply race-specific offset
+            if (characterStats != null && characterStats.characterRace != null)
+            {
+                currentWeapon.transform.localPosition += characterStats.characterRace.rightHandOffset;
+            }
         }
     }
 
@@ -59,6 +65,7 @@ public class hand_r_weapon : MonoBehaviour
 
         // if we get here, no weapon with that name was found
         Debug.LogWarning($"Weapon '{weaponName}' not found in weaponPrefabs array.");
+        ClearWeapon();
     }
 
     // method to clear/unequip current weapon

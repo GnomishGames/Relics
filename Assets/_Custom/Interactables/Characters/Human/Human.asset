@@ -32,3 +32,5 @@ MonoBehaviour:
   runSpeed: 5
   sizeAcBonus: 2
   naturalAcBonus: 1
+  rightHandOffset: {x: 0.08, y: -0.06, z: 0}
+  leftHandOffset: {x: -0.08, y: 0.06, z: 0}
