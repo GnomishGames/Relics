@@ -66,7 +66,7 @@ public class WeaponRig : MonoBehaviour
         // Slot 0 is typically Primary (right hand), Slot 1 is Secondary (left hand)
         for (int i = 0; i < equipment.weaponSOs.Length; i++)
         {
-            WeaponSO weapon = equipment.weaponSOs[i];
+            WeaponSO weapon = equipment.weaponSOs[i]; // get the weapon in the current slot
             
             if (weapon != null)
             {

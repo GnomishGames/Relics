@@ -37,4 +37,7 @@ public class RaceSO : ScriptableObject
     //weapon grip offsets
     public Vector3 rightHandOffset;
     public Vector3 leftHandOffset;
+
+    //equipment offsets
+    public Vector3 helmetOffset;
 }
