@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class hand_l_weapon : MonoBehaviour
 {
-private GameObject currentWeapon;
 
+    private GameObject currentWeapon;
+    
     //references
     Equipment equipment;
     WeaponRig weaponRig;
@@ -82,7 +83,7 @@ private GameObject currentWeapon;
     }
 
     // method to show/hide current weapon without destroying it
-    public void SetWeaponActive(bool active)
+    void SetWeaponActive(bool active)
     {
         if (currentWeapon != null)
         {

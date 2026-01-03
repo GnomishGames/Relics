@@ -39,7 +39,7 @@ public class Equipment : MonoBehaviour
         }
     }
 
-    private void UpdateEquipped()
+    void UpdateEquipped()
     {
         //show items that are equippped
         for (int i = 0; i < armorSOs.Length; i++)
@@ -113,10 +113,12 @@ public class Equipment : MonoBehaviour
             armorSOs[equipmentSlot] = (ArmorSO)inventory.inventoryItem[inventorySlot];
             inventory.inventoryItem[inventorySlot] = buffer;
 
+            OnEquippedItemChanged?.Invoke(armorSOs[equipmentSlot].itemName);
+
             //activate item visual
-            UpdateVisuals(armorSOs[equipmentSlot].VisualsName1);
-            UpdateVisuals(armorSOs[equipmentSlot].VisualsName2);
-            UpdateVisuals(armorSOs[equipmentSlot].VisualsName3);
+            //UpdateVisuals(armorSOs[equipmentSlot].VisualsName1);
+            //UpdateVisuals(armorSOs[equipmentSlot].VisualsName2);
+            //UpdateVisuals(armorSOs[equipmentSlot].VisualsName3);
 
             CalculateArmorClass();
         }

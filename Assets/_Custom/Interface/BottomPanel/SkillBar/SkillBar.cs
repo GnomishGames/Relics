@@ -153,7 +153,7 @@ public class SkillBar : MonoBehaviour
                 //check if attack hits (attack roll) against target armor class
                 int attackRoll = myCharacterStats.AttackRoll();
 
-                //skill damage plus weapon damage
+                //check for weapon equipped
                 if (equipment.weaponSOs[0] == null)
                 {
                     ChatLogMessage("No weapon equipped.");
@@ -168,7 +168,12 @@ public class SkillBar : MonoBehaviour
                     float strengthModifier = myCharacterStats.strengthModifier;
                     //total
                     float damage = strengthModifier + weaponDamage + skillDamage;
-                    Debug.Log("Character: " + myCharacterStats.interactableName + " Weapon: " + weaponDamage + " Skill: " + skillDamage + " Strength: " + strengthModifier + " Total Damage: " + damage);
+                    //Debug.Log("Character: " + myCharacterStats.interactableName + " Weapon: " + weaponDamage + " Skill: " + skillDamage + " Strength: " + strengthModifier + " Total Damage: " + damage);
+
+                    //take animation time, half it (er something), then do damage at that time
+                    //TO-DO: implement animation timing for damage application
+                    //magic could take a long time to wind up, melee could be quick
+                    //for now, just apply damage instantly
 
                     //apply health damage to target
                     targetCharacterStats.SubtractHealth(damage);
