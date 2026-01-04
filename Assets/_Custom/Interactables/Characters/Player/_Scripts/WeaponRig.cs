@@ -3,7 +3,7 @@ using UnityEngine;
 public class WeaponRig : MonoBehaviour
 {
     // master array of weapon prefabs to choose from
-    public GameObject[] weaponPrefabs;
+    //public GameObject[] weaponPrefabs;
     
     // references to hand weapon scripts
     private hand_r_weapon rightHand;
@@ -66,18 +66,18 @@ public class WeaponRig : MonoBehaviour
         // Slot 0 is typically Primary (right hand), Slot 1 is Secondary (left hand)
         for (int i = 0; i < equipment.weaponSOs.Length; i++)
         {
-            WeaponSO weapon = equipment.weaponSOs[i]; // get the weapon in the current slot
+            WeaponSO weaponSO = equipment.weaponSOs[i]; // get the weapon in the current slot
             
-            if (weapon != null)
+            if (weaponSO != null)
             {
                 // There's a weapon in this slot - equip it to the appropriate hand
-                if (weapon.slotType == SlotType.Primary && rightHand != null)
+                if (weaponSO.slotType == SlotType.Primary && rightHand != null)
                 {
-                    rightHand.SetWeaponByName(weapon.itemName);
+                    rightHand.SetWeapon(weaponSO);
                 }
-                else if (weapon.slotType == SlotType.Secondary && leftHand != null)
+                else if (weaponSO.slotType == SlotType.Secondary && leftHand != null)
                 {
-                    leftHand.SetWeaponByName(weapon.itemName);
+                    leftHand.SetWeapon(weaponSO);
                 }
             }
             else

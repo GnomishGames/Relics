@@ -6,27 +6,27 @@ public class hand_r_weapon : MonoBehaviour
 
     //references
     Equipment equipment;
-    WeaponRig weaponRig;
+    //WeaponRig weaponRig;
     CharacterStats characterStats;
 
     void Awake()
     {
         equipment = GetComponentInParent<Equipment>();
-        weaponRig = GetComponentInParent<WeaponRig>();
+        //weaponRig = GetComponentInParent<WeaponRig>();
         characterStats = GetComponentInParent<CharacterStats>();
     }
 
-    // method to set the weapon based on an index
-    public void SetWeapon(int index)
+    // method to set the weapon based on the prefab name
+    public void SetWeapon(WeaponSO weaponData)
     {
         // clear any existing weapon
         ClearWeapon();
 
-        // check if weaponRig exists and the index is valid
-        if (weaponRig != null && index >= 0 && index < weaponRig.weaponPrefabs.Length && weaponRig.weaponPrefabs[index] != null)
+        //check if weaponData and itemPrefab exist
+        if (weaponData != null && weaponData.itemPrefab != null)
         {
-            // instantiate the selected weapon prefab as a child of this object
-            currentWeapon = Instantiate(weaponRig.weaponPrefabs[index], transform);
+            //instantiate the weapon prefab as a child of this object
+            currentWeapon = Instantiate(weaponData.itemPrefab, transform);
 
             //make sure that green (y axis) points up and blue (z axis) points forward
             Transform gripPoint = currentWeapon.transform.Find("GripPoint");
@@ -36,36 +36,12 @@ public class hand_r_weapon : MonoBehaviour
                 currentWeapon.transform.localRotation = Quaternion.Inverse(gripPoint.localRotation);
             }
 
-            // Apply race-specific offset
+            // Apply race specific offset
             if (characterStats != null && characterStats.characterRace != null)
             {
                 currentWeapon.transform.localPosition += characterStats.characterRace.rightHandOffset;
             }
         }
-    }
-
-    // method to set the weapon based on the prefab name
-    public void SetWeaponByName(string weaponName)
-    {
-        if (weaponRig == null)
-        {
-            Debug.LogWarning("WeaponRig reference is null. Cannot set weapon.");
-            return;
-        }
-
-        // find the weapon prefab with the matching name
-        for (int i = 0; i < weaponRig.weaponPrefabs.Length; i++)
-        {
-            if (weaponRig.weaponPrefabs[i] != null && weaponRig.weaponPrefabs[i].name == weaponName)
-            {
-                SetWeapon(i);
-                return;
-            }
-        }
-
-        // if we get here, no weapon with that name was found
-        Debug.LogWarning($"Weapon '{weaponName}' not found in weaponPrefabs array.");
-        ClearWeapon();
     }
 
     // method to clear/unequip current weapon
