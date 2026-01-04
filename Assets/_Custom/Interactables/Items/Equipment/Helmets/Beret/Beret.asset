@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Beret
   m_EditorClassIdentifier: Assembly-CSharp::ArmorSO
   itemName: Beret
-  sprite: {fileID: 21300000, guid: 68e59aec06ba20947997ae197b42a4aa, type: 3}
+  sprite: {fileID: 21300000, guid: cd26b0c8bd6921441aa77b5a51e76f2f, type: 3}
   itemWeight: 1
   itemHealth: 1
   slotType: 0
