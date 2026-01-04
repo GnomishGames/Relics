@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class HelmetRig : MonoBehaviour
 {
-    public GameObject[] helmetPrefabs;
-
     private head_helmet helmetSlot;
     private Equipment equipment;
     private Inventory inventory;
@@ -19,7 +17,7 @@ public class HelmetRig : MonoBehaviour
     {
         if (equipment != null)
         {
-            equipment.OnEquippedItemChanged += RouteHelmetToSlot; // subscribe to equipment changes
+            equipment.OnEquippedItemChanged += RouteHelmetToSlot;
         }
         else
         {
@@ -28,7 +26,7 @@ public class HelmetRig : MonoBehaviour
 
         if (inventory != null)
         {
-            inventory.OnEquippedItemChanged += RouteHelmetToSlot; // subscribe to inventory changes
+            inventory.OnEquippedItemChanged += RouteHelmetToSlot;
         }
         else
         {
@@ -57,19 +55,11 @@ public class HelmetRig : MonoBehaviour
             return;
         }
 
-        ArmorSO armorSO = equipment.armorSOs[0]; // assuming helmet is in armor slot 0);
+        ArmorSO armorSO = equipment.armorSOs[0]; // assuming helmet is in armor slot 0
 
         if (armorSO != null)
         {
-            foreach (GameObject prefab in helmetPrefabs)
-            {
-                if (prefab.name == armorSO.itemName)
-                {
-                    helmetSlot.SetHelmetByName(prefab.name);
-                    return;
-                }
-            }
-            Debug.LogWarning("Helmet prefab not found for equipped helmet: " + armorSO.itemName);
+            helmetSlot.SetHelmet(armorSO);
         }
         else
         {
