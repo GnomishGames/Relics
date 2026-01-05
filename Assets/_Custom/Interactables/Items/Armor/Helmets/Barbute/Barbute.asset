@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Barbute
   m_EditorClassIdentifier: Assembly-CSharp::ArmorSO
   itemName: Barbute
+  itemPrefab: {fileID: 1730838977319453211, guid: 983e2dfa57597418d98e91805edc847a, type: 3}
   sprite: {fileID: 21300000, guid: 68e59aec06ba20947997ae197b42a4aa, type: 3}
   itemWeight: 1
   itemHealth: 1
