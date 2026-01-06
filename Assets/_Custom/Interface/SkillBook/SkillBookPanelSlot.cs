@@ -107,8 +107,17 @@ public class SkillBookPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
 
     public void OnDrag(PointerEventData eventData)
     {
-        // move in world space while on drag layer so it tracks the pointer correctly
-        rectTransform.position += (Vector3)eventData.delta / canvas.scaleFactor;
+        // Convert screen point to local point in the canvas, properly handling Canvas Scaler
+        if (canvas != null)
+        {
+            Vector2 localPoint;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvas.transform as RectTransform,
+                eventData.position,
+                canvas.worldCamera,
+                out localPoint);
+            rectTransform.position = canvas.transform.TransformPoint(localPoint);
+        }
     }
 
     public void OnDrop(PointerEventData eventData)

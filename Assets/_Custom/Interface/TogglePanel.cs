@@ -3,6 +3,7 @@ using UnityEngine;
 public class TogglePanel : MonoBehaviour
 {
     public GameObject targetPanel;
+    public GameObject[] panelsToDisable;
 
     public void Toggle()
     {
@@ -13,6 +14,22 @@ public class TogglePanel : MonoBehaviour
         else
         {
             targetPanel.SetActive(true);
+            DisableOtherPanels();
         }
+    }
+
+    private void DisableOtherPanels()
+    {
+        foreach (GameObject panel in panelsToDisable)
+        {
+            if (panel != targetPanel)
+            {
+                panel.SetActive(false);
+            }
+        }
+    }
+    private void OnEnable()
+    {
+        DisableOtherPanels();
     }
 }
