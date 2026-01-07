@@ -7,13 +7,22 @@ public class PlayerUI : MonoBehaviour
     public EXPBar EXPBar;             // reference to visible EXP bar
     public CharacterStats playerStats;// reference to the player's stats
     public GameObject optionsPanel;   // reference to options panel
+    public GameObject characterPanel; // reference to character panel
 
     public KeyBindings keybindings; // reference to keybindings script
 
-    void Start()
+    void OnEnable()
     {
         //subscribe to KeyBindings event
         keybindings.OnOptionsToggled += ToggleOptions;
+        keybindings.OnCharacterPanelToggled += ToggleCharacterPanel;
+    }
+
+    void OnDisable()
+    {
+        //unsubscribe from KeyBindings event
+        keybindings.OnOptionsToggled -= ToggleOptions;
+        keybindings.OnCharacterPanelToggled -= ToggleCharacterPanel;
     }
 
     //get event from KeyBindings when options menu is toggled
@@ -23,5 +32,14 @@ public class PlayerUI : MonoBehaviour
             optionsPanel.SetActive(false);
         else
             optionsPanel.SetActive(true);
+    }
+
+    public void ToggleCharacterPanel()
+    {
+        //toggle character panel
+        if (characterPanel.activeSelf)
+            characterPanel.SetActive(false);
+        else
+            characterPanel.SetActive(true);
     }
 }

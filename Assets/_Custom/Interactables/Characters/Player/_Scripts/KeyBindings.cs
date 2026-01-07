@@ -7,7 +7,7 @@ public class KeyBindings : MonoBehaviour
 {
     //event objects
     public event Action OnOptionsToggled;
-    public event Action OnInventoryToggled;
+    public event Action OnCharacterPanelToggled;
 
     //references
     public TMP_InputField chatBox;
@@ -17,18 +17,17 @@ public class KeyBindings : MonoBehaviour
         if (!chatBox.isFocused)
         {
             if (Input.GetKeyDown(KeyCode.O)) ToggleOptions();
-            if (Input.GetKeyDown(KeyCode.I)) ToggleInventory();
-            
+            if (Input.GetKeyDown(KeyCode.C)) ToggleCharacterPanel();
         }
-    }
-
-    private void ToggleInventory()
-    {
-        OnInventoryToggled?.Invoke();
     }
 
     public void ToggleOptions()
     {
         OnOptionsToggled?.Invoke();
+    }
+
+    private void ToggleCharacterPanel()
+    {
+        OnCharacterPanelToggled?.Invoke();
     }
 }
