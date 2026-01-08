@@ -1,13 +1,16 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
+//this script is attached to the PlayerUI canvas in the scene
 public class PlayerUI : MonoBehaviour
 {
-    //public HealthBar healthBar;       // reference to visible UI bar
-    //public StaminaBar staminaBar;   // reference to visible Stamina bar
-    public EXPBar EXPBar;             // reference to visible EXP bar
-    public CharacterStats playerStats;// reference to the player's stats
+    //panel references
     public GameObject optionsPanel;   // reference to options panel
     public GameObject characterPanel; // reference to character panel
+
+    //button references
+    public GameObject optionsPanelButton;   // reference to options panel button
+    public GameObject characterPanelButton; // reference to character panel button
 
     public KeyBindings keybindings; // reference to keybindings script
 
@@ -38,8 +41,12 @@ public class PlayerUI : MonoBehaviour
     {
         //toggle character panel
         if (characterPanel.activeSelf)
+        {
             characterPanel.SetActive(false);
+        }
         else
+        {
             characterPanel.SetActive(true);
+        }
     }
 }

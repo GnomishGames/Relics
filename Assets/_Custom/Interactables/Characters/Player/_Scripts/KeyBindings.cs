@@ -17,7 +17,7 @@ public class KeyBindings : MonoBehaviour
         if (!chatBox.isFocused)
         {
             if (Input.GetKeyDown(KeyCode.O)) ToggleOptions();
-            if (Input.GetKeyDown(KeyCode.C)) ToggleCharacterPanel();
+            if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.I)) ToggleCharacterPanel();
         }
     }
 

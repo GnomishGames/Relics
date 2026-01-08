@@ -56,7 +56,8 @@ public class PlayerCamera : NetworkIdentity
     private float defaultCameraHeight;
     private float defaultCameraPitch;
     private float defaultCameraSmoothTime;
-    private KeyBindings keyBindings;
+    
+    public InventoryPanel inventoryPanel;
 
     protected override void OnSpawned()
     {
@@ -74,10 +75,10 @@ public class PlayerCamera : NetworkIdentity
 
         if (target == null)
         {
-            var mv = UnityEngine.Object.FindAnyObjectByType<PlayerMovement>();
-            if (mv != null)
+            var playerMovement = GetComponent<PlayerMovement>();
+            if (playerMovement != null)
             {
-                target = mv.transform;
+                target = playerMovement.transform;
             }
         }
 
@@ -95,11 +96,11 @@ public class PlayerCamera : NetworkIdentity
         defaultCameraPitch = currentPitch;
         defaultCameraSmoothTime = cameraSmoothTime;
 
-        // Find and subscribe to KeyBindings
-        keyBindings = UnityEngine.Object.FindAnyObjectByType<KeyBindings>();
-        if (keyBindings != null)
+        // Subscribe to InventoryPanel
+        if (inventoryPanel != null)
         {
-            keyBindings.OnCharacterPanelToggled += ToggleCharacterCamera;
+            inventoryPanel.OnInventoryPanelOpened += OnInventoryPanelOpened;
+            inventoryPanel.OnInventoryPanelClosed += OnInventoryPanelClosed;
         }
     }
 
@@ -110,10 +111,11 @@ public class PlayerCamera : NetworkIdentity
         if (!isOwner) 
             return;
 
-        // Unsubscribe from KeyBindings
-        if (keyBindings != null)
+        // Unsubscribe from InventoryPanel
+        if (inventoryPanel != null)
         {
-            keyBindings.OnCharacterPanelToggled -= ToggleCharacterCamera;
+            inventoryPanel.OnInventoryPanelOpened -= OnInventoryPanelOpened;
+            inventoryPanel.OnInventoryPanelClosed -= OnInventoryPanelClosed;
         }
     }
 
@@ -224,8 +226,15 @@ public class PlayerCamera : NetworkIdentity
         cam.transform.rotation = Quaternion.LookRotation(lookTarget - cam.transform.position);
     }
 
-    private void ToggleCharacterCamera()
+    private void OnInventoryPanelOpened()
     {
-        isInventoryOpen = !isInventoryOpen;
+        isInventoryOpen = true;
+        Debug.Log("Inventory Panel Opened - Camera switching to inventory mode");
+    }
+
+    private void OnInventoryPanelClosed()
+    {
+        isInventoryOpen = false;
+        Debug.Log("Inventory Panel Closed - Camera switching to default mode");
     }
 }

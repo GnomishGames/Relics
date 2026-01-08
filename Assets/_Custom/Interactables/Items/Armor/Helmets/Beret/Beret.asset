@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Beret
   m_EditorClassIdentifier: Assembly-CSharp::ArmorSO
   itemName: Beret
+  itemPrefab: {fileID: 5495313278019322259, guid: 3d014f9be6d3bbd90a93c1b6ef8c44d4, type: 3}
   sprite: {fileID: 21300000, guid: cd26b0c8bd6921441aa77b5a51e76f2f, type: 3}
   itemWeight: 1
   itemHealth: 1
