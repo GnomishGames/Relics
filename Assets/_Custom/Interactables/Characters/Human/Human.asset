@@ -34,4 +34,4 @@ MonoBehaviour:
   naturalAcBonus: 1
   rightHandOffset: {x: 0.08, y: -0.06, z: 0}
   leftHandOffset: {x: -0.08, y: 0.06, z: 0}
-  helmetOffset: {x: -0.04, y: 0, z: 0}
+  helmetOffset: {x: 0, y: 0, z: 0}

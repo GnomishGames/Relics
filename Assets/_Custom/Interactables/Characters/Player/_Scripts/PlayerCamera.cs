@@ -229,12 +229,10 @@ public class PlayerCamera : NetworkIdentity
     private void OnInventoryPanelOpened()
     {
         isInventoryOpen = true;
-        Debug.Log("Inventory Panel Opened - Camera switching to inventory mode");
     }
 
     private void OnInventoryPanelClosed()
     {
         isInventoryOpen = false;
-        Debug.Log("Inventory Panel Closed - Camera switching to default mode");
     }
 }
