@@ -57,10 +57,6 @@ public class Inventory : MonoBehaviour
     {
         if (inventoryItem[inventorySlot] == null)
         {
-            UpdateVisuals(equipment.weaponSOs[equipmentSlot].VisualsName1);
-            UpdateVisuals(equipment.weaponSOs[equipmentSlot].VisualsName2);
-            UpdateVisuals(equipment.weaponSOs[equipmentSlot].VisualsName3);
-
             var buffer = inventoryItem[inventorySlot];
             inventoryItem[inventorySlot] = equipment.weaponSOs[equipmentSlot];
             equipment.weaponSOs[equipmentSlot] = (WeaponSO)buffer;
@@ -70,10 +66,6 @@ public class Inventory : MonoBehaviour
         }
         else if (inventoryItem[inventorySlot].slotType == equipment.weaponSOs[equipmentSlot].slotType)
         {
-            UpdateVisuals(equipment.weaponSOs[equipmentSlot].VisualsName1);
-            UpdateVisuals(equipment.weaponSOs[equipmentSlot].VisualsName2);
-            UpdateVisuals(equipment.weaponSOs[equipmentSlot].VisualsName3);
-
             var buffer = inventoryItem[inventorySlot];
             inventoryItem[inventorySlot] = equipment.weaponSOs[equipmentSlot];
             equipment.weaponSOs[equipmentSlot] = (WeaponSO)buffer;

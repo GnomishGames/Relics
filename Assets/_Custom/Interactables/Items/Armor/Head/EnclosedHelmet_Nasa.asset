@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f08877eb187a390b82f1b45f272f69f, type: 3}
-  m_Name: KettleHat_Big
+  m_Name: EnclosedHelmet_Nasa
   m_EditorClassIdentifier: Assembly-CSharp::ArmorSO
-  itemName: Hat01
+  itemName: Hat05
   itemPrefab: {fileID: 0}
-  sprite: {fileID: 21300000, guid: bd3af9f0f3e4a9248847fd2400501914, type: 3}
+  sprite: {fileID: 21300000, guid: 39c98342bb65f194fa1425cb8aac505b, type: 3}
   itemWeight: 0
   itemHealth: 0
   slotType: 0

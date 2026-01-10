@@ -124,10 +124,12 @@ public class InventoryPanelSlot : MonoBehaviour, IPointerDownHandler, IBeginDrag
             {
                 inventory.MoveItem(inventoryPanel.fromSlot, slotNumber);
             }
+
             if (equipmentPanel.fromPanel == "Armor")
             {
                 inventory.UnEquipArmor(slotNumber, equipmentPanel.fromSlot);
             }
+            
             if (equipmentPanel.fromPanel == "Weapon")
             {
                 inventory.UnEquipWeapon(slotNumber, equipmentPanel.fromSlot);

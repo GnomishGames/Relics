@@ -15,12 +15,10 @@ public class InventoryPanel : MonoBehaviour
     private void OnEnable()
     {
         OnInventoryPanelOpened?.Invoke();
-        Debug.Log("Inventory Panel Opened");
     }
 
     private void OnDisable()
     {
         OnInventoryPanelClosed?.Invoke();
-        Debug.Log("Inventory Panel Closed");
     }
 }

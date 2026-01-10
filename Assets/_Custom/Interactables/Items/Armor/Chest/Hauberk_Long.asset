@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f08877eb187a390b82f1b45f272f69f, type: 3}
-  m_Name: EnclosedHelmet_Nasa
+  m_Name: Hauberk_Long
   m_EditorClassIdentifier: Assembly-CSharp::ArmorSO
-  itemName: Hat05
+  itemName: Hauberk_Long
   itemPrefab: {fileID: 0}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 7aa64c3be926be540b66ae73ef2660ed, type: 3}
   itemWeight: 0
   itemHealth: 0
-  slotType: 0
+  slotType: 4
   ArmorBonus: 0
   VisualsName1: 
   VisualsName2: 
