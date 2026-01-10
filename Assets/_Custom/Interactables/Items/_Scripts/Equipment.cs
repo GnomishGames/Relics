@@ -115,11 +115,6 @@ public class Equipment : MonoBehaviour
 
             OnEquippedItemChanged?.Invoke(armorSOs[equipmentSlot].itemName);
 
-            //activate item visual
-            //UpdateVisuals(armorSOs[equipmentSlot].VisualsName1);
-            //UpdateVisuals(armorSOs[equipmentSlot].VisualsName2);
-            //UpdateVisuals(armorSOs[equipmentSlot].VisualsName3);
-
             CalculateArmorClass();
         }
     }
@@ -132,10 +127,6 @@ public class Equipment : MonoBehaviour
             inventory.inventoryItem[inventorySlot] = buffer;
 
             OnEquippedItemChanged?.Invoke(weaponSOs[equipmentSlot].itemName);
-
-            //UpdateVisuals(weaponSOs[equipmentSlot].VisualsName1);
-            //UpdateVisuals(weaponSOs[equipmentSlot].VisualsName2);
-            //UpdateVisuals(weaponSOs[equipmentSlot].VisualsName3);
 
             CalculateArmorClass();
         }

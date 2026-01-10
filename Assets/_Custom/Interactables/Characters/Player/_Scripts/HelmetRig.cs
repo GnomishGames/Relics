@@ -18,12 +18,28 @@ public class HelmetRig : MonoBehaviour
     //activate the helmet gameobject based on armorSO name
     private void OnEnable()
     {
-        equipment.OnEquippedItemChanged += UpdateHelmet;
+        if (equipment != null)
+        {
+            equipment.OnEquippedItemChanged += UpdateHelmet;
+        }
+        
+        if (inventory != null)
+        {
+            inventory.OnEquippedItemChanged += UpdateHelmet;
+        }
     }
 
     private void OnDisable()
     {
-        equipment.OnEquippedItemChanged -= UpdateHelmet;
+        if (equipment != null)
+        {
+            equipment.OnEquippedItemChanged -= UpdateHelmet;
+        }
+        
+        if (inventory != null)
+        {
+            inventory.OnEquippedItemChanged -= UpdateHelmet;
+        }
     }
 
     private void UpdateHelmet(string slotIndex)

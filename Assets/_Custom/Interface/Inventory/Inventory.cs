@@ -35,23 +35,19 @@ public class Inventory : MonoBehaviour
     {
         if (inventoryItem[inventorySlot] == null)
         {
-            UpdateVisuals(equipment.armorSOs[equipmentSlot].VisualsName1);
-            UpdateVisuals(equipment.armorSOs[equipmentSlot].VisualsName2);
-            UpdateVisuals(equipment.armorSOs[equipmentSlot].VisualsName3);
-
             var buffer = inventoryItem[inventorySlot];
             inventoryItem[inventorySlot] = equipment.armorSOs[equipmentSlot];
             equipment.armorSOs[equipmentSlot] = (ArmorSO)buffer;
+
+            OnEquippedItemChanged?.Invoke(inventoryItem[inventorySlot]?.itemName ?? "");
         }
         else if (inventoryItem[inventorySlot].slotType == equipment.armorSOs[equipmentSlot].slotType)
         {
-            UpdateVisuals(equipment.armorSOs[equipmentSlot].VisualsName1);
-            UpdateVisuals(equipment.armorSOs[equipmentSlot].VisualsName2);
-            UpdateVisuals(equipment.armorSOs[equipmentSlot].VisualsName3);
-
             var buffer = inventoryItem[inventorySlot];
             inventoryItem[inventorySlot] = equipment.armorSOs[equipmentSlot];
             equipment.armorSOs[equipmentSlot] = (ArmorSO)buffer;
+            
+            OnEquippedItemChanged?.Invoke(equipment.armorSOs[equipmentSlot]?.itemName ?? "");
         }
 
         equipment.CalculateArmorClass();
