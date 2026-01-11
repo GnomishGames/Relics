@@ -1,6 +1,7 @@
 using PurrNet;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 //all of the required components for a character
 //All NPC reuired Components
@@ -56,7 +57,13 @@ public class PlayerMovement : NetworkIdentity
     [SerializeField] private bool isGrounded;
     public Vector3 velocity; // Handles both gravity and jump
     [SerializeField] private float jumpHeight;
-    private bool turnLeft, turnRight, forward, rearward, stepLeft, stepRight, jump;
+    
+    // New Input System
+    private InputAction moveAction;
+    private InputAction turnAction;
+    private InputAction jumpAction;
+    private Vector2 moveInput;
+    private float turnInput;
 
     public float despawnTimer;
     public float respawnTimer;
@@ -98,28 +105,61 @@ public class PlayerMovement : NetworkIdentity
         spawnRotation = transform.rotation;
         respawnTimer = characterStats.behaviorSO.respawnTimer;
         despawnTimer = characterStats.behaviorSO.despawnTimer;
+
+        // Set up new Input System actions
+        moveAction = InputSystem.actions.FindAction("Move");
+        turnAction = InputSystem.actions.FindAction("Turn");
+        jumpAction = InputSystem.actions.FindAction("Jump");
+        
+        // Enable actions
+        if (moveAction != null) moveAction.Enable();
+        if (turnAction != null) turnAction.Enable();
+        if (jumpAction != null) jumpAction.Enable();
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        
+        // Disable actions when destroyed
+        if (moveAction != null) moveAction.Disable();
+        if (turnAction != null) turnAction.Disable();
+        if (jumpAction != null) jumpAction.Disable();
     }
 
     void Update()
     {
         GroundCheck(groundMask, groundCheck);
 
+        // Read input from new Input System
+        if (!chatBox.isFocused && !characterStats.dead)
+        {
+            ReadInput();
+        }
+        else
+        {
+            // Clear input when chat is focused or dead
+            moveInput = Vector2.zero;
+            turnInput = 0f;
+        }
+
         MovementLogic(runSpeed);
         ApplyGravityAndMove();
-
-        if (!chatBox.isFocused && !characterStats.dead)
-            keyPresses();
     }
 
-    private void keyPresses()
+    private void ReadInput()
     {
-        turnLeft = Input.GetKey(KeyCode.A);
-        turnRight = Input.GetKey(KeyCode.D);
-        forward = Input.GetKey(KeyCode.W);
-        rearward = Input.GetKey(KeyCode.S);
-        stepLeft = Input.GetKey(KeyCode.Q);
-        stepRight = Input.GetKey(KeyCode.E);
-        jump = Input.GetKey(KeyCode.Space);
+        // Read move input (WASD/QE for strafe)
+        if (moveAction != null)
+        {
+            moveInput = moveAction.ReadValue<Vector2>();
+        }
+        
+        // Read turn input (A/D for turning)
+        if (turnAction != null)
+        {
+            turnInput = turnAction.ReadValue<float>();
+        }
     }
 
     private void MovementLogic(float moveSpeed)
@@ -129,28 +169,28 @@ public class PlayerMovement : NetworkIdentity
         float velocityX = 0f;
         float velocityY = 0f;
 
-        // Forward/backward movement
-        if (forward)
+        // Forward/backward movement (moveInput.y)
+        if (moveInput.y > 0.1f) // Forward
         {
             horizontalMove += transform.forward * moveSpeed;
-            velocityY = moveSpeed;  // Actual speed value for blend tree thresholds
+            velocityY = moveSpeed;
         }
-        else if (rearward)
+        else if (moveInput.y < -0.1f) // Backward
         {
             horizontalMove -= transform.forward * moveSpeed;
-            velocityY = -moveSpeed;  // Negative for backward
+            velocityY = -moveSpeed;
         }
 
-        // Strafe movement
-        if (stepRight  && !rearward)
+        // Strafe movement (moveInput.x for Q/E strafe)
+        if (moveInput.x > 0.1f && moveInput.y > -0.1f) // Right strafe (not backward)
         {
             horizontalMove += transform.right * moveSpeed;
-            velocityX = moveSpeed;  // Actual speed value for blend tree thresholds
+            velocityX = moveSpeed;
         }
-        else if (stepLeft && !rearward)
+        else if (moveInput.x < -0.1f && moveInput.y > -0.1f) // Left strafe (not backward)
         {
             horizontalMove -= transform.right * moveSpeed;
-            velocityX = -moveSpeed;  // Negative for left
+            velocityX = -moveSpeed;
         }
 
         // Update animator with actual velocity values (for blend tree thresholds)
@@ -160,18 +200,18 @@ public class PlayerMovement : NetworkIdentity
             animator.SetFloat("VelocityY", velocityY);
         }
 
-        // Turning
-        if (turnLeft)
+        // Turning (A/D keys)
+        if (turnInput < -0.1f) // Turn left
         {
             transform.Rotate(0f, -turnSpeed * Time.deltaTime, 0f);
         }
-        else if (turnRight)
+        else if (turnInput > 0.1f) // Turn right
         {
             transform.Rotate(0f, turnSpeed * Time.deltaTime, 0f);
         }
 
         // Jump
-        if (jump && isGrounded)
+        if (jumpAction != null && jumpAction.WasPressedThisFrame() && isGrounded)
         {
             velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
         }

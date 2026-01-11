@@ -1,5 +1,6 @@
 using PurrNet;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // Handles third-person camera follow, orbit and simple anti-clip
 public class PlayerCamera : NetworkIdentity
@@ -44,6 +45,11 @@ public class PlayerCamera : NetworkIdentity
     public float zoomSpeed = 2f;
     public float minZoomDistance = 1f;
     public float maxZoomDistance = 10f;
+    
+    // New Input System
+    private InputAction orbitAction;
+    private InputAction mousePositionAction;
+    private InputAction scrollAction;
 
     [Header("Inventory Camera Mode")]
     public float inventoryCameraDistance = 2.5f;
@@ -101,8 +107,11 @@ public class PlayerCamera : NetworkIdentity
         {
             inventoryPanel.OnInventoryPanelOpened += OnInventoryPanelOpened;
             inventoryPanel.OnInventoryPanelClosed += OnInventoryPanelClosed;
-        }
-    }
+        }        
+        // Disable Input Actions
+        if (orbitAction != null) orbitAction.Disable();
+        if (mousePositionAction != null) mousePositionAction.Disable();
+        if (scrollAction != null) scrollAction.Disable();    }
 
     protected override void OnDespawned()
     {
@@ -117,6 +126,11 @@ public class PlayerCamera : NetworkIdentity
             inventoryPanel.OnInventoryPanelOpened -= OnInventoryPanelOpened;
             inventoryPanel.OnInventoryPanelClosed -= OnInventoryPanelClosed;
         }
+        
+        // Disable Input Actions
+        if (orbitAction != null) orbitAction.Disable();
+        if (mousePositionAction != null) mousePositionAction.Disable();
+        if (scrollAction != null) scrollAction.Disable();
     }
 
     void LateUpdate()
@@ -136,9 +150,9 @@ public class PlayerCamera : NetworkIdentity
         }
 
         // Handle mouse wheel zoom
-        if (enableMouseWheelZoom)
+        if (enableMouseWheelZoom && scrollAction != null)
         {
-            float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+            float scrollInput = scrollAction.ReadValue<float>();
             if (scrollInput != 0f)
             {
                 cameraDistance -= scrollInput * zoomSpeed;
@@ -153,10 +167,11 @@ public class PlayerCamera : NetworkIdentity
         }
 
         // Handle orbit input (hold right mouse button to rotate)
-        if (enableOrbit && Input.GetMouseButton(1))
+        if (enableOrbit && orbitAction != null && orbitAction.IsPressed())
         {
-            currentYaw += Input.GetAxis("Mouse X") * orbitSensitivityX * Time.deltaTime;
-            currentPitch -= Input.GetAxis("Mouse Y") * orbitSensitivityY * Time.deltaTime;
+            Vector2 mouseDelta = mousePositionAction != null ? mousePositionAction.ReadValue<Vector2>() : Vector2.zero;
+            currentYaw += mouseDelta.x * orbitSensitivityX * Time.deltaTime;
+            currentPitch -= mouseDelta.y * orbitSensitivityY * Time.deltaTime;
             currentPitch = Mathf.Clamp(currentPitch, minPitch, maxPitch);
         }
         else if (!isInventoryOpen && autoFollowPlayerRotation)

@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f08877eb187a390b82f1b45f272f69f, type: 3}
   m_Name: LongBraies
   m_EditorClassIdentifier: Assembly-CSharp::ArmorSO
-  itemName: 
+  itemName: LongBraies
   itemPrefab: {fileID: 0}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: d9ae4b69c8268854b8e5cbd4505cf69a, type: 3}
   itemWeight: 0
   itemHealth: 0
   slotType: 6
   ArmorBonus: 0
-  VisualsName1: 
-  VisualsName2: 
-  VisualsName3: 

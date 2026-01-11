@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f08877eb187a390b82f1b45f272f69f, type: 3}
-  m_Name: Ring
+  m_Name: Boots
   m_EditorClassIdentifier: Assembly-CSharp::ArmorSO
-  itemName: Ring
-  sprite: {fileID: 21300000, guid: 1ccb7f97a9c7c114181489bac321269f, type: 3}
+  itemName: Boots
+  itemPrefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 00db08e70a0fdc64b96a18dc907fca34, type: 3}
   itemWeight: 1
   itemHealth: 1
-  slotType: 12
+  slotType: 7
   ArmorBonus: 1
-  VisualsName1: 
-  VisualsName2: 
-  VisualsName3: 

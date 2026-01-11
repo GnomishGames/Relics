@@ -39,30 +39,6 @@ public class Equipment : MonoBehaviour
         }
     }
 
-    void UpdateEquipped()
-    {
-        //show items that are equippped
-        for (int i = 0; i < armorSOs.Length; i++)
-        {
-            if (armorSOs[i] != null)
-            {
-                UpdateVisuals(armorSOs[i].VisualsName1);
-                UpdateVisuals(armorSOs[i].VisualsName2);
-                UpdateVisuals(armorSOs[i].VisualsName3);
-            }
-        }
-
-        for (int i = 0; i < weaponSOs.Length; i++)
-        {
-            if (weaponSOs[i] != null)
-            {
-                UpdateVisuals(weaponSOs[i].VisualsName1);
-                UpdateVisuals(weaponSOs[i].VisualsName2);
-                UpdateVisuals(weaponSOs[i].VisualsName3);
-            }
-        }
-    }
-
     public void CalculateArmorClass()
     {
         ArmorAC = 0;

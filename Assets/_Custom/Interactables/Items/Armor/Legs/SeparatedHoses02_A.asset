@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f08877eb187a390b82f1b45f272f69f, type: 3}
   m_Name: SeparatedHoses02_A
   m_EditorClassIdentifier: Assembly-CSharp::ArmorSO
-  itemName: 
+  itemName: SeparatedHoses02_A
   itemPrefab: {fileID: 0}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 080c5a319160cf540b4d391de2869b57, type: 3}
   itemWeight: 0
   itemHealth: 0
   slotType: 6
   ArmorBonus: 0
-  VisualsName1: 
-  VisualsName2: 
-  VisualsName3: 

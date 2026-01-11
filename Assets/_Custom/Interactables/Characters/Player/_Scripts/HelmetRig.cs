@@ -8,11 +8,16 @@ public class HelmetRig : MonoBehaviour
 
     // list of helmets
     public GameObject[] helmets;
+    
+    [Header("Default Clothing")]
+    [Tooltip("Default helmet to show when nothing is equipped (e.g., hair or bare head)")]
+    public GameObject defaultHelmet;
 
     private void Awake()
     {
         equipment = GetComponent<Equipment>();
         inventory = GetComponent<Inventory>();
+        UpdateHelmet("");
     }
 
     //activate the helmet gameobject based on armorSO name
@@ -53,9 +58,15 @@ public class HelmetRig : MonoBehaviour
         //get equipped helmetSO (helmet is in armorSOs[0])
         ArmorSO equippedHelmet = equipment.armorSOs[0];
 
-        //if no helmet equipped, exit
+        //if no helmet equipped, activate default
         if (equippedHelmet == null)
+        {
+            if (defaultHelmet != null)
+            {
+                defaultHelmet.SetActive(true);
+            }
             return;
+        }
 
         //activate the correct helmet based on the equipped helmetSO name
         foreach (GameObject helmet in helmets)

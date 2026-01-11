@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f08877eb187a390b82f1b45f272f69f, type: 3}
-  m_Name: Shirt
+  m_Name: LeatherBoots02
   m_EditorClassIdentifier: Assembly-CSharp::ArmorSO
-  itemName: Shirt
-  sprite: {fileID: 21300000, guid: c2618f66ac40e4643887cc8caf50a7de, type: 3}
+  itemName: LeatherBoots02
+  itemPrefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 18a8d8fc1f4f77840b2cf97aac5f9ae2, type: 3}
   itemWeight: 1
-  itemHealth: 0
-  slotType: 4
+  itemHealth: 1
+  slotType: 7
   ArmorBonus: 1
-  VisualsName1: 
-  VisualsName2: 
-  VisualsName3: 
