@@ -107,11 +107,18 @@ public class PlayerCamera : NetworkIdentity
         {
             inventoryPanel.OnInventoryPanelOpened += OnInventoryPanelOpened;
             inventoryPanel.OnInventoryPanelClosed += OnInventoryPanelClosed;
-        }        
-        // Disable Input Actions
-        if (orbitAction != null) orbitAction.Disable();
-        if (mousePositionAction != null) mousePositionAction.Disable();
-        if (scrollAction != null) scrollAction.Disable();    }
+        }
+        
+        // Set up new Input System actions
+        orbitAction = InputSystem.actions.FindAction("Orbit");
+        mousePositionAction = InputSystem.actions.FindAction("Look");
+        scrollAction = InputSystem.actions.FindAction("Zoom");
+        
+        // Enable Input Actions
+        if (orbitAction != null) orbitAction.Enable();
+        if (mousePositionAction != null) mousePositionAction.Enable();
+        if (scrollAction != null) scrollAction.Enable();
+    }
 
     protected override void OnDespawned()
     {
