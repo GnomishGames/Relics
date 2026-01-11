@@ -172,18 +172,6 @@ public class CharacterStats : Character
         equipment.OnAcChanged -= SetEquipmentAc;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha0)) //0 key for testing
-        {
-            AddExperience(150);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha9)) //9 key for testing
-        {
-            SubtractExperience(150);
-        }
-    }
-
     void CalculateAttributesAndStats()
     {
         //invoke name changed event

@@ -53,6 +53,7 @@ public class HelmetRig : MonoBehaviour
         foreach (GameObject helmet in helmets)
         {
             helmet.SetActive(false);
+            defaultHelmet.SetActive(false);
         }
 
         //get equipped helmetSO (helmet is in armorSOs[0])

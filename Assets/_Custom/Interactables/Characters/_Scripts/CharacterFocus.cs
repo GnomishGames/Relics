@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class CharacterFocus : MonoBehaviour
 {
@@ -33,6 +34,10 @@ public class CharacterFocus : MonoBehaviour
 	// create event for when this character has a focus
 	public event Action<string, float, float> OnTargetFocused;
 
+	// New Input System
+	private InputAction clickAction;
+	private InputAction cancelAction;
+
 	void Awake()
 	{
 		selfInteractable = GetComponent<Interactable>();
@@ -45,7 +50,21 @@ public class CharacterFocus : MonoBehaviour
 				cam = Camera.main;
 			if (inventory == null)
 				inventory = GetComponentInChildren<Inventory>();
+			
+			// Set up Input Actions
+			clickAction = InputSystem.actions.FindAction("Click");
+			cancelAction = InputSystem.actions.FindAction("Cancel");
+			
+			if (clickAction != null) clickAction.Enable();
+			if (cancelAction != null) cancelAction.Enable();
 		}
+	}
+
+	void OnDestroy()
+	{
+		// Clean up Input Actions
+		if (clickAction != null) clickAction.Disable();
+		if (cancelAction != null) cancelAction.Disable();
 	}
 
 	void Update()
@@ -93,7 +112,8 @@ public class CharacterFocus : MonoBehaviour
 			distanceToFocus = 0f;
 		}
 
-		if (Input.GetKeyDown(KeyCode.Escape))
+		// Handle cancel/escape key
+		if (isPlayer && cancelAction != null && cancelAction.WasPressedThisFrame())
 		{
 			RemoveFocus();
 		}
@@ -128,9 +148,10 @@ public class CharacterFocus : MonoBehaviour
 		if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
 			return;
 
-		if (Input.GetMouseButtonDown(0))
+		if (clickAction != null && clickAction.WasPressedThisFrame())
 		{
-			Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+			Vector2 mousePos = Mouse.current.position.ReadValue();
+			Ray ray = cam.ScreenPointToRay(mousePos);
 			if (Physics.Raycast(ray, out RaycastHit hit, 100f))
 			{
 				CharacterStats character = hit.collider.GetComponent<CharacterStats>();

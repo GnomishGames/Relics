@@ -59,10 +59,12 @@ public class PlayerMovement : NetworkIdentity
     [SerializeField] private float jumpHeight;
     
     // New Input System
-    private InputAction moveAction;
-    private InputAction turnAction;
-    private InputAction jumpAction;
-    private Vector2 moveInput;
+    private InputAction forwardBackAction;  // W/S keys
+    private InputAction turnAction;          // A/D keys
+    private InputAction jumpAction;          // Space
+    private InputAction strafeAction;        // Q/E keys
+    private float forwardInput;
+    private float strafeInput;
     private float turnInput;
 
     public float despawnTimer;
@@ -107,14 +109,15 @@ public class PlayerMovement : NetworkIdentity
         despawnTimer = characterStats.behaviorSO.despawnTimer;
 
         // Set up new Input System actions
-        moveAction = InputSystem.actions.FindAction("Move");
-        turnAction = InputSystem.actions.FindAction("Turn");
-        jumpAction = InputSystem.actions.FindAction("Jump");
+        forwardBackAction = InputSystem.actions.FindAction("ForwardBack");  
+        turnAction = InputSystem.actions.FindAction("Turn");                 
+        jumpAction = InputSystem.actions.FindAction("Jump");                 
+        strafeAction = InputSystem.actions.FindAction("Strafe");            
         
         // Enable actions
-        if (moveAction != null) moveAction.Enable();
-        if (turnAction != null) turnAction.Enable();
+        if (forwardBackAction != null) forwardBackAction.Enable();
         if (jumpAction != null) jumpAction.Enable();
+        if (strafeAction != null) strafeAction.Enable();
     }
 
     protected override void OnDestroy()
@@ -122,9 +125,10 @@ public class PlayerMovement : NetworkIdentity
         base.OnDestroy();
         
         // Disable actions when destroyed
-        if (moveAction != null) moveAction.Disable();
+        if (forwardBackAction != null) forwardBackAction.Disable();
         if (turnAction != null) turnAction.Disable();
         if (jumpAction != null) jumpAction.Disable();
+        if (strafeAction != null) strafeAction.Disable();
     }
 
     void Update()
@@ -139,7 +143,8 @@ public class PlayerMovement : NetworkIdentity
         else
         {
             // Clear input when chat is focused or dead
-            moveInput = Vector2.zero;
+            forwardInput = 0f;
+            strafeInput = 0f;
             turnInput = 0f;
         }
 
@@ -149,13 +154,19 @@ public class PlayerMovement : NetworkIdentity
 
     private void ReadInput()
     {
-        // Read move input (WASD/QE for strafe)
-        if (moveAction != null)
+        // Read forward/back input (W/S keys)
+        if (forwardBackAction != null)
         {
-            moveInput = moveAction.ReadValue<Vector2>();
+            forwardInput = forwardBackAction.ReadValue<float>();
         }
         
-        // Read turn input (A/D for turning)
+        // Read strafe input (Q/E keys)
+        if (strafeAction != null)
+        {
+            strafeInput = strafeAction.ReadValue<float>();
+        }
+        
+        // Read turn input (A/D keys)
         if (turnAction != null)
         {
             turnInput = turnAction.ReadValue<float>();
@@ -168,26 +179,24 @@ public class PlayerMovement : NetworkIdentity
         Vector3 horizontalMove = Vector3.zero;
         float velocityX = 0f;
         float velocityY = 0f;
-
-        // Forward/backward movement (moveInput.y)
-        if (moveInput.y > 0.1f) // Forward
+        if (forwardInput > 0.1f) // Forward (W)
         {
             horizontalMove += transform.forward * moveSpeed;
             velocityY = moveSpeed;
         }
-        else if (moveInput.y < -0.1f) // Backward
+        else if (forwardInput < -0.1f) // Backward (S)
         {
             horizontalMove -= transform.forward * moveSpeed;
             velocityY = -moveSpeed;
         }
 
-        // Strafe movement (moveInput.x for Q/E strafe)
-        if (moveInput.x > 0.1f && moveInput.y > -0.1f) // Right strafe (not backward)
+        // Strafe movement (Q/E keys) - don't strafe while moving backward
+        if (strafeInput > 0.1f && forwardInput > -0.1f) // Right strafe (E)
         {
             horizontalMove += transform.right * moveSpeed;
             velocityX = moveSpeed;
         }
-        else if (moveInput.x < -0.1f && moveInput.y > -0.1f) // Left strafe (not backward)
+        else if (strafeInput < -0.1f && forwardInput > -0.1f) // Left strafe (Q)
         {
             horizontalMove -= transform.right * moveSpeed;
             velocityX = -moveSpeed;
@@ -201,11 +210,11 @@ public class PlayerMovement : NetworkIdentity
         }
 
         // Turning (A/D keys)
-        if (turnInput < -0.1f) // Turn left
+        if (turnInput < -0.1f) // Turn left (A)
         {
             transform.Rotate(0f, -turnSpeed * Time.deltaTime, 0f);
         }
-        else if (turnInput > 0.1f) // Turn right
+        else if (turnInput > 0.1f) // Turn right (D)
         {
             transform.Rotate(0f, turnSpeed * Time.deltaTime, 0f);
         }
